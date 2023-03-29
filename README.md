@@ -72,7 +72,7 @@
 - Muito bom;<br>
   
 # <h1 align="center">DASHBOARDS 📈</h1>
-  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/main/Backlog.png" alt="Imagem da Dashboard">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/main/dashboards.jpeg" alt="Imagem da Dashboard">
 
 
 # <h1 align="center">PLANEJAMENTO 🔍</h1>
