@@ -10,7 +10,7 @@
 [Objetivo](#OBJETIVO) <br>
 [História do produto](#HISTÓRIA-DO-PRODUTO) <br>
 [Diagrama Caso de Uso](#DIAGRAMA-CASO-DE-USO) <br>
-[Backlog sprint 1](#BACKLOG-DO-PRODUTO) <br>
+[Backlog do Produto](#BACKLOG-DO-PRODUTO) <br>
 [Avaliação](#AVALIAÇÃO) <br>
 [Dashboards](#DASHBOARDS) <br>
 [Planejamento](#PLANEJAMENTO) <br>
@@ -56,7 +56,7 @@
 - Adm pode alterar a senha própria e dos usuários comuns em casa de solicitação do mesmo;<br>
 - Logout de ambos;<br>
 
-# <h1 align="center">DIAGRAMA CASO DE USO🧍‍♀️🧍‍♂️</h1>
+# <h1 align="center">DIAGRAMA CASO DE USO</h1>
   <p align="center">
   <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/diagrama.jpeg" alt="Diagrama Caso Uso" width="60%">
    </p> 
