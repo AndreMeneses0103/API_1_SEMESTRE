@@ -2,12 +2,12 @@
 
 # ÍNDICE
 [Integrantes](#INTEGRANTES) <br>
-[Cronograma de entrega](#CRONOGRAMA-DE-ENTREGA) <br>
+[Cronograma de entrega](#CRONOGRAMA-DE-ENTREGAS) <br>
 [Visão do Produto](#VISÃO-DO-PRODUTO) <br>
 [Objetivo](#OBJETIVO) <br>
 [História do produto](#HISTÓRIA-DO-PRODUTO) <br>
 [Diagrama Caso de Uso](#DIAGRAMA-CASO-DE-USO) <br>
-[Backlog sprint 1](#BACKLOG-SPRINT-1) <br>
+[Backlog sprint 1](#BACKLOG-DO-PRODUTO) <br>
 [Avaliação](#AVALIAÇÃO) <br>
 [Dashboards](#DASHBOARDS) <br>
 [Planejamento](#PLANEJAMENTO) <br>
@@ -21,7 +21,7 @@
 - Raul José Batista Neto (Dev)
 - Vinicius Domingues Mangaba (Dev)
 
-# <h1 align="center">CRONOGRAMA DE ENTREGAS 📆</h1>
+# <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
     ✅  **Kick off do projeto** - 07/03/2023 
     ✅  **Sprint 1** - Início: 13/03/2023 Entrega: 02/04/2023
     
@@ -49,8 +49,8 @@
 
 # <h1 align="center">DIAGRAMA CASO DE USO 🧍‍♀️🧍‍♂️</h1>
 
-# <h1 align="center">BACKLOG SPRINT 1</h1>
-
+# <h1 align="center">BACKLOG DO PRODUTO</h1>
+![](Backlog.png)
 # <h1 align="center">AVALIAÇÃO 📜</h1>
 <h2>Questionário: </h2>
 - Como você avalia sua comunicação com o grupo durante essa Sprint?<br>
@@ -72,7 +72,7 @@
 - Muito bom;<br>
   
 # <h1 align="center">DASHBOARDS 📈</h1>
-<img src="https://drive.google.com/file/d/1CIMBjNZnKHacjXxRazIeJN1Ek3OwtsMk/preview" alt="Imagem do Dashboard">
+
 
 # <h1 align="center">PLANEJAMENTO 🔍</h1>
   <h2>Ferramentas</h2>
