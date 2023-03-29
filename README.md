@@ -15,7 +15,7 @@
 [Dashboards](#DASHBOARDS) <br>
 [Planejamento](#PLANEJAMENTO) <br>
 
-# <h1 align="center">INTEGRANTES 👨‍💻👩‍💻</h1>
+# <h1 align="center">INTEGRANTES👨‍💻👩‍💻</h1>
 - Amanda Vannucci de Campos (Product Owner)
 - André Filipe Meneses (Scrum Master)
 - Gilvane de Souza Amaro Junior (Dev)
@@ -31,13 +31,13 @@
     ✅  **Sprint 3** - Início: 24/04/2023 Entrega: 14/05/2023
     ✅  **Sprint 4** - Início: 15/05/2023 Entrega: 04/06/2023
     
-# <h1 align="center">VISÃO DO PRODUTO 👁️‍🗨️</h1>
+# <h1 align="center">VISÃO DO PRODUTO👁️‍🗨️</h1>
 <p>O software é uma aplicação desktop desenvolvida em Python que oferece aos usuários a possibilidade de realizar avaliações e fornecer feedbacks através de dashboards. Ao contrário de sistemas de avaliação comuns, essa ferramenta promove testes coletivos, que têm um impacto direto na produtividade e no desempenho dos membros da equipe.</p>
 
-# <h1 align="center">OBJETIVO 🎯</h1>
+# <h1 align="center">OBJETIVO🎯</h1>
 <p>Fornecer ao cliente uma solução simples e eficaz, utilizando uma ferramenta objetiva, interativa, de fácil acesso e que apresente resultados imediatos.</p>
 
-# <h1 align="center">HISTÓRIA DO PRODUTO 📚</h1>
+# <h1 align="center">HISTÓRIA DO PRODUTO📚</h1>
 - Disponibilização do Login e senha de acesso do Administrador;<br>
 - Adm acessa o sistema;<br>
 - Adm cria turmas;<br>
@@ -56,7 +56,7 @@
 - Adm pode alterar a senha própria e dos usuários comuns em casa de solicitação do mesmo;<br>
 - Logout de ambos;<br>
 
-# <h1 align="center">DIAGRAMA CASO DE USO 🧍‍♀️🧍‍♂️</h1>
+# <h1 align="center">DIAGRAMA CASO DE USO🧍‍♀️🧍‍♂️</h1>
   <p align="center">
   <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/diagrama.jpeg" alt="Diagrama Caso Uso" width="60%">
    </p> 
@@ -67,7 +67,7 @@
    </p>
 
 
-# <h1 align="center">AVALIAÇÃO 📜</h1>
+# <h1 align="center">AVALIAÇÃO📜</h1>
 <h2>Questionário: </h2>
 - Como você avalia sua comunicação com o grupo durante essa Sprint?<br>
 - Como você avalia o seu trabalho em equipe durante essa Sprint?<br>
@@ -87,13 +87,13 @@
 - Bom;<br>
 - Muito bom;<br>
   
-# <h1 align="center">DASHBOARDS 📈</h1>
+# <h1 align="center">DASHBOARDS📈</h1>
 <p align="center">
   <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/dashboards.jpeg" alt="Imagem Dashboard">
    </p>
 
 
-# <h1 align="center">PLANEJAMENTO 🔍</h1>
+# <h1 align="center">PLANEJAMENTO🔍</h1>
   <h2>Ferramentas</h2>
 - Python<br>
 - JSON<br>
