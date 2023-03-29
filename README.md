@@ -72,6 +72,7 @@
 - Muito bom;<br>
   
 # <h1 align="center">DASHBOARDS 📈</h1>
+<img src="https://drive.google.com/file/d/1CIMBjNZnKHacjXxRazIeJN1Ek3OwtsMk/preview" alt="Imagem do Dashboard">
 
 # <h1 align="center">PLANEJAMENTO 🔍</h1>
   <h2>Ferramentas</h2>
