@@ -1,6 +1,6 @@
 # <h1 align="center">Sprint 1 - Insight 360º👁️‍🗨️</h1>
 <p align='center'>
-<img src="" width="20%" />
+<img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo.png" width="30%" />
 </p>
 
 # ÍNDICE
@@ -57,8 +57,14 @@
 - Logout de ambos;<br>
 
 # <h1 align="center">DIAGRAMA CASO DE USO 🧍‍♀️🧍‍♂️</h1>
-
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/diagrama.jpeg" alt="Diagrama Caso Uso" width="60%">
+   </p> 
+    
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/backlog.jpeg" alt="Imagem Backlog">
+   </p>
 
 
 # <h1 align="center">AVALIAÇÃO 📜</h1>
@@ -82,6 +88,9 @@
 - Muito bom;<br>
   
 # <h1 align="center">DASHBOARDS 📈</h1>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/dashboards.jpeg" alt="Imagem Dashboard">
+   </p>
 
 
 # <h1 align="center">PLANEJAMENTO 🔍</h1>
