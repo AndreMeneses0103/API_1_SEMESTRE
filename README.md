@@ -31,7 +31,7 @@
     ✅  **Sprint 3** - Início: 24/04/2023 Entrega: 14/05/2023
     ✅  **Sprint 4** - Início: 15/05/2023 Entrega: 04/06/2023
     
-# <h1 align="center">VISÃO DO PRODUTO👁️‍🗨️</h1>
+# <h1 align="center">VISÃO DO PRODUTO</h1>
 <p>O software é uma aplicação desktop desenvolvida em Python que oferece aos usuários a possibilidade de realizar avaliações e fornecer feedbacks através de dashboards. Ao contrário de sistemas de avaliação comuns, essa ferramenta promove testes coletivos, que têm um impacto direto na produtividade e no desempenho dos membros da equipe.</p>
 
 # <h1 align="center">OBJETIVO🎯</h1>
