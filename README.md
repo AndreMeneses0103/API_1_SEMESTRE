@@ -1,4 +1,7 @@
 # <h1 align="center">Sprint 1 - Insight 360º👁️‍🗨️</h1>
+<p align='center'>
+<img src="" width="20%" />
+</p>
 
 # ÍNDICE
 [Integrantes](#INTEGRANTES) <br>
@@ -24,33 +27,40 @@
 # <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
     ✅  **Kick off do projeto** - 07/03/2023 
     ✅  **Sprint 1** - Início: 13/03/2023 Entrega: 02/04/2023
+    ✅  **Sprint 2** - Início: 03/04/2023 Entrega: 23/04/2023
+    ✅  **Sprint 3** - Início: 24/04/2023 Entrega: 14/05/2023
+    ✅  **Sprint 4** - Início: 15/05/2023 Entrega: 04/06/2023
     
 # <h1 align="center">VISÃO DO PRODUTO 👁️‍🗨️</h1>
 <p>O software é uma aplicação desktop desenvolvida em Python que oferece aos usuários a possibilidade de realizar avaliações e fornecer feedbacks através de dashboards. Ao contrário de sistemas de avaliação comuns, essa ferramenta promove testes coletivos, que têm um impacto direto na produtividade e no desempenho dos membros da equipe.</p>
 
 # <h1 align="center">OBJETIVO 🎯</h1>
-<p>O objetivo é fornecer ao cliente uma solução simples e eficaz, utilizando uma ferramenta objetiva, interativa, de fácil acesso e que apresente resultados imediatos.</p>
+<p>Fornecer ao cliente uma solução simples e eficaz, utilizando uma ferramenta objetiva, interativa, de fácil acesso e que apresente resultados imediatos.</p>
 
 # <h1 align="center">HISTÓRIA DO PRODUTO 📚</h1>
-- Login e senha de acesso do Administrador.<br>
-- Cadastro de usuários (simplificado).<br>
-- Controles do administrador.<br>
-     Criação de turma;<br>
-     Criação de time;<br>
-     Controle de acesso de usuário;<br>
-     Aceite e remoção de usuário.<br>
-- Avaliação 360, modelo de avaliação direta.<br>
-- Dashboard com gráficos, contendo as seguintes informações:<br>
-     Total de respostas;<br>
-     Média de autoavaliação;<br>
-     Média sobre o time geral;<br>
-     Média dos integrantes sobre o usuário;<br>
-     Análise comparativa.<br>
+- Disponibilização do Login e senha de acesso do Administrador;<br>
+- Adm acessa o sistema;<br>
+- Adm cria turmas;<br>
+- Adm determina a quantidade de Sprints para a turma criada;<br>
+- Adm cria times;<br>
+- Usuário comum realiza cadastro simplificado;<br>
+- Solicitação de cadastro é enviado ao ADM;<br>
+- Adm aceita ou remove a solicitação;<br>
+- Em caso de aceite, o acesso é liberado ao usuário, caso contrário, é bloqueado;<br>
+- Usuário acessa o sistema com login e senha;<br>
+- Usuário acessa a Sprint que deseja realizar a avaliação;<br>
+- Realiza a avaliação;<br>
+- Acesso aos dashboards respectivos a Sprint;<br>
+- Adm pode acessar turma, time, usuário, sprint e dashboards;<br>
+- Usuário comum pode alterar a própria senha, desde que, esteja logado;<br>
+- Adm pode alterar a senha própria e dos usuários comuns em casa de solicitação do mesmo;<br>
+- Logout de ambos;<br>
 
 # <h1 align="center">DIAGRAMA CASO DE USO 🧍‍♀️🧍‍♂️</h1>
 
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
-![](Backlog.png)
+
+
 # <h1 align="center">AVALIAÇÃO 📜</h1>
 <h2>Questionário: </h2>
 - Como você avalia sua comunicação com o grupo durante essa Sprint?<br>
@@ -72,7 +82,6 @@
 - Muito bom;<br>
   
 # <h1 align="center">DASHBOARDS 📈</h1>
-  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/main/dashboards.jpeg" alt="Imagem da Dashboard">
 
 
 # <h1 align="center">PLANEJAMENTO 🔍</h1>
