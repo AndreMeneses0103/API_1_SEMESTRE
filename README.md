@@ -59,7 +59,7 @@
 
 # <h1 align="center">DIAGRAMA CASO DE USO</h1>
   <p align="center">
-  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/diagrama.jpeg" alt="Diagrama Caso Uso" width="80%">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/caso_de_uso_atualizado.png" alt="Diagrama Caso Uso" width="80%">
    </p> 
     
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
