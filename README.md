@@ -37,7 +37,7 @@
 # <h1 align="center">OBJETIVO🎯</h1>
 <p>Fornecer ao cliente uma solução simples e eficaz, utilizando uma ferramenta objetiva, interativa, de fácil acesso e que apresente resultados imediatos.</p>
 
-# <h1 align="center">HISTÓRIA DO PRODUTO📚</h1>
+# <h1 align="center">JORNADA DO USUÁRIO</h1>
 - Disponibilização do Login e senha de acesso ao Administrador;<br>
 - Adm acessa o sistema;<br>
 - Adm cria turmas;<br>
