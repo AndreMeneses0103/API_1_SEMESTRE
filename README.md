@@ -8,7 +8,7 @@
 [Cronograma de entrega](#CRONOGRAMA-DE-ENTREGAS) <br>
 [Visão do Produto](#VISÃO-DO-PRODUTO) <br>
 [Objetivo](#OBJETIVO) <br>
-[História do produto](#HISTÓRIA-DO-PRODUTO) <br>
+[Jornada do Usuário](#JORNADA-DO-USUÁRIO) <br>
 [Diagrama Caso de Uso](#DIAGRAMA-CASO-DE-USO) <br>
 [Backlog do Produto](#BACKLOG-DO-PRODUTO) <br>
 [Avaliação](#AVALIAÇÃO) <br>
