@@ -38,7 +38,7 @@
 <p>Fornecer ao cliente uma solução simples e eficaz, utilizando uma ferramenta objetiva, interativa, de fácil acesso e que apresente resultados imediatos.</p>
 
 # <h1 align="center">HISTÓRIA DO PRODUTO📚</h1>
-- Disponibilização do Login e senha de acesso do Administrador;<br>
+- Disponibilização do Login e senha de acesso ao Administrador;<br>
 - Adm acessa o sistema;<br>
 - Adm cria turmas;<br>
 - Adm determina a quantidade de Sprints para a turma criada;<br>
