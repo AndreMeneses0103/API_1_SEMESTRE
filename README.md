@@ -12,6 +12,7 @@
 [Diagrama Caso de Uso](#DIAGRAMA-CASO-DE-USO) <br>
 [Backlog do Produto](#BACKLOG-DO-PRODUTO) <br>
 [Avaliação](#AVALIAÇÃO) <br>
+[Protótipo de Telas](#PROTÓTIPO-DE-TELAS) <br>
 [Dashboards](#DASHBOARDS) <br>
 [Planejamento](#PLANEJAMENTO) <br>
 
@@ -86,7 +87,11 @@
 - Regular;<br>
 - Bom;<br>
 - Muito bom;<br>
-  
+
+
+# <h1 align="center">PROTÓTIPO DE TELAS</h1>
+
+
 # <h1 align="center">DASHBOARDS📈</h1>
 <p align="center">
   <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/dashboards.jpeg" alt="Imagem Dashboard">
@@ -103,11 +108,12 @@
 - Discord<br>
 - Diagrams.net<br>
 - Git e Github<br>
-- Canva (Apresentação)<br>
+- Canva (Protótipo)<br>
 - Excel (Demonstração dashboard)<br>
+- Kanban<br>
 
 <h2>Metodologias Ágeis: </h2>
 - Scrum (principal)<br>
-- Kanban<br>
+
 
 
