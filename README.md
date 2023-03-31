@@ -90,11 +90,11 @@
 
 
 # <h1 align="center">PROTÓTIPO DE TELAS</h1>
-
+<a href="https://www.canva.com/design/DAFenwuPq20/ijXvV3JDMsjX_tjU2XTMOA/view?utm_content=DAFenwuPq20&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Clique para ser redirecionado</a>
 
 # <h1 align="center">DASHBOARDS📈</h1>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/dashboards.jpeg" alt="Imagem Dashboard">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/dash.png" alt="Imagem Dashboard">
    </p>
 
 
