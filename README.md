@@ -100,16 +100,17 @@
 
 # <h1 align="center">PLANEJAMENTO🔍</h1>
   <h2>Ferramentas</h2>
-- Python<br>
-- JSON<br>
-- Tkinter<br>
-- Matplotlib<br>
-- Notion<br>
-- Discord<br>
-- Diagrams.net<br>
-- Git e Github<br>
-- Canva (Protótipo)<br>
-- Excel (Demonstração dashboard)<br>
+<a href="https://www.python.org/" target="blank">- Python<br></a>
+<a href="https://www.json.org/json-pt.html" target="blank">- JSON<br></a>
+<a href="https://docs.python.org/3/library/tk.html" target="blank">- Tkinter<br></a>
+<a href="https://matplotlib.org/" target="blank">- Matplotlib<br></a>
+<a href="notion.so" target="blank">- Notion<br></a>
+<a href="https://discord.com/" target="blank">- Discord<br></a>
+<a href="diagrams.net" target="blank">- Diagrams.net<br></a>
+<a href="https://git-scm.com target="blank" Git<br></a>
+<a href="github.com" target="blank">- Github<br></a>
+<a href="canva.com" target="blank">- Canva (Protótipo)<br></a>
+<a href="https://www.microsoft.com/pt-br/microsoft-365/excel" target="blank">- Excel (Demonstração dashboard)<br></a>
 - Kanban<br>
 
 <h2>Metodologias Ágeis: </h2>
