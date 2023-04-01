@@ -104,12 +104,12 @@
 <a href="https://www.json.org/json-pt.html" target="blank">- JSON<br></a>
 <a href="https://docs.python.org/3/library/tk.html" target="blank">- Tkinter<br></a>
 <a href="https://matplotlib.org/" target="blank">- Matplotlib<br></a>
-<a href="notion.so" target="blank">- Notion<br></a>
+<a href="https://www.notion.so/" target="blank">- Notion<br></a>
 <a href="https://discord.com/" target="blank">- Discord<br></a>
-<a href="diagrams.net" target="blank">- Diagrams.net<br></a>
+<a href="https://www.diagrams.net/" target="blank">- Diagrams.net<br></a>
 <a href="https://git-scm.com target="blank" Git<br></a>
-<a href="github.com" target="blank">- Github<br></a>
-<a href="canva.com" target="blank">- Canva (Protótipo)<br></a>
+<a href="https://github.com/" target="blank">- Github<br></a>
+<a href="https://www.canva.com/pt_br/" target="blank">- Canva (Protótipo)<br></a>
 <a href="https://1drv.ms/x/s!AsAdr2Am1_Q6rnmN_rhAQ0ncgkMk?e=NFm3Nc" target="blank">- Excel (Demonstração dashboard)<br></a>
 - Kanban<br>
 
