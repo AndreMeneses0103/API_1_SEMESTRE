@@ -64,7 +64,7 @@
     
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/backlog.jpeg" alt="Imagem Backlog">
+  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/backlog_revisado.png" alt="Imagem Backlog">
    </p>
 
 
