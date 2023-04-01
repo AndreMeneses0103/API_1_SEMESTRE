@@ -20,6 +20,7 @@
 - Amanda Vannucci de Campos (Product Owner)
 - André Filipe Meneses (Scrum Master)
 - Gilvane de Souza Amaro Junior (Dev)
+- Guilherme Ferreira Vargas Bittencourt (Dev)
 - Jhony Santos de Souza (Dev)
 - Lucas Lima Martins Pereira (Dev)
 - Raul José Batista Neto (Dev)
