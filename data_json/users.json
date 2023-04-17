@@ -34,6 +34,13 @@
             "cargo": "user",
             "senha": "abcde",
             "isActive": false
+        },
+        {
+            "user": "Cristiano",
+            "id": "siuuu@email.com",
+            "cargo": "user",
+            "senha": "cristiano7",
+            "isActive": false
         }
     ]
 }

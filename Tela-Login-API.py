@@ -96,10 +96,10 @@ class tela_login_cadastro:
             email_cadastro = ctk.CTkEntry(master=cadastro_frame,placeholder_text="Digite seu email", width=300, font = ('Roboto', 14), textvariable=email).place(x=45, y=170)
 
             #entrada de dados senha cadastro
-            label = ctk.CTkLabel(master=cadastro_frame, text="Senha", font = ('Roboto', 15), text_color= ('white') )
+            label = ctk.CTkLabel(master=cadastro_frame, text="Senha", font = ('Roboto', 15), text_color= ('white'))
             label.place(x=45, y=200)
             senha = tk.StringVar()
-            senha_cadastro = ctk.CTkEntry(master=cadastro_frame, textvariable=senha,placeholder_text="Digite sua senha", width=300, font = ('Roboto', 14)).place(x=45, y=230)
+            senha_cadastro = ctk.CTkEntry(master=cadastro_frame, textvariable=senha,placeholder_text="Digite sua senha", width=300, font = ('Roboto', 14), show='*').place(x=45, y=230)
 
             #entrada de dados turma cadastro          
             label = ctk.CTkLabel(master=cadastro_frame, text="Turma", font = ('Roboto', 15), text_color= ('white'))
