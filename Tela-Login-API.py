@@ -1,3 +1,4 @@
+import json
 import customtkinter as ctk
 from tkinter import *
 import tkinter as tk
@@ -130,6 +131,35 @@ class tela_login_cadastro:
                 print(senha.get())
                 print(turma.get())
                 print(time.get())
+
+                with open('data_json/users.json', 'r') as f:
+                    data = json.load(f)
+
+                novos_dados = data
+
+                # print(json.dumps(novos_dados, indent=4))
+                
+                data_user = nomecompleto.get()
+                data_email = email.get()
+                data_senha = senha.get()
+
+                data_cadastro = {
+                    "user":data_user,
+                    "id":data_email,
+                    "cargo":"user",
+                    "senha":data_senha,
+                    "isActive": False
+                }
+
+                # print(json.dumps(data_cadastro, indent=4))
+
+                novos_dados['usuarios'].append(data_cadastro)
+                novos_dados = json.dumps(novos_dados, indent=4)
+
+                with open('data_json/users.json', 'w') as arquivo:
+                    arquivo.write(novos_dados)
+                    print('Cadastrados')
+
 
                 back()
                 label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
