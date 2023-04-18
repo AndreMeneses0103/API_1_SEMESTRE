@@ -66,37 +66,37 @@ class tela_cadastro_time:
         quantidade_sprints = tk.IntVar()
         quantidade_sprints_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Qtidade de sprints:", width=60, font = ('Roboto', 14), textvariable=quantidade_sprints).place(x=45,y=290)
 
-        def define_numero_sprints():
-            # Cria uma variável StringVar() para armazenar a opção selecionada
-            var = tk.StringVar()
+# Função que vai criar combobox de acordo com o numero de sprints definido
 
+        def define_numero_sprints():
+           
+            
+            valor_sprint = tk.StringVar(tela_cadastro_frame)
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
-            combobox = tk.Combobox(tela_cadastro_frame, texvariable=var)
-            combobox.config(width=15)
-            combobox.pack()
-            combobox.place(x=500,y=450)
+            opcoes_time = tk.OptionMenu(tela_cadastro_frame, valor_sprint, *sprints).place(x=500,y=450)
+            
 
-            inicio_sprint = DateEntry(width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
-            inicio_sprint.pack(pady=70, padx=100)
-            inicio_sprint.place(x= 380, y= 450)
+            inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=400)
+            inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
+           # inicio_sprint.pack(pady=70, padx=100)
+            inicio_sprint.place(x= 45, y= 450)
             data_seleciona_inicio = inicio_sprint.get_date()
 
+            fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=150,y=400)
             fim_sprint = DateEntry(width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
             fim_sprint.pack(pady=70, padx=100)
             fim_sprint.place(x=480, y=450)
             data_seleciona_fim = fim_sprint.get_date()
 
-            botao = ctk.CTkButton(master=tela_cadastro_frame, text="OK", command=imprimir_data, text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=120, y=390)
+            botao = ctk.CTkButton(master=tela_cadastro_frame, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=45, y=490)
             # combobox variável de acordo com o número de sprints
             
             pass
         
         botao_define_sprint = ctk.CTkButton(master=tela_cadastro_frame, text="Confirmar", font = ('Roboto', 14), command = define_numero_sprints, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=120, y=290)
 
-        def imprimir_data():
-            data = inicio_sprint.get_date()
-            print("Data selecionada:", data)
+
 
         
         
