@@ -66,13 +66,20 @@
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
 Propriedade | Sprint | Item 
 --- | --- | --- 
-1 | 1 | Definição e documentação do produto.
-2 | 1 | Definição do questionário. 
-3 | 2 | Codificação da avaliação.
-6 | 2 | Sistema de cadastro de usuários.
-4 | 3 | Controle de acesso usuários/ avaliações / turmas.
-5 | 4 | Dashboards interativos 
-7 | 4 | interface gráfica do usuário.
+Alta | 4 | Acesso do Administrador ao Dashboard das Turmas, Times e Sprints - Admin.
+Alta | 4 | Acesso dos Usuários ao Dashboard de Turma, Time e Sprint - Usuário
+Alta | 4 | Acesso dos Usuários às Avaliações - Usuários
+Média | 4 | Alteração de Senha - Admin
+Média | 3 | Autorização da solicitação dos usuários participarem das turmas e times - Admin
+Média | 3 | Cadastro de Sprints  - Admin
+Média | 3 | Cadastro de times - Admin
+Média | 3 |Cadastro de Usuários - Usuário
+Média | 3 |Criação de Turmas - Admin
+Baixa | 2 |Logout do Sistema - Admin e Usuário
+Média | 3 |Quantidade e Cadastro de integrantes nos Times - Admin
+Baixa | 4 |Remoção de Usuário - Admin
+Alta | 2 |Sistema de Avaliação 360º - Usuário
+Média | 2 |Sistema de Login
  
 # <h1 align="center">AVALIAÇÃO📜</h1>
 <h2>Questionário: </h2>
