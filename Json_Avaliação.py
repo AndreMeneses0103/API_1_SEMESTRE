@@ -1,7 +1,7 @@
 import json
 #data ['dados_avaliação']['nome'] = 'Maria'
 
-with open('C\Users\Lucas\Documents\GitHub\API_1_SEMESTRE\questions.json', 'r') as f:
+with open(r'data_json/questions.json', 'r') as f:
     data = json.load(f)
 
 exem1 = data
@@ -24,7 +24,7 @@ dados_avaliacao = {
 exem1['Avaliados'].append(dados_avaliacao)
 exem1 = json.dumps(exem1, indent=4)
 
-with open('C\Users\Lucas\Documents\GitHub\API_1_SEMESTRE\questions.json', 'w') as r:
+with open(r'data_jsos/questions.json', 'w') as r:
     r.write(exem1)
 
 
