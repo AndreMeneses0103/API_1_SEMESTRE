@@ -41,6 +41,13 @@
             "cargo": "user",
             "senha": "cristiano7",
             "isActive": false
+        },
+        {
+            "user": "",
+            "id": "",
+            "cargo": "user",
+            "senha": "",
+            "isActive": false
         }
     ]
 }
