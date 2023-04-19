@@ -62,13 +62,18 @@
   <p align="center">
   <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/caso_de_uso_atualizado.png" alt="Diagrama Caso Uso" width="80%">
    </p> 
-    
+
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/backlog_revisado.png" alt="Imagem Backlog">
-   </p>
-
-
+Propriedade | Sprint | Item 
+--- | --- | --- 
+1 | 1 | Definição e documentação do produto.
+2 | 1 | Definição do questionário. 
+3 | 2 | Codificação da avaliação.
+6 | 2 | Sistema de cadastro de usuários.
+4 | 3 | Controle de acesso usuários/ avaliações / turmas.
+5 | 4 | Dashboards interativos 
+7 | 4 | interface gráfica do usuário.
+ 
 # <h1 align="center">AVALIAÇÃO📜</h1>
 <h2>Questionário: </h2>
 - Como você avalia sua comunicação com o grupo durante essa Sprint?<br>
