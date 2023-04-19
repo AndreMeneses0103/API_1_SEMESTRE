@@ -23,15 +23,15 @@ class tela_login_cadastro:
     def tela(self):    
         janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
         janela.title("Sistema de login")
-        #janela.iconbitmap("logo_insight.ico")
+        janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
 
     def tela_login(self):
         #trabalhando com a imagem da tela
-        #img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
-        #label_img = ctk.CTkLabel(master=janela, image=img, text='')
-        #label_img.place(x=50, y=160)
+        img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+        label_img = ctk.CTkLabel(master=janela, image=img, text='')
+        label_img.place(x=50, y=160)
         label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360 e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
 
         #frame a direita

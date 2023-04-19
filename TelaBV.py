@@ -24,13 +24,15 @@ def abrir():
         def tela(self):    
             janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
             janela.title("Sistema de login")
-            #janela.iconbitmap("logo_insight.ico")
+            janela.iconbitmap("logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
         
         def TelaAlerta(self):
-            label_BemVindo=ctk.CTkLabel(master=janela, text=("'BEM VINDO, USUÁRIO'"), font=("Roboto",25),text_color='white').place(x=280, y=230)
-            
+            label_BemVindo=ctk.CTkLabel(master=janela, text=("Bem vindo, USUÁRIO"), font=("Roboto",25),text_color='white').place(x=420, y=214)
+            img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+            label_img = ctk.CTkLabel(master=janela, image=img, text='')
+            label_img.place(x=50, y=160)
         
             def logout():
                 (janela.destroy())
