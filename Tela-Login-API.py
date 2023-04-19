@@ -58,8 +58,14 @@ class tela_login_cadastro:
             acesso = json.load(open("data_json/users.json", "r"))
             # if acesso["usuario"] == username.get() and acesso["senha"]==password.get():
             for x in range(len(acesso["usuarios"])):
-                if acesso["usuarios"][x]["user"] == username.get() and acesso["usuarios"][x]["senha"] == password.get():
+                input_nome = username.get()
+                input_senha = password.get()
+                if (acesso["usuarios"][x]["user"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
                     aviso_validado = ctk.CTkLabel(master=login_frame, text="Acesso liberado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
+                    acesso["usuarios"][x]["isActive"] = True
+                    insert_acesso = str(json.dumps(acesso, indent=4))
+                    with open("data_json/users.json", "w") as arq_json:
+                        arq_json.write(insert_acesso)
                     janela.destroy()
                     TBV.abrir()
                 else:

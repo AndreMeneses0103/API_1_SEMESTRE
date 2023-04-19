@@ -41,6 +41,13 @@
             "cargo": "user",
             "senha": "cristiano7",
             "isActive": false
+        },
+        {
+            "user": "Messi",
+            "id": "messi@email.com",
+            "cargo": "user",
+            "senha": "bobo",
+            "isActive": false
         }
     ]
 }
