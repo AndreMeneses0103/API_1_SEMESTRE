@@ -53,19 +53,20 @@ class tela_login_cadastro:
 
         def login():
     
-            acesso = {"usuario":"admin", "senha":"adm123","validado":False}
-            if acesso["usuario"] == username.get() and acesso["senha"]==password.get():
-                acesso["validado"]=True
-                aviso_validado = ctk.CTkLabel(master=login_frame, text="Acesso liberado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
-                janela.destroy()
-                TBV.abrir()
-                
+           # acesso = {"usuario":"admin", "senha":"adm123","validado":False}
 
-            else:
-                aviso_negado = ctk.CTkLabel(master=login_frame, text="Acesso negado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
-           # print(username.get())
-            #print(password.get())        
-            pass
+            acesso = json.load(open("data_json/users.json", "r"))
+            # if acesso["usuario"] == username.get() and acesso["senha"]==password.get():
+            for x in range(len(acesso["usuarios"])):
+                if acesso["usuarios"][x]["user"] == username.get() and acesso["usuarios"][x]["senha"] == password.get():
+                    aviso_validado = ctk.CTkLabel(master=login_frame, text="Acesso liberado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
+                    janela.destroy()
+                    TBV.abrir()
+                else:
+                    aviso_negado = ctk.CTkLabel(master=login_frame, text="Acesso negado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
+                # print(username.get())
+                #print(password.get())        
+                pass
         login_button = ctk.CTkButton(login_frame, text="Login", width=300, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=login).place(x=45, y=250)
         #button.grid(row=35, column=30)
     
