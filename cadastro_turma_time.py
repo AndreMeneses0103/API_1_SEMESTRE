@@ -18,14 +18,14 @@ class tela_cadastro_time:
     def tema(self):
         ctk.set_appearance_mode("dark") #modo dark
         ctk.set_default_color_theme("dark-blue") #defino a cor do modo dark 
-        pass
+    
 
     def tela(self):    
         janela.geometry("1200x800") #DEFINO O TAMANHO DA JANELA
         janela.title("Cadastro novas turmas")
         janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
-        pass
+        
 
     def tela_nova_turma(self):
         #trabalhando com a imagem da tela
@@ -40,61 +40,45 @@ class tela_cadastro_time:
         tela_cadastro_frame.pack(side=RIGHT)
 
         #frame widgets
-        label = ctk.CTkLabel(master=tela_cadastro_frame, text="Cadastro de turmas e times", font = ('Roboto', 25, 'bold'), text_color= ('white') )
-        label.place(x=45, y=40)
+        label = ctk.CTkLabel(master=tela_cadastro_frame, text="Cadastro de nova turma", font = ('Roboto', 25, 'bold'), text_color= ('white') ).place(x=45, y=40)
 
         #entrada de dados
-        user_name_label1 = ctk.CTkLabel(master=tela_cadastro_frame, text="Nova turma: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
+        user_name_label1 = ctk.CTkLabel(master=tela_cadastro_frame, text="Nome da turma: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
         novaturma = tk.StringVar()#criação da variavel 
         novaturma_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Nova turma", width=600, font = ('Roboto', 14), textvariable=novaturma).place(x=45, y=125)
 
-        confirma_nova_turma = ctk.StringVar()#criação da variavel 
-        user_name_label2 = ctk.CTkLabel(master=tela_cadastro_frame, text="Confirme nova turma:", text_color="white", font=('Roboto', 14)).place(x=45,y=160)
-        confirma_nova_turma_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Confirme nova turma:", width=600, font = ('Roboto', 14), textvariable=confirma_nova_turma).place(x=45, y=185)
-       
-        def verifica_turma():
-                #verificação das variaveis
-            if novaturma.get() == confirma_nova_turma.get():
-                aviso_validado = ctk.CTkLabel(master=tela_cadastro_frame, text="Nova turma cadastrada!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=220)
-            else:
-                aviso_negado = ctk.CTkLabel(master=tela_cadastro_frame, text="Os campos não podem ser diferentes.", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=220)
-                pass
-        
-        botao_verifica = ctk.CTkButton(tela_cadastro_frame, text="Verificar",font =('Roboto', 14), command=verifica_turma, text_color=('black'), cursor="hand2", fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=230)
-
-        quantidade_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Qtidade de sprints: ", text_color="white", font=('Roboto', 14)).place(x=45,y=260)
+        quantidade_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Número de sprints: ", text_color="white", font=('Roboto', 14)).place(x=45,y=175)
         quantidade_sprints = tk.IntVar()
-        quantidade_sprints_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Qtidade de sprints:", width=60, font = ('Roboto', 14), textvariable=quantidade_sprints).place(x=45,y=290)
+        quantidade_sprints_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Número de sprints:", width=60, font = ('Roboto', 14), textvariable=quantidade_sprints).place(x=45,y=200)
 
-# Função que vai criar combobox de acordo com o numero de sprints definido
 
         def define_numero_sprints():
-           
-            
+
             valor_sprint = tk.StringVar(tela_cadastro_frame)
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
-            opcoes_time = tk.OptionMenu(tela_cadastro_frame, valor_sprint, *sprints).place(x=500,y=450)
-            
+            opcoes_time = tk.OptionMenu(tela_cadastro_frame, valor_sprint, *sprints).place(x=50,y=380)
+            print(sprints)
 
-            inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=400)
+            titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
+
+            numero_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Escolha a sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=320)
+
+            inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=350,y=320)
             inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
-           # inicio_sprint.pack(pady=70, padx=100)
-            inicio_sprint.place(x= 45, y= 450)
+            inicio_sprint.place(x= 350, y= 380)
             data_seleciona_inicio = inicio_sprint.get_date()
 
-            fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=150,y=400)
-            fim_sprint = DateEntry(width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
-            fim_sprint.pack(pady=70, padx=100)
-            fim_sprint.place(x=480, y=450)
+            fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=550,y=320)
+            fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
+            fim_sprint.place(x=550, y=380)
             data_seleciona_fim = fim_sprint.get_date()
 
-            botao = ctk.CTkButton(master=tela_cadastro_frame, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=45, y=490)
+            botao = ctk.CTkButton(master=tela_cadastro_frame, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             # combobox variável de acordo com o número de sprints
             
-            pass
-        
-        botao_define_sprint = ctk.CTkButton(master=tela_cadastro_frame, text="Confirmar", font = ('Roboto', 14), command = define_numero_sprints, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=120, y=290)
+               
+        botao_define_sprint = ctk.CTkButton(master=tela_cadastro_frame, text="Confirmar", font = ('Roboto', 14), command = define_numero_sprints, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=200)
 
 
 
