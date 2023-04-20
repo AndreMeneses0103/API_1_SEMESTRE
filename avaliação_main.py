@@ -1,18 +1,24 @@
-import tkinter as tk
-import customtkinter as ctk
-from tkinter import *
+#import tkinter as tk
+#import customtkinter as ctk
+#from tkinter import *
 import json
 
 
 
-global avaliado
-avaliado = 0
+#global avaliado
+#avaliado = 0
 
-with open('users.json', 'r') as usuarios:
+with open('data_json/users.json', 'r') as usuarios:
     data = json.load(usuarios)
 
     avaliados = []
-    avaliados.append(data['usuarios']
+    for xr in range(len(data["usuarios"])):
+        avaliados.append(data["usuarios"][xr]["user"])
+
+
+print(avaliados)
+
+'''
 
 janela = ctk.CTk()
 
@@ -196,3 +202,4 @@ class Avaliação:
 
 #INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
 Avaliação()
+'''
