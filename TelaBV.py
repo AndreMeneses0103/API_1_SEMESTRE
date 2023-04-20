@@ -29,7 +29,6 @@ def abrir():
             pass
         
         def TelaAlerta(self):
-            label_BemVindo=ctk.CTkLabel(master=janela, text=("Bem vindo, USUÁRIO"), font=("Roboto",25),text_color='white').place(x=420, y=214)
             img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
             label_img.place(x=50, y=160)
@@ -42,8 +41,7 @@ def abrir():
                 if(acesso["usuarios"][x]["isActive"] == True):
                     user_nome = acesso["usuarios"][x]["user"]
 
-            print(f"USER NOME = {user_nome}")
-            label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem Vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=280, y=230)
+            label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=420, y=214)
             
 
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=85, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=700, y=15)
@@ -51,7 +49,6 @@ def abrir():
 
 
     def Close():
-        print("FECHOU")
         acesso = json.load(open("data_json/users.json", "r"))
 
         for x in range(len(acesso["usuarios"])):

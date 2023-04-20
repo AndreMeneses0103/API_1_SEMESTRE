@@ -48,6 +48,13 @@
             "cargo": "user",
             "senha": "bobo",
             "isActive": false
+        },
+        {
+            "user": "Cassio",
+            "id": "cassio@email.com",
+            "cargo": "user",
+            "senha": "corintia",
+            "isActive": false
         }
     ]
 }
