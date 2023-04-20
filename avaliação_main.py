@@ -7,13 +7,12 @@ import json
 
 global avaliado
 avaliado = 0
-avaliador = input("Digite o nome do avaliador: ")
-avaliados = []
-avaliados.append(avaliador)
-r = "S"
-while r == "S":
-    avaliados.append(input("Digite o nome do integrante do grupo: "))
-    r = input("Deseja adicionar mais um participante S - SIM N - NÃO: ")
+
+with open('users.json', 'r') as usuarios:
+    data = json.load(usuarios)
+
+    avaliados = []
+    avaliados.append(data['usuarios']
 
 janela = ctk.CTk()
 
