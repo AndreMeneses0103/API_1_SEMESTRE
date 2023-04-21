@@ -1,5 +1,8 @@
 # <h1 align=center> SPRINT 2 🏁🏃‍♂️<h1/>
-
+<p align='center'>
+<img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
+</p>
+  
 # <h2 align=center> ÍNDICE 🔖<h2/>
 - [INTEGRANTES](#INTEGRANTES)
 - [PERÍODO](#PERÍODO)
@@ -38,7 +41,7 @@ Média	| 3 |	Cadastro de times - Admin |➖
 Média	| 3 |	Cadastro de Usuários - Usuário |➖
 Média	| 3 |	Criação de Turmas - Admin |➖
 Baixa	| 2 |	Logout do Sistema - Admin e Usuário| ✔
-Média	| 3 |	Quantidade e Cadastro de integrantes nos Times - Admin |➖
+Média	| 3 |	Cadastro de integrantes nos Times - Admin |➖
 Baixa	| 4 |	Remoção de Usuário - Admin |➖
 Alta	| 2 |	Sistema de Avaliação 360º - Usuário |✔
 Média	| 2 |	Sistema de Login |✔
