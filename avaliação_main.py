@@ -15,7 +15,7 @@ with open('data_json/users.json', 'r') as usuarios:
     for xr in range(len(data["usuarios"])):
         avaliados.append(data["usuarios"][xr]["user"])
 
-
+print(xr)
 print(avaliados)
 
 '''
@@ -71,9 +71,6 @@ class Avaliação:
 
         
             y_direcao_tela += 30
-
-
-
 
         button_voltar = ctk.CTkButton(janela, width=200, fg_color='#5CE1E6', text_color='black', hover_color='#00FFFF', text='Tela Inicial', font = ('Roboto', 20), cursor="hand2").place(x=90, y=600)
 
