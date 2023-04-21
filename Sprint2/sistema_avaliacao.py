@@ -56,55 +56,57 @@ class Avaliação:
         label_img.place(x=20, y=20)
 
         nome = avaliados[0]
-        sprint = "Sprint 1"
-        label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliador: '+nome, font=('Roboto', 17, 'bold')).place(x=50, y=150)
-        label_sprint = ctk.CTkLabel(master=janela, text=sprint, font=('Roboto', 17, 'bold')).place(x=50, y=190)
+        sprint = "1"
+        turma = "Banco de Dados"
+        time = "TechHorizon"
 
+        label_sprint = ctk.CTkLabel(master=janela, text='Sprint: '+sprint, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=150)
+        label_turma = ctk.CTkLabel(master=janela, text='Turma: '+turma, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=180)
+        label_time = ctk.CTkLabel(master=janela, text='Time: '+time, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=205)
+        label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliador: '+nome, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=235)
+        
 
-        #TRABALHAR NESTA PARTE PARA NÃO FICAR SOBRESCREVENDO EM CIMA DO OUTRO LABEL
+        #FUNÇÃO QUE DEFINE QUEM É O AVALIADO
         def avaliadoFuncao():
             print(avaliados[avaliado])
             #if label_nome_usuario.winfo_exists():
              #   label_nome_usuario.destroy()
             #else:
 
-            button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold'), fg_color='#242424', text_color='white',width=400,anchor='w', hover_color='#242424').place(x=45, y=230)
+            button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold'), fg_color='#242424', text_color='white',width=400,anchor='w', hover_color='#242424').place(x=45, y=260)
 
-            #label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold')).place(x=50, y=230)
-            
+            #label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold')).place(x=50, y=230)  
             pass
+
         avaliadoFuncao()
+
         label_autoavaliacao = ctk.CTkLabel(master=janela, text='Integrantes do time: ', font=('Roboto', 25, 'bold')).place(x=50, y=310)
+        #CONTROLADOR DE POSICIONAMENTO DE TELA
         y_direcao_tela = 350
 
         for i in range(len(avaliados)):
             label_integrantes = ctk.CTkLabel(master=janela, text=avaliados[i], font=('Roboto', 15, 'bold'), text_color='gray').place(x=50, y=y_direcao_tela)
-
-        
             y_direcao_tela += 30
-
-
-
 
         #button_voltar = ctk.CTkButton(janela, width=200, fg_color='#5CE1E6', text_color='black', hover_color='#00FFFF', text='Tela Inicial', font = ('Roboto', 20), cursor="hand2").place(x=90, y=600)
 
         #CRIAÇÃO DO FRAME PERGUNTAS
         perguntas_frame = ctk.CTkFrame(master=janela, width=1100, height=700)
         perguntas_frame.pack(side=RIGHT)
+
         global avaliadolabel 
         avaliadolabel = 0
 
         def questionario():
-
-             #VARIAVEIS QUE ARMAZENARAM AS RESPOSTAS DO USUÁRIO   
+            #VARIAVEIS QUE ARMAZENARAM AS RESPOSTAS DO USUÁRIO   
             resposta1 = tk.IntVar()
             resposta2 = tk.IntVar()
             resposta3 = tk.IntVar()
             resposta4 = tk.IntVar()
             resposta5 = tk.IntVar()
+
             titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário', font=('Roboto', 30, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
          
-
             label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=90)
             checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=165)
             checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=165)
@@ -112,7 +114,6 @@ class Avaliação:
             checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=165)
             checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=165)
             
-
 
             label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o seu trabalho em equipe durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=180)
             checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=278)
@@ -145,7 +146,6 @@ class Avaliação:
             checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta5, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=615)
             checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta5, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=615)
             
-
             def proximo_integrante():
             
                 global avaliado
@@ -169,10 +169,11 @@ class Avaliação:
                 resposta4.set(0)
                 resposta5.set(0)
                 
+                #CONTROLADOR
                 avaliado+=1
                 #tk.Label.destroy(label_nome_usuario)
+
                 #JANELA ALERTA DE CONFIRMAÇÃO DE AVALIAÇÃO REALIZADA
-                
                 janelaAlertaAvaliacao = ctk.CTk()
                 janelaAlertaAvaliacao.title("ALERTA!")
                 janelaAlertaAvaliacao.resizable(False, False)
@@ -182,10 +183,11 @@ class Avaliação:
                 y = (screen_height - 100) // 2
                 janelaAlertaAvaliacao.geometry("300x100+{}+{}".format(x, y))
                 label_alerta = ctk.CTkLabel(master=janelaAlertaAvaliacao, text="Avaliação registrada com sucesso!\n", font=('Roboto', 15, 'bold')).pack()
+                
                 def destroy_alerta_Avaliacao():
                     janelaAlertaAvaliacao.destroy()
+
                     #JANELA DE FINALIZAÇÃO DA AVALIAÇÃO
-                  
                     def finalizar():
                         controlador = (avaliado - 1)
                         
@@ -209,14 +211,9 @@ class Avaliação:
                             
                     finalizar()
                     
-                
-
                 button_ok = ctk.CTkButton(janelaAlertaAvaliacao, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Avaliacao, fg_color='#5CE1E6', text_color='black').pack()
                 
                 #avaliado +=1
-                
-                
-
                 print(respostas) 
                 
                 janelaAlertaAvaliacao.mainloop()      
@@ -226,6 +223,7 @@ class Avaliação:
                 if (resposta1.get() != 0 and resposta2.get() != 0 and resposta3.get() != 0 and resposta4.get() != 0 and resposta5.get() != 0):
                     proximo_integrante()
                 elif (resposta1.get() == 0 or resposta2.get() == 0 or resposta3.get() == 0 or resposta4.get() == 0 or resposta5.get() == 0):
+                    #TELA ALERTA - NÃO PREENCHIMENTO DAS RESPOSTAS CORRETAMENTE
                     janelaAlerta = ctk.CTk()
                     janelaAlerta.title("ALERTA!")
                     screen_width = janelaAlerta.winfo_screenwidth()

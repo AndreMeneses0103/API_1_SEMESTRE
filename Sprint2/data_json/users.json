@@ -20,41 +20,6 @@
             "cargo": "amd",
             "senha": "xyz",
             "isActive": false
-        },
-        {
-            "user": "Marcos",
-            "id": "marcos@email.com",
-            "cargo": "user",
-            "senha": "cr7",
-            "isActive": false
-        },
-        {
-            "user": "Raul",
-            "id": "raul@email.com",
-            "cargo": "user",
-            "senha": "abcde",
-            "isActive": false
-        },
-        {
-            "user": "Cristiano",
-            "id": "siuuu@email.com",
-            "cargo": "user",
-            "senha": "cristiano7",
-            "isActive": false
-        },
-        {
-            "user": "Messi",
-            "id": "messi@email.com",
-            "cargo": "user",
-            "senha": "bobo",
-            "isActive": false
-        },
-        {
-            "user": "Cassio",
-            "id": "cassio@email.com",
-            "cargo": "user",
-            "senha": "corintia",
-            "isActive": false
         }
     ]
 }
