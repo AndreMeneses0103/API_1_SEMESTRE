@@ -71,8 +71,26 @@ class tela_login_cadastro:
                 else:
                     incorrect = 1
             if(incorrect == 1):
+                print("Testando...")
                 # print("TERMINOU. NAO TEM CORRETOS")
                 janelaNegado = ctk.CTk()
+                janelaNegado.title("ALERTA!")
+                screen_width = janelaNegado.winfo_screenwidth()
+                screen_height = janelaNegado.winfo_screenheight()
+                x = (screen_width - 300) // 2
+                y = (screen_height - 100) // 2
+                janelaNegado.geometry("300x100+{0}+{0}".format(x,y))
+                janelaNegado.resizable(False, False)
+                #janelaNegado.geometry('300x100')
+                label_alerta = ctk.CTkLabel(master=janelaNegado, text="Usuário ou senha incorretos!\n\n", font=('Roboto', 15, 'bold')).pack()
+                def destroy_alerta_Avaliacao():
+                    janelaNegado.destroy()
+                    
+                button_ok = ctk.CTkButton(janelaNegado, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Avaliacao, fg_color='#5CE1E6', text_color='black').pack()
+                janelaNegado.mainloop()  
+
+
+                '''janelaNegado = ctk.CTk()
                 janelaNegado.title("NEGADO!")
                 janelaNegado.resizable(False, False)
                 # janelaNegado.geometry("300x100")
@@ -81,12 +99,12 @@ class tela_login_cadastro:
                 x = (screen_width - 300) // 2
                 y = (screen_height - 100) // 2
                 janelaNegado.geometry("300x100+{0}+{0}".format(x,y)) 
-                label_negado = ctk.CTkLabel(master = janelaNegado, text="Usuário ou senha incorretos!\n", font = ("Roboto", 15, "bold")).pack()
+                label_negado = ctk.CTkLabel(master=janelaNegado, text="Usuário ou senha incorretos!\n", font=("Roboto", 15, "bold")).pack()
                 def destroy_negado():
                     janelaNegado.destroy()
-                button_ok = ctk.CTkLabel(master = janelaNegado, text="Ok", font = ("Roboto", 20, "bold"), command=destroy_negado, fg_color="#5CE1E6", text_color='black').pack()
-                janelaNegado.mainloop()
-        login_button = ctk.CTkButton(master = login_frame, text="Login", width=300, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=login).place(x=45, y=250)
+                button_ok = ctk.CTkLabel(master=janelaNegado, text="Ok", font=("Roboto", 20, "bold"), command=destroy_negado, fg_color="#5CE1E6", text_color='black').pack()
+                janelaNegado.mainloop()'''
+        login_button = ctk.CTkButton(master=login_frame, text="Login", width=300, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=login).place(x=45, y=250)
         #button.grid(row=35, column=30)
     
         def tela_cadastro():
