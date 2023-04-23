@@ -7,7 +7,7 @@
 - [INTEGRANTES](#INTEGRANTES)
 - [PERÍODO](#PERÍODO)
 - [OBJETIVO DE ENTREGA](#OBJETIVO-DE-ENTREGA)
-- [BACKLOG SPRINT 2](BACKLOG-SPRINT-2)
+- [BACKLOG SPRINT 2](#BACKLOG-SPRINT-2)
 - [BACKLOG DO PRODUTO](#BACKLOG-DO-PRODUTO)
 - [INTERFACE UTILIZADA](#INTERFACE-UTILIZADA)
   
@@ -31,7 +31,7 @@
 
 # <h2 align="center">BACKLOG SPRINT 2 📌 <h2/>
 <p aling="center">
-<img src="https://github.com/Amandavannuccic/Fatec/blob/main/backlogsprint_2.png" width="90%">
+<img src="https://github.com/Amandavannuccic/Fatec/blob/main/zyro-image.png">
 <p/> 
   
 # <h2 align=center>BACKLOG DO PRODUTO 📌<h2/>
