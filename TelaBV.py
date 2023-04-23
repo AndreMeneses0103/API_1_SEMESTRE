@@ -2,6 +2,7 @@ import json
 import tkinter as tk
 import customtkinter as ctk
 from tkinter import *
+import sistema_avaliacao as TelaAV
 
 def abrir():
     
@@ -63,6 +64,7 @@ def abrir():
         janela.mainloop()
 
     def AbrirAv():
-        print('Oi')
+        janela.destroy()
+        TelaAV.abrir_avaliacao()
 
     alerta()
