@@ -4,12 +4,7 @@
 </p>
   
 # <h2 align=center> ÍNDICE 🔖<h2/>
-- [INTEGRANTES](#INTEGRANTES)
-- [PERÍODO](#PERÍODO)
-- [OBJETIVO DE ENTREGA](#OBJETIVO-DE-ENTREGA)
-- [REVIEW SPRINT 2](#REVIEW SPRINT 2)
-- [BACKLOG](#BACKLOG)
-- [INTERFACE UTILIZADA](#INTERFACE-UTILIZADA)
+
   
 # <h2 align=center> INTEGRANTES 👩‍💻👨‍💻<h2/>
 - Amanda Vannucci de Campos (Product Owner) 
