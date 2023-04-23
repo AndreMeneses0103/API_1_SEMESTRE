@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
 </p>
   
-# <h2 align=center>ÍNDICE<h2/> 🔖
+# <h2 align=center>ÍNDICE  🔖<h2/>
 - [INTEGRANTES](#INTEGRANTES-👩‍💻👨‍💻)
 - [PERÍODO](#PERÍODO-📅)
 - [OBJETIVO DE ENTREGA](#OBJETIVO-DE-ENTREGA-🎯)
@@ -30,8 +30,8 @@
 <h3 align=center>Apresentar ao cliente o modo de autenticação de usuário e a aplicação do método de avaliação 360º, para esta ferramenta. <h3/>
 
 # <h2 align="center">BACKLOG SPRINT 2 📌 <h2/>
-<p aling="center">
-<img src="https://github.com/Amandavannuccic/Fatec/blob/main/zyro-image.png">
+<p align="center">
+<img src="https://github.com/Amandavannuccic/Fatec/blob/main/backlog_sprint_2.png">
 <p/> 
   
 # <h2 align=center>BACKLOG DO PRODUTO 📌<h2/>
