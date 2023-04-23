@@ -23,15 +23,15 @@ class tela_login_cadastro:
     def tela(self):    
         janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
         janela.title("Sistema de login")
-        janela.iconbitmap("logo_insight.ico")
+        #janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
 
     def tela_login(self):
         #trabalhando com a imagem da tela
-        img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+        '''img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
-        label_img.place(x=50, y=160)
+        label_img.place(x=50, y=160)'''
         label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360 e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
 
         #frame a direita
@@ -138,7 +138,8 @@ class tela_login_cadastro:
             options_turma = ["Opção 1", "Opção 2", "Opção 3"]
             turma = tk.StringVar(cadastro_frame)
             turma.set(options_turma[0])
-            opt_menu = tk.OptionMenu(cadastro_frame, turma, *options_turma).place(x=55, y=365)
+            #contar para o pessoal
+            opt_menu = ctk.CTkOptionMenu(master=cadastro_frame, values=options_turma, variable=turma, fg_color="gray").place(x=45, y=290)
 
             #entrada de dados time cadastro          
             label = ctk.CTkLabel(master=cadastro_frame, text="Time", font = ('Roboto', 15), text_color= ('white'))
@@ -146,7 +147,8 @@ class tela_login_cadastro:
             options_time = ["Opção 1", "Opção 2", "Opção 3"]
             time = tk.StringVar(cadastro_frame)
             time.set(options_time[0])
-            opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
+            opt_menu = ctk.CTkOptionMenu(master=cadastro_frame, values=options_time, variable=time, fg_color="gray").place(x=45, y=345)
+            #opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
             
 
             def back():
@@ -155,7 +157,7 @@ class tela_login_cadastro:
                 login_frame.pack(side=RIGHT)
                 pass
 
-            voltar = ctk.CTkButton(cadastro_frame, text="Voltar", width=150, fg_color="gray", font = ('Roboto', 14), cursor="hand2", hover_color='#202020', command=back).place(x=45, y=380)
+            voltar = ctk.CTkButton(cadastro_frame, text="Voltar", width=150, fg_color="gray", font = ('Roboto', 14), cursor="hand2", hover_color='#202020', command=back).place(x=45, y=400)
             def cadastro():
 
                 with open('data_json/users.json', 'r') as f:
@@ -189,7 +191,7 @@ class tela_login_cadastro:
                 label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
                 pass
             
-            cadastrar_button = ctk.CTkButton(cadastro_frame, text="Cadastrar", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=cadastro).place(x=220, y=380)
+            cadastrar_button = ctk.CTkButton(cadastro_frame, text="Cadastrar", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=cadastro).place(x=220, y=400)
             
             pass
 
