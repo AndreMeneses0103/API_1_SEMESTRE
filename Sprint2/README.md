@@ -7,6 +7,7 @@
 - [INTEGRANTES](#INTEGRANTES)
 - [PERÍODO](#PERÍODO)
 - [OBJETIVO DE ENTREGA](#OBJETIVO-DE-ENTREGA) 
+- [REVIEW SPRINT 2](#REVIEW SPRINT 2)
 - [BACKLOG](#BACKLOG)
 - [INTERFACE UTILIZADA](#INTERFACE-UTILIZADA)
   
@@ -28,7 +29,13 @@
 # <h2 align=center> OBJETIVO DE ENTREGA 🎯<h2/>
 <h3 align=center>Apresentar ao cliente o modo de autenticação de usuário e a aplicação do método de avaliação 360º, para esta ferramenta. <h3/>
 
+# <h2 align=center> REVIEW SPRINT 2 📌<h2/>
+<p aling="center">
+<img src="https://github.com/Amandavannuccic/Fatec/blob/main/TO%20REVIEW-%20SPRINT%202.png" width="90%">
+<p/> 
+  
 # <h2 align=center> BACKLOG DO PRODUTO 📌<h2/>
+  
 Propriedade | Sprint |	Item | Concluído
 --- | --- | --- | ---
 Alta	| 4 |	Acesso do Administrador ao Dashboard das Turmas, Times e Sprints - Admin |➖
