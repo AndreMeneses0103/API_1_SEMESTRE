@@ -1,14 +1,14 @@
-# <h1 align=center>SPRINT 2 🏁🏃‍♂️<h1/>
-<p align='center'>
+# <h1 align=center>SPRINT 2 🏁🏃‍<h1/>
+  <p align='center'>
 <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
 </p>
   
-# <h2 align=center>ÍNDICE 🔖<h2/>
-- [INTEGRANTES](#INTEGRANTES)
-- [PERÍODO](#PERÍODO)
-- [OBJETIVO DE ENTREGA](#OBJETIVO-DE-ENTREGA)
-- [BACKLOG SPRINT 2](#BACKLOG-SPRINT-2)
-- [BACKLOG DO PRODUTO](#BACKLOG-DO-PRODUTO)
+# <h2 align=center>ÍNDICE<h2/> 🔖
+- [INTEGRANTES](#INTEGRANTES-👩‍💻👨‍💻)
+- [PERÍODO](#PERÍODO-📅)
+- [OBJETIVO DE ENTREGA](#OBJETIVO-DE-ENTREGA-🎯)
+- [BACKLOG SPRINT 2](#BACKLOG-SPRINT-2-📌)
+- [BACKLOG DO PRODUTO](#BACKLOG-DO-PRODUTO-📌)
 - [INTERFACE UTILIZADA](#INTERFACE-UTILIZADA)
   
 # <h2 align=center>INTEGRANTES 👩‍💻👨‍💻<h2/>
