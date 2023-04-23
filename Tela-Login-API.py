@@ -53,10 +53,8 @@ class tela_login_cadastro:
 
         def login():
     
-           # acesso = {"usuario":"admin", "senha":"adm123","validado":False}
             incorrect = 0
             acesso = json.load(open("data_json/users.json", "r"))
-            # if acesso["usuario"] == username.get() and acesso["senha"]==password.get():
             for x in range(len(acesso["usuarios"])):
                 input_nome = username.get()
                 input_senha = password.get()
@@ -69,10 +67,8 @@ class tela_login_cadastro:
                     janela.destroy()
                     TBV.abrir()
                 else:
-                    incorrect = 1
-            if(incorrect == 1):
-                print("Testando...")
-                # print("TERMINOU. NAO TEM CORRETOS")
+                    incorrect = incorrect + 1
+            if(incorrect == len(acesso["usuarios"])):
                 janelaNegado = ctk.CTk()
                 janelaNegado.title("ALERTA!")
                 screen_width = janelaNegado.winfo_screenwidth()
@@ -81,8 +77,7 @@ class tela_login_cadastro:
                 y = (screen_height - 100) // 2
                 janelaNegado.geometry("300x100+{0}+{0}".format(x,y))
                 janelaNegado.resizable(False, False)
-                #janelaNegado.geometry('300x100')
-                label_alerta = ctk.CTkLabel(master=janelaNegado, text="Usuário ou senha incorretos!\n\n", font=('Roboto', 15, 'bold')).pack()
+                label_alerta = ctk.CTkLabel(master=janelaNegado, text="Usuário ou senha incorretos!\n\n", font=("Roboto", 15, 'bold')).pack()
                 def destroy_alerta_Avaliacao():
                     janelaNegado.destroy()
                     
@@ -162,18 +157,12 @@ class tela_login_cadastro:
 
             voltar = ctk.CTkButton(cadastro_frame, text="Voltar", width=150, fg_color="gray", font = ('Roboto', 14), cursor="hand2", hover_color='#202020', command=back).place(x=45, y=380)
             def cadastro():
-                print(nomecompleto.get())
-                print(email.get())
-                print(senha.get())
-                print(turma.get())
-                print(time.get())
 
                 with open('data_json/users.json', 'r') as f:
                     data = json.load(f)
 
                 novos_dados = data
 
-                # print(json.dumps(novos_dados, indent=4))
                 
                 data_user = nomecompleto.get()
                 data_email = email.get()
@@ -187,7 +176,6 @@ class tela_login_cadastro:
                     "isActive": False
                 }
 
-                # print(json.dumps(data_cadastro, indent=4))
 
                 novos_dados['usuarios'].append(data_cadastro)
                 novos_dados = json.dumps(novos_dados, indent=4)

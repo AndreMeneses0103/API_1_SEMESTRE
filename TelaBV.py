@@ -43,7 +43,7 @@ def abrir():
 
             label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=420, y=214)
             
-
+            cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=300, y=380)
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=85, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=700, y=15)
             janela.protocol("WM_DELETE_WINDOW", Close)
 
@@ -59,6 +59,10 @@ def abrir():
         with open("data_json/users.json", "w") as arq_json:
             arq_json.write(insert_acesso)
 
-        (janela.destroy())
+        janela.destroy()
+        janela.mainloop()
+
+    def AbrirAv():
+        print('Oi')
 
     alerta()
