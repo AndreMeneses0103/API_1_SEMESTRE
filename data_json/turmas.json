@@ -1,0 +1,22 @@
+{
+    "turmas":[
+        {
+            "idturma": "123",
+            "nometurma": "Banco de dados",
+            "sprints": [{
+                        "indice": "1",
+                        "inicioSprint": "12/12/2023",
+                        "fimSprint":"12/12/2023"
+                        }],
+            "times": [{
+                        "idtime": "1234",
+                        "nometime": "TechHorizon",
+                        "quantidadeIntegrantes": 8,
+                        "integrantes":[{
+                                        "idusuario": "andre@email.com"
+                                        }]
+                    }]
+
+        }
+    ]
+}
