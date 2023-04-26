@@ -41,4 +41,4 @@ Baixa	| 2 |	Logout do Sistema - Admin e Usuário| ✔
 Média	| 3 |	Cadastro de integrantes nos Times - Admin |➖
 Baixa	| 4 |	Remoção de Usuário - Admin |➖
 Alta	| 2 |	Sistema de Avaliação 360º - Usuário |✔
-Média	| 2 |	Sistema de Login |✔
+Média	| 2 |	Autenticação de usuário |✔
