@@ -59,12 +59,16 @@ class tela_cadastro_time:
             frame_sprints = ctk.CTkFrame(master=tela_cadastro_frame, width=400, height=250, fg_color='gray')
             frame_sprints.place(x= 45, y= 500)
 
+            sprint['turma'] = novaturma.get()
+            label_turma = ctk.CTkLabel(master=frame_sprints, text=sprint['turma'], text_color="white", font=('Roboto', 30, 'bold')).place(x=10, y=20)
+
+
             #Cria um menu variável de acordo com o numero de sprints
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
-            global sprintSelecionada
             sprintSelecionada = IntVar()
-            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada ).place(x=50,y=380)
+            sprintSelecionada.set(sprints[0])
+            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada).place(x=50,y=380)
             
             #titulo periodos
             titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
@@ -80,19 +84,33 @@ class tela_cadastro_time:
             fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
             fim_sprint.place(x=550, y=380)
             data_seleciona_fim = fim_sprint.get_date()
+            global hor,alt
+            hor = 10
+            alt = 10
 
             #Essa botão vai salvar em JSOn
             def guardaInformacoes():
+
+                global hor,alt
                 
                 #Salva o nome da turma
-                sprint['turma'] = novaturma.get()
                 data_seleciona_inicio = inicio_sprint.get_date()
                 data_seleciona_fim = fim_sprint.get_date()
+                data_sprint = sprintSelecionada.get()
+
+                data_final = "Inicio: " + str(data_seleciona_inicio) + " // Final: " + str(data_seleciona_fim)
+                sprint_select = "Sprint: " + str(data_sprint)
+
+
                 #label das sprints criadas
-                label_sprint = ctk.CTkLabel(master=frame_sprints, text=sprint['turma'], text_color="white", font=('Roboto', 25, 'bold')).place(x=10, y=20)
-                
-                print(opcoes_time)
-                print(f'Inicio da sprint {opcoes_time} é {data_seleciona_inicio} e o final é {data_seleciona_fim}')
+                alt = alt + 50
+                label_sprint = ctk.CTkLabel(master=frame_sprints, text=sprint_select, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
+                alt = alt + 30
+                label_data = ctk.CTkLabel(master=frame_sprints, text=data_final, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
+
+
+                print(data_sprint)
+                print(f'Inicio da sprint {data_sprint} é {data_seleciona_inicio} e o final é {data_seleciona_fim}')
 
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
@@ -124,7 +142,6 @@ class tela_cadastro_time:
 
                 
                 
-
                 label_nome_times = ctk.CTkLabel(master=tela_times_frame, text="Nomeie cada um dos times", font=('Roboto', 14),text_color=('white')).place(x=45, y= 200)
                 time_nome_entry = ctk.CTkEntry(master=tela_times_frame,placeholder_text="Nome do time", placeholder_text_color="gray", width=480, font=('Roboto', 14), text_color=('white')).place(x= 200, y=230)
                 qtos_time = ctk.CTkOptionMenu(master=tela_times_frame, fg_color='gray',values=lista_times).place(x=45,y=230)
