@@ -62,8 +62,10 @@ class tela_cadastro_time:
             #Cria um menu variável de acordo com o numero de sprints
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
-            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints).place(x=50,y=380)
-
+            global sprintSelecionada
+            sprintSelecionada = IntVar()
+            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada ).place(x=50,y=380)
+            
             #titulo periodos
             titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
             numero_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Escolha a sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=320)
@@ -82,18 +84,17 @@ class tela_cadastro_time:
             #Essa botão vai salvar em JSOn
             def guardaInformacoes():
                 
-                
                 #Salva o nome da turma
                 sprint['turma'] = novaturma.get()
                 data_seleciona_inicio = inicio_sprint.get_date()
                 data_seleciona_fim = fim_sprint.get_date()
                 #label das sprints criadas
                 label_sprint = ctk.CTkLabel(master=frame_sprints, text=sprint['turma'], text_color="white", font=('Roboto', 25, 'bold')).place(x=10, y=20)
-
+                
                 print(opcoes_time)
-                print(data_seleciona_inicio, data_seleciona_fim)
+                print(f'Inicio da sprint {opcoes_time} é {data_seleciona_inicio} e o final é {data_seleciona_fim}')
+
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
-            
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
             
                
