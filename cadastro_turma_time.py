@@ -44,23 +44,31 @@ class tela_cadastro_time:
         #entrada de dados
         user_name_label1 = ctk.CTkLabel(master=tela_cadastro_frame, text="Nome da turma: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
         novaturma = tk.StringVar()#criação da variavel 
-        novaturma_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Nova turma", width=600, font = ('Roboto', 14), textvariable=novaturma).place(x=45, y=125)
+        novaturma_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Nova turma",placeholder_text_color="gray", width=600, font = ('Roboto', 14), textvariable=novaturma).place(x=45, y=125)
 
         quantidade_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Número de sprints: ", text_color="white", font=('Roboto', 14)).place(x=45,y=175)
         quantidade_sprints = tk.IntVar()
-        quantidade_sprints_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Número de sprints:", width=60, font = ('Roboto', 14), textvariable=quantidade_sprints).place(x=45,y=200)
-
-
+        quantidade_sprints_entry = ctk.CTkEntry(master=tela_cadastro_frame, placeholder_text="Número de sprints:",placeholder_text_color="gray", width=60, font = ('Roboto', 14), textvariable=quantidade_sprints).place(x=45,y=200)
+        
+        global sprint
+        sprint = dict()
+        
         def define_numero_sprints():
 
-            valor_sprint = tk.StringVar(tela_cadastro_frame)
+            # Frame onde vai aparecer sprints criadas
+            frame_sprints = ctk.CTkFrame(master=tela_cadastro_frame, width=400, height=250, fg_color='gray')
+            frame_sprints.place(x= 45, y= 500)
+
+            #Cria um menu variável de acordo com o numero de sprints
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
-            opcoes_time = tk.OptionMenu(tela_cadastro_frame, valor_sprint, *sprints).place(x=50,y=380)
+            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints).place(x=50,y=380)
 
+            #titulo periodos
             titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
             numero_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Escolha a sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=320)
-
+         
+            global fim_sprint, data_seleciona_fim, data_seleciona_inicio, inicio_sprint
             inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=350,y=320)
             inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
             inicio_sprint.place(x= 350, y= 380)
@@ -70,8 +78,21 @@ class tela_cadastro_time:
             fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
             fim_sprint.place(x=550, y=380)
             data_seleciona_fim = fim_sprint.get_date()
-            #Esse botão vai pegar Sprint e datas e salvar em JSOn
-            botao = ctk.CTkButton(master=tela_cadastro_frame, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
+
+            #Essa botão vai salvar em JSOn
+            def guardaInformacoes():
+                
+                
+                #Salva o nome da turma
+                sprint['turma'] = novaturma.get()
+                data_seleciona_inicio = inicio_sprint.get_date()
+                data_seleciona_fim = fim_sprint.get_date()
+                #label das sprints criadas
+                label_sprint = ctk.CTkLabel(master=frame_sprints, text=sprint['turma'], text_color="white", font=('Roboto', 25, 'bold')).place(x=10, y=20)
+
+                print(opcoes_time)
+                print(data_seleciona_inicio, data_seleciona_fim)
+            botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
             
@@ -83,39 +104,41 @@ class tela_cadastro_time:
             #Apaga o frame de cadastro de turmas
             tela_cadastro_frame.pack_forget()
 
-            #frame a direita
+            # frame a direita
             tela_times_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
             tela_times_frame.pack(side=RIGHT)
 
-            #criar novos times
-            label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font = ('Roboto', 25, 'bold'), text_color= ('white') ).place(x=45, y=40)
-            label_num_times = ctk.CTkLabel(master=tela_times_frame, text="Defina o número de times", font = ('Roboto', 14), text_color= ('white') ).place(x=45, y=100)
+            # criar novos times
+            label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font=('Roboto', 25, 'bold'), text_color=('white')).place(x=45, y=40)
+            label_num_times = ctk.CTkLabel(master=tela_times_frame, text="Defina o número de times", font=('Roboto', 14), text_color=('white')).place(x=45, y=100)
 
-            #define quantidade de times
-
-
-            def tela_cadastro_time():
-                # Apaga o frame de cadastro de turmas
-                tela_cadastro_frame.pack_forget()
-
-                # frame a direita
-                tela_times_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
-                tela_times_frame.pack(side=RIGHT)
-
-                # criar novos times
-                label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font=('Roboto', 25, 'bold'), text_color=('white')).place(x=45, y=40)
-                label_num_times = ctk.CTkLabel(master=tela_times_frame, text="Defina o número de times", font=('Roboto', 14), text_color=('white')).place(x=45, y=100)
-
-                # define quantidade de times
-                num_times = tk.IntVar()
-                num_times_entry = ctk.CTkEntry(master=tela_times_frame, placeholder_text="Número de times:", width=60, font=('Roboto', 14), textvariable=num_times).place(x=45, y=180)
-                
-                #def cria_novos_times():
+            # define quantidade de times
+            num_times = tk.IntVar()
+            num_times_entry = ctk.CTkEntry(master=tela_times_frame, placeholder_text="Número de times:",placeholder_text_color="gray", width=60, font=('Roboto', 14), textvariable=num_times).place(x=45, y=130)
+            
+            def cria_novos_times():
                 numero_times = int(num_times.get())
-                lista_times = list(range(1, numero_times+1))
+                lista_times = [str(i) for i in range(1, numero_times+1)]
                 print(lista_times)
 
-            num_times_botao = ctk.CTkButton(master=tela_times_frame, text="OK", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=150, y=240)
+                
+                
+
+                label_nome_times = ctk.CTkLabel(master=tela_times_frame, text="Nomeie cada um dos times", font=('Roboto', 14),text_color=('white')).place(x=45, y= 200)
+                time_nome_entry = ctk.CTkEntry(master=tela_times_frame,placeholder_text="Nome do time", placeholder_text_color="gray", width=480, font=('Roboto', 14), text_color=('white')).place(x= 200, y=230)
+                qtos_time = ctk.CTkOptionMenu(master=tela_times_frame, fg_color='gray',values=lista_times).place(x=45,y=230)
+
+                #frame que vai listar os times criados
+                times_frame = ctk.CTkFrame(master=tela_times_frame, width=650, height=200).place(x=45, y= 300)
+                nome_times_botao = ctk.CTkButton(master=tela_times_frame, text="Adicionar",command= salvatimes, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=690, y=230)
+                
+            def salvatimes():
+                pass
+
+
+            num_times_botao = ctk.CTkButton(master=tela_times_frame, text="OK",command= cria_novos_times, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=150, y=130)
+
+
 
 
 tela_cadastro_time()
