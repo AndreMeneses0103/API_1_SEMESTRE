@@ -4,6 +4,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 from tkcalendar import Calendar, DateEntry
+import random
 
 janela = ctk.CTk()
 
@@ -52,7 +53,8 @@ class tela_cadastro_time:
         
         global sprint
         sprint = dict()
-        
+        #LISTA QUE ARMAZENA OS DADOS DA SPRINT PARA GRAVAR EM JSON
+        sprints = []
         def define_numero_sprints():
 
             # Frame onde vai aparecer sprints criadas
@@ -109,8 +111,47 @@ class tela_cadastro_time:
                 label_data = ctk.CTkLabel(master=frame_sprints, text=data_final, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
 
 
-                print(data_sprint)
+                
                 print(f'Inicio da sprint {data_sprint} é {data_seleciona_inicio} e o final é {data_seleciona_fim}')
+                #VARIAVEIS E LISTA QUE ARMAZENARAM DADOS PARA GRAVAR EM JSON - JHONY
+                global idturma, nometurma
+                idturma = sprint['turma'].replace(" ", "").strip()
+                numeroaleatorio = random.randint(500, 10000)
+                idturma = idturma+str(numeroaleatorio)
+                nometurma = sprint['turma']
+                sprints.append({
+                                "indice":str(data_sprint), 
+                                "inicioSprint": str(data_seleciona_inicio),
+                                "fimSprint":str(data_seleciona_fim)
+                                })
+                print(sprints)
+                
+            ''' with open ('data_json/turmas.json', "r") as turmas:
+                    data_turma = json.load(turmas)
+
+                novos_dados = data_turma
+                dados_novos ={
+                        "idturma": idturma,
+                        "nometurma": nometurma,
+                        "sprints": sprints,
+                        "times": "teste"   
+                }
+
+                novos_dados['turmas'].append(dados_novos)
+                novos_dados = json.dumps(novos_dados, indent=4)
+
+
+                with open ("data_json/turmas.json" , "w") as escrevendo:
+                    escrevendo.write(novos_dados)
+'''
+
+
+
+
+
+
+
+
 
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
