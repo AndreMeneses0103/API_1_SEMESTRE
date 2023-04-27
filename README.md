@@ -15,7 +15,7 @@
 - Grupos: Conjunto de determinados Times.
 - Times: Conjunto de determinados Alunos.
 
-# <h2 align=center>Possíveis Dúvidas Referente a Situação Problema<h2/>
+# <h2 align=center>fAQ (frequently asked questions)<h2/>
 - Participação hierarquica na avaliação: Ausente (Extingue a possibilidade do Administrador ser avaliado).
 - Possibilidade de inumeros Grupos: Presente
 - Possibilidade de inumeros Times: Presente
