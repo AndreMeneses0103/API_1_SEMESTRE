@@ -89,7 +89,8 @@ class tela_cadastro_time:
             global hor,alt
             hor = 10
             alt = 10
-
+            #LISTA QUE IRÁ ARMAZENAR TEMPORARIAMENTE AS SPRINTS 
+            sprintsSelecionada = []
             #Essa botão vai salvar em JSOn
             def guardaInformacoes():
 
@@ -119,12 +120,13 @@ class tela_cadastro_time:
                 numeroaleatorio = random.randint(500, 10000)
                 idturma = idturma+str(numeroaleatorio)
                 nometurma = sprint['turma']
-                sprints.append({
+                
+                sprintsSelecionada.append({
                                 "indice":str(data_sprint), 
                                 "inicioSprint": str(data_seleciona_inicio),
                                 "fimSprint":str(data_seleciona_fim)
                                 })
-                print(sprints)
+                print(sprintsSelecionada)
                 
             ''' with open ('data_json/turmas.json', "r") as turmas:
                     data_turma = json.load(turmas)
@@ -152,7 +154,7 @@ class tela_cadastro_time:
 
 
 
-
+            
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
             
