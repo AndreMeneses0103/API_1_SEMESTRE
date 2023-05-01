@@ -20,6 +20,25 @@
                             "idusuario": "andre@email.com"
                         }
                     ]
+                },
+                {
+                    "idtime": "1234",
+                    "nometime": "TechHorizon",
+                    "quantidadeIntegrantes": 8,
+                    "integrantes": [
+                        {
+                            "idusuario": "andre@email.com"
+                        }
+                    ]
+                },{
+                    "idtime": "1234",
+                    "nometime": "TechHorizon",
+                    "quantidadeIntegrantes": 8,
+                    "integrantes": [
+                        {
+                            "idusuario": "andre@email.com"
+                        }
+                    ]
                 }
             ]
         },
@@ -37,7 +56,38 @@
                     "fimSprint": "2023-04-27"
                 }
             ],
-            "times": "teste"
+            "times": [
+                {
+                    "idtime": "1234",
+                    "nometime": "TechHorizon",
+                    "quantidadeIntegrantes": 8,
+                    "integrantes": [
+                        {
+                            "idusuario": "andre@email.com"
+                        }
+                    ]
+                },
+                {
+                    "idtime": "1234",
+                    "nometime": "TechHorizon",
+                    "quantidadeIntegrantes": 8,
+                    "integrantes": [
+                        {
+                            "idusuario": "andre@email.com"
+                        }
+                    ]
+                },
+                {
+                    "idtime": "1234",
+                    "nometime": "TechHorizon",
+                    "quantidadeIntegrantes": 8,
+                    "integrantes": [
+                        {
+                            "idusuario": "andre@email.com"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

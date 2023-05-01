@@ -1,67 +1,24 @@
 {
     "usuarios": [
         {
-            "user": "Andre",
-            "id": "andre@email.com",
+            "user": "Jhony",
+            "id": "jhony",
+            "idturma": "123",
+            "idtime": "1234",
             "cargo": "user",
-            "senha": "123",
-            "isActive": false
+            "senha": "1234",
+            "isActive": false,
+            "aceito": false
         },
         {
-            "user": "Jhonny",
-            "id": "jhony@email.com",
+            "user": "Testando 4",
+            "id": "testeando@gmail.com",
+            "idturma": "123",
+            "idtime": "1234",
             "cargo": "user",
-            "senha": "abc",
-            "isActive": false
-        },
-        {
-            "user": "Nadalete",
-            "id": "nadalete@email.com",
-            "cargo": "adm",
-            "senha": "xyz",
-            "isActive": false
-        },
-        {
-            "user": "Marcos",
-            "id": "marcos@email.com",
-            "cargo": "user",
-            "senha": "cr7",
-            "isActive": false
-        },
-        {
-            "user": "Raul",
-            "id": "raul@email.com",
-            "cargo": "user",
-            "senha": "abcde",
-            "isActive": false
-        },
-        {
-            "user": "Cristiano",
-            "id": "siuuu@email.com",
-            "cargo": "user",
-            "senha": "cristiano7",
-            "isActive": false
-        },
-        {
-            "user": "Messi",
-            "id": "messi@email.com",
-            "cargo": "user",
-            "senha": "bobo",
-            "isActive": false
-        },
-        {
-            "user": "Cassio",
-            "id": "cassio@email.com",
-            "cargo": "user",
-            "senha": "corintia",
-            "isActive": false
-        },
-        {
-            "user": "Julio",
-            "id": "julio@email.com",
-            "cargo": "user",
-            "senha": "julius",
-            "isActive": false
+            "senha": "1234",
+            "isActive": false,
+            "aceito": false
         }
     ]
 }
