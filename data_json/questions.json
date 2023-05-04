@@ -1,11 +1,24 @@
 {
-    "Repostas2": {
-        
-            "nome": Andre",
-            "resposta1": "1",
-            "resposta2": "2",
-            "resposta3": "3",
-            "resposta4": "4",
-            "resposta5": "5"
+    "Avaliacao":[ 
+        {
+            "idAvaliador": "123",
+            "sprint": 1,
+            "idturma": "123",
+            "idtime": "123",
+            "respostas":[{
+                    "idavaliado" : "1234",
+                    "resposta1": 3,
+                    "feedback1": "",
+                    "resposta2": 3,
+                    "feedback2": "",
+                    "resposta3": 3,
+                    "feedback3": "",
+                    "resposta4": 3,
+                    "feedback4":"",
+                    "resposta5": 3,
+                    "feedback5": ""
+                        }
+                    ]
         }
+    ]
 }

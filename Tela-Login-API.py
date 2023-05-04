@@ -5,7 +5,7 @@ import tkinter as tk
 import TelaBV as TBV
 
 janela = ctk.CTk()
-
+    
 class tela_login_cadastro:
     def __init__(self):#deve conter todas as funções que existem - é a principal
      
