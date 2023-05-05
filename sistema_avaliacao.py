@@ -2,6 +2,7 @@ import tkinter as tk
 import customtkinter as ctk
 from tkinter import *
 import json
+import TelaBV
 
 
 global avaliado
@@ -213,6 +214,7 @@ def abrir_avaliacao():
                                 def destroy_alerta_Finalizado():
                                     janela.destroy()
                                     janelaAlertaFinalizado.destroy()
+                                    TelaBV.abrir()
                                 button_ok = ctk.CTkButton(janelaAlertaFinalizado, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Finalizado, fg_color='#5CE1E6', text_color='black').pack()   
                                 janelaAlertaFinalizado.mainloop()
                             else:
