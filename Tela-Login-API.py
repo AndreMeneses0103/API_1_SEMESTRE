@@ -29,9 +29,9 @@ class tela_login_cadastro:
 
     def tela_login(self):
         #trabalhando com a imagem da tela
-        '''img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+        img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
-        label_img.place(x=50, y=160)'''
+        label_img.place(x=50, y=160)
         label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360 e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
 
         #frame a direita
@@ -59,13 +59,29 @@ class tela_login_cadastro:
                 input_nome = username.get()
                 input_senha = password.get()
                 if (acesso["usuarios"][x]["user"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
-                    aviso_validado = ctk.CTkLabel(master=login_frame, text="Acesso liberado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
-                    acesso["usuarios"][x]["isActive"] = True
-                    insert_acesso = str(json.dumps(acesso, indent=4))
-                    with open("data_json/users.json", "w") as arq_json:
-                        arq_json.write(insert_acesso)
-                    janela.destroy()
-                    TBV.abrir()
+                    if(acesso["usuarios"][x]["aceito"] == False):
+                        janelaAceito = ctk.CTk()
+                        janelaAceito.title("ALERTA!")
+                        screen_width = janelaAceito.winfo_screenwidth()
+                        screen_height = janelaAceito.winfo_screenheight()
+                        x = (screen_width - 300) // 2
+                        y = (screen_height - 100) // 2
+                        janelaAceito.geometry("600x100+{0}+{0}".format(x,y))
+                        janelaAceito.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaAceito, text="O usuario ainda nao foi aceito. Aguarde o ingresso pelo administrador.\n\n", font=("Roboto", 15, 'bold')).pack()
+                        def destroy_alerta_aceito():
+                            janelaAceito.destroy()
+                            
+                        button_ok = ctk.CTkButton(janelaAceito, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_aceito, fg_color='#5CE1E6', text_color='black').pack()
+                        janelaAceito.mainloop()
+                    else:
+                        aviso_validado = ctk.CTkLabel(master=login_frame, text="Acesso liberado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
+                        acesso["usuarios"][x]["isActive"] = True
+                        insert_acesso = str(json.dumps(acesso, indent=4))
+                        with open("data_json/users.json", "w") as arq_json:
+                            arq_json.write(insert_acesso)
+                        janela.destroy()
+                        TBV.abrir()
                 else:
                     incorrect = incorrect + 1
             if(incorrect == len(acesso["usuarios"])):
