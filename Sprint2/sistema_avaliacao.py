@@ -10,7 +10,7 @@ avaliado = 0
 
 def abrir_avaliacao():
     #IMPORTAÇÃO DO JSON DE USUÁRIOS PRÉ DEFINIDOS
-    with open('data_json/users.json', 'r') as usuarios:
+    with open('Sprint2/data_json/users.json', 'r') as usuarios:
             data = json.load(usuarios)
 
     avaliados = []
@@ -42,7 +42,7 @@ def abrir_avaliacao():
             janela.geometry("1500x700+{}+{}".format(x, y))
             
             janela.title("Sistema de login")
-            janela.iconbitmap("logo_insight.ico")
+            janela.iconbitmap("Sprint2/logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
 
@@ -53,7 +53,7 @@ def abrir_avaliacao():
             pass
 
         def tela_avaliação(self):
-            img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+            img = PhotoImage(file="Sprint2/logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
             label_img.place(x=20, y=20)
 
@@ -254,14 +254,14 @@ def abrir_avaliacao():
             questionario()
 
     def Close():
-        acesso = json.load(open("data_json/users.json", "r"))
+        acesso = json.load(open("Sprint2/data_json/users.json", "r"))
 
         for x in range(len(acesso["usuarios"])):
             acesso["usuarios"][x]["isActive"] = False
 
         insert_acesso = str(json.dumps(acesso, indent=4))
 
-        with open("data_json/users.json", "w") as arq_json:
+        with open("Sprint2/data_json/users.json", "w") as arq_json:
             arq_json.write(insert_acesso)
 
         janela.destroy()
