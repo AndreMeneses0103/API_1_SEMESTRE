@@ -56,12 +56,13 @@ class tela_cadastro_time:
         #LISTA QUE ARMAZENA OS DADOS DA SPRINT PARA GRAVAR EM JSON
         sprints = []
         def define_numero_sprints():
-
-            # Frame onde vai aparecer sprints criadas
-            frame_sprints = ctk.CTkFrame(master=tela_cadastro_frame, width=400, height=250, fg_color='gray')
-            frame_sprints.place(x= 45, y= 500)
-
             sprint['turma'] = novaturma.get()
+            # Frame onde vai aparecer sprints criadas
+            frame_sprints = ctk.CTkScrollableFrame(master=tela_cadastro_frame, width=400, height=250, corner_radius=0, fg_color="transparent",label_text=sprint['turma'] )
+            #frame_sprints.grid(row=0, column=0, sticky="nsew")
+            frame_sprints.place(x= 45, y= 500)
+            
+
             label_turma = ctk.CTkLabel(master=frame_sprints, text=sprint['turma'], text_color="white", font=('Roboto', 30, 'bold')).place(x=10, y=20)
 
 
@@ -110,7 +111,7 @@ class tela_cadastro_time:
                 label_sprint = ctk.CTkLabel(master=frame_sprints, text=sprint_select, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
                 alt = alt + 30
                 label_data = ctk.CTkLabel(master=frame_sprints, text=data_final, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
-
+                
 
                 
                 print(f'Inicio da sprint {data_sprint} é {data_seleciona_inicio} e o final é {data_seleciona_fim}')
@@ -145,7 +146,10 @@ class tela_cadastro_time:
 
                 with open ("data_json/turmas.json" , "w") as escrevendo:
                     escrevendo.write(novos_dados)
-'''         
+'''
+
+
+            
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
             
