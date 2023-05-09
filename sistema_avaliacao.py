@@ -4,7 +4,6 @@ from tkinter import *
 import json
 import TelaBV
 
-
 global avaliado
 avaliado = 0
 
@@ -62,7 +61,7 @@ def abrir_avaliacao():
                 if((data["usuarios"][x]["isActive"]) == True):
                     logado = data["usuarios"][x]["user"]
 
-            nome = logado
+            nome = "logado"
             sprint = "1"
             turma = "Banco de Dados"
             time = "TechHorizon"
@@ -114,10 +113,45 @@ def abrir_avaliacao():
                 resposta4 = tk.IntVar()
                 resposta5 = tk.IntVar()
 
+
+
+                #JANELAS SUSPENSAS DE FEEDBACKS, CASO A RESPOSTA ESCOLHIDA SEJA INFERIOR A REGULAR
+                def janelaSuspensa1():
+                    janelaSuspensa = ctk.CTk()
+                    janelaSuspensa.title("ALERTA!")
+                    screen_width = janelaSuspensa.winfo_screenwidth()
+                    screen_height = janelaSuspensa.winfo_screenheight()
+                    x = (screen_width - 450) // 2
+                    y = (screen_height - 230) // 2
+                    janelaSuspensa.geometry("450x230+{}+{}".format(x, y))
+                    janelaSuspensa.resizable(False, False)
+                    
+                    feedback1 = ctk.StringVar()
+                    label = ctk.CTkLabel(master=janelaSuspensa, text="Justifique sua escolha: ", font=('Roboto', 15)).pack()
+                    entryTexto = ctk.CTkEntry(master=janelaSuspensa, width=300, textvariable=feedback1).pack()
+                    senha = tk.StringVar()
+                    senha_cadastro = ctk.CTkEntry(master=janelaSuspensa, textvariable=senha,placeholder_text="Digite sua senha", width=300, font = ('Roboto', 14), show='*').pack()
+
+                    def destroyTeste():
+                        print(senha.get())
+                        
+                        janelaSuspensa.destroy()
+                        pass
+                    
+
+                    buttonDestroy = ctk.CTkButton(janelaSuspensa, text='Ok', command=destroyTeste).pack()
+                    
+                    janelaSuspensa.mainloop()
+                   
+                   
+
+
+
+
                 titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário', font=('Roboto', 30, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
             
                 label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=90)
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=165)
+                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black', command=janelaSuspensa1).place(x=80, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta1, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=165)
@@ -168,6 +202,8 @@ def abrir_avaliacao():
                     respostas["resposta3"] = resposta3.get()
                     respostas["resposta4"] = resposta4.get()
                     respostas["resposta5"] = resposta5.get()
+
+                    
                     
                     #MÉTRICAS EM NÚMEROS
                     # 1 - MUITO RUIM / 2 - RUIM / 3 - REGULAR / 4 - BOM / 5 - MUITO BOM
@@ -271,3 +307,4 @@ def abrir_avaliacao():
 
 #INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
     Avaliação()
+abrir_avaliacao()
