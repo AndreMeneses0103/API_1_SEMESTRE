@@ -10,7 +10,7 @@ ctk.set_default_color_theme("blue")
 janela = ctk.CTk()
 janela.geometry("1080x540") 
 janela.title("Tela Administrador")
-janela.iconbitmap("insight.ico")
+janela.iconbitmap("logo_insight.ico")
 janela.resizable(False, False)
 
 #imagem logo 360
