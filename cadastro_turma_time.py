@@ -145,16 +145,7 @@ class tela_cadastro_time:
 
                 with open ("data_json/turmas.json" , "w") as escrevendo:
                     escrevendo.write(novos_dados)
-'''
-
-
-
-
-
-
-
-
-            
+'''         
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
             
@@ -183,7 +174,6 @@ class tela_cadastro_time:
                 lista_times = [str(i) for i in range(1, numero_times+1)]
                 print(lista_times)
 
-                
                 
                 label_nome_times = ctk.CTkLabel(master=tela_times_frame, text="Nomeie cada um dos times", font=('Roboto', 14),text_color=('white')).place(x=45, y= 200)
                 time_nome_entry = ctk.CTkEntry(master=tela_times_frame,placeholder_text="Nome do time", placeholder_text_color="gray", width=480, font=('Roboto', 14), text_color=('white')).place(x= 200, y=230)
