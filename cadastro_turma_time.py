@@ -55,17 +55,22 @@ class tela_cadastro_time:
         sprint = dict()
         #LISTA QUE ARMAZENA OS DADOS DA SPRINT PARA GRAVAR EM JSON
         sprints = []
+
+
+        def cria_label(titulo, frame, posicaoY, posicaoX):
+            
+            label = ctk.CTkLabel(master=frame, text=titulo, text_color="white", font=('Roboto', 12, 'bold'))
+            label.grid(row=posicaoX, column=0, pady = posicaoY)
+            
+
         def define_numero_sprints():
             sprint['turma'] = novaturma.get()
             # Frame onde vai aparecer sprints criadas
+            #frame_sprints = ctk.CTkFrame(master=tela_cadastro_frame, width=400, height=250, fg_color="gray")
             frame_sprints = ctk.CTkScrollableFrame(master=tela_cadastro_frame, width=400, height=250, corner_radius=0, fg_color="transparent",label_text=sprint['turma'] )
             #frame_sprints.grid(row=0, column=0, sticky="nsew")
             frame_sprints.place(x= 45, y= 500)
             
-
-            label_turma = ctk.CTkLabel(master=frame_sprints, text=sprint['turma'], text_color="white", font=('Roboto', 30, 'bold')).place(x=10, y=20)
-
-
             #Cria um menu variável de acordo com o numero de sprints
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
@@ -108,9 +113,10 @@ class tela_cadastro_time:
 
                 #label das sprints criadas
                 alt = alt + 50
-                label_sprint = ctk.CTkLabel(master=frame_sprints, text=sprint_select, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
-                alt = alt + 30
-                label_data = ctk.CTkLabel(master=frame_sprints, text=data_final, text_color="white", font=('Roboto', 20, 'bold')).place(x=hor, y=alt)
+                hor = hor + 1
+
+                cria_label(sprint_select, frame_sprints, alt, hor)
+                cria_label(data_final, frame_sprints, alt, hor+1)
                 
 
                 
