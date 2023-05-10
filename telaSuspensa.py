@@ -17,7 +17,7 @@ def janelaSuspensa():
     entry = ctk.CTkEntry(master=janelaSuspensa, width=300, textvariable=testando).pack()
 
     def destroy():
-        
+        print(testando.get())
         if testando.get()== "":
             labelAlerta = ctk.CTkLabel(master=janelaSuspensa, text="O preenchimento é obrigatório!").pack()
         else:

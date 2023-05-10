@@ -57,10 +57,10 @@ class tela_cadastro_time:
         sprints = []
 
 
-        def cria_label(titulo, frame, posicaoY, posicaoX):
+        def cria_label(titulo, frame, posicaoX, posicaoY, coluna):
             
             label = ctk.CTkLabel(master=frame, text=titulo, text_color="white", font=('Roboto', 12, 'bold'))
-            label.grid(row=posicaoX, column=0, pady = posicaoY)
+            label.grid(row=posicaoX, column=coluna, pady = posicaoY)
             
 
         def define_numero_sprints():
@@ -93,8 +93,8 @@ class tela_cadastro_time:
             fim_sprint.place(x=550, y=380)
             data_seleciona_fim = fim_sprint.get_date()
             global hor,alt
-            hor = 10
-            alt = 10
+            hor = 1
+            alt = 1
             #LISTA QUE IRÁ ARMAZENAR TEMPORARIAMENTE AS SPRINTS 
             sprintsSelecionada = []
             #Essa botão vai salvar em JSOn
@@ -112,12 +112,13 @@ class tela_cadastro_time:
 
 
                 #label das sprints criadas
-                alt = alt + 50
-                hor = hor + 1
 
-                cria_label(sprint_select, frame_sprints, alt, hor)
-                cria_label(data_final, frame_sprints, alt, hor+1)
+                cria_label(sprint_select, frame_sprints, hor+1, alt,0)
                 
+                
+                cria_label(data_final, frame_sprints, hor+1, alt, 1)
+                #alt = alt + 10
+                hor = hor + 1
 
                 
                 print(f'Inicio da sprint {data_sprint} é {data_seleciona_inicio} e o final é {data_seleciona_fim}')
