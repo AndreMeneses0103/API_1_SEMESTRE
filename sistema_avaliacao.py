@@ -139,7 +139,7 @@ def abrir_avaliacao():
 
                 titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário', font=('Roboto', 30, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
             
-                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=90)
+                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=70, y=90)
                 
                 
                 #JANELAS SUSPENSAS DE FEEDBACKS, CASO A RESPOSTA ESCOLHIDA SEJA INFERIOR A REGULAR
@@ -170,43 +170,43 @@ def abrir_avaliacao():
                     janelaSuspensa.mainloop()
                    
                 '''
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=165)
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=165)
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta1, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=165)
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=165)
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=165)
+                checkbutton_respostas1 = ctk.CTkRadioButton(master=perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=140)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 18), fg_color='#5CE1E6').place(x=280, y=140)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta1, value=3,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=480, y=140)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=140)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=880, y=140)
                 #button = ctk.CTkButton(perguntas_frame, text="testando", command=cs.janelaSuspensa).place(x=80, y=90)
 
-                label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o trabalho em equipe durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=180)
-                checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=278)
-                checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta2, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=278)
-                checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta2, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=278)
-                checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta2, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=278)
-                checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta2, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=278)
+                label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o trabalho em equipe durante essa Sprint?', font=('Roboto', 18)).place(x= 70, y=180)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=230)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta2, value=2,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=280, y=230)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta2, value=3,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=480, y=230)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta2, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=230)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta2, value=5,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=880, y=230)
             
 
-                label_pergunta3 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=270)
-                checkbutton_respostas3 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta3, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=390)
-                checkbutton_respostas3 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta3, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=390)
-                checkbutton_respostas3 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta3, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=390)
-                checkbutton_respostas3 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta3, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=390)
-                checkbutton_respostas3 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta3, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=390)
+                label_pergunta3 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 18)).place(x= 70, y=270)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta3, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=320)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta3, value=2,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=280, y=320)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta3, value=3,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=480, y=320)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta3, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=320)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta3, value=5,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=880, y=320)
             
 
-                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=360)
-                checkbutton_respostas4 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=500)
-                checkbutton_respostas4 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=500)
-                checkbutton_respostas4 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=500)
-                checkbutton_respostas4 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta4, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=500)
-                checkbutton_respostas4 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta4, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=500)
+                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 18)).place(x= 70, y=360)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=410)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=280, y=410)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=480, y=410)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta4, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=410)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta4, value=5,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=880, y=410)
             
 
-                label_pergunta5 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua entrega com relação ao prazo do projeto nessa Sprint?', font=('Roboto', 18)).place(x=50, y=450)
-                checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta5, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=615)
-                checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta5, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=615)
-                checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta5, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=615)
-                checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta5, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=615)
-                checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta5, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=615)
+                label_pergunta5 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua entrega com relação ao prazo do projeto nessa Sprint?', font=('Roboto', 18)).place(x=70, y=450)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta5, value=1,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=70, y=500)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta5, value=2,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=280, y=500)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta5, value=3,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=480, y=500)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta5, value=4,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=680, y=500)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta5, value=5,font=('Roboto', 18), fg_color='#5CE1E6').place(x=880, y=500)
                 
                 respostaLista = []
                 def proximo_integrante():
@@ -350,3 +350,4 @@ def abrir_avaliacao():
 
 #INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
     Avaliação()
+abrir_avaliacao()
