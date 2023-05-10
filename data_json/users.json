@@ -8,7 +8,8 @@
             "cargo": "user",
             "senha": "1234",
             "isActive": false,
-            "aceito": true
+            "aceito": true,
+            "resp": false
         },
         {
             "user": "Andre",

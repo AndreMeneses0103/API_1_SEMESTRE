@@ -4,8 +4,6 @@ from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
 
-
-
 # def abrir_login():
     
 janela = ctk.CTk()
@@ -303,4 +301,4 @@ class tela_login_cadastro:
         pass
         #para mudar a cor do botão no ctk fg_color - hover_color
 
-    tela_login_cadastro()
+tela_login_cadastro()
