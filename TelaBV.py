@@ -38,6 +38,8 @@ def abrir():
 
             acesso = json.load(open("data_json/users.json", "r"))
 
+            ac_turmas = json.load(open("data_json/turmas.json", "r"))
+
             for x in range(len(acesso["usuarios"])):
                 if(acesso["usuarios"][x]["isActive"] == True):
                     user_nome = acesso["usuarios"][x]["user"]
@@ -48,13 +50,15 @@ def abrir():
             times = []
             turmas = []
            
-            for x in range(len(acesso["usuarios"])):
-                if(acesso["usuarios"][x]["user"] == user_nome):
-                    times = acesso["usuarios"][x]["times"]
-                    turmas = acesso["usuarios"][x]["turmas"]
+            for nome in ac_turmas["turmas"]:
+                # times = acesso["usuarios"][x]["times"]
+                turmas.append(nome["nometurma"])
 
+            print(turmas)
             timeSelecionado = StringVar()
             turmaSelecionada = StringVar()
+
+            turmaSelecionada.set(turmas[0])
 
             # Option Menu para selecionar o time
             times_label = ctk.CTkLabel(master=janela, text="Time:", font=("Roboto", 14), text_color='white').place(x=50, y=15)
@@ -95,4 +99,4 @@ def abrir():
         janela.destroy()
         
     alerta()
-abrir()
+# abrir()

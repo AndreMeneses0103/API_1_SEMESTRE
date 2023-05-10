@@ -36,7 +36,7 @@ def abrir():
 
             
             # logout_button = ctk.CTkButton(master=janela, text="Logout", width=85, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD').place(x=700, y=15)
-
+ 
             # espaco = ctk.CTkFrame(master=janela, width=500, height= 500, fg_color="#3d3a3a")
             # espaco.place(x=0, y=200)
 
@@ -44,7 +44,7 @@ def abrir():
             scroll = ctk.CTkScrollableFrame(master=janela, width=500, height=50)
             barra = scroll._scrollbar
             barra.configure(height= 0)
-            scroll.pack()
+            scroll.place(x=200, y=200)
 
             for x in range(10):
                 label = ctk.CTkLabel(master=scroll, text=f"NUMERO {x}")

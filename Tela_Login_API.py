@@ -303,4 +303,4 @@ class tela_login_cadastro:
         pass
         #para mudar a cor do botão no ctk fg_color - hover_color
 
-    tela_login_cadastro()
+tela_login_cadastro()
