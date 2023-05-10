@@ -38,20 +38,43 @@ def abrir():
 
             acesso = json.load(open("data_json/users.json", "r"))
 
+            ac_turmas = json.load(open("data_json/turmas.json", "r"))
+
             for x in range(len(acesso["usuarios"])):
                 if(acesso["usuarios"][x]["isActive"] == True):
                     user_nome = acesso["usuarios"][x]["user"]
                     jaResp = acesso["usuarios"][x]["resp"]
 
             label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=420, y=214)
-            
-            if(jaResp == False):
-                cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=300, y=380)
-            else:
-                cadastrar_button = ctk.CTkButton(master=janela, text="Finalizado", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="cross", hover_color='#404345').place(x=300, y=380)
-            logout_button = ctk.CTkButton(master=janela, text="Logout", width=85, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=700, y=15)
-            janela.protocol("WM_DELETE_WINDOW", Close)
+            # Botões para selecionar o time e turma do usuário
+            times = []
+            turmas = []
+           
+            for nome in ac_turmas["turmas"]:
+                # times = acesso["usuarios"][x]["times"]
+                turmas.append(nome["nometurma"])
 
+            print(turmas)
+            timeSelecionado = StringVar()
+            turmaSelecionada = StringVar()
+
+            turmaSelecionada.set(turmas[0])
+
+            # Option Menu para selecionar o time
+            times_label = ctk.CTkLabel(master=janela, text="Time:", font=("Roboto", 14), text_color='white').place(x=50, y=15)
+            times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=120, y=15)
+
+            # Option Menu para selecionar a turma
+            turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=300, y=15)
+            turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray").place(x=380, y=15)
+
+            dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=50, y=450)
+            cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=60, y=450)
+            logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=680, y=15)
+            #times_button = ctk.CTkButton(master=janela, text="Times", width=200, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=50, y=15)
+            #turmas_button = ctk.CTkButton(master=janela, text="Turmas", width=200, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=300, y=15)
+            
+            janela.protocol("WM_DELETE_WINDOW", Close)
 
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
@@ -71,4 +94,9 @@ def abrir():
         janela.destroy()
         TelaAV.abrir_avaliacao()
 
+    # Def para exibir a tela de dashboards
+    def AbrirDashboards():
+        janela.destroy()
+        
     alerta()
+# abrir()
