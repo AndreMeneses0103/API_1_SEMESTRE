@@ -4,6 +4,7 @@ from tkinter import *
 import json
 import TelaBV
 
+
 global avaliado
 avaliado = 0
 
@@ -13,9 +14,30 @@ def abrir_avaliacao():
     with open('data_json/users.json', 'r') as usuarios:
             data = json.load(usuarios)
 
+   
+
+
+    #for xr in range(len(data["usuarios"])):
+    
+    #BUSCANDO AVALIADOS DO TIME e ids
+    usuarios = data["usuarios"]
+    #PEGAR O ID DA PESSOA QUE ESTIVER LOGADA
+    global idavaliador
+    for usuario in usuarios:
+        if usuario['isActive'] == True:
+            idavaliador = usuario['id']
+
     avaliados = []
-    for xr in range(len(data["usuarios"])):
-        avaliados.append(data["usuarios"][xr]["user"])
+    idavaliados = []
+    global idturma, idtime
+    idturma = "123"
+    idtime = "1234"
+    for usuario in usuarios:
+        if usuario["idturma"] == idturma and usuario["idtime"] == idtime:
+            avaliados.append(usuario['user'])
+            idavaliados.append(usuario["id"])
+    
+        #avaliados.append(data["usuarios"][xr]["user"])
     print(avaliados)
 
 
@@ -60,8 +82,9 @@ def abrir_avaliacao():
             for x in range(len(data["usuarios"])):
                 if((data["usuarios"][x]["isActive"]) == True):
                     logado = data["usuarios"][x]["user"]
+            global nome, sprint, turma, time
 
-            nome = "logado"
+            nome = "logado"#tirar as aspas quando rodar com a aa
             sprint = "1"
             turma = "Banco de Dados"
             time = "TechHorizon"
@@ -114,9 +137,13 @@ def abrir_avaliacao():
                 resposta5 = tk.IntVar()
 
 
-
+                titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário', font=('Roboto', 30, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
+            
+                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=90)
+                
+                
                 #JANELAS SUSPENSAS DE FEEDBACKS, CASO A RESPOSTA ESCOLHIDA SEJA INFERIOR A REGULAR
-                def janelaSuspensa1():
+                '''def janelaSuspensa1():
                     janelaSuspensa = ctk.CTk()
                     janelaSuspensa.title("ALERTA!")
                     screen_width = janelaSuspensa.winfo_screenwidth()
@@ -126,15 +153,14 @@ def abrir_avaliacao():
                     janelaSuspensa.geometry("450x230+{}+{}".format(x, y))
                     janelaSuspensa.resizable(False, False)
                     
-                    feedback1 = ctk.StringVar()
+                    feedback1 = tk.IntVar()
                     label = ctk.CTkLabel(master=janelaSuspensa, text="Justifique sua escolha: ", font=('Roboto', 15)).pack()
-                    entryTexto = ctk.CTkEntry(master=janelaSuspensa, width=300, textvariable=feedback1).pack()
-                    senha = tk.StringVar()
-                    senha_cadastro = ctk.CTkEntry(master=janelaSuspensa, textvariable=senha,placeholder_text="Digite sua senha", width=300, font = ('Roboto', 14), show='*').pack()
-
+                    entryTexto = ctk.CTkEntry(master=janelaSuspensa,textvariable=feedback1, width=300).pack()
+                    
                     def destroyTeste():
-                        print(senha.get())
                         
+                        print(feedback1.get())
+                        print(a, "---")
                         janelaSuspensa.destroy()
                         pass
                     
@@ -143,20 +169,13 @@ def abrir_avaliacao():
                     
                     janelaSuspensa.mainloop()
                    
-                   
-
-
-
-
-                titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário', font=('Roboto', 30, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
-            
-                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=90)
-                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black', command=janelaSuspensa1).place(x=80, y=165)
+                '''
+                checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=280, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Regular', variable=resposta1, value=3,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=480, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=165)
                 checkbutton_respostas1 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=165)
-                
+                #button = ctk.CTkButton(perguntas_frame, text="testando", command=cs.janelaSuspensa).place(x=80, y=90)
 
                 label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o trabalho em equipe durante essa Sprint?', font=('Roboto', 18)).place(x=50, y=180)
                 checkbutton_respostas2 = tk.Radiobutton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2",activeforeground='black').place(x=80, y=278)
@@ -189,20 +208,20 @@ def abrir_avaliacao():
                 checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Bom', variable=resposta5, value=4,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=680, y=615)
                 checkbutton_respostas5 = tk.Radiobutton(perguntas_frame, text='Muito Bom', variable=resposta5, value=5,font=('Roboto', 18), background='#212121', foreground='white',selectcolor="#4F4F4F",indicatoron=False, cursor="hand2").place(x=880, y=615)
                 
-                
+                respostaLista = []
                 def proximo_integrante():
-                
                     global avaliado
                     respostas = {}
                     
                     #gravação de respostas
-                    respostas["nome: "] = avaliados[avaliado]
+                    respostas["idavaliado"] = idavaliados[avaliado]
                     respostas["resposta1"] = resposta1.get()
                     respostas["resposta2"] = resposta2.get()
                     respostas["resposta3"] = resposta3.get()
                     respostas["resposta4"] = resposta4.get()
                     respostas["resposta5"] = resposta5.get()
-
+                    
+                    respostaLista.append(respostas)
                     
                     
                     #MÉTRICAS EM NÚMEROS
@@ -230,6 +249,7 @@ def abrir_avaliacao():
                     janelaAlertaAvaliacao.geometry("300x100+{}+{}".format(x, y))
                     label_alerta = ctk.CTkLabel(master=janelaAlertaAvaliacao, text="Avaliação registrada com sucesso!\n", font=('Roboto', 15, 'bold')).pack()
                     
+                    
                     def destroy_alerta_Avaliacao():
                         janelaAlertaAvaliacao.destroy()
 
@@ -238,6 +258,28 @@ def abrir_avaliacao():
                             controlador = (avaliado - 1)
                             
                             if (avaliados[(controlador)] == avaliados[-1]):
+                                print("Respostas listas: ", respostaLista)
+                                #  GRAVAÇÃO DAS RESPOSTAS EM JSON
+                                dados_respostas = {
+                                    "idAvaliador": idavaliador,
+                                    "sprint": sprint,
+                                    "idturma": idturma,
+                                    "idtime": idtime,
+                                    "respostas":respostaLista
+                                }
+
+                                with open("data_json/questions.json", "r") as arquivo:
+                                    data = json.load(arquivo)
+                            
+                                novos_dados_respostas = data
+                                #print("Novos dados já gravado: ", novos_dados_respostas)
+
+                                novos_dados_respostas['avaliacao'].append(dados_respostas)
+                                novos_dados_respostas = json.dumps(novos_dados_respostas, indent=4)
+                                print(json.dumps(dados_respostas, indent=4))
+                                with open("data_json/questions.json", "w") as arquivo:
+                                   #  json.dump(json.dumps(novos_dados_respostas, indent=4), arquivo)
+                                   arquivo.write(novos_dados_respostas)
                                 janelaAlertaFinalizado = ctk.CTk()
                                 janelaAlertaFinalizado.title("ALERTA!")
                                 janelaAlertaFinalizado.resizable(False, False)
@@ -264,6 +306,7 @@ def abrir_avaliacao():
                     print(respostas) 
                     
                     janelaAlertaAvaliacao.mainloop()      
+                 
                     
                 #FUNÇÃO QUE VERIFICA SE O USUÁRIO PREENCHEU CORRETAMENTE A AVALIAÇÃO
                 def verificacaoPreenchimento():
@@ -307,4 +350,3 @@ def abrir_avaliacao():
 
 #INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
     Avaliação()
-abrir_avaliacao()
