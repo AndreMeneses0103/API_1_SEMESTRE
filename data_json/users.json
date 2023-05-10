@@ -38,7 +38,8 @@
             "cargo": "user",
             "senha": "123",
             "isActive": false,
-            "aceito": false
+            "aceito": true,
+            "resp": true
         }
     ]
 }

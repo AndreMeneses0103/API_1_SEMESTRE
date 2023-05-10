@@ -350,4 +350,3 @@ def abrir_avaliacao():
 
 #INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
     Avaliação()
-abrir_avaliacao()
