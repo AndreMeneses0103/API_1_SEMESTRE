@@ -24,7 +24,7 @@ class tela_login_cadastro:
     def tela(self):    
         janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
         janela.title("Sistema de login")
-        #janela.iconbitmap("logo_insight.ico")
+        janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
 
@@ -274,7 +274,25 @@ class tela_login_cadastro:
 
 
                         back()
-                        label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
+
+
+                        #TELA ALERTA DE CONFIRMAÇÃO DE CADASTRO
+                        janelaConfirmacaoCadastro = ctk.CTk()
+                        janelaConfirmacaoCadastro.title("ALERTA!")
+                        screen_width = janelaConfirmacaoCadastro.winfo_screenwidth()
+                        screen_height = janelaConfirmacaoCadastro.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaConfirmacaoCadastro.geometry("330x180+{}+{}".format(x, y))
+                        janelaConfirmacaoCadastro.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaConfirmacaoCadastro, text="\nATENÇÃO!\n\nCadastro enviado com sucesso!\nAguarde a liberação do seu login pelo \nadministrador\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                            janelaConfirmacaoCadastro.destroy()
+                        button_ok = ctk.CTkButton(janelaConfirmacaoCadastro, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()
+                        janelaConfirmacaoCadastro.mainloop()
+
+
+                       # label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
                         pass
                     
                     cadastrar_button = ctk.CTkButton(cadastro_frame, text="Cadastrar", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=cadastro).place(x=220, y=400)
