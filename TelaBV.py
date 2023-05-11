@@ -4,6 +4,10 @@ import customtkinter as ctk
 from tkinter import *
 import sistema_avaliacao as TelaAV
 
+
+turmas = []
+
+
 def abrir():
     
     janela = ctk.CTk()
@@ -48,15 +52,16 @@ def abrir():
             label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=420, y=214)
             # Botões para selecionar o time e turma do usuário
             times = []
-            turmas = []
            
             for nome in ac_turmas["turmas"]:
                 # times = acesso["usuarios"][x]["times"]
                 turmas.append(nome["nometurma"])
 
             print(turmas)
+
             timeSelecionado = StringVar()
             turmaSelecionada = StringVar()
+
 
             turmaSelecionada.set(turmas[0])
 
@@ -66,15 +71,19 @@ def abrir():
 
             # Option Menu para selecionar a turma
             turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=300, y=15)
-            turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray").place(x=380, y=15)
+            turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=380, y=15)
 
             dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=50, y=450)
             cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=60, y=450)
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=680, y=15)
             #times_button = ctk.CTkButton(master=janela, text="Times", width=200, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=50, y=15)
             #turmas_button = ctk.CTkButton(master=janela, text="Turmas", width=200, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=300, y=15)
-            
+
             janela.protocol("WM_DELETE_WINDOW", Close)
+
+
+    def imprimir(tr):
+        print(turmas.index(tr))
 
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
@@ -89,6 +98,8 @@ def abrir():
 
         janela.destroy()
         janela.mainloop()
+
+
 
     def AbrirAv():
         janela.destroy()
