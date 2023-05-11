@@ -76,6 +76,7 @@ def abrir():
                 posicao = turmas.index(tr)
 
                 todos_times = ac_turmas["turmas"][posicao]["times"]
+                todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
                 #criar uma variavel semelhante a essa de cima, so que para sprint
 
 
@@ -88,6 +89,14 @@ def abrir():
 
                 timeSelecionado.set(times[0])
                 times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
+
+                for x in range (len(todas_sprints)):
+                    sprint.append(todas_sprints[x]["indice"])
+
+                print(sprint)
+
+                sprintSelecionada.set(sprint[0])
+                sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray").place(x=800, y=15)
 
                 #apos fazer o for, inserir no botao as sprints, semelhante as duas linhas acima
 
