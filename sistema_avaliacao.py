@@ -60,8 +60,8 @@ def abrir_avaliacao():
             screen_width = janela.winfo_screenwidth()
             screen_height = janela.winfo_screenheight()
             x = (screen_width - 1500) // 2
-            y = (screen_height - 700) // 2
-            janela.geometry("1500x700+{}+{}".format(x, y))
+            y = (screen_height - 650) // 2
+            janela.geometry("1200x650+{}+{}".format(x, y))
             
             janela.title("Sistema de login")
             janela.iconbitmap("logo_insight.ico")
@@ -75,9 +75,9 @@ def abrir_avaliacao():
             pass
 
         def tela_avaliação(self):
-            img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+            img = PhotoImage(file="logo_insight.png").subsample(3) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
-            label_img.place(x=20, y=20)
+            label_img.place(x=43, y=15)
 
             for x in range(len(data["usuarios"])):
                 if((data["usuarios"][x]["isActive"]) == True):
@@ -89,10 +89,10 @@ def abrir_avaliacao():
             turma = "Banco de Dados"
             time = "TechHorizon"
 
-            label_sprint = ctk.CTkLabel(master=janela, text='Sprint: '+sprint, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=150)
-            label_turma = ctk.CTkLabel(master=janela, text='Turma: '+turma, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=180)
-            label_time = ctk.CTkLabel(master=janela, text='Time: '+time, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=205)
-            label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliador: '+nome, font=('Roboto', 17, 'bold'), text_color='white').place(x=50, y=235)
+            label_sprint = ctk.CTkLabel(master=janela, text='Sprint: '+sprint, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=150)
+            label_turma = ctk.CTkLabel(master=janela, text='Turma: '+turma, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=180)
+            label_time = ctk.CTkLabel(master=janela, text='Time: '+time, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=205)
+            label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliador: '+nome, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=235)
             
             janela.protocol("WM_DELETE_WINDOW", Close)
 
@@ -104,25 +104,25 @@ def abrir_avaliacao():
                 #   label_nome_usuario.destroy()
                 #else:
 
-                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold'), fg_color='#242424', text_color='white',width=400,anchor='w', hover_color='#242424').place(x=45, y=260)
+                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 15, 'bold'), fg_color='#242424', text_color='white',width=400,anchor='w', hover_color='#242424').place(x=45, y=260)
 
                 #label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold')).place(x=50, y=230)  
                 pass
 
             avaliadoFuncao()
 
-            label_autoavaliacao = ctk.CTkLabel(master=janela, text='Integrantes do time: ', font=('Roboto', 25, 'bold')).place(x=50, y=310)
+            label_autoavaliacao = ctk.CTkLabel(master=janela, text='Integrantes do time: ', font=('Roboto', 15, 'bold')).place(x=50, y=310)
             #CONTROLADOR DE POSICIONAMENTO DE TELA
-            y_direcao_tela = 350
+            y_direcao_tela = 340
 
             for i in range(len(avaliados)):
-                label_integrantes = ctk.CTkLabel(master=janela, text=avaliados[i], font=('Roboto', 15, 'bold'), text_color='gray').place(x=50, y=y_direcao_tela)
-                y_direcao_tela += 30
+                label_integrantes = ctk.CTkLabel(master=janela, text=avaliados[i], font=('Roboto', 13, 'bold'), text_color='gray').place(x=50, y=y_direcao_tela)
+                y_direcao_tela += 20
 
             #button_voltar = ctk.CTkButton(janela, width=200, fg_color='#5CE1E6', text_color='black', hover_color='#00FFFF', text='Tela Inicial', font = ('Roboto', 20), cursor="hand2").place(x=90, y=600)
 
             #CRIAÇÃO DO FRAME PERGUNTAS
-            perguntas_frame = ctk.CTkFrame(master=janela, width=1100, height=700)
+            perguntas_frame = ctk.CTkFrame(master=janela, width=900, height=700)
             perguntas_frame.pack(side=RIGHT)
 
             global avaliadolabel 
@@ -135,78 +135,68 @@ def abrir_avaliacao():
                 resposta3 = tk.IntVar()
                 resposta4 = tk.IntVar()
                 resposta5 = tk.IntVar()
+                feedback1 = tk.StringVar()
+                feedback2 = tk.StringVar()
+                feedback3 = tk.StringVar()
+                feedback4 = tk.StringVar()
+                feedback5 = tk.StringVar()
 
-
-                titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário', font=('Roboto', 30, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
+                titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário Avaliativo', font=('Roboto', 23, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
             
-                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 18)).place(x=70, y=90)
                 
                 
-                #JANELAS SUSPENSAS DE FEEDBACKS, CASO A RESPOSTA ESCOLHIDA SEJA INFERIOR A REGULAR
-                '''def janelaSuspensa1():
-                    janelaSuspensa = ctk.CTk()
-                    janelaSuspensa.title("ALERTA!")
-                    screen_width = janelaSuspensa.winfo_screenwidth()
-                    screen_height = janelaSuspensa.winfo_screenheight()
-                    x = (screen_width - 450) // 2
-                    y = (screen_height - 230) // 2
-                    janelaSuspensa.geometry("450x230+{}+{}".format(x, y))
-                    janelaSuspensa.resizable(False, False)
-                    
-                    feedback1 = tk.IntVar()
-                    label = ctk.CTkLabel(master=janelaSuspensa, text="Justifique sua escolha: ", font=('Roboto', 15)).pack()
-                    entryTexto = ctk.CTkEntry(master=janelaSuspensa,textvariable=feedback1, width=300).pack()
-                    
-                    def destroyTeste():
-                        
-                        print(feedback1.get())
-                        print(a, "---")
-                        janelaSuspensa.destroy()
-                        pass
-                    
-
-                    buttonDestroy = ctk.CTkButton(janelaSuspensa, text='Ok', command=destroyTeste).pack()
-                    
-                    janelaSuspensa.mainloop()
-                   
-                '''
-                checkbutton_respostas1 = ctk.CTkRadioButton(master=perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=140)
-                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 18), fg_color='#5CE1E6').place(x=280, y=140)
-                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta1, value=3,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=480, y=140)
-                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=140)
-                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=880, y=140)
+                ypergunta1 = 105
+                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 14)).place(x=70, y=70)
+                checkbutton_respostas1 = ctk.CTkRadioButton(master=perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta1)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta1, value=2,font=('Roboto', 14), fg_color='#5CE1E6').place(x=220, y=ypergunta1)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta1, value=3,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=330, y=ypergunta1)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta1, value=4,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=460, y=ypergunta1)
+                checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=570, y=ypergunta1)
+                label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Feedback:', font=('Roboto', 14)).place(x=70, y=140)
+                entryFeedback = ctk.CTkEntry(master=perguntas_frame, textvariable=feedback1, width=300, font=('Roboto', 14), placeholder_text="Seu feedback").place(x=150, y=140)
                 #button = ctk.CTkButton(perguntas_frame, text="testando", command=cs.janelaSuspensa).place(x=80, y=90)
+          #  nome_cadastro = ctk.CTkEntry(master=cadastro_frame, textvariable=nomecompleto,placeholder_text="Digite seu nome completo", width=300, font = ('Roboto', 14)).place(x=45, y=110)
 
-                label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o trabalho em equipe durante essa Sprint?', font=('Roboto', 18)).place(x= 70, y=180)
-                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=230)
-                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta2, value=2,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=280, y=230)
-                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta2, value=3,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=480, y=230)
-                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta2, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=230)
-                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta2, value=5,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=880, y=230)
-            
+                ypergunta2 = 215
+                label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o trabalho em equipe durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=180)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta2)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta2, value=2,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=220, y=ypergunta2)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta2, value=3,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=330, y=ypergunta2)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta2, value=4,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=460, y=ypergunta2)
+                checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta2, value=5,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=570, y=ypergunta2)
+                label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Feedback:', font=('Roboto', 14)).place(x=70, y=250)
+                entryFeedback2 = ctk.CTkEntry(master=perguntas_frame, textvariable=feedback2, width=300, font=('Roboto', 14), placeholder_text="Seu feedback").place(x=150, y=250)
+                
+                ypergunta3 = 325
+                label_pergunta3 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=290)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta3, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta3)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta3, value=2,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=220, y=ypergunta3)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta3, value=3,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=330, y=ypergunta3)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta3, value=4,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=460, y=ypergunta3)
+                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta3, value=5,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=570, y=ypergunta3)
+                label_pergunta3 = ctk.CTkLabel(master=perguntas_frame, text='Feedback:', font=('Roboto', 14)).place(x=70, y=360)
+                entryFeedback3 = ctk.CTkEntry(master=perguntas_frame, textvariable=feedback3, width=300, font=('Roboto', 14), placeholder_text="Seu feedback").place(x=150, y=360)
+                
 
-                label_pergunta3 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 18)).place(x= 70, y=270)
-                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta3, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=320)
-                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta3, value=2,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=280, y=320)
-                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta3, value=3,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=480, y=320)
-                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta3, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=320)
-                checkbutton_respostas3 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta3, value=5,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=880, y=320)
-            
-
-                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 18)).place(x= 70, y=360)
-                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 18), fg_color='#5CE1E6').place(x=70, y=410)
-                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=280, y=410)
-                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=480, y=410)
-                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta4, value=4,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=680, y=410)
-                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta4, value=5,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=880, y=410)
-            
-
-                label_pergunta5 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua entrega com relação ao prazo do projeto nessa Sprint?', font=('Roboto', 18)).place(x=70, y=450)
-                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta5, value=1,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=70, y=500)
-                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta5, value=2,font=('Roboto', 18) , fg_color='#5CE1E6').place(x=280, y=500)
-                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta5, value=3,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=480, y=500)
-                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta5, value=4,font=('Roboto', 18), fg_color='#5CE1E6' ).place(x=680, y=500)
-                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta5, value=5,font=('Roboto', 18), fg_color='#5CE1E6').place(x=880, y=500)
+                ypergunta4 = 435
+                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta4)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=220, y=ypergunta4)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=330, y=ypergunta4)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta4, value=4,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=460, y=ypergunta4)
+                checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta4, value=5,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=570, y=ypergunta4)
+                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Feedback:', font=('Roboto', 14)).place(x=70, y=470)
+                entryFeedback4 = ctk.CTkEntry(master=perguntas_frame, textvariable=feedback4, width=300, font=('Roboto', 14), placeholder_text="Seu feedback").place(x=150, y=470)
+                
+                ypergunta5 = 545
+                label_pergunta5 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua entrega com relação ao prazo do projeto nessa Sprint?', font=('Roboto', 14)).place(x=70, y=510)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta5, value=1,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=70, y=ypergunta5)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta5, value=2,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=220, y=ypergunta5)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta5, value=3,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=330, y=ypergunta5)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Bom', variable=resposta5, value=4,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=460, y=ypergunta5)
+                checkbutton_respostas5 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta5, value=5,font=('Roboto', 14), fg_color='#5CE1E6').place(x=570, y=ypergunta5)
+                label_pergunta5 = ctk.CTkLabel(master=perguntas_frame, text='Feedback:', font=('Roboto', 14)).place(x=70, y=580)
+                entryFeedback5 = ctk.CTkEntry(master=perguntas_frame, textvariable=feedback5, width=300, font=('Roboto', 14), placeholder_text="Seu feedback").place(x=150, y=580)
                 
                 respostaLista = []
                 def proximo_integrante():
@@ -330,7 +320,7 @@ def abrir_avaliacao():
                         janelaAlerta.mainloop()
                     pass
             
-                button_proximo = ctk.CTkButton(perguntas_frame, text="Próximo", font=('Roboto', 20, 'bold'), fg_color='#5CE1E6', text_color='black', cursor="hand2", width=230, command=verificacaoPreenchimento).place(x=700, y=640)
+                button_proximo = ctk.CTkButton(perguntas_frame, text="Próximo", font=('Roboto', 15), fg_color='#5CE1E6', text_color='black', cursor="hand2", width=180, command=verificacaoPreenchimento).place(x=660, y=600)
 
             questionario()
 
@@ -350,3 +340,4 @@ def abrir_avaliacao():
 
 #INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
     Avaliação()
+abrir_avaliacao()

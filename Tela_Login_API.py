@@ -4,8 +4,6 @@ from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
 
-
-
 # def abrir_login():
     
 janela = ctk.CTk()
