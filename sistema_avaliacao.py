@@ -206,11 +206,16 @@ def abrir_avaliacao():
                     #gravação de respostas
                     respostas["idavaliado"] = idavaliados[avaliado]
                     respostas["resposta1"] = resposta1.get()
+                    respostas["feedback1"] = feedback1.get()
                     respostas["resposta2"] = resposta2.get()
+                    respostas["feedback2"] = feedback2.get()
                     respostas["resposta3"] = resposta3.get()
+                    respostas["feedback3"] = feedback3.get()
                     respostas["resposta4"] = resposta4.get()
+                    respostas["feedback4"] = feedback4.get()
                     respostas["resposta5"] = resposta5.get()
-                    
+                    respostas["feedback5"] = feedback5.get()
+
                     respostaLista.append(respostas)
                     
                     
@@ -223,6 +228,12 @@ def abrir_avaliacao():
                     resposta3.set(0)
                     resposta4.set(0)
                     resposta5.set(0)
+                    feedback1.set("")
+                    feedback2.set("")
+                    feedback3.set("")
+                    feedback4.set("")
+                    feedback5.set("")
+
                     
                     #CONTROLADOR
                     avaliado+=1
@@ -301,7 +312,27 @@ def abrir_avaliacao():
                 #FUNÇÃO QUE VERIFICA SE O USUÁRIO PREENCHEU CORRETAMENTE A AVALIAÇÃO
                 def verificacaoPreenchimento():
                     if (resposta1.get() != 0 and resposta2.get() != 0 and resposta3.get() != 0 and resposta4.get() != 0 and resposta5.get() != 0):
-                        proximo_integrante()
+                        #CONDICIONAL QUE VERIFICA SE A RESPOSTA DO USUÁRIO FOR ABAIXO DE REGULAR É OBRIGATÓRIO O PREENCHIMENTO DO FEEDBACK
+                        if((feedback1.get() == "" and resposta1.get()<4) or (feedback2.get() == "" and resposta2.get()<4) or (feedback3.get() == "" and resposta3.get()<4) or (feedback4.get() == "" and resposta4.get()<4) or (feedback5.get() == "" and resposta5.get()<4)):
+                            
+                            #JANELA PARA ALERTA DE FEEDBACK OBRIGATORIO P/ RESPOSTAS ABAIXO DE REGULAR
+                            janelaFeedbackObrigatorio = ctk.CTk()
+                            janelaFeedbackObrigatorio.title("ALERTA!")
+                            screen_width = janelaFeedbackObrigatorio.winfo_screenwidth()
+                            screen_height = janelaFeedbackObrigatorio.winfo_screenheight()
+                            x = (screen_width - 330) // 2
+                            y = (screen_height - 180) // 2
+                            janelaFeedbackObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                            janelaFeedbackObrigatorio.resizable(False, False)
+                            label_alerta = ctk.CTkLabel(master=janelaFeedbackObrigatorio, text="\nATENÇÃO!\n\nO preenchimento do feedback\né obrigatório para respostas:\nRegular, Ruim e Muito Ruim\n", font=('Roboto', 15, 'bold')).pack()
+                            def destroy_alerta():
+                                janelaFeedbackObrigatorio.destroy()
+                            button_ok = ctk.CTkButton(janelaFeedbackObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()
+                            
+                            janelaFeedbackObrigatorio.mainloop()
+                        else:
+                          proximo_integrante()
+
                     elif (resposta1.get() == 0 or resposta2.get() == 0 or resposta3.get() == 0 or resposta4.get() == 0 or resposta5.get() == 0):
                         #TELA ALERTA - NÃO PREENCHIMENTO DAS RESPOSTAS CORRETAMENTE
                         janelaAlerta = ctk.CTk()
