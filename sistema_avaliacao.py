@@ -8,17 +8,11 @@ import TelaBV
 global avaliado
 avaliado = 0
 
-
 def abrir_avaliacao():
     #IMPORTAÇÃO DO JSON DE USUÁRIOS PRÉ DEFINIDOS
     with open('data_json/users.json', 'r') as usuarios:
             data = json.load(usuarios)
 
-   
-
-
-    #for xr in range(len(data["usuarios"])):
-    
     #BUSCANDO AVALIADOS DO TIME e ids
     usuarios = data["usuarios"]
     #PEGAR O ID DA PESSOA QUE ESTIVER LOGADA
@@ -37,9 +31,7 @@ def abrir_avaliacao():
             avaliados.append(usuario['user'])
             idavaliados.append(usuario["id"])
     
-        #avaliados.append(data["usuarios"][xr]["user"])
     print(avaliados)
-
 
     janela = ctk.CTk()
 
@@ -84,7 +76,8 @@ def abrir_avaliacao():
                     logado = data["usuarios"][x]["user"]
             global nome, sprint, turma, time
 
-            nome = "logado"#tirar as aspas quando rodar com a aa
+            #vincular as variaveis com os dados reais 
+            nome = "logado"
             sprint = "1"
             turma = "Banco de Dados"
             time = "TechHorizon"
@@ -100,18 +93,15 @@ def abrir_avaliacao():
             #FUNÇÃO QUE DEFINE QUEM É O AVALIADO
             def avaliadoFuncao():
                 print(avaliados[avaliado])
-                #if label_nome_usuario.winfo_exists():
-                #   label_nome_usuario.destroy()
-                #else:
-
+               
                 button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 15, 'bold'), fg_color='#242424', text_color='white',width=400,anchor='w', hover_color='#242424').place(x=45, y=260)
 
-                #label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 17, 'bold')).place(x=50, y=230)  
                 pass
 
             avaliadoFuncao()
 
             label_autoavaliacao = ctk.CTkLabel(master=janela, text='Integrantes do time: ', font=('Roboto', 15, 'bold')).place(x=50, y=310)
+            
             #CONTROLADOR DE POSICIONAMENTO DE TELA
             y_direcao_tela = 340
 
@@ -119,8 +109,7 @@ def abrir_avaliacao():
                 label_integrantes = ctk.CTkLabel(master=janela, text=avaliados[i], font=('Roboto', 13, 'bold'), text_color='gray').place(x=50, y=y_direcao_tela)
                 y_direcao_tela += 20
 
-            #button_voltar = ctk.CTkButton(janela, width=200, fg_color='#5CE1E6', text_color='black', hover_color='#00FFFF', text='Tela Inicial', font = ('Roboto', 20), cursor="hand2").place(x=90, y=600)
-
+           
             #CRIAÇÃO DO FRAME PERGUNTAS
             perguntas_frame = ctk.CTkFrame(master=janela, width=900, height=700)
             perguntas_frame.pack(side=RIGHT)
@@ -129,6 +118,7 @@ def abrir_avaliacao():
             avaliadolabel = 0
 
             def questionario():
+
                 #VARIAVEIS QUE ARMAZENARAM AS RESPOSTAS DO USUÁRIO   
                 resposta1 = tk.IntVar()
                 resposta2 = tk.IntVar()
@@ -141,10 +131,8 @@ def abrir_avaliacao():
                 feedback4 = tk.StringVar()
                 feedback5 = tk.StringVar()
 
-                titulo_pergunta = ctk.CTkLabel(master=perguntas_frame, text='Questionário Avaliativo', font=('Roboto', 23, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
+                titulo_questionario = ctk.CTkLabel(master=perguntas_frame, text='Questionário Avaliativo', font=('Roboto', 23, 'bold'), text_color='#5CE1E6').place(x=300, y=20)
             
-                
-                
                 ypergunta1 = 105
                 label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia a comunicação com o grupo durante essa Sprint?', font=('Roboto', 14)).place(x=70, y=70)
                 checkbutton_respostas1 = ctk.CTkRadioButton(master=perguntas_frame, text='Muito Ruim',variable=resposta1, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta1)
@@ -154,9 +142,7 @@ def abrir_avaliacao():
                 checkbutton_respostas1 = ctk.CTkRadioButton(perguntas_frame, text='Muito Bom', variable=resposta1, value=5,font=('Roboto', 14) , fg_color='#5CE1E6').place(x=570, y=ypergunta1)
                 label_pergunta1 = ctk.CTkLabel(master=perguntas_frame, text='Feedback:', font=('Roboto', 14)).place(x=70, y=140)
                 entryFeedback = ctk.CTkEntry(master=perguntas_frame, textvariable=feedback1, width=300, font=('Roboto', 14), placeholder_text="Seu feedback").place(x=150, y=140)
-                #button = ctk.CTkButton(perguntas_frame, text="testando", command=cs.janelaSuspensa).place(x=80, y=90)
-          #  nome_cadastro = ctk.CTkEntry(master=cadastro_frame, textvariable=nomecompleto,placeholder_text="Digite seu nome completo", width=300, font = ('Roboto', 14)).place(x=45, y=110)
-
+               
                 ypergunta2 = 215
                 label_pergunta2 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia o trabalho em equipe durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=180)
                 checkbutton_respostas2 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta2, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta2)
@@ -237,7 +223,6 @@ def abrir_avaliacao():
                     
                     #CONTROLADOR
                     avaliado+=1
-                    #tk.Label.destroy(label_nome_usuario)
 
                     #JANELA ALERTA DE CONFIRMAÇÃO DE AVALIAÇÃO REALIZADA
                     janelaAlertaAvaliacao = ctk.CTk()
@@ -273,14 +258,14 @@ def abrir_avaliacao():
                                     data = json.load(arquivo)
                             
                                 novos_dados_respostas = data
-                                #print("Novos dados já gravado: ", novos_dados_respostas)
+                                
 
                                 novos_dados_respostas['avaliacao'].append(dados_respostas)
                                 novos_dados_respostas = json.dumps(novos_dados_respostas, indent=4)
-                                print(json.dumps(dados_respostas, indent=4))
+
                                 with open("data_json/questions.json", "w") as arquivo:
-                                   #  json.dump(json.dumps(novos_dados_respostas, indent=4), arquivo)
                                    arquivo.write(novos_dados_respostas)
+
                                 janelaAlertaFinalizado = ctk.CTk()
                                 janelaAlertaFinalizado.title("ALERTA!")
                                 janelaAlertaFinalizado.resizable(False, False)
@@ -290,6 +275,7 @@ def abrir_avaliacao():
                                 y = (screen_height - 100) // 2
                                 janelaAlertaFinalizado.geometry("300x100+{}+{}".format(x, y))
                                 label_alerta = ctk.CTkLabel(master=janelaAlertaFinalizado, text="Avaliação finalizada!\n", font=('Roboto', 15, 'bold')).pack()
+                                
                                 def destroy_alerta_Finalizado():
                                     janela.destroy()
                                     janelaAlertaFinalizado.destroy()
@@ -303,7 +289,6 @@ def abrir_avaliacao():
                         
                     button_ok = ctk.CTkButton(janelaAlertaAvaliacao, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Avaliacao, fg_color='#5CE1E6', text_color='black').pack()
                     
-                    #avaliado +=1
                     print(respostas) 
                     
                     janelaAlertaAvaliacao.mainloop()      
@@ -334,6 +319,7 @@ def abrir_avaliacao():
                           proximo_integrante()
 
                     elif (resposta1.get() == 0 or resposta2.get() == 0 or resposta3.get() == 0 or resposta4.get() == 0 or resposta5.get() == 0):
+                        
                         #TELA ALERTA - NÃO PREENCHIMENTO DAS RESPOSTAS CORRETAMENTE
                         janelaAlerta = ctk.CTk()
                         janelaAlerta.title("ALERTA!")
@@ -344,6 +330,7 @@ def abrir_avaliacao():
                         janelaAlerta.geometry("300x100+{}+{}".format(x, y))
                         janelaAlerta.resizable(False, False)
                         label_alerta = ctk.CTkLabel(master=janelaAlerta, text="ATENÇÃO!\nO preenchimento de todos\nos campos é obrigatório!\n", font=('Roboto', 15, 'bold')).pack()
+                        
                         def destroy_alerta():
                             janelaAlerta.destroy()
                         button_ok = ctk.CTkButton(janelaAlerta, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()
@@ -369,6 +356,6 @@ def abrir_avaliacao():
         janela.destroy()
         janela.mainloop()
 
-#INSTANCIEI (CHAMEI) A CLASSE AVALIAÇÃO
+#INSTANCIAMENTO DA CLASSE AVALIAÇÃO
     Avaliação()
 abrir_avaliacao()
