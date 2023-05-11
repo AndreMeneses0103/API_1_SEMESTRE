@@ -14,13 +14,13 @@ ctk.set_default_color_theme("dark-blue")
 janela = ctk.CTk()
 
 # Tamanho 
-janela.geometry("700x400")
+janela.geometry("1200x600")
 
 # Título
 janela.title("Insigth 360")
 
 # Imagem usada para icone
-janela.iconbitmap("logo-2.ico")
+janela.iconbitmap("logo_insight.ico")
 
 # Ajuste de dimensões da janela desativados
 janela.resizable(False, False)
@@ -51,26 +51,30 @@ label.place(x=250, y=20)
 #Frame 2 = Aceite de usuários
 
 # Frame 2 - Dimensões
-frame_2 = ctk.CTkFrame(master=frame, width=500, height=100)
+frame_2 = ctk.CTkScrollableFrame(master=frame, fg_color="blue", height=50)
+
+#Recebe Scroll
+scroll_1 = frame_2._scrollbar
+scroll_1.configure(height=0)
 
 # Frame 2 - Indica o principal que a frame ficará
-frame_2.place(x=100, y=50)
+frame_2.place(x=250, y=0)
 
 # Nome do Usuário 1
 label = ctk.CTkLabel(master=frame_2, text="Usuário 1")
-label.place(x=10, y=20)
+label.pack()
 
 # Checkbox Usuário 1
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar").place(x=200, y=20)
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar").place(x=300, y=20)
+Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar").pack()
+Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar").pack()
 
 #Nome do Usuário 2 
 label = ctk.CTkLabel(master=frame_2, text="Usuário 2")
-label.place(x=10, y=60)
+label.pack()
 
 # Checkbox Usuário 2
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar").place(x=200, y=60)
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar").place(x=300, y=60)
+Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar").pack()
+Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar").pack()
 
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
 #Frame 3 = Redefinição de senha
