@@ -77,7 +77,7 @@ def abrir_avaliacao():
         def tela_avaliação(self):
             img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
-            label_img.place(x=10, y=20)
+            label_img.place(x=0, y=10)
 
             for x in range(len(data["usuarios"])):
                 if((data["usuarios"][x]["isActive"]) == True):
