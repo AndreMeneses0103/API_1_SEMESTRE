@@ -64,20 +64,26 @@ scroll_1.configure(height=0)
 frame_2.place(x=100, y=40)
 
 # Nome do Usuário 1
-label = ctk.CTkLabel(master=frame_2, text="Usuário 1",  text_color="black", font=('Roboto', 14))
-label.place(x=10, y=50)
+label = ctk.CTkLabel(master=frame_2, text="Usuário 1",  text_color="black", font=('Roboto', 20))
+label.pack(side=LEFT)
+
+#Variavel capaz de não repetir
+aceite_1= ctk.IntVar()
+rejeitar_1= ctk.StringVar()
 
 # Checkbox Usuário 1
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar", text_color=('black'), font=('Roboto', 14)).pack(side=RIGHT)
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar", text_color=('black'), font=('Roboto', 14)).pack(side=RIGHT)
+Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=aceite_1, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 20)).pack()
+Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=rejeitar_1, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 20)).pack(side=RIGHT)
+
+#Acrescentar uma função de adção para adicionar novos usuários nas linhas abaixo.
 
 #Nome do Usuário 2 
-label = ctk.CTkLabel(master=frame_2, text="Usuário 2", text_color=('black'), font=('Roboto', 14))
-label.place(x=10, y=50)
+#label = ctk.CTkLabel(master=frame_2, text="Usuário 2", text_color=('black'), font=('Roboto', 14))
+#label.pack()
 
 # Checkbox Usuário 2
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar", text_color=('black'), font=('Roboto', 14)).pack(side=RIGHT)
-Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar", text_color=('black'), font=('Roboto', 14)).pack(side=RIGHT)
+#Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Aceitar", text_color=('black'), font=('Roboto', 14)).pack(side=RIGHT)
+#Checkbutton = ctk.CTkCheckBox(master=frame_2, text="Rejeitar", text_color=('black'), font=('Roboto', 14)).pack(side=RIGHT)
 
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
 #Frame 3 = Redefinição de senha

@@ -41,6 +41,26 @@
             "isActive": true,
             "aceito": true,
             "resp": true
+        },
+        {
+            "user": "Jhony Santos ",
+            "id": "santosdesouzajhony@gmail.com",
+            "idturma": "123",
+            "idtime": "1234",
+            "cargo": "user",
+            "senha": "123456",
+            "isActive": false,
+            "aceito": false
+        },
+        {
+            "user": "Raul ",
+            "id": "raulhenrique@gmail.com",
+            "idturma": "123",
+            "idtime": "1234",
+            "cargo": "user",
+            "senha": "123456",
+            "isActive": false,
+            "aceito": false
         }
     ]
 }
