@@ -77,10 +77,11 @@ def abrir_avaliacao():
             global nome, sprint, turma, time
 
             #vincular as variaveis com os dados reais 
-            nome = "logado"
-            sprint = "1"
-            turma = "Banco de Dados"
-            time = "TechHorizon"
+            global sprintAvaliacao, timeAvaliacao, turmaAvaliacao
+            nome = logado
+            sprint = sprintAvaliacao
+            turma = timeAvaliacao
+            time = turmaAvaliacao
 
             label_sprint = ctk.CTkLabel(master=janela, text='Sprint: '+sprint, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=150)
             label_turma = ctk.CTkLabel(master=janela, text='Turma: '+turma, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=180)
