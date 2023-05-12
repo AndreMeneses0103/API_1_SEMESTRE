@@ -7,7 +7,7 @@
             "idtime": "1234",
             "cargo": "user",
             "senha": "1234",
-            "isActive": false,
+            "isActive": true,
             "aceito": true,
             "resp": false
         },
@@ -18,10 +18,9 @@
             "idtime": "1234",
             "cargo": "adm",
             "senha": "123",
-            "isActive": true,
+            "isActive": false,
             "aceito": true,
             "resp": false
-             
         },
         {
             "user": "Lucas ",
@@ -41,7 +40,7 @@
             "idtime": "12134",
             "cargo": "user",
             "senha": "123",
-            "isActive": true,
+            "isActive": false,
             "aceito": true,
             "resp": true
         },

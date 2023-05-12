@@ -8,7 +8,8 @@ import TelaBV
 global avaliado
 avaliado = 0
 
-def abrir_avaliacao():
+def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao):
+   
     #IMPORTAÇÃO DO JSON DE USUÁRIOS PRÉ DEFINIDOS
     with open('data_json/users.json', 'r') as usuarios:
             data = json.load(usuarios)
@@ -24,6 +25,7 @@ def abrir_avaliacao():
     avaliados = []
     idavaliados = []
     global idturma, idtime
+    #PEGAR DA TELA DO VINICIUS
     idturma = "123"
     idtime = "1234"
     for usuario in usuarios:
@@ -77,16 +79,16 @@ def abrir_avaliacao():
             global nome, sprint, turma, time
 
             #vincular as variaveis com os dados reais 
-            global sprintAvaliacao, timeAvaliacao, turmaAvaliacao
+           
             nome = logado
             sprint = sprintAvaliacao
-            turma = timeAvaliacao
-            time = turmaAvaliacao
+            turma = turmaAvaliacao
+            time = timeAvaliacao
 
-            label_sprint = ctk.CTkLabel(master=janela, text='Sprint: '+sprint, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=150)
-            label_turma = ctk.CTkLabel(master=janela, text='Turma: '+turma, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=180)
-            label_time = ctk.CTkLabel(master=janela, text='Time: '+time, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=205)
-            label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliador: '+nome, font=('Roboto', 15, 'bold'), text_color='white').place(x=50, y=235)
+            label_sprint = ctk.CTkLabel(master=janela, text='Sprint: '+sprint, font=('Roboto', 12, 'bold'), text_color='white').place(x=50, y=150)
+            label_turma = ctk.CTkLabel(master=janela, text='Turma: '+turma, font=('Roboto', 12, 'bold'), text_color='white').place(x=50, y=180)
+            label_time = ctk.CTkLabel(master=janela, text='Time: '+time, font=('Roboto', 12, 'bold'), text_color='white').place(x=50, y=205)
+            label_nome_usuario = ctk.CTkLabel(master=janela, text='Avaliador: '+nome, font=('Roboto', 12, 'bold'), text_color='white').place(x=50, y=235)
             
             janela.protocol("WM_DELETE_WINDOW", Close)
 
@@ -95,13 +97,13 @@ def abrir_avaliacao():
             def avaliadoFuncao():
                 print(avaliados[avaliado])
                
-                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 15, 'bold'), fg_color='#242424', text_color='white',width=400,anchor='w', hover_color='#242424').place(x=45, y=260)
+                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=300,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
 
                 pass
 
             avaliadoFuncao()
 
-            label_autoavaliacao = ctk.CTkLabel(master=janela, text='Integrantes do time: ', font=('Roboto', 15, 'bold')).place(x=50, y=310)
+            label_autoavaliacao = ctk.CTkLabel(master=janela, text='Integrantes do time: ', font=('Roboto', 12, 'bold')).place(x=50, y=310)
             
             #CONTROLADOR DE POSICIONAMENTO DE TELA
             y_direcao_tela = 340
@@ -359,4 +361,3 @@ def abrir_avaliacao():
 
 #INSTANCIAMENTO DA CLASSE AVALIAÇÃO
     Avaliação()
-abrir_avaliacao()

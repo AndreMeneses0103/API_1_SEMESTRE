@@ -114,6 +114,14 @@ def abrir():
             turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=30, y=15)
             turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=90, y=15)
 
+
+
+
+
+            def AbrirAv():
+                janela.destroy()
+                
+                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get())
             dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=30, y=560)
             cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=1050, y=15)
@@ -123,15 +131,7 @@ def abrir():
             
             janela.protocol("WM_DELETE_WINDOW", Close)
 
-            def AbrirAv():
-                janela.destroy()
-                TelaAV.abrir_avaliacao()
-                global sprintAvaliacao
-                global timeAvaliacao
-                global turmaAvaliacao
-                sprintAvaliacao = sprintSelecionada.get()
-                timeAvaliacao = timeSelecionado.get()
-                turmaAvaliacao = turmaSelecionada.get()
+            
                
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
@@ -152,4 +152,3 @@ def abrir():
         janela.destroy()
         
     alerta()
-abrir()
