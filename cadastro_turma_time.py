@@ -105,11 +105,11 @@ class tela_cadastro_time:
 
                 data_inicio = str(data_seleciona_inicio)
                 mes, dia, ano = data_inicio.split('-')
-                nova_data = f"{ano}-{dia}-{mes}"
+                nova_data = f"{ano}/{dia}/{mes}"
                 
                 data_fim = str(data_seleciona_fim)
                 mesf, diaf, anof = data_fim.split('-')
-                nova_dataf = f"{anof}-{diaf}-{mesf}"
+                nova_dataf = f"{anof}/{diaf}/{mesf}"
 
                 data_final = "  Inicio: " + str(nova_data) + " // Final: " + str(nova_dataf)
                 sprint_select = "  Sprint: " + str(data_sprint)
