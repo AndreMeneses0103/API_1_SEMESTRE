@@ -19,7 +19,9 @@
             "cargo": "adm",
             "senha": "123",
             "isActive": true,
-            "aceito": true
+            "aceito": true,
+            "resp": false
+             
         },
         {
             "user": "Lucas ",
@@ -29,7 +31,8 @@
             "cargo": "user",
             "senha": "123",
             "isActive": false,
-            "aceito": false
+            "aceito": false,
+            "resp": false
         },
         {
             "user": "Alexandre",
@@ -50,7 +53,8 @@
             "cargo": "user",
             "senha": "123456",
             "isActive": false,
-            "aceito": false
+            "aceito": false,
+            "resp": false
         },
         {
             "user": "Raul ",
@@ -60,7 +64,8 @@
             "cargo": "user",
             "senha": "123456",
             "isActive": false,
-            "aceito": false
+            "aceito": false,
+            "resp": false
         }
     ]
 }

@@ -123,8 +123,16 @@ def abrir():
             
             janela.protocol("WM_DELETE_WINDOW", Close)
 
-
-
+            def AbrirAv():
+                janela.destroy()
+                TelaAV.abrir_avaliacao()
+                global sprintAvaliacao
+                global timeAvaliacao
+                global turmaAvaliacao
+                sprintAvaliacao = sprintSelecionada.get()
+                timeAvaliacao = timeSelecionado.get()
+                turmaAvaliacao = turmaSelecionada.get()
+               
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
 
@@ -138,12 +146,6 @@ def abrir():
 
         janela.destroy()
         janela.mainloop()
-
-
-
-    def AbrirAv():
-        janela.destroy()
-        TelaAV.abrir_avaliacao()
 
     # Def para exibir a tela de dashboards
     def AbrirDashboards():
