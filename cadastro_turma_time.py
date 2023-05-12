@@ -82,11 +82,11 @@ class tela_cadastro_time:
          
             global fim_sprint, data_seleciona_fim, data_seleciona_inicio, inicio_sprint
             inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=350,y=320)
-            inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
+            inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
             inicio_sprint.place(x= 350, y= 380)
 
             fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=550,y=320)
-            fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2)
+            fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
             fim_sprint.place(x=550, y=380)
             global hor,alt
             hor = 1
@@ -103,7 +103,15 @@ class tela_cadastro_time:
                 data_seleciona_fim = fim_sprint.get_date()
                 data_sprint = sprintSelecionada.get()
 
-                data_final = "  Inicio: " + str(data_seleciona_inicio) + " // Final: " + str(data_seleciona_fim)
+                data_inicio = str(data_seleciona_inicio)
+                mes, dia, ano = data_inicio.split('-')
+                nova_data = f"{ano}/{dia}/{mes}"
+                
+                data_fim = str(data_seleciona_fim)
+                mesf, diaf, anof = data_fim.split('-')
+                nova_dataf = f"{anof}/{diaf}/{mesf}"
+
+                data_final = "  Inicio: " + str(nova_data) + " // Final: " + str(nova_dataf)
                 sprint_select = "  Sprint: " + str(data_sprint)
 
 
@@ -197,7 +205,7 @@ class tela_cadastro_time:
                     team_name =  nome
                     cria_label(team_select, times_frame,y,0,0)
                     cria_label(team_name, times_frame,y,0,1)
-                    print(team_select)
+                    print(team_select+ " -> " + team_name)
                     y+=1
                     #cria_label()
                     pass
