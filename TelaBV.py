@@ -167,18 +167,24 @@ def abrir():
             turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=30, y=15)
             turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=90, y=15)
 
-
-
-
-
             def AbrirAv():
+
+                idtime = ""
+                idturma = ""
+
+                with open('data_json/turmas.json', 'r') as usuarios:
+                    id_users = json.load(usuarios)
+                    usuarios = id_users["usuarios"]
+
+                for usuario in usuarios:
+                    if usuario["nometurma"] == turmaSelecionada.get() and usuario["nometime"] == timeSelecionado.get():
+                        nometurma = usuario["idturma"]
+                        nometime = usuario["idtime"]
 
                 janela.destroy()
                 #função de abrir a avaliação
-                
-                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get())
-
-
+                TelaAV.abrir_avaliacao(idtime, idturma)
+                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get(), turmas, times)
 
 
             dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=30, y=560)
@@ -186,12 +192,8 @@ def abrir():
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=1050, y=15)
             #sprint_button = ctk.CTkButton(master=janela, text="Sprint", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=30, y=15)
             
-
-            
             janela.protocol("WM_DELETE_WINDOW", Close)
-
-            
-               
+      
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
 
@@ -211,4 +213,4 @@ def abrir():
         janela.destroy()
         
     alerta()
-# abrir()
+#abrir()
