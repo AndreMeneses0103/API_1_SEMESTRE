@@ -2,12 +2,12 @@
     "usuarios": [
         {
             "user": "Jhony",
-            "id": "jhony",
+            "id": "santosjhony@gmail.com",
             "idturma": "123",
             "idtime": "1234",
             "cargo": "user",
             "senha": "1234",
-            "isActive": true,
+            "isActive": false,
             "aceito": true,
             "resp": false
         },

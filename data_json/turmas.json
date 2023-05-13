@@ -38,7 +38,7 @@
             ],
             "times": [
                 {
-                    "idtime": "banana12",
+                    "idtime": "1234",
                     "nometime": "BANANA",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -48,11 +48,7 @@
                     ]
                 },
                 {
-<<<<<<< HEAD
-                    "idtime": "uva12",
-=======
                     "idtime": "2345",
->>>>>>> 2931118cd4ccf1ee4d91efa33d53034e245480e2
                     "nometime": "UVA",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -61,11 +57,7 @@
                         }
                     ]
                 },{
-<<<<<<< HEAD
-                    "idtime": "maca12",
-=======
                     "idtime": "4567",
->>>>>>> 2931118cd4ccf1ee4d91efa33d53034e245480e2
                     "nometime": "MACA",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -114,20 +106,12 @@
                     ]
                 },
                 {
-<<<<<<< HEAD
-                    "idtime": "VERMELHO123",
-=======
                     "idtime": "5678",
->>>>>>> 2931118cd4ccf1ee4d91efa33d53034e245480e2
                     "nometime": "VERMELHO",
                     "quantidadeIntegrantes": 8
                 },
                 {
-<<<<<<< HEAD
-                    "idtime": "VERDE123",
-=======
                     "idtime": "9012",
->>>>>>> 2931118cd4ccf1ee4d91efa33d53034e245480e2
                     "nometime": "VERDE",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
