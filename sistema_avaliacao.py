@@ -26,6 +26,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao):
     idavaliados = []
     global idturma, idtime
     #PEGAR DA TELA DO VINICIUS
+
     idturma = "123"
     idtime = "1234"
     for usuario in usuarios:

@@ -37,7 +37,7 @@
             ],
             "times": [
                 {
-                    "idtime": "1234",
+                    "idtime": "banana12",
                     "nometime": "BANANA",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -47,7 +47,7 @@
                     ]
                 },
                 {
-                    "idtime": "1234",
+                    "idtime": "uva12",
                     "nometime": "UVA",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -56,7 +56,7 @@
                         }
                     ]
                 },{
-                    "idtime": "1234",
+                    "idtime": "maca12",
                     "nometime": "MACA",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -94,7 +94,7 @@
             ],
             "times": [
                 {
-                    "idtime": "1234",
+                    "idtime": "AMARELO12",
                     "nometime": "AMARELO",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -104,7 +104,7 @@
                     ]
                 },
                 {
-                    "idtime": "1234",
+                    "idtime": "VERMELHO123",
                     "nometime": "VERMELHO",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
@@ -114,7 +114,7 @@
                     ]
                 },
                 {
-                    "idtime": "1234",
+                    "idtime": "VERDE123",
                     "nometime": "VERDE",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
