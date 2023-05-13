@@ -2,6 +2,8 @@
 import customtkinter as ctk
 from tkinter import *
 
+#import telaADM as abre_telaAdm
+
 #Janela - Aparência
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -24,6 +26,9 @@ janela.resizable(False, False)
 #Janela - Identificação do usuário
 label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), font=("roboto", 32, "bold")).place(x=500, y=1)
 
+#def abre():
+    #open()     
+           
 #Janela - Botão
 Button=ctk.CTkButton(master=janela, text="MENU INICIAL", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 16, "bold")).place(x=1000, y=612)
 
@@ -56,18 +61,23 @@ scroll_1.configure(height=0)
 frame_2.place(x=100, y=40)
 
 #Frame 2 - Nome do Usuário
-label = ctk.CTkLabel(master=frame_2, text="Usuário 1",  text_color="black", font=('Roboto', 20, "bold"))
-label.grid(column=1, row=0, padx=100, pady=10)
+label = ctk.CTkLabel(master=frame_2, text="Usuário 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=1, row=0, padx=20, pady=10)
+
+#Frame 2 - Time do Usuário
+label = ctk.CTkLabel(master=frame_2, text="Time 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=2, row=0, padx=20, pady=10)
+
+#Frame 2 - Turma do Usuário
+label = ctk.CTkLabel(master=frame_2, text="Turma 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=3, row=0, padx=50, pady=10)
 
 #Frame 2 - Inibir dupla seleção no checkbox
 opcao= ctk.IntVar()
 
 #Frame 2 - Checkbox Usuário
-Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=2, row=0, padx=50, pady=10)
-Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=3, row=0, padx=50, pady=10)
+Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=4, row=0, padx=20, pady=10)
+Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=5, row=0, padx=20, pady=10)
 
 #Frame 2 - Botão para salvar seleção
-Button=ctk.CTkButton(master=frame_2, text="SALVAR", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 20, "bold")).grid(column=4, row=0, padx=100, pady=10)
+Button=ctk.CTkButton(master=frame_2, text="SALVAR", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 20, "bold")).grid(column=6, row=0, padx=80, pady=10)
 
 #Acrescentar uma função de adição para adicionar novos usuários nas linhas abaixo.
 
