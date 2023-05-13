@@ -57,8 +57,8 @@ def abrir():
             inicio_sprint = ''
             fim_sprint = ''
 
-            todos_times = ac_turmas["turmas"][posicao]["times"]
-            todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
+            todos_times = ac_turmas["turmas"][0]["times"]
+            todas_sprints = ac_turmas["turmas"][0]["sprints"]
 
             for x in range (len(todas_sprints)):
                 # sprint.append(todas_sprints[x]["indice"])
@@ -80,10 +80,10 @@ def abrir():
 
 
 
-            if(jaResp == False):
-                cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
-            else:
-                cadastrar_button = ctk.CTkButton(master=janela, text="Finalizado", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="cross", hover_color='#404345').place(x=1020, y=560)
+            # if(jaResp == False):
+            #     cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
+            # else:
+            #     cadastrar_button = ctk.CTkButton(master=janela, text="Finalizado", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="cross", hover_color='#404345').place(x=1020, y=560)
             label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=630, y=290)
             
             # Botões para selecionar o time e turma do usuário
@@ -111,13 +111,14 @@ def abrir():
                 #as duas variaveis de baixo reiniciam os valores caso o botao de turma seja mudado
                 times = []
                 sprint = []
-                posicao = ""
-
+                posicao = 0
                 #a linha de baixo retorna o numero do da posicao do elemento selecionado no botao de turma
                 for x in range (len(ac_turmas["turmas"])):
-                    if (tr == ac_turmas["turmas"][x]["idturma"]):
-                        #print (f"tr = {tr} e json={(ac_turmas["turmas"][x]["idturma"])}")
+                    print(f"TR = {tr} e turma vindo: {ac_turmas['turmas'][x]['nometurma']}")
+                    if (tr == ac_turmas["turmas"][x]["nometurma"]):
                         posicao = ac_turmas["turmas"][x]["ordem"]
+
+                print(f"Posicao agr e = {posicao}")
 
                 todos_times = ac_turmas["turmas"][posicao]["times"]
                 todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
@@ -147,7 +148,7 @@ def abrir():
 
                 #apos fazer o for, inserir no botao as sprints, semelhante as duas linhas acima
 
-                
+            
 
             #Option Menu para selecionar a sprint
             sprint_label = ctk.CTkLabel(master=janela, text="Sprint:", font=("Roboto", 14), text_color='white').place(x=750, y=15)
@@ -167,8 +168,6 @@ def abrir():
 
             def AbrirAv():
 
-
-                
                 janela.destroy()
                 #função de abrir a avaliação
                 
@@ -178,7 +177,7 @@ def abrir():
 
 
             dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=30, y=560)
-            cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
+            # cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=1050, y=15)
             #sprint_button = ctk.CTkButton(master=janela, text="Sprint", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=30, y=15)
             
