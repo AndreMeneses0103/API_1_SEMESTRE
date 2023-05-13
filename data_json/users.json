@@ -7,7 +7,7 @@
             "idtime": "1234",
             "cargo": "user",
             "senha": "1234",
-            "isActive": false,
+            "isActive": true,
             "aceito": true,
             "resp": false
         },

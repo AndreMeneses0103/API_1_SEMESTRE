@@ -174,17 +174,26 @@ def abrir():
 
                 with open('data_json/turmas.json', 'r') as usuarios:
                     id_users = json.load(usuarios)
-                    usuarios = id_users["usuarios"]
+                    usuarios = id_users["turmas"]
+                    #usuarios = id_users["usuarios"]
 
-                for usuario in usuarios:
-                    if usuario["nometurma"] == turmaSelecionada.get() and usuario["nometime"] == timeSelecionado.get():
-                        nometurma = usuario["idturma"]
-                        nometime = usuario["idtime"]
+
+                for turma in usuarios:
+                        if turma['nometurma'] == turmaSelecionada.get():
+                            for time in turma['times']:
+                                if time['nometime'] == timeSelecionado.get():
+                                        idtime = time['idtime']
+                                        idturma = turma['idturma']
+
+                #for usuario in usuarios:
+                  #  if usuario["nometurma"] == turmaSelecionada.get() and usuario[usuario]["nometime"] == timeSelecionado.get():
+                   #     nometurma = usuario["idturma"]
+                    #    nometime = usuario[usuario]["idtime"]
 
                 janela.destroy()
                 #função de abrir a avaliação
-                TelaAV.abrir_avaliacao(idtime, idturma)
-                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get(), turmas, times)
+                #TelaAV.abrir_avaliacao(idtime, idturma)
+                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get(), idturma, idtime)
 
 
             dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=30, y=560)
