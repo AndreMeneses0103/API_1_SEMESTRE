@@ -8,7 +8,7 @@ import TelaBV
 global avaliado
 avaliado = 0
 
-def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao):
+def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idtime):
    
     #IMPORTAÇÃO DO JSON DE USUÁRIOS PRÉ DEFINIDOS
     with open('data_json/users.json', 'r') as usuarios:
@@ -24,10 +24,8 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao):
 
     avaliados = []
     idavaliados = []
-    global idturma, idtime
+    
     #PEGAR DA TELA DO VINICIUS
-    idturma = "123"
-    idtime = "1234"
     for usuario in usuarios:
         if usuario["idturma"] == idturma and usuario["idtime"] == idtime:
             avaliados.append(usuario['user'])

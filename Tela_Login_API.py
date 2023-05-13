@@ -45,7 +45,7 @@ class tela_login_cadastro:
         label.place(x=45, y=40)
 
         #entrada de dados
-        user_name_label1 = ctk.CTkLabel(master=login_frame, text="Username: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
+        user_name_label1 = ctk.CTkLabel(master=login_frame, text="E-mail: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
         username = tk.StringVar()#criação da variavel 
         username_entry = ctk.CTkEntry(master=login_frame, placeholder_text="Username", width=300, font = ('Roboto', 14), textvariable=username).place(x=45, y=125)
 
@@ -60,7 +60,7 @@ class tela_login_cadastro:
             for x in range(len(acesso["usuarios"])):
                 input_nome = username.get()
                 input_senha = password.get()
-                if (acesso["usuarios"][x]["user"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
+                if (acesso["usuarios"][x]["id"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
                     if(acesso["usuarios"][x]["aceito"] == False):
                         janelaAceito = ctk.CTk()
                         janelaAceito.title("ALERTA!")
