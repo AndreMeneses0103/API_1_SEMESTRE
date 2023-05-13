@@ -46,30 +46,21 @@
     ✅  **Sprint 4** - Início: 15/05/2023 Entrega: 04/06/2023
 
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
-Propriedade | Sprint | Item 
+ 
+Prioridade | Sprint | Item 
 --- | --- | --- 
-Alta | 4 | Acesso do Administrador ao Dashboard das Turmas, Times e Sprints - Admin
-Alta | 4 |Acesso dos Usuários ao Dashboard de Turma, Time e Sprint - Usuário
-Alta | 4 |Acesso dos Usuários às Avaliações - Usuários
-Baixa | 4 |Alteração de Senha - Admin
-Média | 3 |Autorização da solicitação dos usuários participarem das turmas e times - Admin
-Média | 3 |Cadastro de Sprints  - Admin
-Média | 3 |Cadastro de times - Admin
-Média | 3 |Cadastro de Usuários - Usuário
-Média | 3 |Criação de Turmas - Admin
-Baixa | 2 |Logout do Sistema - Admin e UsuárioQuantidade e Cadastro de integrantes nos Times - Admin
-Média | 3 |Quantidade e Cadastro de integrantes nos Times - Admin
-Baixa | 4 |Remoção de Usuário - Admin
-Alta | 2 |Sistema de Avaliação 360º - Usuário
-Média | 2  | Sistema de Login
-  
-  
-  # <h1 align=center>Sprints</h1>
-  - <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint1/README.md">Sprint 1</a>
-  - <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint2/README.md">Sprint 2</a>
-  - <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">Sprint 3</a>
-  
-  
+Alta | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint2/README.md">2</a> |Avaliação 360º
+Alta | 4 |Visualização e Acesso ao Dashboard das Turmas, Times e Sprints
+Alta | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Visualização e Acesso dos Usuários às Avaliações
+Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint2/README.md">2</a> |Autenticação de Usuário
+Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Cadastro de Usuários
+Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Gerenciamento de Sprints
+Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Gerenciamento de Times
+Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Gerenciamento de Turmas
+Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Gerenciamento de Solicitação de Usuários
+Baixa | 4 |Controle de Acessos e Senhas
+Baixa | 4 |Inclusão e Remoção de Usuários no Sistema
+
 # <h1 align="center">PLANEJAMENTO/FERRAMENTAS🔍</h1>
 - Python
 - JSON
