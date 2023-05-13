@@ -1,0 +1,1 @@
+{"usuarios": [{"nome": "Usu\u00e1rio 1", "aceitou": true, "rejeitou": false}, {"nome": "Usu\u00e1rio 2", "aceitou": false, "rejeitou": true}, {"nome": "Usu\u00e1rio 3", "aceitou": true, "rejeitou": false}], "redefinicao_senha": [{"usuario": "Usu\u00e1rio x", "nova_senha": "senha1"}, {"usuario": "Usu\u00e1rio y", "nova_senha": "senha2"}]}
