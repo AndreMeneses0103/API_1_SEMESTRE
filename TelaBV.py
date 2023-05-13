@@ -54,36 +54,7 @@ def abrir():
 
             # print(f"DATA ATUAL = {data_atual}")
 
-            inicio_sprint = ''
-            fim_sprint = ''
 
-            todos_times = ac_turmas["turmas"][0]["times"]
-            todas_sprints = ac_turmas["turmas"][0]["sprints"]
-
-            for x in range (len(todas_sprints)):
-                # sprint.append(todas_sprints[x]["indice"])
-                inicio_sprint = todas_sprints[x]["inicioSprint"]
-                fim_sprint = todas_sprints[x]["fimSprint"]
-
-                inicio_sprint = datetime.strptime(inicio_sprint, "%d/%m/%Y")
-                fim_sprint = datetime.strptime(fim_sprint, "%d/%m/%Y")
-
-                agora = datetime.now()
-                
-                if(agora >= inicio_sprint or agora <= fim_sprint):
-                    numero_sprint= todas_sprints[x]["indice"]
-                    print(f"Estamos na {numero_sprint} Sprint")
-                    # if(jaResp == True):
-                    #     jaResp = False
-
-                
-
-
-
-            # if(jaResp == False):
-            #     cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
-            # else:
-            #     cadastrar_button = ctk.CTkButton(master=janela, text="Finalizado", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="cross", hover_color='#404345').place(x=1020, y=560)
             label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=630, y=290)
             
             # Botões para selecionar o time e turma do usuário
@@ -112,13 +83,47 @@ def abrir():
                 times = []
                 sprint = []
                 posicao = 0
+
+                
+                inicio_sprint = ''
+                fim_sprint = ''
                 #a linha de baixo retorna o numero do da posicao do elemento selecionado no botao de turma
                 for x in range (len(ac_turmas["turmas"])):
-                    print(f"TR = {tr} e turma vindo: {ac_turmas['turmas'][x]['nometurma']}")
                     if (tr == ac_turmas["turmas"][x]["nometurma"]):
                         posicao = ac_turmas["turmas"][x]["ordem"]
 
-                print(f"Posicao agr e = {posicao}")
+                todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
+
+                for x in range (len(todas_sprints)):
+                    # sprint.append(todas_sprints[x]["indice"])
+                    inicio_sprint = todas_sprints[x]["inicioSprint"]
+                    fim_sprint = todas_sprints[x]["fimSprint"]
+
+                    inicio_sprint = datetime.strptime(inicio_sprint, "%d/%m/%Y")
+                    fim_sprint = datetime.strptime(fim_sprint, "%d/%m/%Y")
+
+                    agora = datetime.now()
+
+                    # print(f"INICIO = {inicio_sprint} // AGORA = {agora} // FIM = {fim_sprint}")
+                    
+                    if(agora <= inicio_sprint or agora >= fim_sprint):
+                        # print(f"CORRETO --> INICIO = {inicio_sprint} // AGORA = {agora} // FIM = {fim_sprint}")
+                        numero_sprint = todas_sprints[x]["indice"]
+                        print(f"NAO Estamos na {numero_sprint} Sprint")
+                        # if(jaResp == True):
+                        #     jaResp = False
+
+                
+
+
+
+                if(jaResp == False):
+                    cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
+                else:
+                    cadastrar_button = ctk.CTkButton(master=janela, text="Finalizado", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="cross", hover_color='#404345').place(x=1020, y=560)
+
+
+
 
                 todos_times = ac_turmas["turmas"][posicao]["times"]
                 todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
@@ -129,11 +134,11 @@ def abrir():
 
                     if (user_time == todos_times[x]["idtime"]):
                         times.append(todos_times[x]["nometime"])
-                print(times)
+                # print(times)
 
                 #criar um for percorrendo todos os elementos semelhante a de cima, so que para sprint (pegar a chave "indice" dentro do objeto "sprints")
 
-                print(times[0])
+                # print(times[0])
 
                 timeSelecionado.set(times[0])
                 times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
@@ -141,7 +146,7 @@ def abrir():
                 for x in range (len(todas_sprints)):
                     sprint.append(todas_sprints[x]["indice"])
 
-                print(sprint)
+                # print(sprint)
 
                 sprintSelecionada.set(sprint[0])
                 sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray").place(x=800, y=15)
