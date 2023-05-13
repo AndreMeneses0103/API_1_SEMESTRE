@@ -44,6 +44,8 @@ def abrir():
             for x in range(len(acesso["usuarios"])):
                 if(acesso["usuarios"][x]["isActive"] == True):
                     user_nome = acesso["usuarios"][x]["user"]
+                    user_turma =  acesso["usuarios"][x]["idturma"]
+                    user_time = acesso ["usuarios"][x]["idtime"]
                     jaResp = acesso["usuarios"][x]["resp"]
 
             label_BemVindo=ctk.CTkLabel(master=janela, text=(f"Bem vindo, {user_nome}"), font=("Roboto",25),text_color='white').place(x=630, y=290)
@@ -54,7 +56,9 @@ def abrir():
             times = []
            
             for nome in ac_turmas["turmas"]:  
-                turmas.append(nome["nometurma"])
+                if (user_turma == nome ["idturma"]):
+                    turmas.append(nome["nometurma"]) 
+                
 
             # print(times)
             # print(turmas)
@@ -71,21 +75,28 @@ def abrir():
                 #as duas variaveis de baixo reiniciam os valores caso o botao de turma seja mudado
                 times = []
                 sprint = []
+                posicao = ""
 
                 #a linha de baixo retorna o numero do da posicao do elemento selecionado no botao de turma
-                posicao = turmas.index(tr)
+                for x in range (len(ac_turmas["turmas"])):
+                    if (tr == ac_turmas["turmas"][x]["idturma"]):
+                        #print (f"tr = {tr} e json={(ac_turmas["turmas"][x]["idturma"])}")
+                        posicao = ac_turmas["turmas"][x]["ordem"]
 
                 todos_times = ac_turmas["turmas"][posicao]["times"]
                 todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
                 #criar uma variavel semelhante a essa de cima, so que para sprint
 
-
+                times = []
                 for x in range(len(todos_times)):
-                    times.append(todos_times[x]["nometime"])
+
+                    if (user_time == todos_times[x]["idtime"]):
+                        times.append(todos_times[x]["nometime"])
+                print(times)
 
                 #criar um for percorrendo todos os elementos semelhante a de cima, so que para sprint (pegar a chave "indice" dentro do objeto "sprints")
 
-                print(times)
+                print(times[0])
 
                 timeSelecionado.set(times[0])
                 times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
@@ -124,6 +135,7 @@ def abrir():
                 
                 janela.destroy()
                 #função de abrir a avaliação
+                
                 TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get())
 
 

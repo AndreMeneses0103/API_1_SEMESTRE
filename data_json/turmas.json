@@ -3,6 +3,7 @@
         {
             "idturma": "123",
             "nometurma": "Banco de dados",
+            "ordem" : 0,
             "sprints": [
                 {
                     "indice": "1",
@@ -68,8 +69,9 @@
             ]
         },
         {
-            "idturma": "Gest\u00e3odaprodu\u00e7\u00e3oindustrial5015",
+            "idturma": "123",
             "nometurma": "Gest\u00e3o da produ\u00e7\u00e3o industrial",
+            "ordem" : 1,
             "sprints": [
                     {
                         "indice": "1",
@@ -104,17 +106,12 @@
                     ]
                 },
                 {
-                    "idtime": "1234",
+                    "idtime": "5678",
                     "nometime": "VERMELHO",
-                    "quantidadeIntegrantes": 8,
-                    "integrantes": [
-                        {
-                            "idusuario": "andre@email.com"
-                        }
-                    ]
+                    "quantidadeIntegrantes": 8
                 },
                 {
-                    "idtime": "1234",
+                    "idtime": "9012",
                     "nometime": "VERDE",
                     "quantidadeIntegrantes": 8,
                     "integrantes": [
