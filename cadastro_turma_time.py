@@ -179,6 +179,7 @@ class tela_cadastro_time:
             num_times = tk.IntVar()
             num_times_entry = ctk.CTkEntry(master=tela_times_frame, placeholder_text="Número de times:",placeholder_text_color="gray", width=60, font=('Roboto', 14), textvariable=num_times).place(x=45, y=130)
             
+
             def cria_novos_times():
                 numero_times = int(num_times.get())
                 lista_times = [str(i) for i in range(1, numero_times+1)]

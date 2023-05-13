@@ -270,6 +270,11 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao):
                                 with open("data_json/questions.json", "w") as arquivo:
                                    arquivo.write(novos_dados_respostas)
 
+
+                                with open("data_json/users.json", "r") as arquivo:
+                                    data = json.load(arquivo)
+                                
+
                                 janelaAlertaFinalizado = ctk.CTk()
                                 janelaAlertaFinalizado.title("ALERTA!")
                                 janelaAlertaFinalizado.resizable(False, False)
@@ -362,3 +367,4 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao):
 
 #INSTANCIAMENTO DA CLASSE AVALIAÇÃO
     Avaliação()
+# abrir_avaliacao()
