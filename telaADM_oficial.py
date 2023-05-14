@@ -3,7 +3,10 @@
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import *
-import TelaBV as TBV
+import tkcalendar as cal
+from calendar import *
+#import TelaBV as TBV
+import cadastro_turma_time as cadt
 # import Tela_Login_API as TLOGIN
 import json
 
@@ -31,9 +34,9 @@ class telaAMD_oficial():
       screen_width = janela.winfo_screenwidth()
       screen_height = janela.winfo_screenheight()
       x = (screen_width - 1200) // 2
-      y = (screen_height - 600) // 2
-      janela.geometry("1200x600+{}+{}".format(x, y))
-      janela.geometry("1200x600") 
+      y = (screen_height - 650) // 2
+      janela.geometry("1200x650+{}+{}".format(x, y))
+      janela.geometry("1200x650") 
       janela.title("Tela Administrador")
       janela.iconbitmap("logo_insight.ico")
       janela.resizable(False, False)
@@ -67,20 +70,50 @@ class telaAMD_oficial():
       texto =ctk.CTkLabel(master=frame, text="Olá administrador! ;)", font=("Roboto",40),text_color='white').place(x=230, y=150)
       # frame = ctk.CTkScrollableFrame(self, orientation=VERTICAL, Exception=False)
       frame.place(x=330, y=200)
+      
+      acesso = json.load(open("data_json/users.json", "r"))
 
+      ac_turmas = json.load(open("data_json/turmas.json", "r"))
 
-      Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="CADASTROS", font = ('Roboto', 18, 'bold'), text_color= ('black'))
-      Button.place(x=55, y=65)
-      Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="USUÁRIO", font = ('Roboto', 18, 'bold'), text_color= ('black'))
-      Button.place(x=55, y=115)
-      Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="TURMAS", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_turmas)
-      Button.place(x=55, y=215)
-      Button = ctk.CTkButton(master=frame1, width=180, text="TIMES", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_times)
-      Button.place(x=55, y=265)
-      Button = ctk.CTkButton(master=frame1, width=180, text="SPRINTS", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_sprints)
-      Button.place(x=55, y=315)
+      for x in range(len(acesso["usuarios"])):
+                if(acesso["usuarios"][x]["isActive"] == True):
+                    user_nome = acesso["usuarios"][x]["user"]
+                    jaResp = acesso["usuarios"][x]["resp"]
+
+      times = []
+      turmas = []
+
+      for nome in ac_turmas["turmas"]:
+                # times = acesso["usuarios"][x]["times"]
+                turmas.append(nome["nometurma"])
+
+      print(turmas)
+      timeSelecionado = StringVar()
+      turmaSelecionada = StringVar()
+
+      turmaSelecionada.set(turmas[0])
+
+      #Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="CADASTROS", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_cadt)
+      #Button.place(x=55, y=65)
+      #Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="USUÁRIO", font = ('Roboto', 18, 'bold'), text_color= ('black'))
+      #Button.place(x=55, y=115)
+      turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 18), text_color='black').place(x=65, y=315)
+      turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="#5CE1E6", width=200, text_color='black', text="Turma:", font=("Roboto", 18)).place(x=65, y=315)
+     # times_label = ctk.CTkLabel(master=janela, text="Time:", font=("Roboto", 18), text_color='blak').place(x=55, y=335)
+      #times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="#5CE1E6", width=180).place(x=65, y=335)
+      #Button = ctk.CTkButton(master=frame1, width=180, text="SPRINTS", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_sprints)
+      #Button.place(x=55, y=315)
+      #Button = ctk.CTkButton(master=frame1, width=180, text="SPRINTS", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_sprints)
+      #Button.place(x=55, y=335)
+      #Button = ctk.CTkButton(master=frame1, width=180, text="SPRINTS", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_sprints)
+      #Button.place(x=55, y=365)
+
+def abre_cadt():
+   janela.destroy()
+   cadt.abrir_cadastro()
 
 #botoes widgets
+
 def abre_turmas():
    horizonte = 0
    vertical = 0
@@ -98,6 +131,8 @@ def abre_turmas():
 
    frame2.place(x=330, y=200)
 
+# OLHAR TELA BV e LOGGIN
+# Adicionar integrantes e Dashbords
 def abre_times():
    horizonte = 0
    vertical = 0
@@ -125,10 +160,6 @@ def abre_sprints():
       btn_user = ctk.CTkButton(master=frame4, text=user_nome, fg_color="#1a1a1a")
       btn_user.pack(fill='x', padx=5, pady=10)
             
-      #if(horizonte > 800):
-       #  vertical = vertical + 70
-        # horizonte = 0  
-  
   
    frame4.place(x=330, y=200)
 
