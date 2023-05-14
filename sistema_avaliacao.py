@@ -55,7 +55,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             y = (screen_height - 650) // 2
             janela.geometry("1200x650+{}+{}".format(x, y))
             
-            janela.title("Sistema de login")
+            janela.title("Insight 360º")
             janela.iconbitmap("logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
