@@ -2,34 +2,39 @@
     "usuarios": [
         {
             "user": "Jhony",
-            "id": "jhony",
-            "idturma": "123",
-            "idtime": "1234",
+            "id": "santosjhony@gmail.com",
+            "idturma": "DesenvolvimentodeMultiplataforma4856",
+            "idtime": "MultisD+9022",
             "cargo": "user",
             "senha": "1234",
+            "sprint_atual": 1,
             "isActive": false,
             "aceito": true,
             "resp": false
         },
         {
             "user": "Andre",
-            "id": "jhony@gmailcom",
-            "idturma": "123",
-            "idtime": "1234",
-            "cargo": "user",
+            "id": "andre@email.com",
+            "idturma": "456",
+            "idtime": "5678",
+            "cargo": "adm",
             "senha": "123",
+            "sprint_atual": "4",
             "isActive": false,
-            "aceito": false
+            "aceito": true,
+            "resp": true
         },
         {
-            "user": "Lucas ",
+            "user": "Lucas",
             "id": "lucas@gmail.com",
             "idturma": "123",
             "idtime": "1234",
             "cargo": "user",
             "senha": "123",
+            "sprint_atual": 0,
             "isActive": false,
-            "aceito": false
+            "aceito": true,
+            "resp": true
         },
         {
             "user": "Alexandre",
@@ -38,9 +43,66 @@
             "idtime": "12134",
             "cargo": "user",
             "senha": "123",
+            "sprint_atual": 1,
+            "isActive": false,
+            "aceito": true,
+            "resp": false
+        },
+        {
+            "user": "Jhony Santos",
+            "id": "santosdesouzajhony@gmail.com",
+            "idturma": "123",
+            "idtime": "1234",
+            "cargo": "user",
+            "senha": "123456",
+            "sprint_atual": 1,
             "isActive": false,
             "aceito": true,
             "resp": true
+        },
+        {
+            "user": "Raul",
+            "id": "raulhenrique@gmail.com",
+            "idturma": "456",
+            "idtime": "1234",
+            "cargo": "user",
+            "senha": "123456",
+            "sprint_atual": 1,
+            "isActive": false,
+            "aceito": true,
+            "resp": false
+        },
+        {
+            "user": "Fernando",
+            "id": "fer@email.com",
+            "idturma": "456",
+            "idtime": "9012",
+            "cargo": "user",
+            "senha": "abc",
+            "sprint_atual": 1,
+            "isActive": false,
+            "aceito": true,
+            "resp": false
+        },
+        {
+            "user": "Juliano",
+            "id": "ju@email.com",
+            "idturma": "123",
+            "idtime": "4567",
+            "cargo": "user",
+            "senha": "111",
+            "isActive": false,
+            "aceito": true
+        },
+        {
+            "user": "Paulo",
+            "id": "paulo@email.com",
+            "idturma": "456",
+            "idtime": "1234",
+            "cargo": "user",
+            "senha": "222",
+            "isActive": false,
+            "aceito": true
         }
     ]
 }

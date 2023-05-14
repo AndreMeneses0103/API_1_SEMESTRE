@@ -3,6 +3,7 @@ import customtkinter as ctk
 from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
+import telaADM
 
 # def abrir_login():
     
@@ -23,8 +24,8 @@ class tela_login_cadastro:
 
     def tela(self):    
         janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
-        janela.title("Sistema de login")
-        #janela.iconbitmap("logo_insight.ico")
+        janela.title("Insight 360º")
+        janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
 
@@ -44,7 +45,7 @@ class tela_login_cadastro:
         label.place(x=45, y=40)
 
         #entrada de dados
-        user_name_label1 = ctk.CTkLabel(master=login_frame, text="Username: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
+        user_name_label1 = ctk.CTkLabel(master=login_frame, text="E-mail: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
         username = tk.StringVar()#criação da variavel 
         username_entry = ctk.CTkEntry(master=login_frame, placeholder_text="Username", width=300, font = ('Roboto', 14), textvariable=username).place(x=45, y=125)
 
@@ -59,7 +60,7 @@ class tela_login_cadastro:
             for x in range(len(acesso["usuarios"])):
                 input_nome = username.get()
                 input_senha = password.get()
-                if (acesso["usuarios"][x]["user"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
+                if (acesso["usuarios"][x]["id"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
                     if(acesso["usuarios"][x]["aceito"] == False):
                         janelaAceito = ctk.CTk()
                         janelaAceito.title("ALERTA!")
@@ -82,7 +83,12 @@ class tela_login_cadastro:
                         with open("data_json/users.json", "w") as arq_json:
                             arq_json.write(insert_acesso)
                         janela.destroy()
-                        TBV.abrir()
+                        # AS LINHAS ABAIXO FARAO A ANALISE SE USUARIO 'E ALUNO OU ADM
+                        if(acesso["usuarios"][x]["cargo"] == "adm"):
+                            telaADM.abrir_tela_adm()
+                        else:
+                            TBV.abrir()
+                        
                 else:
                     incorrect = incorrect + 1
             if(incorrect == len(acesso["usuarios"])):
@@ -260,8 +266,10 @@ class tela_login_cadastro:
                             "idtime": idtime,
                             "cargo":"user",
                             "senha":data_senha,
+                            "sprint_atual": 0,
                             "isActive": False,
-                            "aceito": False
+                            "aceito": False,
+                            "resp": False
                         }
 
 
@@ -274,7 +282,25 @@ class tela_login_cadastro:
 
 
                         back()
-                        label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
+
+
+                        #TELA ALERTA DE CONFIRMAÇÃO DE CADASTRO
+                        janelaConfirmacaoCadastro = ctk.CTk()
+                        janelaConfirmacaoCadastro.title("ALERTA!")
+                        screen_width = janelaConfirmacaoCadastro.winfo_screenwidth()
+                        screen_height = janelaConfirmacaoCadastro.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaConfirmacaoCadastro.geometry("330x180+{}+{}".format(x, y))
+                        janelaConfirmacaoCadastro.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaConfirmacaoCadastro, text="\nATENÇÃO!\n\nCadastro enviado com sucesso!\nAguarde a liberação do seu login pelo \nadministrador\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                            janelaConfirmacaoCadastro.destroy()
+                        button_ok = ctk.CTkButton(janelaConfirmacaoCadastro, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()
+                        janelaConfirmacaoCadastro.mainloop()
+
+
+                       # label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
                         pass
                     
                     cadastrar_button = ctk.CTkButton(cadastro_frame, text="Cadastrar", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=cadastro).place(x=220, y=400)
