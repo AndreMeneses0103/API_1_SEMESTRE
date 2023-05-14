@@ -7,7 +7,7 @@
             "idtime": "MultisD+9022",
             "cargo": "user",
             "senha": "1234",
-            "sprint_atual": 1,
+            "sprint_atual": 0,
             "isActive": false,
             "aceito": true,
             "resp": false
@@ -103,6 +103,18 @@
             "senha": "222",
             "isActive": false,
             "aceito": true
+        },
+        {
+            "user": "Gui",
+            "id": "gui@gmail.com",
+            "idturma": "123",
+            "idtime": "3",
+            "cargo": "user",
+            "senha": "123",
+            "sprint_atual": 0,
+            "isActive": false,
+            "aceito": true,
+            "resp": false
         }
     ]
 }

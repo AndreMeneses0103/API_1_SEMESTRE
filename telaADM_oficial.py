@@ -45,7 +45,7 @@ class telaAMD_oficial():
 #imagem logo 360
    def logo(self):
       img = PhotoImage(file = "logo_insight.png").subsample(2)
-      label_img = ctk.CTkLabel(master=janela, image=img, text="")
+      label_img = ctk.CTkLabel(master=janela, image=img, text="", fg_color="#242424")
       label_img.place(x=35, y=20)
 
 #titulo ADM

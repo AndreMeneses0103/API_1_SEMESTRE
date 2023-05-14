@@ -27,7 +27,7 @@ def abrir_tela_adm():
     label_img = ctk.CTkLabel(master=janela, image=img, text="")
     label_img.place(x=15, y=20)
     #titulo ADM
-    label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=400, y=80)
+    label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
@@ -46,8 +46,8 @@ def abrir_tela_adm():
 
     #Imagem do botão logout
     logout = PhotoImage(file = "logout.png").subsample(2)
-    Button = ctk.CTkButton(master=janela, image=logout, text="", fg_color="#1a1a1a", command=Close)
-    Button.place(x=1000, y=40)
+    Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#242424", command=Close)
+    Button.place(x=1100, y=40)
 
     #frame esquerda
     frame1 = ctk.CTkFrame(master=janela, width=370, height=450)
