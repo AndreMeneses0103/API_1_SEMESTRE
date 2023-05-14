@@ -1,4 +1,5 @@
 # ---------------------------------------- Janela Prinicipal -------------------------------------------- #
+import tkinter as tk
 import json
 import customtkinter as ctk
 from tkinter import *
@@ -72,6 +73,13 @@ tur = ac_turmas["turmas"]
 turma_certa = ""
 time_certo = ""
 posicao = ""
+v_nome = []
+v_opcao = []
+
+
+def mudanca(nome, status):
+    teste = opcao.get()
+    print(f"NOME = {nome} // FOI {teste}")
 
 for x in range(len(user)):
 
@@ -95,14 +103,15 @@ for x in range(len(user)):
         #Frame 2 - Turma do Usuário
         label = ctk.CTkLabel(master=frame_2, text=turma_certa,  text_color="black", font=('Roboto', 16)).grid(column=3, row=x, padx=40, pady=10)
         #Frame 2 - Inibir dupla seleção no checkbox
-        opcao= ctk.IntVar()
+        opcao = tk.IntVar()
         #Frame 2 - Checkbox Usuário
         Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 16)).grid(column=4, row=x, padx=20, pady=10)
         Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 16)).grid(column=5, row=x, padx=20, pady=10)
         #Frame 2 - Botão para salvar seleção
-        Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=6, row=x, padx=80, pady=10)
+        Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command= (lambda v_nome = user[x]["user"], v_opcao = opcao.get() : mudanca(v_nome, v_opcao))).grid(column=6, row=x, padx=80, pady=10)
 
-#Acrescentar uma função de adição para adicionar novos usuários nas linhas abaixo.
+
+
 
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
 # Frame 3 = Redefinição de senha
