@@ -5,7 +5,7 @@ from tkinter import ttk
 from tkcalendar import Calendar, DateEntry
 import random
 import json
-
+import telaADM
 janela = ctk.CTk()
 
 class tela_cadastro_time:
@@ -23,8 +23,14 @@ class tela_cadastro_time:
     
 
     def tela(self):    
-        janela.geometry("1200x800") #DEFINO O TAMANHO DA JANELA
-        janela.title("Cadastro novas turmas")
+        screen_width = janela.winfo_screenwidth()
+        screen_height = janela.winfo_screenheight()
+        x = (screen_width - 1500) // 2
+        y = (screen_height - 650) // 2
+        janela.geometry("1200x650+{}+{}".format(x, y))
+
+
+        janela.title("Insight 360º")
         janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
@@ -35,6 +41,11 @@ class tela_cadastro_time:
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=10, y=10)
         label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=50, y=130)
+        def voltar():
+            janela.destroy()
+            telaADM.abrir_tela_adm()
+        botao_fim = ctk.CTkButton(master=janela, text="Voltar", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=voltar).place(x=50, y=170)
+
 
         #frame a direita
         tela_cadastro_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
@@ -89,15 +100,15 @@ class tela_cadastro_time:
         def define_numero_sprints():
             sprint['turma'] = novaturma.get()
             # Frame onde vai aparecer sprints criadas
-            frame_sprints = ctk.CTkScrollableFrame(master=tela_cadastro_frame, width=400, height=250, corner_radius=0, fg_color="transparent",label_text=sprint['turma'] )
-            frame_sprints.place(x= 45, y= 500)
+            frame_sprints = ctk.CTkScrollableFrame(master=tela_cadastro_frame, width=400, height=200, corner_radius=0, fg_color="transparent",label_text=sprint['turma'] )
+            frame_sprints.place(x= 45, y= 390)
             
             #Cria um menu variável de acordo com o numero de sprints
             num_valores = int(quantidade_sprints.get())
             sprints = [str(i) for i in range(1, num_valores+1)]
             sprintSelecionada = ctk.IntVar()
             sprintSelecionada.set(sprints[0])
-            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada).place(x=50,y=380)
+            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada).place(x=50,y=350)
             
             #titulo periodos
             titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
@@ -117,6 +128,7 @@ class tela_cadastro_time:
             hor = 1
             alt = 1
             #LISTA QUE IRÁ ARMAZENAR TEMPORARIAMENTE AS SPRINTS 
+            global sprintsSelecionada
             sprintsSelecionada = []
 
             def guardaInformacoes():
@@ -144,7 +156,7 @@ class tela_cadastro_time:
                 hor = hor + 1
                 
                 #VARIAVEIS E LISTA QUE ARMAZENARAM DADOS PARA GRAVAR EM JSON - JHONY
-                global idturma, nometurma
+                global idturma, nometurma, sprintsSelecionada
                 idturma = sprint['turma'].replace(" ", "").strip()
                 numeroaleatorio = random.randint(500, 10000)
                 idturma = idturma+str(numeroaleatorio)
@@ -157,7 +169,7 @@ class tela_cadastro_time:
                                 })
                 print(sprintsSelecionada)
                 
-                armazena_json(idturma=idturma, nometurma=nometurma, sprintsSelecionada=sprintsSelecionada,opcao=1)
+                #armazena_json(idturma=idturma, nometurma=nometurma, sprintsSelecionada=sprintsSelecionada,opcao=1)
 
 
 
@@ -203,11 +215,16 @@ class tela_cadastro_time:
                 #frame que vai listar os times criados
                 times_frame = ctk.CTkScrollableFrame(master=tela_times_frame, width=650, height=200, corner_radius=0, fg_color="transparent",label_text='Nome dos times')
                 times_frame.place(x=45, y= 300)
-                
+                timesList = []
                 #Funcao que salva os times os times em JSON e cria labels para mostrar o que foi cadastrado
                 def salvatimes():
                     global x, y
                     #def cria_label(titulo, frame, posicaoX, posicaoY, coluna):
+                    
+                    idtime = nomeTime.get().replace(" ", "").strip()
+                    numeroaleatorio = random.randint(500, 10000)
+                    idtime = idtime+str(numeroaleatorio)
+
                     time = timeSelecionado.get()
                     team_name = nomeTime.get()
                     team_select = "Time " + str(time)+ ": "
@@ -217,16 +234,52 @@ class tela_cadastro_time:
                     y+=1
                     print(team_select+ " -> " + team_name)
                     
-
-                    time = {"nome": team_name,
+                    timesList.append({
+                            "idtime": idtime,
+                            "nometime": nomeTime.get()    
+                    })
+                    nomeTime.set("")
+                    '''
+                    time = {"nometime": team_name,
                             "idtime": time
                             }
                     armazena_json(opcao=2, times=time)
-                    print(time)
+                    print(time)'''
                     
 
-                    
-                botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=650, y=630)
+                def concluir():
+                    print(timesList)
+                    print(idturma,"\n", nometurma, "\n",sprintsSelecionada)
+                    with open("data_json/turmas.json", "r") as arquivo:
+                        dados = json.load(arquivo)
+
+
+                    for x in range(len(dados['turmas'])):
+                        print(x)
+                        ordem = x
+
+                    ordem +=1
+
+                    novosdados = dados
+
+                    data_turmas = {
+                        "idturma": idturma,
+                        "nometurma": nometurma,
+                        "ordem": ordem,
+                        "sprints": sprintsSelecionada, 
+                        "times": timesList
+                    }
+
+                    novosdados['turmas'].append(data_turmas)
+                    novosdados = json.dumps(novosdados, indent=4)
+
+                    with open('data_json/turmas.json', 'w') as arquivoEscrevendo:
+                        arquivoEscrevendo.write(novosdados)
+            
+                    janela.destroy()
+                    import telaADM
+                    pass 
+                botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=concluir).place(x=650, y=600)
                 nome_times_botao = ctk.CTkButton(master=tela_times_frame, text="Adicionar",command= salvatimes, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=690, y=230)
             
             num_times_botao = ctk.CTkButton(master=tela_times_frame, text="OK",command= cria_novos_times, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=150, y=130)

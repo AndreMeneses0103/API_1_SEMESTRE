@@ -3,7 +3,6 @@ import customtkinter as ctk
 from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
-import telaADM2 as TADM
 
 # def abrir_login():
     
@@ -24,7 +23,7 @@ class tela_login_cadastro:
 
     def tela(self):    
         janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
-        janela.title("Sistema de login")
+        janela.title("Insight 360º")
         janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
@@ -268,8 +267,10 @@ class tela_login_cadastro:
                             "idtime": idtime,
                             "cargo":"user",
                             "senha":data_senha,
+                            "sprint_atual": 0,
                             "isActive": False,
-                            "aceito": False
+                            "aceito": False,
+                            "resp": False
                         }
 
 

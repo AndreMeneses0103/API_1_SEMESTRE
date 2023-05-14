@@ -31,7 +31,8 @@ label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), 
 
 def open_menu():
     janela.destroy()
-    
+    telaADM.abrir_tela_adm()
+        
 #Janela - Botão
 Button=ctk.CTkButton(master=janela, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 

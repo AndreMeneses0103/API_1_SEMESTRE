@@ -27,7 +27,7 @@ def abrir():
 
         def tela(self):    
             janela.geometry("1200x650") #DEFINO O TAMANHO DA JANELA
-            janela.title("Sistema de login")
+            janela.title("Insight 360º")
             janela.iconbitmap("logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
@@ -141,6 +141,7 @@ def abrir():
 
 
                 todos_times = ac_turmas["turmas"][posicao]["times"]
+                print("print todos_times=====", todos_times)
                 todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
                 #criar uma variavel semelhante a essa de cima, so que para sprint
 
@@ -148,12 +149,17 @@ def abrir():
                 for x in range(len(todos_times)):
 
                     if (user_time == todos_times[x]["idtime"]):
+                        print('todos_times[x]["idtime"]', todos_times[x]["idtime"])
+                        print('todos_times[x]["nometime"]', todos_times[x]["nometime"])
                         times.append(todos_times[x]["nometime"])
-
+                    else: 
+                        print("Erro")
+                # print(times)
 
                 #criar um for percorrendo todos os elementos semelhante a de cima, so que para sprint (pegar a chave "indice" dentro do objeto "sprints")
 
-
+                # print(times[0])
+                #print(times[0])
                 timeSelecionado.set(times[0])
                 times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
 

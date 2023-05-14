@@ -55,7 +55,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             y = (screen_height - 650) // 2
             janela.geometry("1200x650+{}+{}".format(x, y))
             
-            janela.title("Sistema de login")
+            janela.title("Insight 360º")
             janela.iconbitmap("logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
@@ -95,7 +95,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             def avaliadoFuncao():
                 print(avaliados[avaliado])
                
-                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=300,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
+                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=250,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
 
                 pass
 
@@ -166,7 +166,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                 
 
                 ypergunta4 = 435
-                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
+                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua produtividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta4)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=220, y=ypergunta4)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=330, y=ypergunta4)
