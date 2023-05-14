@@ -75,6 +75,16 @@
             "senha": "abc",
             "isActive": false,
             "aceito": false
+        },
+        {
+            "user": "Amanda Vannucci",
+            "id": "amanda@gmail.com",
+            "idturma": "456",
+            "idtime": "9012",
+            "cargo": "user",
+            "senha": "1234",
+            "isActive": false,
+            "aceito": false
         }
     ]
 }

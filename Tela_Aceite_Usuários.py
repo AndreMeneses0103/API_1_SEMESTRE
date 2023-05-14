@@ -30,7 +30,8 @@ label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), 
 
 def open_menu():
     janela.destroy()
-    
+    import telaADM 
+        
 #Janela - Botão
 Button=ctk.CTkButton(master=janela, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 
@@ -77,9 +78,14 @@ v_nome = []
 v_opcao = []
 
 
-def mudanca(nome, status):
+def mudanca():
     teste = opcao.get()
-    print(f"NOME = {nome} // FOI {teste}")
+    #print(f"NOME = {nome} // FOI {opcao.get()}")
+    print(teste)
+
+  
+
+
 
 for x in range(len(user)):
 
@@ -105,10 +111,10 @@ for x in range(len(user)):
         #Frame 2 - Inibir dupla seleção no checkbox
         opcao = tk.IntVar()
         #Frame 2 - Checkbox Usuário
-        Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 16)).grid(column=4, row=x, padx=20, pady=10)
-        Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 16)).grid(column=5, row=x, padx=20, pady=10)
+        checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 16)).grid(column=4, row=x, padx=20, pady=10)
+        checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 16)).grid(column=5, row=x, padx=20, pady=10)
         #Frame 2 - Botão para salvar seleção
-        Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command= (lambda v_nome = user[x]["user"], v_opcao = opcao.get() : mudanca(v_nome, v_opcao))).grid(column=6, row=x, padx=80, pady=10)
+        Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=mudanca).grid(column=6, row=x, padx=80, pady=10)
 
 
 

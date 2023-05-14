@@ -166,7 +166,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                 
 
                 ypergunta4 = 435
-                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
+                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua produtividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta4)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=220, y=ypergunta4)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=330, y=ypergunta4)
