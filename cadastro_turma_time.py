@@ -5,7 +5,7 @@ from tkinter import ttk
 from tkcalendar import Calendar, DateEntry
 import random
 import json
-
+import telaADM
 janela = ctk.CTk()
 
 class tela_cadastro_time:
@@ -23,7 +23,13 @@ class tela_cadastro_time:
     
 
     def tela(self):    
-        janela.geometry("1200x650") #DEFINO O TAMANHO DA JANELA
+        screen_width = janela.winfo_screenwidth()
+        screen_height = janela.winfo_screenheight()
+        x = (screen_width - 1500) // 2
+        y = (screen_height - 650) // 2
+        janela.geometry("1200x650+{}+{}".format(x, y))
+
+
         janela.title("Insight 360º")
         janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
@@ -35,6 +41,11 @@ class tela_cadastro_time:
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=10, y=10)
         label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=50, y=130)
+        def voltar():
+            janela.destroy()
+            telaADM.abrir_tela_adm()
+        botao_fim = ctk.CTkButton(master=janela, text="Voltar", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=voltar).place(x=50, y=170)
+
 
         #frame a direita
         tela_cadastro_frame = ctk.CTkFrame(master=janela, width=900, height=1000)

@@ -267,8 +267,10 @@ class tela_login_cadastro:
                             "idtime": idtime,
                             "cargo":"user",
                             "senha":data_senha,
+                            "sprint_atual": 0,
                             "isActive": False,
-                            "aceito": False
+                            "aceito": False,
+                            "resp": False
                         }
 
 

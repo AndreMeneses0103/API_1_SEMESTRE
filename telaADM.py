@@ -11,8 +11,12 @@ ctk.set_default_color_theme("blue")
 
 #padrão da tela
 janela = ctk.CTk()
-janela.geometry("1080x540") 
-janela.title("Tela Administrador")
+screen_width = janela.winfo_screenwidth()
+screen_height = janela.winfo_screenheight()
+x = (screen_width - 1500) // 2
+y = (screen_height - 650) // 2
+janela.geometry("1200x650+{}+{}".format(x, y))
+janela.title("Insight 360º")
 janela.iconbitmap("logo_insight.ico")
 janela.resizable(False, False)
 
