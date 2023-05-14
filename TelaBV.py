@@ -25,7 +25,7 @@ def abrir():
 
         def tela(self):    
             janela.geometry("1200x650") #DEFINO O TAMANHO DA JANELA
-            janela.title("Sistema de login")
+            janela.title("Insight 360º")
             janela.iconbitmap("logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
