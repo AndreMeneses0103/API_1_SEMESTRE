@@ -3,7 +3,6 @@ import customtkinter as ctk
 from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
-import telaADM2 as TADM
 
 # def abrir_login():
     

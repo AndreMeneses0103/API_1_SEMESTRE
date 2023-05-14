@@ -36,7 +36,7 @@ def Close():
 
     janela.destroy()
     # TBV.abrir()
-    TLOGIN.abrir_login()
+    #TLOGIN.abrir_login()
 
 #Imagem do botão logout
 logout = PhotoImage(file = "logout.png").subsample(2)
