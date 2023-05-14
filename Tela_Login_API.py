@@ -23,7 +23,7 @@ class tela_login_cadastro:
 
     def tela(self):    
         janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
-        janela.title("Sistema ")
+        janela.title("Insight 360º")
         janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
