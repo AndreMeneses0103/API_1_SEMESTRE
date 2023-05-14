@@ -29,9 +29,9 @@ class tela_login_cadastro:
 
     def tela_login(self):
         #trabalhando com a imagem da tela
-        '''img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+        img = PhotoImage(file="Sprint2/logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
-        label_img.place(x=50, y=160)'''
+        label_img.place(x=50, y=160)
         label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360 e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
 
         #frame a direita
@@ -54,7 +54,7 @@ class tela_login_cadastro:
         def login():
     
             incorrect = 0
-            acesso = json.load(open("data_json/users.json", "r"))
+            acesso = json.load(open("Sprint2/data_json/users.json", "r"))
             for x in range(len(acesso["usuarios"])):
                 input_nome = username.get()
                 input_senha = password.get()
@@ -62,7 +62,7 @@ class tela_login_cadastro:
                     aviso_validado = ctk.CTkLabel(master=login_frame, text="Acesso liberado!", text_color="#00FFFF", font=('Roboto', 18)).place(x=45,y=300)
                     acesso["usuarios"][x]["isActive"] = True
                     insert_acesso = str(json.dumps(acesso, indent=4))
-                    with open("data_json/users.json", "w") as arq_json:
+                    with open("Sprint2/data_json/users.json", "w") as arq_json:
                         arq_json.write(insert_acesso)
                     janela.destroy()
                     TBV.abrir()
@@ -160,7 +160,7 @@ class tela_login_cadastro:
             voltar = ctk.CTkButton(cadastro_frame, text="Voltar", width=150, fg_color="gray", font = ('Roboto', 14), cursor="hand2", hover_color='#202020', command=back).place(x=45, y=400)
             def cadastro():
 
-                with open('data_json/users.json', 'r') as f:
+                with open('Sprint2/data_json/users.json', 'r') as f:
                     data = json.load(f)
 
                 novos_dados = data
@@ -182,7 +182,7 @@ class tela_login_cadastro:
                 novos_dados['usuarios'].append(data_cadastro)
                 novos_dados = json.dumps(novos_dados, indent=4)
 
-                with open('data_json/users.json', 'w') as arquivo:
+                with open('Sprint2/data_json/users.json', 'w') as arquivo:
                     arquivo.write(novos_dados)
                     print('Cadastrados')
 

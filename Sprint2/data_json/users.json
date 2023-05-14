@@ -20,6 +20,13 @@
             "cargo": "adm",
             "senha": "xyz",
             "isActive": false
+        },
+        {
+            "user": "Vinicius",
+            "id": "a",
+            "cargo": "user",
+            "senha": "a",
+            "isActive": false
         }
     ]
 }

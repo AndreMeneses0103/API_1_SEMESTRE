@@ -25,18 +25,18 @@ def abrir():
         def tela(self):    
             janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
             janela.title("Sistema de login")
-            janela.iconbitmap("logo_insight.ico")
+            janela.iconbitmap("Sprint2/logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
         
         def TelaAlerta(self):
-            img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+            img = PhotoImage(file="Sprint2/logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
             label_img.place(x=50, y=160)
         
             user_nome = ""
 
-            acesso = json.load(open("data_json/users.json", "r"))
+            acesso = json.load(open("Sprint2/data_json/users.json", "r"))
 
             for x in range(len(acesso["usuarios"])):
                 if(acesso["usuarios"][x]["isActive"] == True):
@@ -50,14 +50,14 @@ def abrir():
 
 
     def Close():
-        acesso = json.load(open("data_json/users.json", "r"))
+        acesso = json.load(open("Sprint2/data_json/users.json", "r"))
 
         for x in range(len(acesso["usuarios"])):
             acesso["usuarios"][x]["isActive"] = False
 
         insert_acesso = str(json.dumps(acesso, indent=4))
 
-        with open("data_json/users.json", "w") as arq_json:
+        with open("Sprint2/data_json/users.json", "w") as arq_json:
             arq_json.write(insert_acesso)
 
         janela.destroy()
