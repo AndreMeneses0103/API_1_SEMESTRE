@@ -58,13 +58,23 @@
         {
             "user": "Raul",
             "id": "raulhenrique@gmail.com",
-            "idturma": "123",
+            "idturma": "456",
             "idtime": "1234",
             "cargo": "user",
             "senha": "123456",
             "isActive": false,
             "aceito": false,
             "resp": false
+        },
+        {
+            "user": "Fernando",
+            "id": "fer@email.com",
+            "idturma": "456",
+            "idtime": "9012",
+            "cargo": "user",
+            "senha": "abc",
+            "isActive": false,
+            "aceito": false
         }
     ]
 }
