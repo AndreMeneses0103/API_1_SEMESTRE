@@ -117,6 +117,7 @@ class tela_cadastro_time:
             hor = 1
             alt = 1
             #LISTA QUE IRÁ ARMAZENAR TEMPORARIAMENTE AS SPRINTS 
+            global sprintsSelecionada
             sprintsSelecionada = []
 
             def guardaInformacoes():
@@ -144,7 +145,7 @@ class tela_cadastro_time:
                 hor = hor + 1
                 
                 #VARIAVEIS E LISTA QUE ARMAZENARAM DADOS PARA GRAVAR EM JSON - JHONY
-                global idturma, nometurma
+                global idturma, nometurma, sprintsSelecionada
                 idturma = sprint['turma'].replace(" ", "").strip()
                 numeroaleatorio = random.randint(500, 10000)
                 idturma = idturma+str(numeroaleatorio)
@@ -203,11 +204,16 @@ class tela_cadastro_time:
                 #frame que vai listar os times criados
                 times_frame = ctk.CTkScrollableFrame(master=tela_times_frame, width=650, height=200, corner_radius=0, fg_color="transparent",label_text='Nome dos times')
                 times_frame.place(x=45, y= 300)
-                
+                timesList = []
                 #Funcao que salva os times os times em JSON e cria labels para mostrar o que foi cadastrado
                 def salvatimes():
                     global x, y
                     #def cria_label(titulo, frame, posicaoX, posicaoY, coluna):
+                    
+                    idtime = nomeTime.get().replace(" ", "").strip()
+                    numeroaleatorio = random.randint(500, 10000)
+                    idtime = idtime+str(numeroaleatorio)
+
                     time = timeSelecionado.get()
                     team_name = nomeTime.get()
                     team_select = "Time " + str(time)+ ": "
@@ -217,16 +223,52 @@ class tela_cadastro_time:
                     y+=1
                     print(team_select+ " -> " + team_name)
                     
-
+                    timesList.append({
+                            "idtime": idtime,
+                            "nometime": nomeTime.get()    
+                    })
+                    nomeTime.set("")
+                    '''
                     time = {"nometime": team_name,
                             "idtime": time
                             }
                     armazena_json(opcao=2, times=time)
-                    print(time)
+                    print(time)'''
                     
 
-                    
-                botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=650, y=600)
+                def concluir():
+                    print(timesList)
+                    print(idturma,"\n", nometurma, "\n",sprintsSelecionada)
+                    with open("data_json/turmas.json", "r") as arquivo:
+                        dados = json.load(arquivo)
+
+
+                    for x in range(len(dados['turmas'])):
+                        print(x)
+                        ordem = x
+
+                    ordem +=1
+
+                    novosdados = dados
+
+                    data_turmas = {
+                        "idturma": idturma,
+                        "nometurma": nometurma,
+                        "ordem": ordem,
+                        "sprints": sprintsSelecionada, 
+                        "times": timesList
+                    }
+
+                    novosdados['turmas'].append(data_turmas)
+                    novosdados = json.dumps(novosdados, indent=4)
+
+                    with open('data_json/turmas.json', 'w') as arquivoEscrevendo:
+                        arquivoEscrevendo.write(novosdados)
+            
+                    janela.destroy()
+                    import telaADM
+                    pass 
+                botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=concluir).place(x=650, y=600)
                 nome_times_botao = ctk.CTkButton(master=tela_times_frame, text="Adicionar",command= salvatimes, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=690, y=230)
             
             num_times_botao = ctk.CTkButton(master=tela_times_frame, text="OK",command= cria_novos_times, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=150, y=130)
