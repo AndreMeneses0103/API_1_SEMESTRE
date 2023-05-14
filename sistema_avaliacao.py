@@ -270,6 +270,13 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
 
                                 with open("data_json/users.json", "r") as arquivo:
                                     data = json.load(arquivo)
+
+                                for x in range(len(data["usuarios"])):
+                                    if(data["usuarios"][x]["isActive"] == true):
+                                        data["usuarios"][x]["sprint_atual"] = atual_sprint
+                                        insert_acesso = (json.dumps(data, indent=4))
+                                        with open("data_json/users.json", "w") as arq_json:
+                                            arq_json.write(insert_acesso)
                                 
 
                                 janelaAlertaFinalizado = ctk.CTk()
@@ -286,6 +293,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                                     janela.destroy()
                                     janelaAlertaFinalizado.destroy()
                                     TelaBV.abrir()
+    
                                 button_ok = ctk.CTkButton(janelaAlertaFinalizado, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Finalizado, fg_color='#5CE1E6', text_color='black').pack()   
                                 janelaAlertaFinalizado.mainloop()
                             else:

@@ -3,6 +3,7 @@ import tkinter as tk
 import json
 import customtkinter as ctk
 from tkinter import *
+import ast
 
 
 
@@ -52,6 +53,7 @@ label = ctk.CTkLabel(master=frame, text="Redefinição de Senha", text_color="wh
 # ------------------------------------------------ Frame 2 ------------------------------------------- #
 # Frame 2 = Aceite de usuários
 
+global frame_2
 #Frame 2 - Dimensões
 frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
 
@@ -73,13 +75,10 @@ tur = ac_turmas["turmas"]
 turma_certa = ""
 time_certo = ""
 posicao = ""
+ninguem = 0
 v_nome = []
 v_opcao = []
 
-
-def mudanca(nome, status):
-    teste = opcao.get()
-    print(f"NOME = {nome} // FOI {teste}")
 
 for x in range(len(user)):
 
@@ -91,27 +90,62 @@ for x in range(len(user)):
 
     for z in range(len(tur[posicao]["times"])):
         if(user[x]["idtime"] == tur[posicao]["times"][z]["idtime"]):
-            # print(tur[posicao]["times"][z]["nometime"])
             time_certo = tur[posicao]["times"][z]["nometime"]
 
 
     if(user[x]["aceito"] == False):
 
-        label = ctk.CTkLabel(master=frame_2, text=user[x]["user"],  text_color="black", font=('Roboto', 16)).grid(column=1, row=x, padx=10, pady=10)
+        label = ctk.CTkLabel(master=frame_2, text=user[x]["user"],  text_color="black", font=('Roboto', 16)).grid(column=1, row=x, padx=40, pady=10, sticky=W)
         #Frame 2 - Time do Usuário
-        label = ctk.CTkLabel(master=frame_2, text=time_certo,  text_color="black", font=('Roboto', 16)).grid(column=2, row=x, padx=10, pady=10)
+        label = ctk.CTkLabel(master=frame_2, text=time_certo,  text_color="black", font=('Roboto', 16)).grid(column=2, row=x, padx=40, pady=10, sticky=W)
         #Frame 2 - Turma do Usuário
-        label = ctk.CTkLabel(master=frame_2, text=turma_certa,  text_color="black", font=('Roboto', 16)).grid(column=3, row=x, padx=40, pady=10)
+        label = ctk.CTkLabel(master=frame_2, text=turma_certa,  text_color="black", font=('Roboto', 16)).grid(column=3, row=x, padx=60, pady=10, sticky=W)
         #Frame 2 - Inibir dupla seleção no checkbox
-        opcao = tk.IntVar()
+        opcao = tk.StringVar()
+        opcao.set("")
+        v_opcao.append(opcao)
         #Frame 2 - Checkbox Usuário
-        Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 16)).grid(column=4, row=x, padx=20, pady=10)
-        Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 16)).grid(column=5, row=x, padx=20, pady=10)
+        Checkbuttons = ctk.CTkRadioButton(master=frame_2, variable=opcao, value={"nome":user[x]["user"], "status":'1'}, text="Aceitar", text_color=('black'), font=('Roboto', 16)).grid(column=6, row=x, padx=60, pady=10, sticky=W)
+        Checkbuttons = ctk.CTkRadioButton(master=frame_2, variable=opcao, value={"nome":user[x]["user"], "status":'2'}, text="Negar", text_color=('black'), font=('Roboto', 16)).grid(column=7, row=x, padx=60, pady=10, sticky=W)
+
         #Frame 2 - Botão para salvar seleção
-        Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command= (lambda v_nome = user[x]["user"], v_opcao = opcao.get() : mudanca(v_nome, v_opcao))).grid(column=6, row=x, padx=80, pady=10)
+    else:
+        ninguem = ninguem + 1
+
+if(ninguem != len(user)):
+    Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command= (lambda v_nome = user[x]["user"]: mudanca(v_nome))).grid(columnspan=6)
+
+def mudanca(nome):
+    global frame_2
+
+    ativos = []
+    dict_ativos = []
+    vazio = 0
+    for opcao in v_opcao:
+        if(opcao.get() == ""):
+            vazio = 1
+        else:
+            ativos.append(opcao.get())
 
 
+    if(vazio == 0):
+        for item in ativos:
+            dicionario = ast.literal_eval(item)
+            dict_ativos.append(dicionario)
 
+        for x in range(len(user)):
+            for z in range(len(dict_ativos)):
+                if(dict_ativos[z]["nome"] == user[x]["user"]):
+                    if(dict_ativos[z]["status"] == "1"):
+                        user[x]["aceito"] = True
+                        insert_acesso = (json.dumps(acesso, indent=4))
+                        with open("data_json/users.json", "w") as arq_json:
+                            arq_json.write(insert_acesso)
+
+
+        frame_2.destroy()
+        frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
+        frame_2.place(x=100, y=40)
 
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
 # Frame 3 = Redefinição de senha
