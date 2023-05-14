@@ -7,23 +7,23 @@
             "idtime": "1234",
             "cargo": "user",
             "senha": "1234",
-            "isActive": true,
+            "isActive": false,
             "aceito": true,
             "resp": false
         },
         {
             "user": "Andre",
-            "id": "jhony@gmailcom",
+            "id": "andre@email.com",
             "idturma": "456",
             "idtime": "5678",
             "cargo": "adm",
             "senha": "123",
             "isActive": false,
             "aceito": true,
-            "resp": true
+            "resp": false
         },
         {
-            "user": "Lucas ",
+            "user": "Lucas",
             "id": "lucas@gmail.com",
             "idturma": "123",
             "idtime": "1234",
@@ -45,7 +45,7 @@
             "resp": false
         },
         {
-            "user": "Jhony Santos ",
+            "user": "Jhony Santos",
             "id": "santosdesouzajhony@gmail.com",
             "idturma": "123",
             "idtime": "1234",
@@ -56,7 +56,7 @@
             "resp": true
         },
         {
-            "user": "Raul ",
+            "user": "Raul",
             "id": "raulhenrique@gmail.com",
             "idturma": "123",
             "idtime": "1234",

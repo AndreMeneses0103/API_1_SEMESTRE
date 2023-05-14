@@ -30,7 +30,7 @@ label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), 
     #open()     
            
 #Janela - Botão
-Button=ctk.CTkButton(master=janela, text="MENU INICIAL", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 16, "bold")).place(x=1000, y=612)
+Button=ctk.CTkButton(master=janela, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).place(x=1000, y=612)
 
 # ------------------------------------------------ Frame 1 --------------------------------------------- #
 #Frame 1 - Frame Base (Estética)
@@ -60,24 +60,19 @@ scroll_1.configure(height=0)
 #Frame 2 - Indica o principal que a frame ficará
 frame_2.place(x=100, y=40)
 
-#Frame 2 - Nome do Usuário
-label = ctk.CTkLabel(master=frame_2, text="Usuário 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=1, row=0, padx=20, pady=10)
-
-#Frame 2 - Time do Usuário
-label = ctk.CTkLabel(master=frame_2, text="Time 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=2, row=0, padx=20, pady=10)
-
-#Frame 2 - Turma do Usuário
-label = ctk.CTkLabel(master=frame_2, text="Turma 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=3, row=0, padx=50, pady=10)
-
-#Frame 2 - Inibir dupla seleção no checkbox
-opcao= ctk.IntVar()
-
-#Frame 2 - Checkbox Usuário
-Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=4, row=0, padx=20, pady=10)
-Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=5, row=0, padx=20, pady=10)
-
-#Frame 2 - Botão para salvar seleção
-Button=ctk.CTkButton(master=frame_2, text="SALVAR", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 20, "bold")).grid(column=6, row=0, padx=80, pady=10)
+for x in range(0,10):
+    label = ctk.CTkLabel(master=frame_2, text=f"Usuário {x}",  text_color="black", font=('Roboto', 20, "bold")).grid(column=1, row=x, padx=20, pady=10)
+    #Frame 2 - Time do Usuário
+    label = ctk.CTkLabel(master=frame_2, text="Time 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=2, row=x, padx=20, pady=10)
+    #Frame 2 - Turma do Usuário
+    label = ctk.CTkLabel(master=frame_2, text="Turma 1",  text_color="black", font=('Roboto', 20, "bold")).grid(column=3, row=x, padx=50, pady=10)
+    #Frame 2 - Inibir dupla seleção no checkbox
+    opcao= ctk.IntVar()
+    #Frame 2 - Checkbox Usuário
+    Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=1, text="Aceitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=4, row=x, padx=20, pady=10)
+    Checkbutton = ctk.CTkRadioButton(master=frame_2, variable=opcao, value=2, text="Rejeitar", text_color=('black'), font=('Roboto', 20, "bold")).grid(column=5, row=x, padx=20, pady=10)
+    #Frame 2 - Botão para salvar seleção
+    Button=ctk.CTkButton(master=frame_2, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=6, row=x, padx=80, pady=10)
 
 #Acrescentar uma função de adição para adicionar novos usuários nas linhas abaixo.
 
@@ -93,15 +88,15 @@ scroll_3.configure(height=0)
 
 # Frame 3 - Indica o principal que a frame ficará
 frame_3.place(x=100, y=300)
-#kfdkkdkdkd
-# Integrar com Jason
-label = ctk.CTkLabel(master=frame_3, text="Usuário x", text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=0, padx=100, pady=10)
 
-#Frame 3 - Barra de entrada "Nova Senha"
-label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold")).grid(column=1, row=0, pady=10)
+for x in range(0,10):
+    label = ctk.CTkLabel(master=frame_3, text=f"Usuário {x}", text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
 
-#Frame 3 - Botão para salvar seleção
-Button=ctk.CTkButton(master=frame_3, text="SALVAR", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 20, "bold")).grid(column=4, row=0, padx=100, pady=5)
+    #Frame 3 - Barra de entrada "Nova Senha"
+    label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold")).grid(column=1, row=x, pady=10)
+
+    #Frame 3 - Botão para salvar seleção
+    Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=4, row=x, padx=100, pady=5)
 
 # ------------------------------------------------ Janela Total ------------------------------------------- #
 

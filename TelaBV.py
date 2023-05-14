@@ -63,7 +63,8 @@ def abrir():
             times = []
            
             for nome in ac_turmas["turmas"]:  
-                if (user_turma == nome ["idturma"]):
+                # print(f'USER TURMA = {user_turma} E TURMA = {nome["idturma"]}')
+                if (user_turma == nome["idturma"]):
                     turmas.append(nome["nometurma"]) 
                 
 
@@ -179,16 +180,12 @@ def abrir():
 
 
                 for turma in usuarios:
-                        if turma['nometurma'] == turmaSelecionada.get():
-                            for time in turma['times']:
-                                if time['nometime'] == timeSelecionado.get():
-                                        idtime = time['idtime']
-                                        idturma = turma['idturma']
-
-                #for usuario in usuarios:
-                  #  if usuario["nometurma"] == turmaSelecionada.get() and usuario[usuario]["nometime"] == timeSelecionado.get():
-                   #     nometurma = usuario["idturma"]
-                    #    nometime = usuario[usuario]["idtime"]
+                    print(turma['nometurma'])
+                    if (turma['nometurma'] == turmaSelecionada.get()):
+                        for time in turma['times']:
+                            if time['nometime'] == timeSelecionado.get():
+                                    idtime = time['idtime']
+                                    idturma = turma['idturma']
 
                 janela.destroy()
                 #função de abrir a avaliação
