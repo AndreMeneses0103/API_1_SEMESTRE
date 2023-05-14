@@ -38,4 +38,5 @@ Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/S
 Média | <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a> |Gerenciamento de Solicitação de Usuários | Finalizada ✅
 Baixa | 4 |Controle de Acessos e Senhas | A fazer
 Baixa | 4 |Inclusão e Remoção de Usuários no Sistema | A fazer
+Média | 2 |	Sistema de Login | Finalizada ✅
  
