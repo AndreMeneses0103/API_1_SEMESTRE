@@ -31,7 +31,7 @@
             "idtime": "1234",
             "cargo": "user",
             "senha": "123",
-            "sprint_atual": 1,
+            "sprint_atual": 0,
             "isActive": false,
             "aceito": true,
             "resp": true

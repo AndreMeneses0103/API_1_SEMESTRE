@@ -3,6 +3,7 @@ import customtkinter as ctk
 from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
+import telaADM
 
 # def abrir_login():
     
@@ -82,14 +83,12 @@ class tela_login_cadastro:
                         with open("data_json/users.json", "w") as arq_json:
                             arq_json.write(insert_acesso)
                         janela.destroy()
-
                         # AS LINHAS ABAIXO FARAO A ANALISE SE USUARIO 'E ALUNO OU ADM
-
-                        # if(acesso["usuarios"][x]["cargo"] == "adm"):
-                        #     print("VAI ABRIR TELA ADM")
-                        # else:
-                        #     print("VAI ABRIR TELA USER")
-                        TBV.abrir()
+                        if(acesso["usuarios"][x]["cargo"] == "adm"):
+                            telaADM.abrir_tela_adm()
+                        else:
+                            TBV.abrir()
+                        
                 else:
                     incorrect = incorrect + 1
             if(incorrect == len(acesso["usuarios"])):

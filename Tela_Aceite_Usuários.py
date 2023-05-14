@@ -2,6 +2,7 @@
 import tkinter as tk
 import json
 import customtkinter as ctk
+import telaADM
 from tkinter import *
 import ast
 

@@ -277,13 +277,11 @@ class tela_cadastro_time:
                         arquivoEscrevendo.write(novosdados)
             
                     janela.destroy()
-                    import telaADM
+                    telaADM.abrir_tela_adm()
                     pass 
                 botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=concluir).place(x=650, y=600)
                 nome_times_botao = ctk.CTkButton(master=tela_times_frame, text="Adicionar",command= salvatimes, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=690, y=230)
             
             num_times_botao = ctk.CTkButton(master=tela_times_frame, text="OK",command= cria_novos_times, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=150, y=130)
-
-
 
 tela_cadastro_time()
