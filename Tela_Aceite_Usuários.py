@@ -1,8 +1,9 @@
 # ---------------------------------------- Janela Prinicipal -------------------------------------------- #
+import json
 import customtkinter as ctk
 from tkinter import *
+from subprocess import run
 
-#import telaADM as abre_telaAdm
 
 #Janela - Aparência
 ctk.set_appearance_mode("dark")
@@ -26,9 +27,14 @@ janela.resizable(False, False)
 #Janela - Identificação do usuário
 label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), font=("roboto", 32, "bold")).place(x=500, y=1)
 
-#def abre():
-    #open()     
-           
+def open_menu():
+    janela.destroy()
+    import telaADM
+    
+
+    
+
+         
 #Janela - Botão
 Button=ctk.CTkButton(master=janela, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).place(x=1000, y=612)
 
@@ -38,7 +44,7 @@ Button=ctk.CTkButton(master=janela, text="Voltar", width=120, cursor='hand2', te
 #Frame 1 - Dimensões
 frame = ctk.CTkFrame(master=janela, width=1200, height=550)
 
-#Frame 1 - Indica o principal que a frame ficará.
+#Frame 1 - Indica o principal que a frame ficará
 frame.place(x=0, y=50)
 
 #Frame 1 - Solicitação de Novos Usuários 
