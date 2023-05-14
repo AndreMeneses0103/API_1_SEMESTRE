@@ -95,7 +95,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             def avaliadoFuncao():
                 print(avaliados[avaliado])
                
-                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=300,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
+                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=250,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
 
                 pass
 

@@ -83,10 +83,6 @@ def mudanca():
     #print(f"NOME = {nome} // FOI {opcao.get()}")
     print(teste)
 
-  
-
-
-
 for x in range(len(user)):
 
     for y in range(len(tur)):
