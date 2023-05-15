@@ -7,33 +7,23 @@
             "sprints": [
                 {
                     "indice": "1",
-                    "inicioSprint": "10/12/2023",
-                    "fimSprint": "12/12/2023"
+                    "inicioSprint": "13/03/2023",
+                    "fimSprint": "02/04/2023"
                 },
                 {
                     "indice": "2",
-                    "inicioSprint": "12/12/2023",
-                    "fimSprint": "12/12/2023"
+                    "inicioSprint": "03/04/2023",
+                    "fimSprint": "23/04/2023"
                 },
                 {
                     "indice": "3",
-                    "inicioSprint": "12/12/2023",
-                    "fimSprint": "12/12/2023"
+                    "inicioSprint": "24/04/2023",
+                    "fimSprint": "14/05/2023"
                 },
                 {
                     "indice": "4",
-                    "inicioSprint": "12/12/2023",
-                    "fimSprint": "12/12/2023"
-                },
-                {
-                    "indice": "5",
-                    "inicioSprint": "12/12/2023",
-                    "fimSprint": "12/12/2023"
-                },
-                {
-                    "indice": "6",
-                    "inicioSprint": "12/12/2023",
-                    "fimSprint": "12/12/2023"
+                    "inicioSprint": "15/05/2023",
+                    "fimSprint": "04/06/2023"
                 }
             ],
             "times": [
