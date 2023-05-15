@@ -3,15 +3,16 @@
 <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
 </p>
 
-# <h2 align=center>INTEGRANTES 👩‍💻👨‍💻<h2/>
-- Amanda Vannucci de Campos (Product Owner) 
-- André Filipe Meneses (Scrum Master)
-- Gilvane de Souza Amaro Junior (Dev)
-- Guilherme Ferreira Vargas Bittencourt (Dev)
-- Jhony Santos de Souza (Dev)
-- Lucas Lima Martins Pereira (Dev)
-- Raul José Batista Neto (Dev)
-- Vinicius Domingues Mangaba (Dev)
+# <h2 align=center>Integrantes 👩‍💻👨‍💻<h2/>
+- [Amanda Vannucci de Campos (Product Owner)](https://github.com/Amandavannuccic)
+- [André Filipe Meneses (Scrum Master)](https://github.com/AndreMeneses0103)
+- [Gilvane de Souza Amaro Junior (Dev)](https://github.com/gilvaneamaro)
+- [Guilherme Ferreira Vargas Bittencourt (Dev)](https://github.com/GuioBittencourt)
+- [Jhony Santos de Souza (Dev)](https://github.com/santosjhony12)
+- [Lucas Lima Martins Pereira (Dev)](https://github.com/SuieverSide)
+- [Raul José Batista Neto (Dev)](https://github.com/raulnt)
+- [Vinicius Domingues Mangaba (Dev)](https://github.com/viniciusmangaba)
+
 
 # <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
     ✅  Início: 24/04/2023 
