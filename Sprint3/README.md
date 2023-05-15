@@ -21,7 +21,7 @@
 <h3 align=center>Apresentar ao cliente os controles atribuídos ao administrador e fornecer um cadastro de usuários completo.<h3/>
 
 # <h2 align="center">BACKLOG SPRINT  📌 <h2/>
-Acese nosso [Notion](https://www.notion.so/c6d3aab37ed84c7eb8c81e9201555c8e?v=c5eae21a1779423ab475e645e7422e69&pvs=4) para acompanhar nossas atividades.  
+Acesse nosso [Notion](https://www.notion.so/c6d3aab37ed84c7eb8c81e9201555c8e?v=c5eae21a1779423ab475e645e7422e69&pvs=4) para acompanhar nossas atividades.  
 
 # <h2 align=center>BACKLOG DO PRODUTO 📌<h2/>
   
