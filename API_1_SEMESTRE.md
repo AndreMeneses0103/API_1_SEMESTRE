@@ -29,7 +29,7 @@
 <h2 align=center>Grupo Tech Horizon<h2/>  
 
 <h2 align=center>Logo Tech Horizon<h2/>
-
+<img src=https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/7a9ebba4cdc4342bd8deae864f42be6d435bfa55/WhatsApp%20Image%202023-05-14%20at%2023.03.13.jpeg /> <p/>
   
 # <h2 align=center>Integrantes 👩‍💻👨‍💻<h2/>
 - [Amanda Vannucci de Campos (Product Owner)](https://github.com/Amandavannuccic)
@@ -42,14 +42,14 @@
 - [Vinicius Domingues Mangaba (Dev)](https://github.com/viniciusmangaba)
 
 
-# <h1 align=center>Sobre a Aplicação<h1/>
+# <h1 align=center>Sobre a Aplicação <h1/>
 <h2 align=center>Logo<h2/>  
 <p align='center'>
 <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
 </p>
  
 # <h2 align=center>Nome da Aplicação<h2/>}
-<h3 align=center>Insight 360º<h3/>  
+<h3 align=center>Insight 360º<h3/> 
 
 # <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
 Sprint| Início| Entrega  
@@ -63,7 +63,7 @@ Kick off do projeto| 07/03/2023| 07/03/2023 ✅
 # <h2 align="center">BACKLOG SPRINT 📌 <h2/>
 Acesse nosso [Notion](https://www.notion.so/c6d3aab37ed84c7eb8c81e9201555c8e?v=c5eae21a1779423ab475e645e7422e69&pvs=4) para acompanhar nossas atividades.  
   
-# <h1 align="center">BACKLOG DO PRODUTO</h1>
+# <h1 align="center">BACKLOG DO PRODUTO 📌</h1>
  
 Prioridade | Sprint | Item | Status
 :------: | :------: | --- | :------: 
@@ -80,7 +80,7 @@ Alta| 4| Controle de acessos| A Fazer
 Média|	4|  Redefinição de Senhas|	A fazer
 Baixa|	4|	Inclusão e Remoção de Usuários no Sistema|	A fazer
 
-# <h1 align="center">PLANEJAMENTO/FERRAMENTAS 🔍</h1>
+# <h1 align="center">Ferramentas Utilizadas 🛠</h1>
 - Python
 - JSON
 - CustomTkinter
