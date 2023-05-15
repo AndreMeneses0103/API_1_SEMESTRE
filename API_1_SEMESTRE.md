@@ -1,11 +1,26 @@
 # <h1 align=center>API - Atividade de Aprendizagem Integrada<h1/>
 
-- Fatec Profº Jessen Vidal
-- Curso Superior de Tecnologia em Banco de Dados
-- 1º Semestre 2023
+- [Fatec Profº Jessen Vidal](http://fatecsjc-prd.azurewebsites.net/)
+- [Curso Superior de Tecnologia em Banco de Dados](http://fatecsjc-prd.azurewebsites.net/curso-banco-de-dados.php)
+- [1º Semestre 2023](http://fatecsjc-prd.azurewebsites.net/downloads/cursos/bd/projeto_pedagogico_bd.pdf)
 
+# <h2 align=center>Grupo<h2/>
+<h3 align=center>Tech Horizon<h3/>  
 
-# <h2 align=center>OBJETIVO🎯<h2/>
+# <h2 align=center>Logo do Grupo<h2/>
+![Uploading WhatsApp Image 2023-05-14 at 23.03.13.jpeg…]()
+  
+# <h2 align=center>Integrantes 👩‍💻👨‍💻<h2/>
+- [Amanda Vannucci de Campos (Product Owner)](https://github.com/Amandavannuccic)
+- [André Filipe Meneses (Scrum Master)](https://github.com/AndreMeneses0103)
+- [Gilvane de Souza Amaro Junior (Dev)](https://github.com/gilvaneamaro)
+- [Guilherme Ferreira Vargas Bittencourt (Dev)](https://github.com/GuioBittencourt)
+- [Jhony Santos de Souza (Dev)](https://github.com/santosjhony12)
+- [Lucas Lima Martins Pereira (Dev)](https://github.com/SuieverSide)
+- [Raul José Batista Neto (Dev)](https://github.com/raulnt)
+- [Vinicius Domingues Mangaba (Dev)](https://github.com/viniciusmangaba)
+  
+# <h2 align=center>Objetivo🎯<h2/>
 <h3 align=center>Desenvolver uma solução computacional personalizada para a PBLTeX que permita a aplicação da dinâmica de Avaliação Democratizada baseada na técnica de Avaliação 360º, permitindo a visualização dos resultados em dashbords. <h3/>
 
 # <h2 align=center>Sobre a Avaliação 360°<h2/>
@@ -24,19 +39,15 @@
 - Possibilidade de inumeros Grupos: Presente
 - Possibilidade de inumeros Times: Presente
 
+# <h1 align=center>Da Aplicação<h1/>
+  
+# <h2 align=center>Logo<h2/>  
 <p align='center'>
 <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
 </p>
-  
-# <h2 align=center>INTEGRANTES 👩‍💻👨‍💻<h2/>
-- [Amanda Vannucci de Campos (Product Owner)](https://github.com/Amandavannuccic)
-- [André Filipe Meneses (Scrum Master)](https://github.com/AndreMeneses0103)
-- [Gilvane de Souza Amaro Junior (Dev)](https://github.com/gilvaneamaro)
-- [Guilherme Ferreira Vargas Bittencourt (Dev)](https://github.com/GuioBittencourt)
-- [Jhony Santos de Souza (Dev)](https://github.com/santosjhony12)
-- [Lucas Lima Martins Pereira (Dev)](https://github.com/SuieverSide)
-- [Raul José Batista Neto (Dev)](https://github.com/raulnt)
-- [Vinicius Domingues Mangaba (Dev)](https://github.com/viniciusmangaba)
+ 
+# <h2 align=center>Nome da Aplicação<h2/>}
+<h3 align=center>Insight 360º<h3/>  
 
 # <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
     ✅  **Kick off do projeto** - 07/03/2023 
