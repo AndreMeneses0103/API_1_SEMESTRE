@@ -27,8 +27,6 @@
 # <h1 align=center>Sobre os Desenvolvedores<h2/>
 
 <h2 align=center>Grupo Tech Horizon<h2/>  
-
-<h2 align=center>Logo Tech Horizon<h2/>
 <img src=https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/7a9ebba4cdc4342bd8deae864f42be6d435bfa55/WhatsApp%20Image%202023-05-14%20at%2023.03.13.jpeg /> <p/>
   
 # <h2 align=center>Integrantes 👩‍💻👨‍💻<h2/>
@@ -43,14 +41,11 @@
 
 
 # <h1 align=center>Sobre a Aplicação <h1/>
-<h2 align=center>Logo<h2/>  
-<p align='center'>
+
+<h2 align=center>Insight 360º<h2/> 
 <img src="https://raw.githubusercontent.com/AndreMeneses0103/API_1_SEMESTRE/images/logo_preto.png" width="40%" />
 </p>
  
-# <h2 align=center>Nome da Aplicação<h2/>}
-<h3 align=center>Insight 360º<h3/> 
-
 # <h2 align="center">CRONOGRAMA DE ENTREGAS📆</h2>
 Sprint| Início| Entrega  
 --- | --- | --- 
