@@ -51,7 +51,7 @@
 # <h2 align=center>Nome da Aplicação<h2/>}
 <h3 align=center>Insight 360º<h3/> 
 
-# <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
+# <h2 align="center">CRONOGRAMA DE ENTREGAS📆</h2>
 Sprint| Início| Entrega  
 --- | --- | --- 
 Kick off do projeto| 07/03/2023| 07/03/2023 ✅
@@ -63,7 +63,7 @@ Kick off do projeto| 07/03/2023| 07/03/2023 ✅
 # <h2 align="center">BACKLOG SPRINT 📌 <h2/>
 Acesse nosso [Notion](https://www.notion.so/c6d3aab37ed84c7eb8c81e9201555c8e?v=c5eae21a1779423ab475e645e7422e69&pvs=4) para acompanhar nossas atividades.  
   
-# <h1 align="center">BACKLOG DO PRODUTO 📌</h1>
+# <h2 align="center">BACKLOG DO PRODUTO 📌</h2>
  
 Prioridade | Sprint | Item | Status
 :------: | :------: | --- | :------: 
@@ -80,7 +80,7 @@ Alta| 4| Controle de acessos| A Fazer
 Média|	4|  Redefinição de Senhas|	A fazer
 Baixa|	4|	Inclusão e Remoção de Usuários no Sistema|	A fazer
 
-# <h1 align="center">Ferramentas Utilizadas 🛠</h1>
+# <h2 align="center">Ferramentas Utilizadas 🛠</h2>
 - Python
 - JSON
 - CustomTkinter
