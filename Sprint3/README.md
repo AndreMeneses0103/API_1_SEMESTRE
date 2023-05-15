@@ -35,8 +35,8 @@ Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Spri
 Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a>|	Gerenciamento de Times|	Finalizada ✅
 Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a>|	Gerenciamento de Turmas|	Finalizada ✅
 Média|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a>|	Gerenciamento das Solicitações de Adesão|	Finalizada ✅
-Alta| 4| Dashboard com retorno de resultados| a fazer    
-Alta| 4| Controle de acessos| a Fazer    
+Alta| 4| Dashboard com retorno de resultados| A fazer    
+Alta| 4| Controle de acessos| A Fazer    
 Média|	4|  Redefinição de Senhas|	A fazer
 Baixa|	4|	Inclusão e Remoção de Usuários no Sistema|	A fazer
     
