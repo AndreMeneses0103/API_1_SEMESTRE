@@ -41,6 +41,7 @@ def abrir_tela_adm():
             arq_json.write(insert_acesso)
 
         janela.destroy()
+        import Tela_Login_API
         # TBV.abrir()
         #TLOGIN.abrir_login()
 

@@ -118,12 +118,12 @@ class tela_cadastro_time:
             global fim_sprint, data_seleciona_fim, data_seleciona_inicio, inicio_sprint
             inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=350,y=320)
             inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
-            inicio_sprint.place(x= 350, y= 380)
+            inicio_sprint.place(x= 450, y= 450)
 
             #Entrada da data final da sprint
             fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=550,y=320)
             fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
-            fim_sprint.place(x=550, y=380)
+            fim_sprint.place(x=700, y=450)
             global hor,alt
             hor = 1
             alt = 1
