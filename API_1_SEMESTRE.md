@@ -71,20 +71,20 @@ Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Spri
 Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a>|	Gerenciamento de Turmas|	Finalizada ✅
 Média|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a>|	Gerenciamento das Solicitações de Adesão|	Finalizada ✅
 Alta| 4| Dashboard com retorno de resultados| A fazer    
-Alta| 4| Controle de Usuários | A Fazer    
-Média|	4|  Redefinição de Senhas|	A fazer
+Média| 4| Controle de Usuários | A Fazer    
+Baixa|	4|  Redefinição de Senhas|	A fazer
 
 # <h2 align="center">Ferramentas Utilizadas 🛠</h2>
-- [Python] <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+- Python<img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
 - JSON 
 - CustomTkinter
 - Matplotlib 
 - Notion
 - Discord
 - Diagrams.net
-- Git
-- Github
-- Canva (Protótipo)
+- Git <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
+- Github <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+- Canva (Protótipo) <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" />
 - Excel (Demonstração dashboard)
 - Scrum (Metodologia)
 - Kanban (Ferramenta)
