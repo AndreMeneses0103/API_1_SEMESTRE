@@ -76,7 +76,7 @@ Baixa|	4|  Redefinição de Senhas|	A fazer
 
 # <h2 align="center">Ferramentas Utilizadas 🛠</h2>
 - Python<img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
-- JSON 
+- JSON <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://icons8.com.br/icon/6or30FVdPylJ/json-(javascript-object-notation)-is-a-lightweight-data-interchange-format" />
 - CustomTkinter
 - Matplotlib 
 - Notion
