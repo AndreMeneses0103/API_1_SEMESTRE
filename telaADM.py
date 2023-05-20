@@ -25,7 +25,7 @@ def abrir_tela_adm():
     #imagem logo 360
     img = PhotoImage(file = "logo_insight.png").subsample(2)
     label_img = ctk.CTkLabel(master=janela, image=img, text="")
-    label_img.place(x=15, y=20)
+    label_img.place(x=15, y=0)
     #titulo ADM
     label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
@@ -52,7 +52,7 @@ def abrir_tela_adm():
 
     #frame esquerda
     frame1 = ctk.CTkFrame(master=janela, width=370, height=450)
-    frame1.place(x=15, y=180)
+    frame1.place(x=15, y=160)
 
     #lado direito
 
@@ -83,6 +83,10 @@ def abrir_tela_adm():
     def aceite_usuario():
         janela.destroy()
         import Tela_Aceite_Usuários
+
+    def abrir_tela_administradores():
+        janela.destroy()
+        import Tela_Administradores
 
     with open("data_json/turmas.json", "r") as arquivo:
         turmas = json.load(arquivo)
@@ -124,7 +128,7 @@ def abrir_tela_adm():
                 for time in turma['times']:
                     nomestimes.append(time['nometime'])
 
-        labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=160)
+        labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=180)
         optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=nomestimes, variable=timeSelecionado, fg_color='gray', width=270)
         optionMenuTimes.place(x=53, y=365)
 
@@ -150,11 +154,11 @@ def abrir_tela_adm():
                     if x['idtime'] == idtime:
                         integrantes.append(x['user'])
 
-            labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=220)
+            labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=240)
             optionMenuSprint = ctk.CTkOptionMenu(master=janela, values=quantidade_sprints, variable=sprintSelecionada, fg_color='gray', width=270)
             optionMenuSprint.place(x=53, y=425)
 
-            labelTime = ctk.CTkLabel(master=frame1, text="Integrantes: ", font=('Roboto', 14)).place(x=44, y=280)
+            labelTime = ctk.CTkLabel(master=frame1, text="Integrantes: ", font=('Roboto', 14)).place(x=44, y=300)
             optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=integrantes, variable=integranteSelecionado, fg_color='gray', width=270)
             optionMenuTimes.place(x=53, y=485)
 
@@ -169,11 +173,13 @@ def abrir_tela_adm():
 
     #botoes widgets
     Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="Cadastros", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abrir_cadastro_turma)
-    Button.place(x=85, y=20)
+    Button.place(x=85, y=5)
     Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Aceites", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=aceite_usuario)
-    Button.place(x=85, y=65)
+    Button.place(x=85, y=45)
+    Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Administradores", font = ('Roboto', 18, 'bold'), text_color= ('black'), cursor="hand2", command=abrir_tela_administradores)
+    Button.place(x=85, y=85)
 
-    labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=100)
+    labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
     optionMenuTurmas= ctk.CTkOptionMenu(master=janela, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270)
     optionMenuTurmas.place(x=53, y=305)
 
