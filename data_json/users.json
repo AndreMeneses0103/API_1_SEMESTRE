@@ -39,11 +39,11 @@
         {
             "user": "Alexandre",
             "id": "alex@email.com",
-            "idturma": "1",
-            "idtime": "12134",
+            "idturma": "123",
+            "idtime": "2345",
             "cargo": "user",
             "senha": "123",
-            "sprint_atual": 1,
+            "sprint_atual": "4",
             "isActive": false,
             "aceito": true,
             "resp": false
@@ -111,6 +111,18 @@
             "idtime": "3",
             "cargo": "user",
             "senha": "123",
+            "sprint_atual": 0,
+            "isActive": false,
+            "aceito": true,
+            "resp": false
+        },
+        {
+            "user": "Mauro",
+            "id": "mauro@email.com",
+            "idturma": "123",
+            "idtime": "2345",
+            "cargo": "user",
+            "senha": "321",
             "sprint_atual": 0,
             "isActive": false,
             "aceito": true,
