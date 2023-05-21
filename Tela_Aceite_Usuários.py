@@ -16,7 +16,14 @@ ctk.set_default_color_theme("dark-blue")
 janela = ctk.CTk()
 
 #Janela - Tamanho 
-janela.geometry("1200x650")
+
+largura_tela = janela.winfo_screenwidth()
+altura_tela = janela.winfo_screenheight()
+
+x = (largura_tela - 1200) // 2
+y = (altura_tela - 650) // 2
+
+janela.geometry(f"1200x650+{x}+{y}")
 
 #Janela - Título
 janela.title("Insigth 360")

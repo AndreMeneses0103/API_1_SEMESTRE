@@ -45,7 +45,7 @@
             "senha": "123",
             "sprint_atual": "4",
             "isActive": false,
-            "aceito": true,
+            "aceito": false,
             "resp": false
         },
         {

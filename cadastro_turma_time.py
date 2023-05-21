@@ -25,9 +25,9 @@ class tela_cadastro_time:
     def tela(self):    
         screen_width = janela.winfo_screenwidth()
         screen_height = janela.winfo_screenheight()
-        x = (screen_width - 1500) // 2
+        x = (screen_width - 1200) // 2
         y = (screen_height - 650) // 2
-        janela.geometry("1200x650+{}+{}".format(x, y))
+        janela.geometry(f"1200x650+{x}+{y}")
 
 
         janela.title("Insight 360º")
