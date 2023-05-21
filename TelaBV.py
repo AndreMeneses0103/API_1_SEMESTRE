@@ -230,6 +230,8 @@ def abrir():
         janela.destroy()
         janela.mainloop()
 
+        import Tela_Login_API
+        
     # Def para exibir a tela de dashboards
     def AbrirDashboards():
         janela.destroy()
