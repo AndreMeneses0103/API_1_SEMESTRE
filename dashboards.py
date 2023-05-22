@@ -8,7 +8,7 @@ from PIL import Image
 
 janela = ctk.CTk()
 
-class tela_cadastro_time:
+class tela_dash:
     def __init__(self):
         self.janela=janela
         self.tema()
@@ -75,4 +75,4 @@ class tela_cadastro_time:
     botaoMediaTime = ctk.CTkButton(master=janela, text= "Média times", command=mostra_media_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =150)
 
 
-tela_cadastro_time()
+tela_dash()
