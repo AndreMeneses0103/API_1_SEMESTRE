@@ -4,7 +4,6 @@ import customtkinter as ctk
 from tkinter import *
 from subprocess import run
 
-
 #Janela - Aparência
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -30,14 +29,9 @@ label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), 
 def open_menu():
     janela.destroy()
     import telaADM
-    
-
-    
-
-         
+             
 #Janela - Botão
 Button=ctk.CTkButton(master=janela, command=open_menu, text="MENU INICIAL", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 16, "bold")).place(x=1000, y=612)
-
 
 # ------------------------------------------------ Frame 1 --------------------------------------------- #
 #Frame 1 - Frame Base (Estética)
@@ -58,7 +52,7 @@ label = ctk.CTkLabel(master=frame, text="Redefinição de Senha", text_color="wh
 # Frame 2 = Aceite de usuários
 
 #Frame 2 - Dimensões
-frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
+frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='aquamarine',width=1000, height=200)
 
 #Frame 2 - Recebe Scroll
 scroll_1 = frame_2._scrollbar
@@ -89,8 +83,10 @@ Button=ctk.CTkButton(master=frame_2, text="SALVAR", width=100, cursor='hand2', t
 
 #Acrescentar uma função de adição para adicionar novos usuários nas linhas abaixo.
 
+
+
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
-# Frame 3 = Redefinição de senha
+# Frame 3 = Redefinição e senha
 
 #Frame 3 - Dimensões
 frame_3 = ctk.CTkScrollableFrame(master=frame, fg_color='#c0c0c0',width=1000, height=200)
