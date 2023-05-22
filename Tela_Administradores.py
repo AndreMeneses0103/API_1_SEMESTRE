@@ -36,17 +36,14 @@ frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, hei
 scroll_1 = frame_2._scrollbar
 scroll_1.configure(height=0)
 frame_2.place(x=100, y=40)
-#acesso_adms = json.load(open("Lista de Administradores", "r"))
 acesso_usuarios = json.load(open("data_json/users.json", "r"))
 
-#adms = acesso_adms["adms"]
 user = acesso_usuarios["usuarios"]
-
 for x in range(len(user)):
     if(user[x]["cargo"] == "adm"):
         if(user[x]["aceito"] == True):
             label = ctk.CTkLabel(master=frame_2, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
-            button_downgrade=ctk.CTkButton(master=frame_2, text="Rebaixar a Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=1, row=x, padx=50, pady=5)
+            button_downgrade=ctk.CTkButton(master=frame_2, text="Remover ADM", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=1, row=x, padx=50, pady=5)
             button_save=ctk.CTkButton(master=frame_2, text="Salvar", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=2, row=x, padx=50, pady=5)
 
 #Frame.03
