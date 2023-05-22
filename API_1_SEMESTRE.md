@@ -54,9 +54,6 @@ Kick off do projeto| 07/03/2023| 07/03/2023 ✅
 <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint2/README.md">2</a>| 03/04/2023| 23/04/2023 ✅
 <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/README.md">3</a>| 24/04/2023| 14/05/2023 ✅
 4|  15/05/2023| 04/06/2023
-
-# <h2 align="center">BACKLOG SPRINT 📌 <h2/>
-Acesse nosso [Notion](https://www.notion.so/c6d3aab37ed84c7eb8c81e9201555c8e?v=c5eae21a1779423ab475e645e7422e69&pvs=4) para acompanhar nossas atividades.  
   
 # <h2 align="center">BACKLOG DO PRODUTO 📌</h2>
  
