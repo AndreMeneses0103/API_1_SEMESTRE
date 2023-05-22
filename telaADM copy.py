@@ -24,7 +24,7 @@ def abrir_tela_adm():
     #imagem logo 360
     img = PhotoImage(file = "logo_insight.png").subsample(2)
     label_img = ctk.CTkLabel(master=janela, image=img, text="")
-    label_img.place(x=60, y=20)
+    label_img.place(x=15, y=20)
     #titulo ADM
     label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
@@ -163,7 +163,7 @@ def abrir_tela_adm():
 
 
         imgcheck = PhotoImage(file = "check.png").subsample(4)
-        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#302929',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=380)
+        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=40,fg_color='#2596be',bg_color='#2596be', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=385)
 
 
 
@@ -176,9 +176,8 @@ def abrir_tela_adm():
     labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
     optionMenuTurmas= ctk.CTkOptionMenu(master=janela, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270)
     optionMenuTurmas.place(x=53, y=325)
-    
-    imgcheck = PhotoImage(file = "check.png").subsample(4)
-    buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#2a2b2a',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirTimes).place(x=330, y=320)
+
+    buttonVerificar = ctk.CTkButton(janela, text="✅", width=40, text_color='black', fg_color="#00FF08", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCD34', command=imprimirTimes).place(x=330, y=325)
 
 
     janela.mainloop()
