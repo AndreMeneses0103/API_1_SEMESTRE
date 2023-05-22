@@ -3,7 +3,7 @@ import customtkinter as ctk
 from tkinter import *
 import tkinter as tk
 import TelaBV as TBV
-import telaADM2 as TADM
+import telaADM
 
 # def abrir_login():
     
@@ -23,8 +23,16 @@ class tela_login_cadastro:
         pass
 
     def tela(self):    
-        janela.geometry("800x500") #DEFINO O TAMANHO DA JANELA
-        janela.title("Sistema de login")
+        larg_janela = 800
+        alt_janela = 500
+
+        larg_tela = janela.winfo_screenwidth()
+        alt_tela = janela.winfo_screenheight()
+
+        x = (larg_tela - larg_janela) // 2
+        y = (alt_tela - alt_janela) // 2
+        janela.geometry(f"{larg_janela}x{alt_janela}+{x}+{y}") #DEFINO O TAMANHO DA JANELA
+        janela.title("Insight 360º")
         janela.iconbitmap("logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
@@ -64,11 +72,11 @@ class tela_login_cadastro:
                     if(acesso["usuarios"][x]["aceito"] == False):
                         janelaAceito = ctk.CTk()
                         janelaAceito.title("ALERTA!")
-                        screen_width = janelaAceito.winfo_screenwidth()
-                        screen_height = janelaAceito.winfo_screenheight()
-                        x = (screen_width - 300) // 2
-                        y = (screen_height - 100) // 2
-                        janelaAceito.geometry("600x100+{0}+{0}".format(x,y))
+                        larg_tela = janela.winfo_screenwidth()
+                        alt_tela = janela.winfo_screenheight()
+                        x = (larg_tela - 600) // 2
+                        y = (alt_tela - 100) // 2
+                        janelaAceito.geometry(f"600x100+{x}+{y}")
                         janelaAceito.resizable(False, False)
                         label_alerta = ctk.CTkLabel(master=janelaAceito, text="O usuario ainda nao foi aceito. Aguarde o ingresso pelo administrador.\n\n", font=("Roboto", 15, 'bold')).pack()
                         def destroy_alerta_aceito():
@@ -83,24 +91,22 @@ class tela_login_cadastro:
                         with open("data_json/users.json", "w") as arq_json:
                             arq_json.write(insert_acesso)
                         janela.destroy()
-
                         # AS LINHAS ABAIXO FARAO A ANALISE SE USUARIO 'E ALUNO OU ADM
-
-                        # if(acesso["usuarios"][x]["cargo"] == "adm"):
-                        #     print("VAI ABRIR TELA ADM")
-                        # else:
-                        #     print("VAI ABRIR TELA USER")
-                        TBV.abrir()
+                        if(acesso["usuarios"][x]["cargo"] == "adm"):
+                            telaADM.abrir_tela_adm()
+                        else:
+                            TBV.abrir()
+                        
                 else:
                     incorrect = incorrect + 1
             if(incorrect == len(acesso["usuarios"])):
                 janelaNegado = ctk.CTk()
                 janelaNegado.title("ALERTA!")
-                screen_width = janelaNegado.winfo_screenwidth()
-                screen_height = janelaNegado.winfo_screenheight()
-                x = (screen_width - 300) // 2
-                y = (screen_height - 100) // 2
-                janelaNegado.geometry("300x100+{0}+{0}".format(x,y))
+                larg_tela = janela.winfo_screenwidth()
+                alt_tela = janela.winfo_screenheight()
+                x = (larg_tela - 300) // 2
+                y = (alt_tela - 100) // 2
+                janelaNegado.geometry(f"300x100+{x}+{y}")
                 janelaNegado.resizable(False, False)
                 label_alerta = ctk.CTkLabel(master=janelaNegado, text="Usuário ou senha incorretos!\n\n", font=("Roboto", 15, 'bold')).pack()
                 def destroy_alerta_Avaliacao():
@@ -109,21 +115,6 @@ class tela_login_cadastro:
                 button_ok = ctk.CTkButton(janelaNegado, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Avaliacao, fg_color='#5CE1E6', text_color='black').pack()
                 janelaNegado.mainloop()  
 
-
-                '''janelaNegado = ctk.CTk()
-                janelaNegado.title("NEGADO!")
-                janelaNegado.resizable(False, False)
-                # janelaNegado.geometry("300x100")
-                screen_width = janelaNegado.winfo_screenwidth()
-                screen_height = janelaNegado.winfo_screenheight()
-                x = (screen_width - 300) // 2
-                y = (screen_height - 100) // 2
-                janelaNegado.geometry("300x100+{0}+{0}".format(x,y)) 
-                label_negado = ctk.CTkLabel(master=janelaNegado, text="Usuário ou senha incorretos!\n", font=("Roboto", 15, "bold")).pack()
-                def destroy_negado():
-                    janelaNegado.destroy()
-                button_ok = ctk.CTkLabel(master=janelaNegado, text="Ok", font=("Roboto", 20, "bold"), command=destroy_negado, fg_color="#5CE1E6", text_color='black').pack()
-                janelaNegado.mainloop()'''
         login_button = ctk.CTkButton(master=login_frame, text="Login", width=300, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=login).place(x=45, y=250)
         #button.grid(row=35, column=30)
     
@@ -188,11 +179,11 @@ class tela_login_cadastro:
                     janelaAlertadadosFaltando = ctk.CTk()
                     janelaAlertadadosFaltando.title("ALERTA!")
                     janelaAlertadadosFaltando.resizable(False, False)
-                    screen_width = janelaAlertadadosFaltando.winfo_screenwidth()
-                    screen_height = janelaAlertadadosFaltando.winfo_screenheight()
-                    x = (screen_width - 300) // 2
-                    y = (screen_height - 100) // 2
-                    janelaAlertadadosFaltando.geometry("300x100+{}+{}".format(x, y))
+                    larg_tela = janela.winfo_screenwidth()
+                    alt_tela = janela.winfo_screenheight()
+                    x = (larg_tela - 300) // 2
+                    y = (alt_tela - 100) // 2
+                    janelaAlertadadosFaltando.geometry(f"300x100+{x}+{y}")
                     label_alerta = ctk.CTkLabel(master=janelaAlertadadosFaltando, text="Dados incompletos!\n", font=('Roboto', 15, 'bold')).pack()
                     
                     def destroy_alerta_Dados_faltando():
@@ -268,8 +259,10 @@ class tela_login_cadastro:
                             "idtime": idtime,
                             "cargo":"user",
                             "senha":data_senha,
+                            "sprint_atual": 0,
                             "isActive": False,
-                            "aceito": False
+                            "aceito": False,
+                            "resp": False
                         }
 
 
@@ -287,11 +280,11 @@ class tela_login_cadastro:
                         #TELA ALERTA DE CONFIRMAÇÃO DE CADASTRO
                         janelaConfirmacaoCadastro = ctk.CTk()
                         janelaConfirmacaoCadastro.title("ALERTA!")
-                        screen_width = janelaConfirmacaoCadastro.winfo_screenwidth()
-                        screen_height = janelaConfirmacaoCadastro.winfo_screenheight()
-                        x = (screen_width - 330) // 2
-                        y = (screen_height - 180) // 2
-                        janelaConfirmacaoCadastro.geometry("330x180+{}+{}".format(x, y))
+                        larg_tela = janela.winfo_screenwidth()
+                        alt_tela = janela.winfo_screenheight()
+                        x = (larg_tela - 330) // 2
+                        y = (alt_tela - 180) // 2
+                        janelaConfirmacaoCadastro.geometry(f"330x180+{x}+{y}")
                         janelaConfirmacaoCadastro.resizable(False, False)
                         label_alerta = ctk.CTkLabel(master=janelaConfirmacaoCadastro, text="\nATENÇÃO!\n\nCadastro enviado com sucesso!\nAguarde a liberação do seu login pelo \nadministrador\n", font=('Roboto', 15, 'bold')).pack()
                         def destroy_alerta():

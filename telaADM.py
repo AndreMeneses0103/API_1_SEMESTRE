@@ -5,113 +5,185 @@ import TelaBV as TBV
 # import Tela_Login_API as TLOGIN
 import json
 
-#Padrão temas da tela
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")
+def abrir_tela_adm():
+    #Padrão temas da tela
+    ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("blue")
 
-#padrão da tela
-janela = ctk.CTk()
-janela.geometry("1080x540") 
-janela.title("Tela Administrador")
-janela.iconbitmap("logo_insight.ico")
-janela.resizable(False, False)
+    #padrão da tela
+    janela = ctk.CTk()
 
-#imagem logo 360
-img = PhotoImage(file = "logo_insight.png").subsample(2)
-label_img = ctk.CTkLabel(master=janela, image=img, text="")
-label_img.place(x=15, y=20)
-#titulo ADM
-label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=400, y=80)
+    screen_width = janela.winfo_screenwidth()
+    screen_height = janela.winfo_screenheight()
+    x = (screen_width - 1200) // 2
+    y = (screen_height - 650) // 2
+    janela.geometry(f"1200x650+{x}+{y}")
+    janela.title("Insight 360º")
+    janela.iconbitmap("logo_insight.ico")
+    janela.resizable(False, False)
 
-def Close():
-    acesso = json.load(open("data_json/users.json", "r"))
+    #imagem logo 360
+    img = PhotoImage(file = "logo_insight.png").subsample(2)
+    label_img = ctk.CTkLabel(master=janela, image=img, text="")
+    label_img.place(x=15, y=0)
+    #titulo ADM
+    label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
-    for x in range(len(acesso["usuarios"])):
-        acesso["usuarios"][x]["isActive"] = False
+    def Close():
+        acesso = json.load(open("data_json/users.json", "r"))
 
-    insert_acesso = str(json.dumps(acesso, indent=4))
+        for x in range(len(acesso["usuarios"])):
+            acesso["usuarios"][x]["isActive"] = False
 
-    with open("data_json/users.json", "w") as arq_json:
-        arq_json.write(insert_acesso)
+        insert_acesso = str(json.dumps(acesso, indent=4))
 
-    janela.destroy()
-    # TBV.abrir()
-    TLOGIN.abrir_login()
+        with open("data_json/users.json", "w") as arq_json:
+            arq_json.write(insert_acesso)
 
-#Imagem do botão logout
-logout = PhotoImage(file = "logout.png").subsample(2)
-Button = ctk.CTkButton(master=janela, image=logout, text="", fg_color="#1a1a1a", command=Close)
-Button.place(x=900, y=40)
+        janela.destroy()
+        import Tela_Login_API
+        # TBV.abrir()
+        #TLOGIN.abrir_login()
+
+    #Imagem do botão logout
+    logout = PhotoImage(file = "logout.png").subsample(2)
+    Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#242424", command=Close)
+    Button.place(x=1100, y=40)
+
+    #frame esquerda
+    frame1 = ctk.CTkFrame(master=janela, width=370, height=450)
+    frame1.place(x=15, y=160)
+
+    #lado direito
+
+    def abre_turmas():
+        horizonte = 0
+        vertical = 0
+        frame = ctk.CTkFrame(master=janela, width=750, height=350)
+        acesso = json.load(open("data_json/users.json", "r"))
+        for x in range(len(acesso["usuarios"])):
+            user_nome = acesso["usuarios"][x]["user"]
+            btn_user = ctk.CTkButton(master=frame, text=user_nome, fg_color="#1a1a1a")
+            btn_user.place(x=horizonte, y= vertical)
+            horizonte = horizonte + 205
+            if(horizonte > 750):
+                vertical = vertical + 100
+                horizonte = 0
+
+        frame.place(x=300, y=180)
+
+    def abre_times():
+        frame = ctk.CTkFrame(master=janela, width=750, height=350)
+        texto =ctk.CTkLabel(master=frame, text="TIMES ABERTO", font=("Roboto",25),text_color='white').place(x=420, y=214)
+        frame.place(x=300, y=180)
+
+    def abrir_cadastro_turma():
+        janela.destroy()
+        import cadastro_turma_time
+    def aceite_usuario():
+        janela.destroy()
+        import Tela_Aceite_Usuários
+
+    def abrir_tela_administradores():
+        janela.destroy()
+        import Tela_Administradores
+
+    with open("data_json/turmas.json", "r") as arquivo:
+        turmas = json.load(arquivo)
+
+
+        nomesturmas = []
+        for turma in turmas['turmas']:
+            nomesturmas.append(turma['nometurma'])
+    print(nomesturmas)
+
+    nomestimes = []
+    sprints = []
+    integrantes = []
+
+
+    turmaSelecionada = StringVar()
+    timeSelecionado = StringVar()
+    sprintSelecionada = StringVar()
+    integranteSelecionado = StringVar()
 
 
 
+    def imprimirTimes():
 
-#logout_button = ctk.CTkButton("logout.JPG", text="", width=300, text_color='blue', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command="s").place(x=45, y=250)
-
-#frame esquerda
-frame1 = ctk.CTkFrame(master=janela, width=250, height=350)
-frame1.place(x=15, y=180)
-
-#lado direito
-
-
-def abre_turmas():
-    horizonte = 0
-    vertical = 0
-    frame = ctk.CTkFrame(master=janela, width=750, height=350)
-    acesso = json.load(open("data_json/users.json", "r"))
-    for x in range(len(acesso["usuarios"])):
-        user_nome = acesso["usuarios"][x]["user"]
-        btn_user = ctk.CTkButton(master=frame, text=user_nome, fg_color="#1a1a1a")
-        btn_user.place(x=horizonte, y= vertical)
-        horizonte = horizonte + 205
-        if(horizonte > 750):
-            vertical = vertical + 100
-            horizonte = 0
+        timeSelecionado.set("")
+        global turmaReferencia
+        turmaReferencia = turmaSelecionada.get()
+        nometimes = []
+        nomestimes.clear()
+        global idturma
+        for idturmaJson in turmas['turmas']:
+            if idturmaJson['nometurma'] == turmaReferencia:
+                idturma = idturmaJson['idturma']
+                print(idturmaJson['idturma']) 
 
 
-    frame.place(x=300, y=180)
+        for turma in turmas['turmas']:
+            if turma['nometurma'] == turmaReferencia:
+                for time in turma['times']:
+                    nomestimes.append(time['nometime'])
+
+        labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=180)
+        optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=nomestimes, variable=timeSelecionado, fg_color='gray', width=270)
+        optionMenuTimes.place(x=53, y=365)
 
 
 
+        def imprimirSprintsIntegrantes():
+            
+            quantidade_sprints = []
+            quantidade_sprints.clear()
+            integrantes.clear()
+            for turma in turmas['turmas']:
+                if turma['nometurma'] == turmaReferencia:
+                    for x in turma['sprints']:
+                        quantidade_sprints.append(x['indice'])
+                    print(quantidade_sprints)
+                    for time in turma['times']:
+                        if time['nometime'] == timeSelecionado.get():
+                            idtime = time['idtime']
+            with open("data_json/users.json", 'r') as arquivo:
+                users = json.load(arquivo)
+
+                for x in users['usuarios']:
+                    if x['idtime'] == idtime:
+                        integrantes.append(x['user'])
+
+            labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=240)
+            optionMenuSprint = ctk.CTkOptionMenu(master=janela, values=quantidade_sprints, variable=sprintSelecionada, fg_color='gray', width=270)
+            optionMenuSprint.place(x=53, y=425)
+
+            labelTime = ctk.CTkLabel(master=frame1, text="Integrantes: ", font=('Roboto', 14)).place(x=44, y=300)
+            optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=integrantes, variable=integranteSelecionado, fg_color='gray', width=270)
+            optionMenuTimes.place(x=53, y=485)
+
+            ButtonDash = ctk.CTkButton(master=janela,width=180, fg_color="#5CE1E6", text="Dashboard", font = ('Roboto', 18, 'bold'), text_color= ('black'))
+            ButtonDash.place(x=960, y=550)
 
 
 
+        buttonVerificar = ctk.CTkButton(janela, text="✅", width=40, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=imprimirSprintsIntegrantes).place(x=330, y=365)
 
-def abre_times():
-    frame = ctk.CTkFrame(master=janela, width=750, height=350)
-    texto =ctk.CTkLabel(master=frame, text="TIMES ABERTO", font=("Roboto",25),text_color='white').place(x=420, y=214)
-    frame.place(x=300, y=180)
 
-# frame3 = ctk.CTkFrame(master=janela, width=100, height=60)
-# frame3.place(x=420, y=190)
-# frame4 = ctk.CTkFrame(master=janela, width=100, height=100)
-# frame4.place(x=300, y=260)
-# frame5 = ctk.CTkFrame(master=janela, width=100, height=100)
-# frame5.place(x=420, y=260)
-# frame6 = ctk.CTkFrame(master=janela, width=245, height=150)
-# frame6.place(x=290, y=375)
-# frame7 = ctk.CTkFrame(master=janela, width=245, height=150)
-# frame7.place(x=550, y=200)
-# frame8 = ctk.CTkFrame(master=janela, width=245, height=150)
-# frame8.place(x=810, y=200)
-# frame9 = ctk.CTkFrame(master=janela, width=245, height=150)
-# frame9.place(x=550, y=360)
-# frame10 = ctk.CTkFrame(master=janela, width=245, height=150)
-# frame10.place(x=810, y=360)
 
-#botoes widgets
-Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="CADASTROS", font = ('Roboto', 18, 'bold'), text_color= ('black'))
-Button.place(x=35, y=20)
-Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="USUÁRIO", font = ('Roboto', 18, 'bold'), text_color= ('black'))
-Button.place(x=35, y=65)
-Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="TURMAS", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_turmas)
-Button.place(x=35, y=155)
-Button = ctk.CTkButton(master=frame1, width=180, text="TIMES", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abre_times)
-Button.place(x=35, y=200)
-Button = ctk.CTkButton(master=frame1, width=180, text="SPRINTS", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'))
-Button.place(x=35, y=245)
-Button = ctk.CTkButton(master=frame1, width=180, text="INTEGRANTES", fg_color="#5CE1E6", font = ('Roboto', 18, 'bold'), text_color= ('black'))
-Button.place(x=35, y=295)
+    #botoes widgets
+    Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="Cadastros", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abrir_cadastro_turma)
+    Button.place(x=85, y=5)
+    Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Aceites", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=aceite_usuario)
+    Button.place(x=85, y=45)
+    Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Administradores", font = ('Roboto', 18, 'bold'), text_color= ('black'), cursor="hand2", command=abrir_tela_administradores)
+    Button.place(x=85, y=85)
 
-janela.mainloop()
+    labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
+    optionMenuTurmas= ctk.CTkOptionMenu(master=janela, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270)
+    optionMenuTurmas.place(x=53, y=305)
+
+    buttonVerificar = ctk.CTkButton(janela, text="✅", width=40, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=imprimirTimes).place(x=330, y=305)
+
+
+    janela.mainloop()

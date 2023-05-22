@@ -55,7 +55,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             y = (screen_height - 650) // 2
             janela.geometry("1200x650+{}+{}".format(x, y))
             
-            janela.title("Sistema de login")
+            janela.title("Insight 360º")
             janela.iconbitmap("logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
@@ -95,7 +95,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             def avaliadoFuncao():
                 print(avaliados[avaliado])
                
-                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=300,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
+                button_ok = ctk.CTkButton(janela, text='Avaliado: '+avaliados[avaliado], font=('Roboto', 12, 'bold'), text_color='white',width=250,anchor='w', hover_color='#1a1a1a', fg_color='#1a1a1a').place(x=45, y=260)
 
                 pass
 
@@ -166,7 +166,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                 
 
                 ypergunta4 = 435
-                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua proatividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
+                label_pergunta4 = ctk.CTkLabel(master=perguntas_frame, text='Como você avalia sua produtividade durante essa Sprint?', font=('Roboto', 14)).place(x= 70, y=400)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Muito Ruim',variable=resposta4, value=1,font=('Roboto', 14), fg_color='#5CE1E6').place(x=70, y=ypergunta4)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Ruim', variable=resposta4, value=2,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=220, y=ypergunta4)
                 checkbutton_respostas4 = ctk.CTkRadioButton(perguntas_frame, text='Regular', variable=resposta4, value=3,font=('Roboto', 14), fg_color='#5CE1E6' ).place(x=330, y=ypergunta4)
@@ -270,6 +270,13 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
 
                                 with open("data_json/users.json", "r") as arquivo:
                                     data = json.load(arquivo)
+
+                                for x in range(len(data["usuarios"])):
+                                    if(data["usuarios"][x]["isActive"] == True):
+                                        data["usuarios"][x]["resp"] = True
+                                        insert_acesso = (json.dumps(data, indent=4))
+                                        with open("data_json/users.json", "w") as arq_json:
+                                            arq_json.write(insert_acesso)
                                 
 
                                 janelaAlertaFinalizado = ctk.CTk()
@@ -286,6 +293,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                                     janela.destroy()
                                     janelaAlertaFinalizado.destroy()
                                     TelaBV.abrir()
+    
                                 button_ok = ctk.CTkButton(janelaAlertaFinalizado, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Finalizado, fg_color='#5CE1E6', text_color='black').pack()   
                                 janelaAlertaFinalizado.mainloop()
                             else:
