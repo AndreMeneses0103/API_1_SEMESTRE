@@ -173,11 +173,17 @@ for x in range(len(user)):
     if(user[x]["aceito"] == True):
         label = ctk.CTkLabel(master=frame_3, text= user[x]["user"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
 
+        nova_senha = ctk.StringVar()
         #Frame 3 - Barra de entrada "Nova Senha"
-        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold")).grid(column=1, row=x, pady=10)
+        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha).grid(column=1, row=x, pady=10)
 
         #Frame 3 - Botão para salvar seleção
-        Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=4, row=x, padx=100, pady=5)
+        Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=imprimir).grid(column=4, row=x, padx=100, pady=5)
+
+        def imprimir(valor_senha = nova_senha.get()):
+            print(f'TEXTO VINDO = {valor_senha}')
+
+
 
 # ------------------------------------------------ Janela Total ------------------------------------------- #
 
