@@ -4,7 +4,6 @@ from tkinter import *
 import json
 import TelaBV
 
-
 global avaliado
 avaliado = 0
 
