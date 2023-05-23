@@ -7,7 +7,6 @@ from tkinter import *
 import ast
 
 
-
 #Janela - Aparência
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -64,7 +63,7 @@ label = ctk.CTkLabel(master=frame, text="Redefinição de Senha", text_color="wh
 
 global frame_2
 #Frame 2 - Dimensões
-frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
+frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='aquamarine',width=1000, height=200)
 
 #Frame 2 - Recebe Scroll
 scroll_1 = frame_2._scrollbar
@@ -156,8 +155,10 @@ def mudanca(nome):
         frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
         frame_2.place(x=100, y=40)
 
+
+
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
-# Frame 3 = Redefinição de senha
+# Frame 3 = Redefinição e senha
 
 #Frame 3 - Dimensões
 frame_3 = ctk.CTkScrollableFrame(master=frame, fg_color='#c0c0c0',width=1000, height=200)
