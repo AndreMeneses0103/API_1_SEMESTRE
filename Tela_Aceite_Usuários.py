@@ -7,6 +7,7 @@ from tkinter import *
 import ast
 
 
+
 #Janela - Aparência
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -63,7 +64,7 @@ label = ctk.CTkLabel(master=frame, text="Redefinição de Senha", text_color="wh
 
 global frame_2
 #Frame 2 - Dimensões
-frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='aquamarine',width=1000, height=200)
+frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
 
 #Frame 2 - Recebe Scroll
 scroll_1 = frame_2._scrollbar
@@ -155,10 +156,8 @@ def mudanca(nome):
         frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
         frame_2.place(x=100, y=40)
 
-
-
 # ------------------------------------------------ Frame 3 ------------------------------------------- #
-# Frame 3 = Redefinição e senha
+# Frame 3 = Redefinição de senha
 
 #Frame 3 - Dimensões
 frame_3 = ctk.CTkScrollableFrame(master=frame, fg_color='#c0c0c0',width=1000, height=200)
@@ -170,19 +169,34 @@ scroll_3.configure(height=0)
 # Frame 3 - Indica o principal que a frame ficará
 frame_3.place(x=100, y=300)
 
+s_opcao = []
+
 for x in range(len(user)):
     if(user[x]["aceito"] == True):
         label = ctk.CTkLabel(master=frame_3, text= user[x]["user"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
 
         nova_senha = ctk.StringVar()
+        nova_senha.set("")
+        s_opcao.append(nova_senha)
         #Frame 3 - Barra de entrada "Nova Senha"
         label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha).grid(column=1, row=x, pady=10)
 
-        #Frame 3 - Botão para salvar seleção
-        Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=imprimir).grid(column=4, row=x, padx=100, pady=5)
+        def criar_imprimir(indice):
+            def imprimir():
+                # print(f'TEXTO VINDO = {s_opcao[indice].get()}')
+                # print(f'PESSOA SELECIONADA: {user[indice]["user"]}')
 
-        def imprimir(valor_senha = nova_senha.get()):
-            print(f'TEXTO VINDO = {valor_senha}')
+                for z in range(len(user[x]["user"])):
+                    if(user[z]["user"] == user[indice]["user"]):
+                        user[z]["senha"] = s_opcao[indice].get()
+                        insert_acesso = (json.dumps(acesso, indent=4))
+                        with open("data_json/users.json", "w") as arq_json:
+                            arq_json.write(insert_acesso)
+
+            return imprimir 
+        #Frame 3 - Botão para salvar seleção
+        Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command= criar_imprimir(x)).grid(column=4, row=x, padx=100, pady=5)
+
 
 
 
