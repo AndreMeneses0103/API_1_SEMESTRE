@@ -1,6 +1,7 @@
 import json
 import customtkinter as ctk
 from tkinter import *
+import hashlib
 import tkinter as tk
 import TelaBV as TBV
 import telaADM
@@ -68,7 +69,7 @@ class tela_login_cadastro:
             for x in range(len(acesso["usuarios"])):
                 input_nome = username.get()
                 input_senha = password.get()
-                if (acesso["usuarios"][x]["id"]) == (input_nome) and acesso["usuarios"][x]["senha"] == input_senha:
+                if (acesso["usuarios"][x]["id"]) == (input_nome) and acesso["usuarios"][x]["senha"] == hashlib.sha512(input_senha.encode("utf-8")).hexdigest():
                     if(acesso["usuarios"][x]["aceito"] == False):
                         janelaAceito = ctk.CTk()
                         janelaAceito.title("ALERTA!")
@@ -249,6 +250,7 @@ class tela_login_cadastro:
                         data_user = nomecompleto.get()
                         data_email = email.get()
                         data_senha = senha.get()
+                        data_senha = hashlib.sha512(data_senha.encode('utf-8')).hexdigest()
 
                         global idturma
                         

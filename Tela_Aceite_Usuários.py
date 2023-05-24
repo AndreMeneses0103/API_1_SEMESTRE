@@ -2,6 +2,7 @@
 import tkinter as tk
 import json
 import customtkinter as ctk
+import hashlib
 import telaADM
 from tkinter import *
 import ast
@@ -188,7 +189,7 @@ for x in range(len(user)):
 
                 for z in range(len(user[x]["user"])):
                     if(user[z]["user"] == user[indice]["user"]):
-                        user[z]["senha"] = s_opcao[indice].get()
+                        user[z]["senha"] = (hashlib.sha512((s_opcao[indice].get()).encode('utf-8')).hexdigest())
                         insert_acesso = (json.dumps(acesso, indent=4))
                         with open("data_json/users.json", "w") as arq_json:
                             arq_json.write(insert_acesso)
