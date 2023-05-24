@@ -10,8 +10,19 @@ from matplotlib.backends.backend_tkagg import (
 )
 from PIL import Image
 
-
 janelaDash = ctk.CTk()
+
+frame1 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame1.grid(column=1, row=1, padx=20, pady=15)
+
+frame2 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame2.grid(column=1, row=2, padx=20, pady=15)
+
+frame3 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame3.grid(column=1, row=3, padx=20, pady=15)
+
+frame4 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame4.grid(column=1, row=4, padx=20, pady=15)
 
 class tela_dashboard_operacional:
     def __init__(self):
@@ -29,10 +40,11 @@ class tela_dashboard_operacional:
     def tela(self):    
         screen_width = janelaDash.winfo_screenwidth()
         screen_height = janelaDash.winfo_screenheight()
-        x = (screen_width - 1500) // 2
+        x = (screen_width - 1200) // 2
         y = (screen_height - 650) // 2
         janelaDash.geometry("1200x650+{}+{}".format(x, y))
-
+ 
+    
         img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
         label_img = ctk.CTkLabel(master=janelaDash, image=img, text='')
         label_img.place(x=980, y=10)
@@ -43,6 +55,7 @@ class tela_dashboard_operacional:
         janelaDash.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
     def telaDashMediaInt():
+        
 
         media_time_frame = ctk.CTkFrame(master=janelaDash, width=1000, height=650)
         media_time_frame.place(x=0, y=0)
@@ -121,7 +134,7 @@ class tela_dashboard_operacional:
         eixo.set_title('Média do time sobre você', color=cor_texto)
 
         # Exibição do gráfico na janela do Tkinter
-        canvas.get_tk_widget().place(x=100, y=100)
+        canvas.get_tk_widget().place(x=50, y=50)
         pass
 
 
