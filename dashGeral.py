@@ -134,7 +134,7 @@ class tela_dashboard_operacional:
             dados_json = json.load(arquivo)
 
         #MÉDIA DO INTEGRANTE
-            idturma = "123"
+        idturma = "123"
         idtime = "3"
         idavaliado = "gui@gmail.com"
         resposta1 = 0
