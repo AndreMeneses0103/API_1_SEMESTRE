@@ -10,8 +10,19 @@ from matplotlib.backends.backend_tkagg import (
 )
 from PIL import Image
 
-
 janelaDash = ctk.CTk()
+
+frame1 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame1.place(x=20, y=20)
+
+frame2 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame2.place(x=20, y=180)
+
+frame3 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame3.place(x=20, y=340)
+
+frame4 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="#c0c0c0")
+frame4.place(x=20, y=500)
 
 class tela_dashboard_operacional:
     def __init__(self):
@@ -29,10 +40,11 @@ class tela_dashboard_operacional:
     def tela(self):    
         screen_width = janelaDash.winfo_screenwidth()
         screen_height = janelaDash.winfo_screenheight()
-        x = (screen_width - 1500) // 2
+        x = (screen_width - 1200) // 2
         y = (screen_height - 650) // 2
         janelaDash.geometry("1200x650+{}+{}".format(x, y))
-
+ 
+    
         img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
         label_img = ctk.CTkLabel(master=janelaDash, image=img, text='')
         label_img.place(x=980, y=10)
@@ -43,9 +55,10 @@ class tela_dashboard_operacional:
         janelaDash.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
     def telaDashMediaInt():
+        
 
-        media_time_frame = ctk.CTkFrame(master=janelaDash, width=1000, height=650)
-        media_time_frame.place(x=0, y=0)
+        media_time_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
+        media_time_frame.place(x=200, y=20)
         with open("data_json/questions.json", "r") as arquivo:
             dados_json = json.load(arquivo)
         
@@ -91,7 +104,7 @@ class tela_dashboard_operacional:
         indicadores = dados.keys()
         valores = dados.values()
       # Criação da figura e do eixo
-        figura = Figure(figsize=(8, 5), dpi=100)
+        figura = Figure(figsize=(6, 4), dpi=100)
         eixo = figura.add_subplot(111)
         cor_texto = "#fff"
         # Plotagem do gráfico de barras
@@ -127,8 +140,8 @@ class tela_dashboard_operacional:
 
 
     def telaDashAnalise():
-        comp_frame = ctk.CTkFrame(master=janelaDash, width=1000, height=650)
-        comp_frame.place(x=0, y=0)
+        comp_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
+        comp_frame.place(x=200, y=20)
         
         with open ("data_json/questions.json", "r") as arquivo:
             dados_json = json.load(arquivo)
@@ -190,7 +203,7 @@ class tela_dashboard_operacional:
         print(valores1)
         print(valores2)
     
-        figura = Figure(figsize=(8,5), dpi=100)
+        figura = Figure(figsize=(6, 4), dpi=100)
         eixo = figura.add_subplot(111)
 
         eixo.plot(indicadores, valores1, color="#c8c8c8", label = "Time")    
@@ -220,13 +233,13 @@ class tela_dashboard_operacional:
 
     def mostra_media_time():
         #Frame 
-        media_time_frame = ctk.CTkFrame(master=janelaDash, width=1000, height=650)
-        media_time_frame.place(x=0, y=0)
+        media_time_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
+        media_time_frame.place(x=200, y=20)
         #Labels
         metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
         valores = [5, 5, 4, 3, 4]
         
-        fig, ax = plt.subplots(facecolor='#323232', figsize=(8, 5))
+        fig, ax = plt.subplots(facecolor='#323232', figsize=(6, 4))
         ax.clear()
         
         ax.axhline(y=1, color='gray', linestyle='--')
