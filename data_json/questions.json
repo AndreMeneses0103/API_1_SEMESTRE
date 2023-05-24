@@ -207,6 +207,7 @@
             ]
         },
         {
+<<<<<<< HEAD
             "idAvaliador": "santosjhony@gmail.com",
             "sprint": "1",
             "idturma": "DesenvolvimentodeMultiplataforma4856",
@@ -224,6 +225,98 @@
                     "feedback4": "j",
                     "resposta5": 2,
                     "feedback5": "j"
+=======
+            "idAvaliador": "walmir@email.com",
+            "sprint": "1",
+            "idturma": "123",
+            "idtime": "3",
+            "respostas": [
+                {
+                    "idavaliado": "gui@gmail.com",
+                    "resposta1": 1,
+                    "feedback1": "Muito ruim nas conversas",
+                    "resposta2": 5,
+                    "feedback2": "",
+                    "resposta3": 5,
+                    "feedback3": "",
+                    "resposta4": 5,
+                    "feedback4": "",
+                    "resposta5": 5,
+                    "feedback5": ""
+                },
+                {
+                    "idavaliado": "walmir@email.com",
+                    "resposta1": 3,
+                    "feedback1": "OKSDOFSFN",
+                    "resposta2": 5,
+                    "feedback2": "",
+                    "resposta3": 5,
+                    "feedback3": "",
+                    "resposta4": 5,
+                    "feedback4": "",
+                    "resposta5": 5,
+                    "feedback5": ""
+                }
+            ]
+        },
+        {
+            "idAvaliador": "gilvane@email.com",
+            "sprint": "1",
+            "idturma": "123",
+            "idtime": "3",
+            "respostas": [
+                {
+                    "idavaliado": "gui@gmail.com",
+                    "resposta1": 5,
+                    "feedback1": "",
+                    "resposta2": 5,
+                    "feedback2": "",
+                    "resposta3": 5,
+                    "feedback3": "",
+                    "resposta4": 5,
+                    "feedback4": "",
+                    "resposta5": 1,
+                    "feedback5": "OK"
+                },
+                {
+                    "idavaliado": "walmir@email.com",
+                    "resposta1": 5,
+                    "feedback1": "",
+                    "resposta2": 5,
+                    "feedback2": "",
+                    "resposta3": 5,
+                    "feedback3": "",
+                    "resposta4": 5,
+                    "feedback4": "",
+                    "resposta5": 5,
+                    "feedback5": ""
+                },
+                {
+                    "idavaliado": "sabha@email.com",
+                    "resposta1": 5,
+                    "feedback1": "",
+                    "resposta2": 5,
+                    "feedback2": "",
+                    "resposta3": 5,
+                    "feedback3": "",
+                    "resposta4": 5,
+                    "feedback4": "",
+                    "resposta5": 5,
+                    "feedback5": ""
+                },
+                {
+                    "idavaliado": "gilvane@email.com",
+                    "resposta1": 1,
+                    "feedback1": "OK",
+                    "resposta2": 4,
+                    "feedback2": "",
+                    "resposta3": 4,
+                    "feedback3": "",
+                    "resposta4": 4,
+                    "feedback4": "",
+                    "resposta5": 5,
+                    "feedback5": ""
+>>>>>>> a2c4804f9837467db75e4ca6b3a3c0a9a7b809d0
                 }
             ]
         }

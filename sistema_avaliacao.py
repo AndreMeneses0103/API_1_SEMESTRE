@@ -272,8 +272,8 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                                     data = json.load(arquivo)
 
                                 for x in range(len(data["usuarios"])):
-                                    if(data["usuarios"][x]["isActive"] == true):
-                                        data["usuarios"][x]["sprint_atual"] = atual_sprint
+                                    if(data["usuarios"][x]["isActive"] == True):
+                                        data["usuarios"][x]["resp"] = True
                                         insert_acesso = (json.dumps(data, indent=4))
                                         with open("data_json/users.json", "w") as arq_json:
                                             arq_json.write(insert_acesso)
