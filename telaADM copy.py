@@ -16,7 +16,7 @@ def abrir_tela_adm():
     screen_height = janela.winfo_screenheight()
     x = (screen_width - 1200) // 2
     y = (screen_height - 650) // 2
-    janela.geometry(f"1200x650+{x}+{y}")
+    janela.geometry("1200x650+{}+{}".format(x, y))
     janela.title("Insight 360º")
     janela.iconbitmap("logo_insight.ico")
     janela.resizable(False, False)
@@ -24,7 +24,7 @@ def abrir_tela_adm():
     #imagem logo 360
     img = PhotoImage(file = "logo_insight.png").subsample(2)
     label_img = ctk.CTkLabel(master=janela, image=img, text="")
-    label_img.place(x=60, y=20)
+    label_img.place(x=15, y=20)
     #titulo ADM
     label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
@@ -50,7 +50,7 @@ def abrir_tela_adm():
 
     #frame esquerda
     frame1 = ctk.CTkFrame(master=janela, width=370, height=450)
-    frame1.place(x=15, y=160)
+    frame1.place(x=15, y=180)
 
     #lado direito
 
@@ -81,10 +81,6 @@ def abrir_tela_adm():
     def aceite_usuario():
         janela.destroy()
         import Tela_Aceite_Usuários
-
-    def abrir_tela_administradores():
-        janela.destroy()
-        import Tela_Administradores
 
     with open("data_json/turmas.json", "r") as arquivo:
         turmas = json.load(arquivo)
@@ -167,24 +163,21 @@ def abrir_tela_adm():
 
 
         imgcheck = PhotoImage(file = "check.png").subsample(4)
-        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#302929',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=380)
+        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=40,fg_color='#2596be',bg_color='#2596be', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=385)
 
 
 
     #botoes widgets
     Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="Cadastros", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abrir_cadastro_turma)
-    Button.place(x=85, y=5)
+    Button.place(x=85, y=20)
     Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Aceites", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=aceite_usuario)
-    Button.place(x=85, y=45)
-    Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Administradores", font = ('Roboto', 18, 'bold'), text_color= ('black'), cursor="hand2", command=abrir_tela_administradores)
-    Button.place(x=85, y=85)
+    Button.place(x=85, y=65)
 
     labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
     optionMenuTurmas= ctk.CTkOptionMenu(master=janela, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270)
     optionMenuTurmas.place(x=53, y=325)
-    
-    imgcheck = PhotoImage(file = "check.png").subsample(4)
-    buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#2a2b2a',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirTimes).place(x=330, y=320)
+
+    buttonVerificar = ctk.CTkButton(janela, text="✅", width=40, text_color='black', fg_color="#00FF08", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCD34', command=imprimirTimes).place(x=330, y=325)
 
 
     janela.mainloop()

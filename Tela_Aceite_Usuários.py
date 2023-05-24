@@ -2,6 +2,7 @@
 import tkinter as tk
 import json
 import customtkinter as ctk
+import hashlib
 import telaADM
 from tkinter import *
 import ast
@@ -169,15 +170,36 @@ scroll_3.configure(height=0)
 # Frame 3 - Indica o principal que a frame ficará
 frame_3.place(x=100, y=300)
 
+s_opcao = []
+
 for x in range(len(user)):
     if(user[x]["aceito"] == True):
         label = ctk.CTkLabel(master=frame_3, text= user[x]["user"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
 
+        nova_senha = ctk.StringVar()
+        nova_senha.set("")
+        s_opcao.append(nova_senha)
         #Frame 3 - Barra de entrada "Nova Senha"
-        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold")).grid(column=1, row=x, pady=10)
+        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha).grid(column=1, row=x, pady=10)
 
+        def criar_imprimir(indice):
+            def imprimir():
+                # print(f'TEXTO VINDO = {s_opcao[indice].get()}')
+                # print(f'PESSOA SELECIONADA: {user[indice]["user"]}')
+
+                for z in range(len(user[x]["user"])):
+                    if(user[z]["user"] == user[indice]["user"]):
+                        user[z]["senha"] = (hashlib.sha512((s_opcao[indice].get()).encode('utf-8')).hexdigest())
+                        insert_acesso = (json.dumps(acesso, indent=4))
+                        with open("data_json/users.json", "w") as arq_json:
+                            arq_json.write(insert_acesso)
+
+            return imprimir 
         #Frame 3 - Botão para salvar seleção
-        Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=4, row=x, padx=100, pady=5)
+        Button=ctk.CTkButton(master=frame_3, text="Salvar", width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command= criar_imprimir(x)).grid(column=4, row=x, padx=100, pady=5)
+
+
+
 
 # ------------------------------------------------ Janela Total ------------------------------------------- #
 
