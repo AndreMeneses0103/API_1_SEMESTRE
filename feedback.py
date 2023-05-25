@@ -43,7 +43,7 @@ class tela_feedback:
         sprint = "2"
         labelNome = ctk.CTkLabel(master=janelaFeedback, text="Feedbacks", font=('Roboto', 30, 'bold'), text_color='#00FFFF').place(x=330, y=20)
         sprintLabel = ctk.CTkLabel(master=janelaFeedback, text="Sprint: "+sprint, font=('Roboto', 16, 'bold'), text_color='#a0a0a0').place(x=70, y=60)
-        scrool = ctk.CTkFrame(master=janelaFeedback, width=700, height=340).place(x=40, y=90)
+        scrool = ctk.CTkScrollableFrame(master=janelaFeedback, width=700, height=340).place(x=40, y=90)
 
         with open('data_json/questions.json', "r") as arquivo:
             dados_json = json.load(arquivo)

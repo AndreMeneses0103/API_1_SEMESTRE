@@ -1,32 +1,19 @@
-# Import libraries
-from matplotlib import pyplot as plt
-import numpy as np
+import speech_recognition as sr
+import pyttsx3
+import openai
 
+# Configuração da API do OpenAI
+openai.api_key = 'SUA_CHAVE_DE_API_DO_OPENAI'
 
-# Creating dataset
-fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
+# Configuração da síntese de fala
+engine = pyttsx3.init()
 
-recipe = ["225 g flour",
-          "90 g sugar"]
+# Função para capturar a voz do usuário
+def capture_voice():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Diga algo...")
+        audio = r.listen(source)
 
-data = [225, 90]
-
-wedges, texts = ax.pie(data, wedgeprops=dict(width=0.5), startangle=-40)
-
-bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
-kw = dict(arrowprops=dict(arrowstyle="-"),
-          bbox=bbox_props, zorder=0, va="center")
-
-for i, p in enumerate(wedges):
-    ang = (p.theta2 - p.theta1)/2. + p.theta1
-    y = np.sin(np.deg2rad(ang))
-    x = np.cos(np.deg2rad(ang))
-    horizontalalignment = {-1: "right", 1: "left"}[int(np.sign(x))]
-    connectionstyle = f"angle,angleA=0,angleB={ang}"
-    kw["arrowprops"].update({"connectionstyle": connectionstyle})
-    ax.annotate(recipe[i], xy=(x, y), xytext=(1.35*np.sign(x), 1.4*y),
-                horizontalalignment=horizontalalignment, **kw)
-
-ax.set_title("Matplotlib bakery: A donut")
-
-plt.show()
+capture_voice()
+    
