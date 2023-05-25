@@ -218,11 +218,38 @@ class tela_dashboard_operacional:
         canvas.draw()
         canvas.get_tk_widget().place(x=100, y=100)
 
+    def mostrar_total_respostas():
+        #Frame
+        mostrar_total_resposta = ctk.CTkFrame(master=janelaDash, width=800, height=650)
+        mostrar_total_resposta.place(x=200, y=50)
+        #Labels
+        metricas = ['Respondidos', 'Não Respondidos']
+        valores = [40, 60]
+
+        fig, ax = plt.subplots(facecolor='#323232', figsize=(7, 5),dpi=(100))
+        ax.clear()
+
+        # Gráfico de pizza
+        wedges, labels = ax.pie(valores, labels=metricas, startangle=90)
+
+        # Círculo no centro
+        centre_circle = plt.Circle((0, 0), 0.50, fc='white')
+        ax.add_artist(centre_circle)
+
+        # Propriedades estéticas
+        ax.axis('equal')
+        plt.title('Total de Respostas')
+        plt.show()
+
+        canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
+        canvas.draw()
+        canvas.get_tk_widget().place(x=50, y=50)
+            
 
     def mostra_media_time():
         #Frame 
         media_time_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
-        media_time_frame.place(x=200, y=20)
+        media_time_frame.place(x=200, y=50)
         #Labels
         metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
         valores = [5, 5, 4, 3, 4]
@@ -257,7 +284,7 @@ class tela_dashboard_operacional:
 
       
 
-    botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Quantidade Respostas", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =150)
+    botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Quantidade Respostas", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
     botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
     botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
     botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =300)
@@ -274,7 +301,7 @@ label = ctk.CTkLabel(master=frame2, text="Time", text_color=("white"), font=("ro
 
 frame3 = ctk.CTkFrame(janelaDash, width=130, height=130, fg_color="dimgray")
 frame3.place(x=20, y=340)
-label = ctk.CTkLabel(master=frame3, text="Time.", text_color=("white"), font=("roboto", 20, "bold")).place(x=35, y=5)
+label = ctk.CTkLabel(master=frame3, text="Time", text_color=("white"), font=("roboto", 20, "bold")).place(x=35, y=5)
 label = ctk.CTkLabel(master=frame3, text="Total de", text_color=("white"), font=("roboto", 15, "bold")).place(x=30, y=35)
 label = ctk.CTkLabel(master=frame3, text="Integrantes:", text_color=("white"), font=("roboto", 15, "bold")).place(x=20, y=65)
 
