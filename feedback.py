@@ -17,6 +17,12 @@ def abrir_feedback():
             self.tela()
             self.tela_feed()
             janelaFeedback.mainloop()
+=======
+        sprint = "2"
+        labelNome = ctk.CTkLabel(master=janelaFeedback, text="Feedbacks", font=('Roboto', 30, 'bold'), text_color='#00FFFF').place(x=330, y=20)
+        sprintLabel = ctk.CTkLabel(master=janelaFeedback, text="Sprint: "+sprint, font=('Roboto', 16, 'bold'), text_color='#a0a0a0').place(x=70, y=60)
+        scrool = ctk.CTkScrollableFrame(master=janelaFeedback, width=700, height=340).place(x=40, y=90)
+>>>>>>> 610c137f45df9beb181e1fdebc03020a1d673018
 
         def tema(self):
             ctk.set_appearance_mode("dark") #modo dark
