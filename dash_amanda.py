@@ -94,7 +94,7 @@ class tela_dashboard_operacional:
         indicadores = dados.keys()
         valores = dados.values()
       # Criação da figura e do eixo
-        figura = Figure(figsize=(6, 4), dpi=100)
+        figura = Figure(figsize=(8, 6), dpi=100)
         eixo = figura.add_subplot(111)
         cor_texto = "#fff"
         # Plotagem do gráfico de barras
@@ -124,7 +124,7 @@ class tela_dashboard_operacional:
         eixo.set_title('Média do time sobre você', color=cor_texto)
 
         # Exibição do gráfico na janela do Tkinter
-        canvas.get_tk_widget().place(x=100, y=100)
+        canvas.get_tk_widget().place(x=10, y=10)
         pass
 
 
@@ -193,7 +193,7 @@ class tela_dashboard_operacional:
         print(valores1)
         print(valores2)
     
-        figura = Figure(figsize=(6, 4), dpi=100)
+        figura = Figure(figsize=(8,6), dpi=100)
         eixo = figura.add_subplot(111)
 
         eixo.plot(indicadores, valores1, color="#c8c8c8", label = "Time")    
@@ -218,7 +218,7 @@ class tela_dashboard_operacional:
 
         canvas = FigureCanvasTkAgg(figura, master=comp_frame)
         canvas.draw()
-        canvas.get_tk_widget().place(x=100, y=100)
+        canvas.get_tk_widget().place(x=10, y=10)
 
     def mostrar_total_respostas():
         with open('data_json/questions.json', 'r') as arquivo:
@@ -253,7 +253,7 @@ class tela_dashboard_operacional:
         valores = [qnt_resp, qnt_n_resp]
         cores= ['#00ffff', 'white']
         
-        fig, ax = plt.subplots(facecolor='#323232', figsize=(7, 5),dpi=(100))
+        fig, ax = plt.subplots(facecolor='#323232', figsize=(8, 6),dpi=(100))
         ax.clear()
 
         # Exibição das listas com cores usando o ctk e colorama
@@ -273,7 +273,7 @@ class tela_dashboard_operacional:
         
         canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
         canvas.draw()
-        canvas.get_tk_widget().place(x=50, y=50)
+        canvas.get_tk_widget().place(x=10, y=10)
             
         
     def mostra_media_time():
@@ -284,7 +284,7 @@ class tela_dashboard_operacional:
         metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
         valores = [5, 5, 4, 3, 4]
         
-        fig, ax = plt.subplots(facecolor='#323232', figsize=(7, 5),dpi=(100))
+        fig, ax = plt.subplots(facecolor='#323232', figsize=(8, 6),dpi=(100))
         ax.clear()
         
         ax.axhline(y=1, color='gray', linestyle='--')
@@ -310,7 +310,7 @@ class tela_dashboard_operacional:
 
         canvas =  FigureCanvasTkAgg(fig, master=media_time_frame)
         canvas.draw()
-        canvas.get_tk_widget().place(x=50, y=50)
+        canvas.get_tk_widget().place(x=10, y=10)
 
     def open_feedback():
         feedback.abrir_feedback()
@@ -319,13 +319,13 @@ class tela_dashboard_operacional:
         janelaDash.destroy()
         TelaBV.abrir()
         
-    botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_width=2, border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
-    botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
-    botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
-    botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =300)
-    botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =350)
-    botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =400)
-    botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =450)
+    botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_width=3, border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
+    botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
+    botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
+    botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =300)
+    botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =350)
+    botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =400)
+    botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =450)
 
 
 nome_integrante = 'Jhony'
