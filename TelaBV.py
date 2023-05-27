@@ -5,8 +5,6 @@ from tkinter import *
 import sistema_avaliacao as TelaAV
 from datetime import datetime, timedelta
 
-
-
 def abrir():
     
     janela = ctk.CTk()
