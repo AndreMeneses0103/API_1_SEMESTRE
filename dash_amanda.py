@@ -26,16 +26,10 @@ def abrir_dash_op():
             janelaDash.mainloop()
         
 
-<<<<<<< HEAD
         media_time_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
         media_time_frame.place(x=200, y=50)
         with open("data_json/questions.json", "r") as arquivo:
             dados_json = json.load(arquivo)
-=======
-        def tema(self):
-            ctk.set_appearance_mode("dark") #modo dark
-            ctk.set_default_color_theme("dark-blue") #defino a cor do modo dark 
->>>>>>> dd8f948133dd1ae13982a13a364db0a61ee4c7cc
         
         def tela(self):    
             screen_width = janelaDash.winfo_screenwidth()
@@ -44,7 +38,6 @@ def abrir_dash_op():
             y = (screen_height - 650) // 2
             janelaDash.geometry("1200x650+{}+{}".format(x, y))
 
-<<<<<<< HEAD
         for i in dados_json['avaliacao']:
             if i['idturma'] == idturma:
                 if i['idtime']==idtime:
@@ -256,15 +249,10 @@ def abrir_dash_op():
         canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
         canvas.draw()
         canvas.get_tk_widget().place(x=10, y=10)
-=======
-            img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
-            label_img = ctk.CTkLabel(master=janelaDash, image=img, text='')
-            label_img.place(x=980, y=10)
->>>>>>> dd8f948133dd1ae13982a13a364db0a61ee4c7cc
             
-            janelaDash.title("Insight 360º")
-            janelaDash.iconbitmap("logo_insight.ico")
-            janelaDash.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
+        janelaDash.title("Insight 360º")
+        janelaDash.iconbitmap("logo_insight.ico")
+        janelaDash.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
         def telaDashMediaInt():
             

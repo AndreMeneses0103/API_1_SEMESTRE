@@ -26,7 +26,8 @@
             "sprint": "1",
             "idturma": "123",
             "idtime": "1234",
-            "respostas": {
+            "respostas":[
+                {
                 "idavaliado": "lucas@gmail.com",
                 "resposta1": 1,
                 "resposta2": 1,
@@ -34,6 +35,7 @@
                 "resposta4": 1,
                 "resposta5": 1
             }
+        ]
         },
         {
             "idAvaliador": "jhony",
