@@ -134,7 +134,7 @@ class tela_dashboard_operacional:
             dados_json = json.load(arquivo)
 
         #MÉDIA DO INTEGRANTE
-            idturma = "123"
+        idturma = "123"
         idtime = "3"
         idavaliado = "gui@gmail.com"
         resposta1 = 0
@@ -254,9 +254,7 @@ class tela_dashboard_operacional:
         canvas.draw()
         canvas.get_tk_widget().place(x=100, y=100)
 
-      
-
-
+    
     botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Quantidade Respostas", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =150)
     botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
     botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
