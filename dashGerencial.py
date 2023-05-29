@@ -127,7 +127,7 @@ class tela_dashboard_Gerencial:
         controler = 0
 
 
-
+#arrumar --- está
         for i in dados_json['avaliacao']:
             if i['idturma'] == idturma:
                 if i['idtime']!=idtime:
