@@ -48,7 +48,7 @@ class tela_dashboard_operacional:
         
 
         media_time_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
-        media_time_frame.place(x=200, y=20)
+        media_time_frame.place(x=200, y=50)
         with open("data_json/questions.json", "r") as arquivo:
             dados_json = json.load(arquivo)
         
@@ -131,7 +131,7 @@ class tela_dashboard_operacional:
 
     def telaDashAnalise():
         comp_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
-        comp_frame.place(x=200, y=20)
+        comp_frame.place(x=200, y=50)
         
         with open ("data_json/questions.json", "r") as arquivo:
             dados_json = json.load(arquivo)
@@ -257,8 +257,7 @@ class tela_dashboard_operacional:
         ax.clear()
 
         # Exibição das listas com cores usando o ctk e colorama
-        janela = ctk.CTk()
-
+        #janela = ctk.CTk()
         
         # Gráfico de pizza
         ax.pie(valores, labels=metricas, startangle=90, autopct='%1.1f%%', colors=cores)
