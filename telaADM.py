@@ -126,9 +126,9 @@ def abrir_tela_adm():
                 for time in turma['times']:
                     nomestimes.append(time['nometime'])
 
-        labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=180)
+        labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=230)
         optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=nomestimes, variable=timeSelecionado, fg_color='gray', width=270)
-        optionMenuTimes.place(x=53, y=385)
+        optionMenuTimes.place(x=53, y=415)
 
 
 
@@ -152,13 +152,9 @@ def abrir_tela_adm():
                     if x['idtime'] == idtime:
                         integrantes.append(x['user'])
 
-            labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=250)
+            labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=300)
             optionMenuSprint = ctk.CTkOptionMenu(master=janela, values=quantidade_sprints, variable=sprintSelecionada, fg_color='gray', width=270)
-            optionMenuSprint.place(x=53, y=455)
-
-            labelTime = ctk.CTkLabel(master=frame1, text="Integrantes: ", font=('Roboto', 14)).place(x=44, y=310)
-            optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=integrantes, variable=integranteSelecionado, fg_color='gray', width=270)
-            optionMenuTimes.place(x=53, y=515)
+            optionMenuSprint.place(x=53, y=485)
 
             ButtonDash = ctk.CTkButton(master=janela,width=180, fg_color="#5CE1E6", text="Dashboard", font = ('Roboto', 18, 'bold'), text_color= ('black'))
             ButtonDash.place(x=960, y=550)
@@ -167,24 +163,24 @@ def abrir_tela_adm():
 
 
         imgcheck = PhotoImage(file = "check.png").subsample(4)
-        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#302929',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=380)
+        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#302929',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=410)
 
 
 
     #botoes widgets
     Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="Cadastros", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abrir_cadastro_turma)
-    Button.place(x=85, y=5)
+    Button.place(x=85, y=15)
     Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Aceites", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=aceite_usuario)
-    Button.place(x=85, y=45)
+    Button.place(x=85, y=60)
     Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Administradores", font = ('Roboto', 18, 'bold'), text_color= ('black'), cursor="hand2", command=abrir_tela_administradores)
-    Button.place(x=85, y=85)
+    Button.place(x=85, y=105)
 
-    labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
+    labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=170)
     optionMenuTurmas= ctk.CTkOptionMenu(master=janela, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270)
-    optionMenuTurmas.place(x=53, y=325)
+    optionMenuTurmas.place(x=53, y=355)
     
     imgcheck = PhotoImage(file = "check.png").subsample(4)
-    buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#2a2b2a',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirTimes).place(x=330, y=320)
+    buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#2a2b2a',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirTimes).place(x=330, y=350)
 
 
     janela.mainloop()
