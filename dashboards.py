@@ -28,7 +28,6 @@ class tela_dash:
         y = (screen_height - 650) // 2
         janela.geometry("1200x650+{}+{}".format(x, y))
 
-        #img = PhotoImage(file="logo_insight.png").subsample(3) # reduzindo o tamanho em 50%
         img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=980, y=10)
@@ -56,20 +55,19 @@ class tela_dash:
         ax.set_facecolor('#404040')
         ax.yaxis.set_tick_params(color='white')
         
-
+        # Aqui seto as cores das legendas X e Y para branco
         ytick_labels = ax.get_yticklabels()
         for label in ytick_labels:
             label.set_color('white')
 
         xtick_labels = ax.get_xticklabels()
         for label in xtick_labels:
-            label.set_color('white')  # Cor dos textos 'Maturidade', 'Autonomia', 'Desempenho'
+            label.set_color('white')  
 
-        canvas =  FigureCanvasTkAgg(fig, master=media_time_frame)
+        canvas = FigureCanvasTkAgg(fig, master=media_time_frame)
         canvas.draw()
         canvas.get_tk_widget().place(x=100, y=100)
-
-      
+    
 
 
     botaoMediaTime = ctk.CTkButton(master=janela, text= "Média times", command=mostra_media_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =150)
