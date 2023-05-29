@@ -322,13 +322,13 @@ def abrir_dash_op():
             janelaDash.destroy()
             TelaBV.abrir()
             
-        botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_width=3, border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
-        botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
-        botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
-        botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =300)
-        botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =350)
-        botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =400)
-        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", border_width=3, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =450)
+        botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
+        botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
+        botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
+        botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =300)
+        botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =350)
+        botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =400)
+        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =450)
 
 
     nome_integrante = 'Jhony'
