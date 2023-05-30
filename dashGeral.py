@@ -226,8 +226,7 @@ def abrir_dash_ge():
             canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
             canvas.draw()
             canvas.get_tk_widget().place(x=10, y=10)
-                
-            
+
         def mostra_media_time():
             with open("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
@@ -381,8 +380,6 @@ def abrir_dash_ge():
             # Exibição do gráfico na janela do Tkinter
             canvas.get_tk_widget().place(x=10, y=10)
             pass
-
-      
    
         botaoQuantResp = ctk.CTkButton(master=janelaDashGerencial, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
         botaoMediaTime = ctk.CTkButton(master=janelaDashGerencial, text= "Média turma", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mediaTurma).place(x=1030, y =200)
