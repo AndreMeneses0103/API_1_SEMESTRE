@@ -49,7 +49,7 @@ def abrir_dash_op():
             
 
             media_time_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
-            media_time_frame.place(x=200, y=20)
+            media_time_frame.place(x=200, y=50)
             with open("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
             
@@ -132,7 +132,7 @@ def abrir_dash_op():
 
         def telaDashAnalise():
             comp_frame = ctk.CTkFrame(master=janelaDash, width=800, height=650)
-            comp_frame.place(x=200, y=20)
+            comp_frame.place(x=200, y=50)
             
             with open ("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
@@ -331,7 +331,7 @@ def abrir_dash_op():
         botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =450)
 
 
-    nome_integrante = 'Jhony'
+    nome_integrante = 'Jhony Santos de Souza'
     sprint_receb = '2'
     turma_receb = 'bd'
     time_receb = 'techorizon'
@@ -349,28 +349,28 @@ def abrir_dash_op():
 
 
 
-    label = ctk.CTkLabel(master=janelaDash, text=nome_integrante, text_color=("white"), font=("roboto", 20)).place(x=40, y=20)
+    label = ctk.CTkLabel(master=janelaDash, text=nome_integrante, text_color=("#00FFFF"), font=("roboto", 20, "bold")).place(x=40, y=20)
 
-    frame2 = ctk.CTkFrame(janelaDash, width=100, height=70, fg_color="gray26", border_width=4)
-    frame2.place(x=40, y=120)
-    label = ctk.CTkLabel(master=frame2, text="Sprint\n"+sprint_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
+    frame2 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
+    frame2.place(x=20, y=120)
+    label = ctk.CTkLabel(master=frame2, text="Sprint\n"+sprint_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
-    frame3 = ctk.CTkFrame(janelaDash, width=100, height=70, fg_color="gray26", border_width=4)
-    frame3.place(x=40, y=200)   
-    label = ctk.CTkLabel(master=frame3, text="Turma\n"+turma_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=15, y=10)
+    frame3 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
+    frame3.place(x=20, y=200)   
+    label = ctk.CTkLabel(master=frame3, text="Turma\n"+turma_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
-    frame4 = ctk.CTkFrame(janelaDash, width=100, height=70, fg_color="gray26", border_width=4)
-    frame4.place(x=40, y=280)
+    frame4 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
+    frame4.place(x=20, y=280)
     label = ctk.CTkLabel(master=frame4, text="Time\n"+time_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
 
-    frame5 = ctk.CTkFrame(janelaDash, width=100, height=90, fg_color="gray26", border_width=4)
-    frame5.place(x=40, y=360)
-    label = ctk.CTkLabel(master=frame5, text="Membros\n=\n"+str(total_integ), text_color=("white"), font=("roboto", 20, 'bold')).place(x=5, y=10)
+    frame5 = ctk.CTkFrame(janelaDash, width=150, height=90, fg_color="gray26", border_width=2)
+    frame5.place(x=20, y=360)
+    label = ctk.CTkLabel(master=frame5, text="Membros\n"+str(total_integ), text_color=("white"), font=("roboto", 20, 'bold')).place(x=28, y=10)
 
-    frame6 = ctk.CTkFrame(janelaDash, width=140, height=140, fg_color="gray26", border_width=4)
+    frame6 = ctk.CTkFrame(janelaDash, width=140, height=140, fg_color="gray26", border_width=2)
     frame6.place(x=1030, y =500)
     label = ctk.CTkLabel(master=frame6, text="Legenda", text_color=("white"), font=("roboto", 20, "bold")).place(x=30, y=10)
-    label = ctk.CTkLabel(master=frame6, text="Muito Bom\nBom\nRegular\nRuim\nMuito Ruim", text_color=("white"), font=("roboto", 15)).place(x=30, y=40)
+    label = ctk.CTkLabel(master=frame6, text="1- Muito Bom\n2- Bom\n3- Regular\n4- Ruim\n5- Muito Ruim", text_color=("white"), font=("roboto", 15)).place(x=25, y=40)
 
     tela_dashboard_operacional()
 abrir_dash_op()

@@ -193,7 +193,6 @@ class tela_dashboard_Gerencial:
         
         idturma = "123"
         idtime = "3"
-        idavaliado = "" #VARIAVEL QUE SERÁ NECESSÁRIA PARA CONSEGUIR PEGAR O VALOR DO JSON
         resposta1 = 0
         resposta2 = 0
         resposta3 = 0
@@ -205,7 +204,6 @@ class tela_dashboard_Gerencial:
             if i['idturma'] == idturma:
                 if i['idtime']==idtime:
                     for x in i['respostas']:
-                        if x['idavaliado'] != idavaliado:
                             controler += 1
                             resposta1 += x['resposta1']
                             resposta2 += x['resposta2']
@@ -213,7 +211,6 @@ class tela_dashboard_Gerencial:
                             resposta4 += x['resposta4']
                             resposta5 += x['resposta5']
                     
-
         #PROCESSAMENTO DE MÉDIAS
 
         medResp1 = resposta1/controler
