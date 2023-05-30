@@ -371,4 +371,4 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
 
 #INSTANCIAMENTO DA CLASSE AVALIAÇÃO
     Avaliação()
-# abrir_avaliacao()
+#abrir_avaliacao()
