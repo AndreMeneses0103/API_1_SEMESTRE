@@ -437,4 +437,3 @@ def abrir_dash_ge():
 
     tela_dashboard_gerencial()
 abrir_dash_ge()
-

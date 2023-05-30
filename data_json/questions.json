@@ -207,25 +207,6 @@
             ]
         },
         {
-<<<<<<< HEAD
-            "idAvaliador": "santosjhony@gmail.com",
-            "sprint": "1",
-            "idturma": "DesenvolvimentodeMultiplataforma4856",
-            "idtime": "MultisD+9022",
-            "respostas": [
-                {
-                    "idavaliado": "santosjhony@gmail.com",
-                    "resposta1": 2,
-                    "feedback1": "j",
-                    "resposta2": 3,
-                    "feedback2": "j",
-                    "resposta3": 2,
-                    "feedback3": "j",
-                    "resposta4": 3,
-                    "feedback4": "j",
-                    "resposta5": 2,
-                    "feedback5": "j"
-=======
             "idAvaliador": "walmir@email.com",
             "sprint": "1",
             "idturma": "123",
@@ -316,7 +297,6 @@
                     "feedback4": "",
                     "resposta5": 5,
                     "feedback5": ""
->>>>>>> a2c4804f9837467db75e4ca6b3a3c0a9a7b809d0
                 }
             ]
         }
