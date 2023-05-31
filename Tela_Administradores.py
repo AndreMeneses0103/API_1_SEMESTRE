@@ -52,12 +52,31 @@ scroll_3 = frame_2._scrollbar
 scroll_3.configure(height=0)
 frame_3.place(x=100, y=300)
 
+array_users = []
+
 for x in range(len(user)):
     if(user[x]["cargo"] == "user"):
         if(user[x]["aceito"] == True):
+            nome_user = ctk.StringVar()
+            nome_user.set("")
+            array_users.append(nome_user)
+
+            def pega_nome(indice):
+                def imprimir():
+                    for z in range(len(user[x]["user"])):
+                        print(user[indice]["user"])
+                        if(user[z]["user"] == user[indice]["user"]):
+                            user[z]["cargo"] = "adm"
+                            insert_acesso = (json.dumps(acesso_usuarios, indent=4))
+                            with open("data_json/users.json", "w") as arq_json:
+                                arq_json.write(insert_acesso)
+
+
+
+                return imprimir
+
             label = ctk.CTkLabel(master=frame_3, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=25, pady=10)
-            button_promote=ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=1, row=x, padx=50, pady=5)
-            button_save=ctk.CTkButton(master=frame_3, text="Salvar", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=2, row=x, padx=50, pady=5)
+            button_promote=ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=pega_nome(x)).grid(column=1, row=x, padx=50, pady=5)
 
 
 
