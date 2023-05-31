@@ -117,7 +117,7 @@ class tela_dashboard_Gerencial:
             dados_json = json.load(arquivo)
         
         idturma = "123"
-        idtime = ""
+        idtime = "3"
         idavaliado = "" #VARIAVEL QUE SERÁ NECESSÁRIA PARA CONSEGUIR PEGAR O VALOR DO JSON
         resposta1 = 0
         resposta2 = 0
@@ -126,22 +126,16 @@ class tela_dashboard_Gerencial:
         resposta5 = 0
         controler = 0
 
-
-#arrumar --- está
         for i in dados_json['avaliacao']:
             if i['idturma'] == idturma:
-                if i['idtime']!=idtime:
-                    print(i['respostas'])
                     for x in i['respostas']:
-                        if x['idavaliado'] != idavaliado:
                             controler += 1
                             resposta1 += x['resposta1']
                             resposta2 += x['resposta2']
                             resposta3 += x['resposta3']
                             resposta4 += x['resposta4']
                             resposta5 += x['resposta5']
-                    
-                   
+                        
 
         #PROCESSAMENTO DE MÉDIAS
 
