@@ -39,16 +39,9 @@ def abrir_dash_ge():
             janelaDashGerencial.geometry("1200x650+{}+{}".format(x, y))
 
 
-
-
-            imagem = Image.open("logo_insight.png")
-
-            # Criação do objeto de imagem do Tkinter
-            imagem_tk = ImageTk.PhotoImage(imagem)
-
-            # Criação da label com a imagem transparente
-            label_img = ctk.CTkLabel(janelaDashGerencial, image=imagem_tk).place(x=980, y=10)
-
+            img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(200,140))
+            label_img = ctk.CTkLabel(master=janelaDashGerencial, image=img, text='')
+            label_img.place(x=980, y=10)
             
             janelaDashGerencial.title("Insight 360º")
             janelaDashGerencial.iconbitmap("logo_insight.ico")
@@ -400,7 +393,7 @@ def abrir_dash_ge():
 
         
         def mostrar_todos_dash():
-                frameTodos = ctk.CTkFrame(master=janelaDashGerencial, width=800, height=650)
+                frameTodos = ctk.CTkFrame(master=janelaDashGerencial, width=800, height=650, fg_color='#242424')
                 frameTodos.place(x=200, y=50)
                 
                 with open('data_json/questions.json', 'r') as arquivo:
@@ -581,7 +574,7 @@ def abrir_dash_ge():
                 valores = dados.values()
                 #Frame 
                 media_time_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255)
-                media_time_frame.place(x=200, y=330)
+                media_time_frame.place(x=10, y=280)
                 #Labels
                 metricas = indicadores
                 valores = valores
@@ -621,7 +614,7 @@ def abrir_dash_ge():
                 #DASH ANALISE COMPARATIVA
 
                 comp_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255)
-                comp_frame.place(x=600, y=330)
+                comp_frame.place(x=400, y=280)
                 
                 with open("data_json/questions.json", "r") as arquivo:
                     dados_json = json.load(arquivo)
@@ -757,7 +750,7 @@ def abrir_dash_ge():
         #botaoMediaInt = ctk.CTkButton(master=janelaDashGerencial, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =300)
         botaoAnalise = ctk.CTkButton(master=janelaDashGerencial, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =300)
         botaoGeral = ctk.CTkButton(master=janelaDashGerencial, text= "Todos Dashboards", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_todos_dash).place(x=1030, y =350)
-        botaoMenuInicial = ctk.CTkButton(master=janelaDashGerencial, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =450)
+        botaoMenuInicial = ctk.CTkButton(master=janelaDashGerencial, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =400)
 
 
 
@@ -782,23 +775,23 @@ def abrir_dash_ge():
     label = ctk.CTkLabel(master=janelaDashGerencial, text=nome_integrante, text_color=("#00FFFF"), font=("roboto", 20, "bold")).place(x=40, y=20)
 
     frame2 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
-    frame2.place(x=20, y=120)
+    frame2.place(x=30, y=170)
     label = ctk.CTkLabel(master=frame2, text="Sprint\n"+sprint_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame3 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
-    frame3.place(x=20, y=200)   
+    frame3.place(x=30, y=250)   
     label = ctk.CTkLabel(master=frame3, text="Turma\n"+turma_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame4 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
-    frame4.place(x=20, y=280)
+    frame4.place(x=30, y=330)
     label = ctk.CTkLabel(master=frame4, text="Time\n"+time_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
 
-    frame5 = ctk.CTkFrame(janelaDashGerencial, width=150, height=90, fg_color="gray26", border_width=2)
-    frame5.place(x=20, y=360)
+    frame5 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
+    frame5.place(x=30, y=410)
     label = ctk.CTkLabel(master=frame5, text="Membros\n"+str(total_integ), text_color=("white"), font=("roboto", 20, 'bold')).place(x=28, y=10)
 
     frame6 = ctk.CTkFrame(janelaDashGerencial, width=140, height=140, fg_color="gray26", border_width=2)
-    frame6.place(x=1030, y =500)
+    frame6.place(x=1030, y =450)
     label = ctk.CTkLabel(master=frame6, text="Legenda", text_color=("white"), font=("roboto", 20, "bold")).place(x=30, y=10)
     label = ctk.CTkLabel(master=frame6, text="1- Muito Bom\n2- Bom\n3- Regular\n4- Ruim\n5- Muito Ruim", text_color=("white"), font=("roboto", 15)).place(x=25, y=40)
 
