@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from tkinter import *
 import tkinter as tk
 from PIL import Image
+import json
 
 janela = ctk.CTk()
 
@@ -45,6 +46,10 @@ class tela_dash:
         label_nome = ctk.CTkLabel(master=media_time_frame, text='Dashboards: Vinicius Domingues Mangaba', font=('Roboto',18, 'bold'), text_color="#00FFFF",).place(x= 300, y= 50)
         metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
         valores = [5, 5, 4, 3, 4]
+        
+        with open ("data_json/questions.json", "r") as arquivo:
+            dados_json = json.load(arquivo)        
+        
         
         fig, ax = plt.subplots(facecolor='#323232', figsize=(8, 5))
         ax.clear()
