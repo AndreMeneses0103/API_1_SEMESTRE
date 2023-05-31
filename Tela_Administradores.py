@@ -91,15 +91,13 @@ for x in range(len(user)):
 
             def pega_nome(indice):
                 def imprimir():
-                    for z in range(len(user[x]["user"])):
-                        print(user[indice]["user"])
+                    for z in range(len(user)):
                         if(user[z]["user"] == user[indice]["user"]):
+                            # print(user[indice]["user"])
                             user[z]["cargo"] = "adm"
                             insert_acesso = (json.dumps(acesso_usuarios, indent=4))
                             with open("data_json/users.json", "w") as arq_json:
                                 arq_json.write(insert_acesso)
-
-
 
                 return imprimir
 
