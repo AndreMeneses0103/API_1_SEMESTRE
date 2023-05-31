@@ -37,18 +37,6 @@
             "resp": true
         },
         {
-            "user": "Alexandre",
-            "id": "alex@email.com",
-            "idturma": "123",
-            "idtime": "2345",
-            "cargo": "user",
-            "senha": "123",
-            "sprint_atual": "4",
-            "isActive": false,
-            "aceito": false,
-            "resp": false
-        },
-        {
             "user": "Jhony Santos",
             "id": "santosdesouzajhony@gmail.com",
             "idturma": "123",
@@ -80,17 +68,6 @@
             "cargo": "adm",
             "senha": "abc",
             "sprint_atual": 1,
-            "isActive": false,
-            "aceito": true,
-            "resp": false
-        },
-        {
-            "user": "Juliano",
-            "id": "ju@email.com",
-            "idturma": "123",
-            "idtime": "4567",
-            "cargo": "user",
-            "senha": "111",
             "isActive": false,
             "aceito": true,
             "resp": false

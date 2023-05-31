@@ -64,9 +64,7 @@ def promover_adm():
                 nome_user = ctk.StringVar()
                 nome_user.set("")
                 array_users.append(nome_user)
-
-                return imprimir
-            
+           
             def remove_usuario(indice):
                 def printar():
                     for z in range(len(user)):
@@ -80,25 +78,22 @@ def promover_adm():
                             promover_adm()
                 return printar       
             button_remove = ctk.CTkButton(master=frame_3, text="Remover Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=remove_usuario(x)).grid(column=2, row=x, padx=10, pady=5)
-                
 
-                    return imprimir
+            def pega_nome(indice):
+                def imprimir():
+                    for z in range(len(user)):
+                        if(user[z]["user"] == user[indice]["user"]):
+                            print(user[indice]["user"])
+                            user.pop(indice)
+                            insert_acesso = (json.dumps(acesso_usuarios, indent=4))
+                            with open("data_json/users.json", "w") as arq_json:
+                                arq_json.write(insert_acesso)
+                            promover_adm()
 
-                def pega_nome(indice):
-                    def imprimir():
-                        for z in range(len(user)):
-                            if(user[z]["user"] == user[indice]["user"]):
-                                print(user[indice]["user"])
-                                user.pop(indice)
-                                insert_acesso = (json.dumps(acesso_usuarios, indent=4))
-                                with open("data_json/users.json", "w") as arq_json:
-                                    arq_json.write(insert_acesso)
-                                promover_adm()
+                return imprimir
 
-                    return imprimir
-
-                label = ctk.CTkLabel(master=frame_3, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=25, pady=10)
-                button_promote=ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=pega_nome(x)).grid(column=1, row=x, padx=50, pady=5)
+            label = ctk.CTkLabel(master=frame_3, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=25, pady=10)
+            button_promote=ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=pega_nome(x)).grid(column=1, row=x, padx=50, pady=5)
 
 if(primeira_vez == 0):
     promover_adm()
