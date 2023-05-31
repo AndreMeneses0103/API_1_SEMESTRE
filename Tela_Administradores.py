@@ -24,11 +24,39 @@ def open_menu():
 #Voltar para tela inicial
 Button=ctk.CTkButton(master=janelaADM, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 
+
+with open("data_json/users.json", "r") as file:
+    acesso_usuarios = json.load(file)
+
+usuarios = acesso_usuarios["usuarios"]
+
+frame_3 = ctk.CTkScrollableFrame(master=janelaADM, fg_color='#c0c0c0', width=1000, height=200)
+frame_3.place(x=100, y=300)
+
+for x in range (len(usuarios)):
+    if usuarios[x]["cargo"] == "user" and usuarios[x]["aceito"]:
+        label = ctk.CTkLabel(master=frame_3, text=usuarios[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=25, pady=10)
+        button_promote = ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=1, row=x, padx=50, pady=5)
+            
+        def deletar_usuarios(delete):
+            def selecao():
+                print ("1")
+
+            return selecao
+            print(delete)
+
+        button_remove = ctk.CTkButton(master=frame_3, text="Remover Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=deletar_usuarios(x)).grid(column=2, row=x, padx=10, pady=5)
+
+    #usuario_remover = usuarios.pop(index)
+
+    with open("data_json/users.json", "w") as file:
+        json.dump(acesso_usuarios, file, indent=4)
+
 #Frame.01
 frame = ctk.CTkFrame(master=janelaADM, width=1200, height=550)
 frame.place(x=0, y=50)
 label = ctk.CTkLabel(master=frame, text="Usuários Administradores",  text_color="white", font=("Roboto", 20, "bold")).place(x=495, y=5)
-label = ctk.CTkLabel(master=frame, text="Fornecer Acesso Administrativo", text_color="white", font=("Roboto", 20, "bold")).place(x=468, y=260)
+label = ctk.CTkLabel(master=frame, text="Fornecer Acesso Administrativo ou Remover Usuário", text_color="white", font=("Roboto", 20, "bold")).place(x=355, y=260)
 
 #Frame.02
 global frame_2
@@ -57,7 +85,8 @@ for x in range(len(user)):
         if(user[x]["aceito"] == True):
             label = ctk.CTkLabel(master=frame_3, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=25, pady=10)
             button_promote=ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=1, row=x, padx=50, pady=5)
-            button_save=ctk.CTkButton(master=frame_3, text="Salvar", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=2, row=x, padx=50, pady=5)
+            button_remove=ctk.CTkButton(master=frame_3, text="Remover Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=2, row=x, padx=10, pady=5)
+            button_save=ctk.CTkButton(master=frame_3, text="Salvar", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=3, row=x, padx=50, pady=5)
 
 
 
