@@ -67,10 +67,41 @@ class tela_dash:
         canvas = FigureCanvasTkAgg(fig, master=media_time_frame)
         canvas.draw()
         canvas.get_tk_widget().place(x=100, y=100)
-    
+
+    def mostra_autoavaliacao():
+        #Frame 
+        autoavaliacao_frame = ctk.CTkFrame(master=janela, width=1000, height=650)
+        autoavaliacao_frame.place(x=0, y=0)
+
+        label_nome = ctk.CTkLabel(master=autoavaliacao_frame, text='Dashboards: Vinicius Domingues Mangaba', font=('Roboto',18, 'bold'), text_color="#00FFFF",).place(x= 300, y= 50)
+        metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
+        valores = [2, 2, 2, 1, 3]
+        
+        fig, ax = plt.subplots(facecolor='#323232', figsize=(8, 5))
+        ax.clear()
+        ax.bar(metricas, valores, color="#66FFFF", width=0.3, align='center')
+        ax.set_xlabel('', color="white")
+        ax.set_ylabel('Valores', color="white")
+        ax.set_title('Autoavaliação', color="white")
+        ax.set_facecolor('#404040')
+        ax.yaxis.set_tick_params(color='white')
+        
+        # Aqui seto as cores das legendas X e Y para branco
+        ytick_labels = ax.get_yticklabels()
+        for label in ytick_labels:
+            label.set_color('white')
+
+        xtick_labels = ax.get_xticklabels()
+        for label in xtick_labels:
+            label.set_color('white')  
+
+        canvas = FigureCanvasTkAgg(fig, master=autoavaliacao_frame)
+        canvas.draw()
+        canvas.get_tk_widget().place(x=100, y=100)    
 
 
     botaoMediaTime = ctk.CTkButton(master=janela, text= "Média times", command=mostra_media_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =150)
+    botaoAutoavaliacao = ctk.CTkButton(master=janela, text= "Média times", command=mostra_autoavaliacao, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =200)
 
 
 tela_dash()
