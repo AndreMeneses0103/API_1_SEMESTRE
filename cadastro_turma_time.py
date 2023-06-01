@@ -6,6 +6,7 @@ from tkcalendar import Calendar, DateEntry
 import random
 import json
 import telaADM
+from PIL import Image
 janela = ctk.CTk()
 
 class tela_cadastro_time:
@@ -37,7 +38,7 @@ class tela_cadastro_time:
 
     def tela_nova_turma(self):
         #trabalhando com a imagem da tela
-        img = PhotoImage(file="logo_insight.png").subsample(3) # reduzindo o tamanho em 50%
+        img = ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140)) # reduzindo o tamanho em 50%
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=10, y=10)
         label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=50, y=130)
