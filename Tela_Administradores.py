@@ -27,46 +27,28 @@ Button=ctk.CTkButton(master=janelaADM, text="Voltar", width=120, cursor='hand2',
 #Frame.01
 frame = ctk.CTkFrame(master=janelaADM, width=1200, height=550)
 frame.place(x=0, y=50)
-label = ctk.CTkLabel(master=frame, text="Usuários Administradores",  text_color="white", font=("Roboto", 20, "bold")).place(x=495, y=5)
-label = ctk.CTkLabel(master=frame, text="Fornecer Acesso Administrativo ou Remover Usuário", text_color="white", font=("Roboto", 20, "bold")).place(x=355, y=260)
+label = ctk.CTkLabel(master=frame, text="Usuários e Administradores",  text_color="white", font=("Roboto", 20, "bold")).place(x=495, y=5)
+label = ctk.CTkLabel(master=frame, text="Cadastro de Novos Administradores", text_color="white", font=("Roboto", 20, "bold")).place(x=450, y=260)
 
-#Frame.02
-global frame_2
-frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
-scroll_1 = frame_2._scrollbar
-scroll_1.configure(height=0)
-frame_2.place(x=100, y=40)
 acesso_usuarios = json.load(open("data_json/users.json", "r"))
-
 user = acesso_usuarios["usuarios"]
-for x in range(len(user)):
-    if(user[x]["cargo"] == "adm"):
-        if(user[x]["aceito"] == True):
-            label = ctk.CTkLabel(master=frame_2, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
-            button_downgrade=ctk.CTkButton(master=frame_2, text="Remover ADM", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=1, row=x, padx=50, pady=5)
-            button_save=ctk.CTkButton(master=frame_2, text="Salvar", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14)).grid(column=2, row=x, padx=50, pady=5)
 
-primeira_vez = 0
+primeira_vez_admin = 0
 
-def promover_adm():
-    primeira_vez = 1
-    #Frame.03
-    frame_3 = ctk.CTkScrollableFrame(master=frame, fg_color='#c0c0c0',width=1000, height=200)
-    scroll_3 = frame_2._scrollbar
-    scroll_3.configure(height=0)
-    frame_3.place(x=100, y=300)
-
-    array_users = []
-
+def remocao():
+    primeira_vez_admin = 1
+    #Frame.02
+    global frame_2
+    frame_2 = ctk.CTkScrollableFrame(master=frame,fg_color='#c0c0c0',width=1000, height=200)
+    scroll_1 = frame_2._scrollbar
+    scroll_1.configure(height=0)
+    frame_2.place(x=100, y=40)
+    
     for x in range(len(user)):
-        if(user[x]["cargo"] == "user"):
-            if(user[x]["aceito"] == True):
-                nome_user = ctk.StringVar()
-                nome_user.set("")
-                array_users.append(nome_user)
-           
-            def remove_usuario(indice):
-                def printar():
+        if(user[x]["aceito"] == True):
+
+            def remove(indice):
+                def plotar():
                     for z in range(len(user)):
                         if(user[z]["user"] == user[indice]["user"]):
                             #print(user[indice]["user"])
@@ -75,27 +57,16 @@ def promover_adm():
 
                             with open("data_json/users.json", "w") as arq_json:
                                 arq_json.write(insert_acesso)
-                            promover_adm()
-                return printar       
-            button_remove = ctk.CTkButton(master=frame_3, text="Remover Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=remove_usuario(x)).grid(column=2, row=x, padx=10, pady=5)
+                            remocao()
+                return plotar      
+            
+            label = ctk.CTkLabel(master=frame_2, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
+            button_remove_adm=ctk.CTkButton(master=frame_2, text="Remover Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=remove(x)).grid(column=1, row=x, padx=50, pady=5)
+remocao()
 
-            def pega_nome(indice):
-                def imprimir():
-                    for z in range(len(user)):
-                        if(user[z]["user"] == user[indice]["user"]):
-                            print(user[indice]["user"])
-                            user.pop(indice)
-                            insert_acesso = (json.dumps(acesso_usuarios, indent=4))
-                            with open("data_json/users.json", "w") as arq_json:
-                                arq_json.write(insert_acesso)
-                            promover_adm()
-
-                return imprimir
-
-            label = ctk.CTkLabel(master=frame_3, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=25, pady=10)
-            button_promote=ctk.CTkButton(master=frame_3, text="Tornar Administrador", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=pega_nome(x)).grid(column=1, row=x, padx=50, pady=5)
-
-if(primeira_vez == 0):
-    promover_adm()
+frame_3 = ctk.CTkScrollableFrame(master=frame, fg_color='#c0c0c0',width=1000, height=200)
+scroll_3 = frame_2._scrollbar
+scroll_3.configure(height=0)
+frame_3.place(x=100, y=300)
 
 janelaADM.mainloop()
