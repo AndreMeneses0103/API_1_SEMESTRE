@@ -39,13 +39,59 @@ class tela_dash:
 
 
     def mostra_media_time():
+
+        with open("data_json/questions.json", "r") as arquivo:
+                dados_json = json.load(arquivo)
+        
+        global idturma, idtime, sprint
+        idturma = "123"
+        idtime = "3"
+        sprint ="1"
+        
+        resposta1 = 0
+        resposta2 = 0
+        resposta3 = 0
+        resposta4 = 0
+        resposta5 = 0
+        controler = 0
+
+        for i in dados_json['avaliacao']:
+            if i['idturma'] == idturma:
+                if i['idtime']==idtime:
+                        if i['sprint'] == sprint:
+                            for x in i['respostas']:
+                                    controler += 1
+                                    resposta1 += x['resposta1']
+                                    resposta2 += x['resposta2']
+                                    resposta3 += x['resposta3']
+                                    resposta4 += x['resposta4']
+                                    resposta5 += x['resposta5']
+                    
+        #PROCESSAMENTO DE MÉDIAS
+
+        medResp1 = resposta1/controler
+        medResp2 = resposta2/controler
+        medResp3 = resposta3/controler
+        medResp4 = resposta4/controler
+        medResp5 = resposta5/controler
+
+        dados = {
+            "Comunicação": medResp1,
+            "Relação Interpessoal": medResp2,
+            "Proatividade": medResp3,
+            "Produtividade": medResp4, 
+            "Prazos de entrega": medResp5
+        }
+
+        indicadores = dados.keys()
+        valores = dados.values()
         #Frame 
         media_time_frame = ctk.CTkFrame(master=janela, width=1000, height=650)
         media_time_frame.place(x=0, y=0)
         #Labels
-        label_nome = ctk.CTkLabel(master=media_time_frame, text='Dashboards: Vinicius Domingues Mangaba', font=('Roboto',18, 'bold'), text_color="#00FFFF",).place(x= 300, y= 50)
-        metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
-        valores = [5, 5, 4, 3, 4]
+        #label_nome = ctk.CTkLabel(master=media_time_frame, text='Dashboards: Vinicius Domingues Mangaba', font=('Roboto',18, 'bold'), text_color="#00FFFF",).place(x= 300, y= 50)
+        metricas = indicadores
+        valores = valores
         
         with open ("data_json/questions.json", "r") as arquivo:
             dados_json = json.load(arquivo)        
@@ -59,6 +105,11 @@ class tela_dash:
         ax.set_title('Média de avaliação sobre time geral', color="white")
         ax.set_facecolor('#404040')
         ax.yaxis.set_tick_params(color='white')
+        ax.axhline(y=1, color='gray', linestyle='--')
+        ax.axhline(y=2, color='gray', linestyle='--')
+        ax.axhline(y=3, color='gray', linestyle='--')
+        ax.axhline(y=4, color='gray', linestyle='--')
+        ax.axhline(y=5, color='gray', linestyle='--')
         
         # Aqui seto as cores das legendas X e Y para branco
         ytick_labels = ax.get_yticklabels()
@@ -75,12 +126,27 @@ class tela_dash:
 
     def mostra_autoavaliacao():
         #Frame 
+        idavaliador = "gilvane@email.com"
+        with open('data_json/questions.json', "r") as arquivoAuto:
+             dados_Auto = json.load(arquivoAuto)
+        respostas =[]
+        for i in dados_Auto['avaliacao']:
+             if i['idAvaliador'] == idavaliador:
+                  for x in i['respostas']:
+                       if x['idavaliado'] == idavaliador:
+                            respostas.append(x['resposta1'])
+                            respostas.append(x['resposta2'])
+                            respostas.append(x['resposta3'])
+                            respostas.append(x['resposta4'])
+                            respostas.append(x['resposta5'])
+
+                  
         autoavaliacao_frame = ctk.CTkFrame(master=janela, width=1000, height=650)
         autoavaliacao_frame.place(x=0, y=0)
 
-        label_nome = ctk.CTkLabel(master=autoavaliacao_frame, text='Dashboards: Vinicius Domingues Mangaba', font=('Roboto',18, 'bold'), text_color="#00FFFF",).place(x= 300, y= 50)
+        #label_nome = ctk.CTkLabel(master=autoavaliacao_frame, text='Dashboards: Vinicius Domingues Mangaba', font=('Roboto',18, 'bold'), text_color="#00FFFF",).place(x= 300, y= 50)
         metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
-        valores = [2, 2, 2, 1, 3]
+        valores = respostas
         
         fig, ax = plt.subplots(facecolor='#323232', figsize=(8, 5))
         ax.clear()
@@ -90,7 +156,12 @@ class tela_dash:
         ax.set_title('Autoavaliação', color="white")
         ax.set_facecolor('#404040')
         ax.yaxis.set_tick_params(color='white')
-        
+        ax.axhline(y=1, color='gray', linestyle='--')
+        ax.axhline(y=2, color='gray', linestyle='--')
+        ax.axhline(y=3, color='gray', linestyle='--')
+        ax.axhline(y=4, color='gray', linestyle='--')
+        ax.axhline(y=5, color='gray', linestyle='--')
+    
         # Aqui seto as cores das legendas X e Y para branco
         ytick_labels = ax.get_yticklabels()
         for label in ytick_labels:
