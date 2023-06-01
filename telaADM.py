@@ -18,12 +18,12 @@ def abrir_tela_adm():
     x = (screen_width - 1200) // 2
     y = (screen_height - 650) // 2
     janelaADM.geometry(f"1200x650+{x}+{y}")
-    janelaADM.title("Insight 360º")
-    janelaADM.iconbitmap("logo_insight.ico")
+    janelaADM.title("btspadrao/Insight 360º")
+    janelaADM.iconbitmap("btspadrao/logo_insight.ico")
     janelaADM.resizable(False, False)
 
     #imagem logo 360
-    img = PhotoImage(file = "logo_insight.png").subsample(2)
+    img = PhotoImage(file = "btspadrao/logo_insight.png").subsample(2)
     label_img = ctk.CTkLabel(master=janelaADM, image=img, text="")
     label_img.place(x=60, y=20)
     #titulo ADM
@@ -45,7 +45,7 @@ def abrir_tela_adm():
         #TLOGIN.abrir_login()
 
     #Imagem do botão logout
-    logout = PhotoImage(file = "logout.png").subsample(2)
+    logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
     Button = ctk.CTkButton(master=janelaADM, width = 50, image=logout, text="", fg_color="#242424", command=Close)
     Button.place(x=1100, y=40)
 

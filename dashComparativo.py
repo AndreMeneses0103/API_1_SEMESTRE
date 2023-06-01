@@ -31,13 +31,13 @@ class tela_dashboard_operacional:
         y = (screen_height - 650) // 2
         janelaDashComp.geometry("1200x650+{}+{}".format(x, y))
 
-        img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
+        img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(230,140))
         label_img = ctk.CTkLabel(master=janelaDashComp, image=img, text='')
         label_img.place(x=980, y=10)
 
 
-        janelaDashComp.title("Insight 360º")
-        janelaDashComp.iconbitmap("logo_insight.ico")
+        janelaDashComp.title("btspadrao/Insight 360º")
+        janelaDashComp.iconbitmap("btspadrao/logo_insight.ico")
         janelaDashComp.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
     def telaDash():

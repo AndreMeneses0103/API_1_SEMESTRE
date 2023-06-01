@@ -43,12 +43,12 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
             janelaDashGerencial.geometry("1200x650+{}+{}".format(x, y))
 
 
-            img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(200,140))
+            img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(200,140))
             label_img = ctk.CTkLabel(master=janelaDashGerencial, image=img, text='')
             label_img.place(x=980, y=10)
             
-            janelaDashGerencial.title("Insight 360º")
-            janelaDashGerencial.iconbitmap("logo_insight.ico")
+            janelaDashGerencial.title("btspadrao/Insight 360º")
+            janelaDashGerencial.iconbitmap("btspadrao/logo_insight.ico")
             janelaDashGerencial.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
         def telaDashAnalise():

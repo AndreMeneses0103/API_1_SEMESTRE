@@ -32,20 +32,21 @@ class tela_cadastro_time:
 
 
         janela.title("Insight 360º")
-        janela.iconbitmap("logo_insight.ico")
+        janela.iconbitmap("btspadrao/logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
 
     def tela_nova_turma(self):
         #trabalhando com a imagem da tela
-        img = ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140)) # reduzindo o tamanho em 50%
+        img = ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(230,140)) # reduzindo o tamanho em 50%
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=10, y=10)
         label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=50, y=130)
         def voltar():
             janela.destroy()
             telaADM.abrir_tela_adm()
-        botao_fim = ctk.CTkButton(master=janela, text="Voltar", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=voltar).place(x=50, y=170)
+        imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)    
+        buttonVerificar = ctk.CTkButton(master=janela, text="Voltar", width=120, image=imgbeck, cursor='hand2', text_color=("black"), fg_color="#5CE1E6", font=('Roboto', 14), command=voltar).place(x=50, y=170)
 
 
         #frame a direita

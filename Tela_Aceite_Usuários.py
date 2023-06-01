@@ -30,7 +30,7 @@ janela.geometry(f"1200x650+{x}+{y}")
 janela.title("Insigth 360")
 
 #Janela - Imagem usada para icone
-janela.iconbitmap("logo_insight.ico")
+janela.iconbitmap("btspadrao/logo_insight.ico")
 
 #Janela - Ajuste de dimensões da janela desativados
 janela.resizable(False, False)
@@ -43,7 +43,7 @@ def open_menu():
     telaADM.abrir_tela_adm()
         
 #Janela - Botão
-imgbeck = PhotoImage(file = "botaovoltar.png").subsample(18)
+imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)
 buttonVerificar = ctk.CTkButton(master=janela, text="Voltar", width=120, image=imgbeck, cursor='hand2', text_color=("black"), fg_color="#5CE1E6", font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 
 def Close():
@@ -62,7 +62,7 @@ def Close():
         #TLOGIN.abrir_login()
 
     #Imagem do botão logout
-logout = PhotoImage(file = "logout.png").subsample(2)
+logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
 Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#1a1a1a", command=Close)
 Button.place(x=1070, y=7)
 

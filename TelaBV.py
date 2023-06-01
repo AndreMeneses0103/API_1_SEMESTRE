@@ -25,13 +25,13 @@ def abrir():
 
         def tela(self):    
             janela.geometry("1200x650") #DEFINO O TAMANHO DA JANELA
-            janela.title("Insight 360º")
-            janela.iconbitmap("logo_insight.ico")
+            janela.title("btspadrao/Insight 360º")
+            janela.iconbitmap("btspadrao/logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
         
         def TelaAlerta(self):
-            img = PhotoImage(file="logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+            img = PhotoImage(file="btspadrao/logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
             label_img.place(x=280, y=210)
         
@@ -280,7 +280,8 @@ def abrir():
 
             dashboard_button = ctk.CTkButton(master=janela, text="Exibir Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=chamarDashboard).place(x=30, y=560)
             # cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
-            logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=1050, y=15)
+            logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
+            logout_button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#242424", cursor="hand2", command=Close).place(x=1120, y=15)
             #sprint_button = ctk.CTkButton(master=janela, text="Sprint", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=30, y=15)
             
             janela.protocol("WM_DELETE_WINDOW", Close)

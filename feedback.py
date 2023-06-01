@@ -39,8 +39,8 @@ def abrir_feedback():
             x = (larg_tela - larg_janela) // 2
             y = (alt_tela - alt_janela) // 2
             janelaFeedback.geometry(f"{larg_janela}x{alt_janela}+{x}+{y}") #DEFINO O TAMANHO DA JANELA
-            janelaFeedback.title("Insight 360º")
-            janelaFeedback.iconbitmap("logo_insight.ico")
+            janelaFeedback.title("btspadrao/Insight 360º")
+            janelaFeedback.iconbitmap("btspadrao/logo_insight.ico")
             janelaFeedback.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
 
@@ -81,8 +81,8 @@ def abrir_feedback():
             def back():
                  janelaFeedback.destroy()
                  dashOP.abrir_dash_op()
-                 
-            botaoVoltar = ctk.CTkButton(janelaFeedback, text="Voltar", width=100, cursor="hand2", fg_color="#00FFFF", text_color='black', command=back).place(x=660, y=450)
+            imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)     
+            botaoVoltar = ctk.CTkButton(janelaFeedback, image=imgbeck, text="Voltar", width=100, cursor="hand2", fg_color="#00FFFF", text_color='black', command=back).place(x=660, y=450)
                         
             
     tela_feedback()

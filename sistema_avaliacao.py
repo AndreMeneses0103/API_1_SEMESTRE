@@ -54,8 +54,8 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             y = (screen_height - 650) // 2
             janela.geometry("1200x650+{}+{}".format(x, y))
             
-            janela.title("Insight 360º")
-            janela.iconbitmap("logo_insight.ico")
+            janela.title("btspadrao/Insight 360º")
+            janela.iconbitmap("btspadrao/logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
 
@@ -66,7 +66,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             pass
 
         def tela_avaliação(self):
-            img = PhotoImage(file="logo_insight.png").subsample(3) # reduzindo o tamanho em 50%
+            img = PhotoImage(file="btspadrao/logo_insight.png").subsample(3) # reduzindo o tamanho em 50%
             label_img = ctk.CTkLabel(master=janela, image=img, text='')
             label_img.place(x=43, y=15)
 
