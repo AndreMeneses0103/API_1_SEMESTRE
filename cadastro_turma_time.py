@@ -76,78 +76,152 @@ class tela_cadastro_time:
 
 
         def define_numero_sprints():
-            sprint['turma'] = novaturma.get()
-            # Frame onde vai aparecer sprints criadas
-            frame_sprints = ctk.CTkScrollableFrame(master=tela_cadastro_frame, width=400, height=200, corner_radius=0, fg_color="transparent",label_text=sprint['turma'] )
-            frame_sprints.place(x= 45, y= 390)
-            
-            #Cria um menu variável de acordo com o numero de sprints
-            num_valores = int(quantidade_sprints.get())
-            sprints = [str(i) for i in range(1, num_valores+1)]
-            sprintSelecionada = ctk.IntVar()
-            sprintSelecionada.set(sprints[0])
-            opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada).place(x=50,y=350)
-            
-            #titulo periodos
-            titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
-            numero_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Escolha a sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=320)
+            if novaturma.get() == "" or quantidade_sprints.get()==0:
+                janelaPreenchimentoObrigatorio = ctk.CTk()
+                janelaPreenchimentoObrigatorio.title("ALERTA!")
+                screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                x = (screen_width - 330) // 2
+                y = (screen_height - 180) // 2
+                janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                janelaPreenchimentoObrigatorio.resizable(False, False)
+                label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nO preenchimento de todos\nos campos é obrigatório\n", font=('Roboto', 15, 'bold')).pack()
+                def destroy_alerta():
+                        janelaPreenchimentoObrigatorio.destroy()
+                button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                janelaPreenchimentoObrigatorio.mainloop()
+            else:
+                with open('data_json/turmas.json', "r") as arquivoTurmas:
+                    dados_turmas = json.load(arquivoTurmas)
 
-            #Entrada da data inicio sprint 
-            global fim_sprint, data_seleciona_fim, data_seleciona_inicio, inicio_sprint
-            inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=350,y=320)
-            inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
-            inicio_sprint.place(x= 450, y= 450)
+                for nometurmaJson in dados_turmas['turmas']:
+                    if nometurmaJson['nometurma'] == novaturma.get():
+                        janelaPreenchimentoObrigatorio = ctk.CTk()
+                        janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                        screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                        janelaPreenchimentoObrigatorio.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nEsta turma já está\ncadastrada\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                                janelaPreenchimentoObrigatorio.destroy()
+                        button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                        janelaPreenchimentoObrigatorio.mainloop()
+                    else:
+                        sprint['turma'] = novaturma.get()
+                        # Frame onde vai aparecer sprints criadas
+                        frame_sprints = ctk.CTkScrollableFrame(master=tela_cadastro_frame, width=400, height=200, corner_radius=0, fg_color="transparent",label_text=sprint['turma'] )
+                        frame_sprints.place(x= 45, y= 390)
+                        
+                        #Cria um menu variável de acordo com o numero de sprints
+                        num_valores = int(quantidade_sprints.get())
+                        global sprints
+                        sprints = [str(i) for i in range(1, num_valores+1)]
+                        sprintSelecionada = ctk.IntVar()
+                        sprintSelecionada.set(sprints[0])
+                        opcoes_time = ctk.CTkOptionMenu(master=tela_cadastro_frame, fg_color='gray',values=sprints, variable=sprintSelecionada).place(x=50,y=350)
+                        
+                        #titulo periodos
+                        titulo_periodo_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Período das sprints", text_color="white", font=('Roboto', 25, 'bold')).place(x=45,y=270)
+                        numero_sprints_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Escolha a sprint", text_color="white", font=('Roboto', 14)).place(x=45,y=320)
 
-            #Entrada da data final da sprint
-            fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=550,y=320)
-            fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
-            fim_sprint.place(x=700, y=450)
-            global hor,alt
-            hor = 1
-            alt = 1
-            #LISTA QUE IRÁ ARMAZENAR TEMPORARIAMENTE AS SPRINTS 
-            global sprintsSelecionada
-            sprintsSelecionada = []
+                        #Entrada da data inicio sprint 
+                        global fim_sprint, data_seleciona_fim, data_seleciona_inicio, inicio_sprint
+                        inicio_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Início da sprint", text_color="white", font=('Roboto', 14)).place(x=350,y=320)
+                        inicio_sprint = DateEntry(master=tela_cadastro_frame, width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
+                        inicio_sprint.place(x= 450, y= 450)
+
+                        #Entrada da data final da sprint
+                        fim_sprint_label = ctk.CTkLabel(master=tela_cadastro_frame, text="Fim da sprint", text_color="white", font=('Roboto', 14)).place(x=550,y=320)
+                        fim_sprint = DateEntry(master=tela_cadastro_frame,width=10, font=("Roboto", 8), background='#00FFFF', foreground='black', borderwidth=2,locale='pt_BR',date_pattern='dd/mm/yyyy')
+                        fim_sprint.place(x=700, y=450)
+                        global hor,alt
+                        hor = 1
+                        alt = 1
+                        #LISTA QUE IRÁ ARMAZENAR TEMPORARIAMENTE AS SPRINTS 
+                        global sprintsSelecionada
+                        sprintsSelecionada = []
 
             def guardaInformacoes():
-                global hor,alt
-                
-                #Puxa as informações de datas e número da sprint
-                data_seleciona_inicio = inicio_sprint.get_date()
-                data_seleciona_fim = fim_sprint.get_date()
-                data_sprint = sprintSelecionada.get()
-
-                data_inicio = str(data_seleciona_inicio)
-                mes, dia, ano = data_inicio.split('-')
-                nova_data = f"{ano}/{dia}/{mes}"
-                
-                data_fim = str(data_seleciona_fim)
-                mesf, diaf, anof = data_fim.split('-')
-                nova_dataf = f"{anof}/{diaf}/{mesf}"
-
-                data_final = "  Inicio: " + str(nova_data) + " // Final: " + str(nova_dataf)
-                sprint_select = "  Sprint: " + str(data_sprint)
-
-                #label das sprints criadas
-                cria_label(sprint_select, frame_sprints, hor+1, alt, 0)
-                cria_label(data_final, frame_sprints, hor+1, alt, 1)
-                hor = hor + 1
-                
-                #VARIAVEIS E LISTA QUE ARMAZENARAM DADOS PARA GRAVAR EM JSON - JHONY
                 global idturma, nometurma, sprintsSelecionada
-                idturma = sprint['turma'].replace(" ", "").strip()
-                numeroaleatorio = random.randint(500, 10000)
-                idturma = idturma+str(numeroaleatorio)
-                nometurma = sprint['turma']
-                
-                sprintsSelecionada.append({
-                                "indice":str(data_sprint), 
-                                "inicioSprint": str(nova_data),
-                                "fimSprint":str(nova_dataf)
-                                })
-                print(sprintsSelecionada)
-                
+                if sprintsSelecionada != []:
+                    for i in sprintsSelecionada:
+                        if i['indice'] == str(sprintSelecionada.get()):
+                            validador = False
+                            janelaPreenchimentoObrigatorio = ctk.CTk()
+                            janelaPreenchimentoObrigatorio.title("ALERTA!")
+                            screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                            screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                            x = (screen_width - 330) // 2
+                            y = (screen_height - 180) // 2
+                            janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                            janelaPreenchimentoObrigatorio.resizable(False, False)
+                            label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nA sprint já foi cadastrada.\n", font=('Roboto', 15, 'bold')).pack()
+                            def destroy_alerta():
+                                    janelaPreenchimentoObrigatorio.destroy()
+                            button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                            janelaPreenchimentoObrigatorio.mainloop()
 
+                        else:
+                            validador = True
+                else:
+                    validador = True
+                
+                if validador == True:
+
+                    if inicio_sprint.get_date() < fim_sprint.get_date():
+                        global hor,alt
+                        
+                        #Puxa as informações de datas e número da sprint
+                        data_seleciona_inicio = inicio_sprint.get_date()
+                        data_seleciona_fim = fim_sprint.get_date()
+                        data_sprint = sprintSelecionada.get()
+
+                        data_inicio = str(data_seleciona_inicio)
+                        mes, dia, ano = data_inicio.split('-')
+                        nova_data = f"{ano}/{dia}/{mes}"
+                        
+                        data_fim = str(data_seleciona_fim)
+                        mesf, diaf, anof = data_fim.split('-')
+                        nova_dataf = f"{anof}/{diaf}/{mesf}"
+
+                        data_final = "  Inicio: " + str(nova_data) + " // Final: " + str(nova_dataf)
+                        sprint_select = "  Sprint: " + str(data_sprint)
+
+                        #label das sprints criadas
+                        cria_label(sprint_select, frame_sprints, hor+1, alt, 0)
+                        cria_label(data_final, frame_sprints, hor+1, alt, 1)
+                        hor = hor + 1
+                        
+                        #VARIAVEIS E LISTA QUE ARMAZENARAM DADOS PARA GRAVAR EM JSON - JHONY
+                        
+                        idturma = sprint['turma'].replace(" ", "").strip()
+                        numeroaleatorio = random.randint(500, 10000)
+                        idturma = idturma+str(numeroaleatorio)
+                        nometurma = sprint['turma']
+                        
+                        sprintsSelecionada.append({
+                                        "indice":str(data_sprint), 
+                                        "inicioSprint": str(nova_data),
+                                        "fimSprint":str(nova_dataf)
+                                        })
+                        print(sprintsSelecionada)
+                    else: 
+                        janelaPreenchimentoObrigatorio = ctk.CTk()
+                        janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                        screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                        janelaPreenchimentoObrigatorio.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nA data de início é maior ou\nigual a data final.\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                                janelaPreenchimentoObrigatorio.destroy()
+                        button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                        janelaPreenchimentoObrigatorio.mainloop()
             #Botão de OK que vai rodar a função para guardar informações
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
@@ -157,21 +231,49 @@ class tela_cadastro_time:
     
 
         def tela_cadastro_time():
-            #Apaga o frame de cadastro de turmas
-            tela_cadastro_frame.pack_forget()
-
-            # frame a direita
-            tela_times_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
-            tela_times_frame.pack(side=RIGHT)
-
-            # criar novos times
-            label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font=('Roboto', 25, 'bold'), text_color=('white')).place(x=45, y=40)
-            label_num_times = ctk.CTkLabel(master=tela_times_frame, text="Defina o número de times", font=('Roboto', 14), text_color=('white')).place(x=45, y=100)
-
-            # define quantidade de times
-            num_times = tk.IntVar()
-            num_times_entry = ctk.CTkEntry(master=tela_times_frame, placeholder_text="Número de times:",placeholder_text_color="gray", width=60, font=('Roboto', 14), textvariable=num_times).place(x=45, y=130)
+            global sprintsSelecionada, sprints
+            print(sprints)
+            validadorTamanho = False
+          
+            for listQuantidadeSprints in sprints:
+                for listSprintSelecionada in sprintsSelecionada:
+                    if listSprintSelecionada['indice'] == listQuantidadeSprints:
+                         validadorTamanho = True
+                    else:
+                         validadorTamanho = False
+             
             
+            if validadorTamanho == False:
+                janelaPreenchimentoObrigatorio = ctk.CTk()
+                janelaPreenchimentoObrigatorio.title("ALERTA!")
+                screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                x = (screen_width - 330) // 2
+                y = (screen_height - 180) // 2
+                janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                janelaPreenchimentoObrigatorio.resizable(False, False)
+                label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nAs sprints não foram totalmente\npreenchidas.\n", font=('Roboto', 15, 'bold')).pack()
+                def destroy_alerta():
+                        janelaPreenchimentoObrigatorio.destroy()
+                button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                janelaPreenchimentoObrigatorio.mainloop()
+            else:
+
+                #Apaga o frame de cadastro de turmas
+                tela_cadastro_frame.pack_forget()
+
+                # frame a direita
+                tela_times_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
+                tela_times_frame.pack(side=RIGHT)
+
+                # criar novos times
+                label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font=('Roboto', 25, 'bold'), text_color=('white')).place(x=45, y=40)
+                label_num_times = ctk.CTkLabel(master=tela_times_frame, text="Defina o número de times", font=('Roboto', 14), text_color=('white')).place(x=45, y=100)
+
+                # define quantidade de times
+                num_times = tk.IntVar()
+                num_times_entry = ctk.CTkEntry(master=tela_times_frame, placeholder_text="Número de times:",placeholder_text_color="gray", width=60, font=('Roboto', 14), textvariable=num_times).place(x=45, y=130)
+                
             #função que vai definir numero e nome de times de uma turma
             def cria_novos_times():
                 numero_times = int(num_times.get())
@@ -195,56 +297,111 @@ class tela_cadastro_time:
                 def salvatimes():
                     global x, y
                     #def cria_label(titulo, frame, posicaoX, posicaoY, coluna):
-                    
-                    idtime = nomeTime.get().replace(" ", "").strip()
-                    numeroaleatorio = random.randint(500, 10000)
-                    idtime = idtime+str(numeroaleatorio)
+                    if nomeTime.get() == "":
+                        janelaPreenchimentoObrigatorio = ctk.CTk()
+                        janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                        screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                        janelaPreenchimentoObrigatorio.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nO preenchimento de todos os\ncampos é obrigatório.\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                                janelaPreenchimentoObrigatorio.destroy()
+                        button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                        janelaPreenchimentoObrigatorio.mainloop()
+                    else:
+                        if timesList != []:
+                             for i in timesList:
+                                  if i['nometime']==nomeTime.get():
+                                       validadorTime = False
+                                  else:
+                                       validadorTime = True
+                        else:  
+                             validadorTime = True 
 
-                    time = timeSelecionado.get()
-                    team_name = nomeTime.get()
-                    team_select = "Time " + str(time)+ ": "
-                                        
-                    cria_label(team_select, times_frame,y,0,0)
-                    cria_label(team_name, times_frame,y,0,1)
-                    y+=1
-                    print(team_select+ " -> " + team_name)
-                    
-                    timesList.append({
-                            "idtime": idtime,
-                            "nometime": nomeTime.get()    
-                    })
-                    nomeTime.set("")
-                    
+
+                        if validadorTime == True:  
+                            idtime = nomeTime.get().replace(" ", "").strip()
+                            numeroaleatorio = random.randint(500, 10000)
+                            idtime = idtime+str(numeroaleatorio)
+
+                            time = timeSelecionado.get()
+                            team_name = nomeTime.get()
+                            team_select = "Time " + str(time)+ ": "
+                                                
+                            cria_label(team_select, times_frame,y,0,0)
+                            cria_label(team_name, times_frame,y,0,1)
+                            y+=1
+                            print(team_select+ " -> " + team_name)
+                            
+                            timesList.append({
+                                    "idtime": idtime,
+                                    "nometime": nomeTime.get()    
+                            })
+                            nomeTime.set("")
+                        else:
+                            janelaPreenchimentoObrigatorio = ctk.CTk()
+                            janelaPreenchimentoObrigatorio.title("ALERTA!")
+                            screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                            screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                            x = (screen_width - 330) // 2
+                            y = (screen_height - 180) // 2
+                            janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                            janelaPreenchimentoObrigatorio.resizable(False, False)
+                            label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nTime já cadastrado.\n", font=('Roboto', 15, 'bold')).pack()
+                            def destroy_alerta():
+                                    janelaPreenchimentoObrigatorio.destroy()
+                            button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                            janelaPreenchimentoObrigatorio.mainloop()
+                            
 
                 def concluir():
-                    print(timesList)
-                    print(idturma,"\n", nometurma, "\n",sprintsSelecionada)
-                    with open("data_json/turmas.json", "r") as arquivo:
-                        dados = json.load(arquivo)
+                    if timesList == []:
+                        janelaPreenchimentoObrigatorio = ctk.CTk()
+                        janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                        screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                        janelaPreenchimentoObrigatorio.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nÉ necessária a entrada \nde pelo menos um time.\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                                janelaPreenchimentoObrigatorio.destroy()
+                        button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                        janelaPreenchimentoObrigatorio.mainloop()
 
-                    for x in range(len(dados['turmas'])):
-                        print(x)
-                        ordem = x
+                    else:
+                        print(timesList)
+                        print(idturma,"\n", nometurma, "\n",sprintsSelecionada)
+                        with open("data_json/turmas.json", "r") as arquivo:
+                            dados = json.load(arquivo)
 
-                    ordem +=1
-                    novosdados = dados
+                        for x in range(len(dados['turmas'])):
+                            print(x)
+                            ordem = x
 
-                    data_turmas = {
-                        "idturma": idturma,
-                        "nometurma": nometurma,
-                        "ordem": ordem,
-                        "sprints": sprintsSelecionada, 
-                        "times": timesList
-                    }
+                        ordem +=1
+                        novosdados = dados
 
-                    novosdados['turmas'].append(data_turmas)
-                    novosdados = json.dumps(novosdados, indent=4)
+                        data_turmas = {
+                            "idturma": idturma,
+                            "nometurma": nometurma,
+                            "ordem": ordem,
+                            "sprints": sprintsSelecionada, 
+                            "times": timesList
+                        }
 
-                    with open('data_json/turmas.json', 'w') as arquivoEscrevendo:
-                        arquivoEscrevendo.write(novosdados)
-            
-                    janela.destroy()
-                    telaADM.abrir_tela_adm()
+                        novosdados['turmas'].append(data_turmas)
+                        novosdados = json.dumps(novosdados, indent=4)
+
+                        with open('data_json/turmas.json', 'w') as arquivoEscrevendo:
+                            arquivoEscrevendo.write(novosdados)
+                
+                        janela.destroy()
+                        telaADM.abrir_tela_adm()
                      
 
 
