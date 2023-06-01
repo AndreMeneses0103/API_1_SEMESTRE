@@ -1,9 +1,8 @@
 import customtkinter as ctk
 import json
 import matplotlib
-import TelaBV
+import telaADM
 import tkinter
-
 from colorama import Fore, Style
 import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
@@ -158,10 +157,22 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
 
             eixo.plot(valores1, color="#00FFFF", label = "Time")
             eixo.plot(indicadores, valores2, color="#c8c8c8", label = "Turma")    
-            
+            #plt.scatter(c='b')  # 'c' define a cor dos pontos (azul)
             eixo.set_title("Análise comparativa entre a turma e o time", color="white")
             eixo.set_facecolor("#404040")
             figura.set_facecolor("#323232")
+            eixo.scatter(range(len(valores1)), valores1, color='#00FFFF')
+
+# Adicionar pontos para os valores da turma
+            eixo.scatter(range(len(indicadores)), valores2, color='#c8c8c8')
+
+            for i, valor in enumerate(valores1):
+                eixo.text(i, valor, f'{valor:.2f}', color='#00FFFF', ha='center', va='bottom')
+
+            # Adicionar os valores na ponta de cada ponto da turma
+            for i, valor in enumerate(valores2):
+                eixo.text(i, valor, f'{valor:.2f}', color='#c8c8c8', ha='center', va='bottom')
+
             eixo.legend()
             eixo.axhline(y=1, color='gray', linestyle='--')
             eixo.axhline(y=2, color='gray', linestyle='--')
@@ -755,13 +766,17 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
 
        
         mostrar_todos_dash()
+
+        def back():
+            janelaDashGerencial.destroy()
+            telaADM.abrir_tela_adm()
         botaoQuantResp = ctk.CTkButton(master=janelaDashGerencial, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
         botaoMediaTime = ctk.CTkButton(master=janelaDashGerencial, text= "Média turma", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mediaTurma).place(x=1030, y =200)
         botaoAutoAv = ctk.CTkButton(master=janelaDashGerencial, text= "Média time", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time).place(x=1030, y =250)
         #botaoMediaInt = ctk.CTkButton(master=janelaDashGerencial, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =300)
         botaoAnalise = ctk.CTkButton(master=janelaDashGerencial, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =300)
         botaoGeral = ctk.CTkButton(master=janelaDashGerencial, text= "Todos Dashboards", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_todos_dash).place(x=1030, y =350)
-        botaoMenuInicial = ctk.CTkButton(master=janelaDashGerencial, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =400)
+        botaoMenuInicial = ctk.CTkButton(master=janelaDashGerencial, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=back).place(x=1030, y =400)
     
     nome_integrante = 'Dashboard Gerencial'
     sprint_receb = sprint
@@ -783,7 +798,23 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
     turma_receb = turmaSelecionada
     time_receb = timeSelecionado
 
+    
+    nova_turma = turma_receb
+    palavras = nova_turma.split()
+    if len(palavras) > 2:
+        # Pegar apenas as iniciais das palavras
+        iniciais = [palavra[0] for palavra in palavras if palavra[0].isupper()]
+        nova_turma = ''.join(iniciais)
+    
 
+    nova_time = time_receb
+
+# Verificar se o time possui mais de duas palavras
+    palavras_time = nova_time.split()
+    if len(palavras_time) > 2:
+        # Pegar apenas as iniciais maiúsculas das palavras do time
+        iniciais_time = [palavra[0] for palavra in palavras_time if palavra[0].isupper()]
+        nova_time = ''.join(iniciais_time)
     label = ctk.CTkLabel(master=janelaDashGerencial, text=nome_integrante, text_color=("#00FFFF"), font=("roboto", 20, "bold")).place(x=40, y=20)
 
     frame2 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
@@ -792,11 +823,11 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
 
     frame3 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
     frame3.place(x=30, y=250)   
-    label = ctk.CTkLabel(master=frame3, text="Turma\n"+turma_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
+    label = ctk.CTkLabel(master=frame3, text="Turma\n"+nova_turma, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame4 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
     frame4.place(x=30, y=330)
-    label = ctk.CTkLabel(master=frame4, text="Time\n"+time_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
+    label = ctk.CTkLabel(master=frame4, text="Time\n"+nova_time, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame5 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
     frame5.place(x=30, y=410)
