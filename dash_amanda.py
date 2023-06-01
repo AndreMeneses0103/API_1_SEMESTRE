@@ -39,7 +39,7 @@ def abrir_dash_op():
 
             img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
             label_img = ctk.CTkLabel(master=janelaDash, image=img, text='')
-            label_img.place(x=980, y=10)
+            label_img.place(x=960, y=30)
             
             janelaDash.title("Insight 360º")
             janelaDash.iconbitmap("logo_insight.ico")
@@ -322,13 +322,14 @@ def abrir_dash_op():
             janelaDash.destroy()
             TelaBV.abrir()
             
-        botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
-        botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =200)
-        botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =250)
-        botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =300)
-        botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =350)
-        botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =400)
-        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =450)
+        botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =200)
+        botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =250)
+        botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =300)
+        botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =350)
+        botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =400)
+        botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =450)
+        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =500)
+        botaoTodosGraficos = ctk.CTkButton(master=janelaDash, text= "Todos os Gráficos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y=550)
 
 
     nome_integrante = 'Jhony Santos de Souza'
@@ -352,29 +353,25 @@ def abrir_dash_op():
     label = ctk.CTkLabel(master=janelaDash, text=nome_integrante, text_color=("#00FFFF"), font=("roboto", 20, "bold")).place(x=40, y=20)
 
     frame2 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame2.place(x=20, y=120)
+    frame2.place(x=30, y=120)
     label = ctk.CTkLabel(master=frame2, text="Sprint\n"+sprint_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame3 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame3.place(x=20, y=200)   
+    frame3.place(x=30, y=200)   
     label = ctk.CTkLabel(master=frame3, text="Turma\n"+turma_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame4 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame4.place(x=20, y=280)
+    frame4.place(x=30, y=280)
     label = ctk.CTkLabel(master=frame4, text="Time\n"+time_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
 
-    frame5 = ctk.CTkFrame(janelaDash, width=150, height=90, fg_color="gray26", border_width=2)
-    frame5.place(x=20, y=360)
+    frame5 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
+    frame5.place(x=30, y=360)
     label = ctk.CTkLabel(master=frame5, text="Membros\n"+str(total_integ), text_color=("white"), font=("roboto", 20, 'bold')).place(x=28, y=10)
 
-    frame6 = ctk.CTkFrame(janelaDash, width=140, height=140, fg_color="gray26", border_width=2)
-    frame6.place(x=1030, y =500)
+    frame6 = ctk.CTkFrame(janelaDash, width=150, height=140, fg_color="gray26", border_width=2)
+    frame6.place(x=30, y=440)
     label = ctk.CTkLabel(master=frame6, text="Legenda", text_color=("white"), font=("roboto", 20, "bold")).place(x=30, y=10)
     label = ctk.CTkLabel(master=frame6, text="1- Muito Bom\n2- Bom\n3- Regular\n4- Ruim\n5- Muito Ruim", text_color=("white"), font=("roboto", 15)).place(x=25, y=40)
 
     tela_dashboard_operacional()
 abrir_dash_op()
-<<<<<<< HEAD
-=======
-
->>>>>>> 2d5281ba9c46d722d2962d688c2d1f1b132a481e
