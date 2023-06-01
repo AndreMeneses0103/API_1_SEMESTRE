@@ -2,7 +2,7 @@
     "avaliacao": [
         {
             "idAvaliador": "123",
-            "sprint": "1",
+            "sprint": 1,
             "idturma": "123",
             "idtime": "123",
             "respostas": [

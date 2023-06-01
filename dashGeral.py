@@ -218,7 +218,7 @@ def abrir_dash_ge():
             # Gráfico de pizza
             patches, texts, autotexts = ax.pie(valores, labels=metricas, startangle=90, autopct='%1.1f%%', colors=cores)
 
-# Definir cor dos rótulos
+            # Definir cor dos rótulos
             for text in texts:
                 text.set_color('white')
                 text.set_fontsize(12)

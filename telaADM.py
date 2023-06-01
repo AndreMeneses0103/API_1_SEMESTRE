@@ -3,7 +3,6 @@ import tkinter as tk
 from tkinter import *
 import TelaBV as TBV
 import json
-import dashGerencial
 
 def abrir_tela_adm():
     #Padrão temas da tela
@@ -11,23 +10,23 @@ def abrir_tela_adm():
     ctk.set_default_color_theme("blue")
 
     #padrão da tela
-    janelaADM = ctk.CTk()
+    janela = ctk.CTk()
 
-    screen_width = janelaADM.winfo_screenwidth()
-    screen_height = janelaADM.winfo_screenheight()
+    screen_width = janela.winfo_screenwidth()
+    screen_height = janela.winfo_screenheight()
     x = (screen_width - 1200) // 2
     y = (screen_height - 650) // 2
-    janelaADM.geometry(f"1200x650+{x}+{y}")
-    janelaADM.title("Insight 360º")
-    janelaADM.iconbitmap("logo_insight.ico")
-    janelaADM.resizable(False, False)
+    janela.geometry(f"1200x650+{x}+{y}")
+    janela.title("Insight 360º")
+    janela.iconbitmap("logo_insight.ico")
+    janela.resizable(False, False)
 
     #imagem logo 360
     img = PhotoImage(file = "logo_insight.png").subsample(2)
-    label_img = ctk.CTkLabel(master=janelaADM, image=img, text="")
+    label_img = ctk.CTkLabel(master=janela, image=img, text="")
     label_img.place(x=60, y=20)
     #titulo ADM
-    label_tt = ctk.CTkLabel(master=janelaADM, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
+    label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
@@ -40,17 +39,17 @@ def abrir_tela_adm():
         with open("data_json/users.json", "w") as arq_json:
             arq_json.write(insert_acesso)
 
-        janelaADM.destroy()
+        janela.destroy()
         import Tela_Login_API
         #TLOGIN.abrir_login()
 
     #Imagem do botão logout
     logout = PhotoImage(file = "logout.png").subsample(2)
-    Button = ctk.CTkButton(master=janelaADM, width = 50, image=logout, text="", fg_color="#242424", command=Close)
+    Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#242424", command=Close)
     Button.place(x=1100, y=40)
 
     #frame esquerda
-    frame1 = ctk.CTkFrame(master=janelaADM, width=370, height=450)
+    frame1 = ctk.CTkFrame(master=janela, width=370, height=450)
     frame1.place(x=15, y=160)
 
     #lado direito
@@ -58,7 +57,7 @@ def abrir_tela_adm():
     def abre_turmas():
         horizonte = 0
         vertical = 0
-        frame = ctk.CTkFrame(master=janelaADM, width=750, height=350)
+        frame = ctk.CTkFrame(master=janela, width=750, height=350)
         acesso = json.load(open("data_json/users.json", "r"))
         for x in range(len(acesso["usuarios"])):
             user_nome = acesso["usuarios"][x]["user"]
@@ -72,19 +71,19 @@ def abrir_tela_adm():
         frame.place(x=300, y=180)
 
     def abre_times():
-        frame = ctk.CTkFrame(master=janelaADM, width=750, height=350)
+        frame = ctk.CTkFrame(master=janela, width=750, height=350)
         texto =ctk.CTkLabel(master=frame, text="TIMES ABERTO", font=("Roboto",25),text_color='white').place(x=420, y=214)
         frame.place(x=300, y=180)
 
     def abrir_cadastro_turma():
-        janelaADM.destroy()
+        janela.destroy()
         import cadastro_turma_time
     def aceite_usuario():
-        janelaADM.destroy()
+        janela.destroy()
         import Tela_Aceite_Usuários
 
     def abrir_tela_administradores():
-        janelaADM.destroy()
+        janela.destroy()
         import Tela_Administradores
 
     with open("data_json/turmas.json", "r") as arquivo:
@@ -108,7 +107,7 @@ def abrir_tela_adm():
 
 
 
-    def imprimirTimes(t):
+    def imprimirTimes():
 
         timeSelecionado.set("")
         global turmaReferencia
@@ -127,91 +126,50 @@ def abrir_tela_adm():
                 for time in turma['times']:
                     nomestimes.append(time['nometime'])
 
-       # labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=180)
-        optionMenuTimes = ctk.CTkOptionMenu(master=janelaADM, values=nomestimes, variable=timeSelecionado, fg_color='gray', width=270)
-        optionMenuTimes.place(x=53, y=370)
+        labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=180)
+        optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=nomestimes, variable=timeSelecionado, fg_color='gray', width=270)
+        optionMenuTimes.place(x=53, y=385)
 
 
-        quantidade_sprints = []
-        quantidade_sprints.clear()
-        integrantes.clear()
-        for turma in turmas['turmas']:
-            if turma['nometurma'] == turmaReferencia:
-                for x in turma['sprints']:
-                    quantidade_sprints.append(x['indice'])
-                print(quantidade_sprints)
-                for time in turma['times']:
-                    if time['nometime'] == timeSelecionado.get():
-                        idtime = time['idtime']
-        
-      #  labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=240)
-        optionMenuSprint = ctk.CTkOptionMenu(master=janelaADM, values=quantidade_sprints, variable=sprintSelecionada, fg_color='gray', width=270)
-        optionMenuSprint.place(x=53, y=430)
 
-
-        def chamarDashboard():
-            if turmaSelecionada.get() == "" or sprintSelecionada.get() == "" or timeSelecionado.get()=="":
-                janelaPreenchimentoObrigatorio = ctk.CTk()
-                janelaPreenchimentoObrigatorio.title("ALERTA!")
-                screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
-                screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
-                x = (screen_width - 330) // 2
-                y = (screen_height - 180) // 2
-                janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
-                janelaPreenchimentoObrigatorio.resizable(False, False)
-                label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nO preenchimento de todos\nos campos é obrigatório\n", font=('Roboto', 15, 'bold')).pack()
-                def destroy_alerta():
-                        janelaPreenchimentoObrigatorio.destroy()
-                button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
-                janelaPreenchimentoObrigatorio.mainloop()
-            else:
-                with open('data_json/turmas.json', "r") as arquivo:
-                    dados_json_turma = json.load(arquivo)
-
-                for idturmajson in dados_json_turma['turmas']:
-                    if idturmajson['nometurma']==turmaSelecionada.get():
-                        idturmaParametro = idturmajson['idturma']
-                        for idtime in idturmajson['times']:
-                            if idtime['nometime']== timeSelecionado.get():
-                                idtimeParametro = idtime['idtime']
-
-                with open('data_json/questions.json', "r") as arquivoQuestions:
-                    dados_Questions = json.load(arquivoQuestions)
-                sprintValor = sprintSelecionada.get()
+        def imprimirSprintsIntegrantes():
             
-                for turmaJsonQuestion in dados_Questions['avaliacao']:
-                    verificador = True
-                    if turmaJsonQuestion['idturma'] == idturmaParametro:
-                        if turmaJsonQuestion['idtime'] == idtimeParametro:
-                            if turmaJsonQuestion['sprint'] == sprintValor:
-                                janelaADM.destroy()
-                                dashGerencial.abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada.get(), turmaSelecionada.get(), timeSelecionado.get())
-                                break
-                            else:
-                                verificador = False
-                        else:
-                            verificador = False
-                    
-                    else:
-                        verificador = False
+            quantidade_sprints = []
+            quantidade_sprints.clear()
+            integrantes.clear()
+            for turma in turmas['turmas']:
+                if turma['nometurma'] == turmaReferencia:
+                    for x in turma['sprints']:
+                        quantidade_sprints.append(x['indice'])
+                    print(quantidade_sprints)
+                    for time in turma['times']:
+                        if time['nometime'] == timeSelecionado.get():
+                            idtime = time['idtime']
+            with open("data_json/users.json", 'r') as arquivo:
+                users = json.load(arquivo)
 
-                if verificador == False:
-                    janelaPreenchimentoObrigatorio = ctk.CTk()
-                    janelaPreenchimentoObrigatorio.title("ALERTA!")
-                    screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
-                    screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
-                    x = (screen_width - 330) // 2
-                    y = (screen_height - 180) // 2
-                    janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
-                    janelaPreenchimentoObrigatorio.resizable(False, False)
-                    label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nA avaliação da turma,\ntime ou sprint ainda\nnão foi realizada.\n", font=('Roboto', 15, 'bold')).pack()
-                    def destroy_alerta():
-                            janelaPreenchimentoObrigatorio.destroy()
-                    button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
-                    janelaPreenchimentoObrigatorio.mainloop()
+                for x in users['usuarios']:
+                    if x['idtime'] == idtime:
+                        integrantes.append(x['user'])
 
-        ButtonDash = ctk.CTkButton(master=janelaADM,width=180, fg_color="#5CE1E6", text="Exibir Dashboard", font = ('Roboto', 18), text_color= ('black'), command=chamarDashboard)
-        ButtonDash.place(x=100, y=550)
+            labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=250)
+            optionMenuSprint = ctk.CTkOptionMenu(master=janela, values=quantidade_sprints, variable=sprintSelecionada, fg_color='gray', width=270)
+            optionMenuSprint.place(x=53, y=455)
+
+            labelTime = ctk.CTkLabel(master=frame1, text="Integrantes: ", font=('Roboto', 14)).place(x=44, y=310)
+            optionMenuTimes = ctk.CTkOptionMenu(master=janela, values=integrantes, variable=integranteSelecionado, fg_color='gray', width=270)
+            optionMenuTimes.place(x=53, y=515)
+
+            ButtonDash = ctk.CTkButton(master=janela,width=180, fg_color="#5CE1E6", text="Dashboard", font = ('Roboto', 18, 'bold'), text_color= ('black'))
+            ButtonDash.place(x=960, y=550)
+
+            # Colocar integração DASHBOARD
+
+
+        imgcheck = PhotoImage(file = "check.png").subsample(4)
+        buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#302929',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirSprintsIntegrantes).place(x=330, y=380)
+
+
 
     #botoes widgets
     Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="Cadastros", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abrir_cadastro_turma)
@@ -222,24 +180,11 @@ def abrir_tela_adm():
     Button.place(x=85, y=105)
 
     labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
-    optionMenuTurmas= ctk.CTkOptionMenu(master=janelaADM, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270, command=imprimirTimes)
-    optionMenuTurmas.place(x=53, y=310)
+    optionMenuTurmas= ctk.CTkOptionMenu(master=janela, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270)
+    optionMenuTurmas.place(x=53, y=325)
     
-    vazio = tk.StringVar()
-    lista = []
-    labelTime = ctk.CTkLabel(master=frame1, text="Times: ", font=('Roboto', 14)).place(x=44, y=180)
-    optionMenuTimes = ctk.CTkOptionMenu(master=janelaADM, fg_color='gray', width=270, variable=vazio, values=lista)
-    optionMenuTimes.place(x=53, y=370)
+    imgcheck = PhotoImage(file = "check.png").subsample(4)
+    buttonVerificar = ctk.CTkButton(janela, text="", image=imgcheck, width=10,fg_color='#2a2b2a',border_color='#2a2b2a', bg_color='#2a2b2a', cursor="hand2", command=imprimirTimes).place(x=330, y=320)
 
 
-    labelTime = ctk.CTkLabel(master=frame1, text="Sprint: ", font=('Roboto', 14)).place(x=44, y=240)
-    optionMenuSprint = ctk.CTkOptionMenu(master=janelaADM, fg_color='gray', width=270,variable=vazio, values=lista)
-    optionMenuSprint.place(x=53, y=430)
-
-
-
-
-   
-    janelaADM.mainloop()
-
-abrir_tela_adm()
+    janela.mainloop()
