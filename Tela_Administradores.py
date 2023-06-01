@@ -62,7 +62,9 @@ def remocao():
             
             label = ctk.CTkLabel(master=frame_2, text= user[x]["id"], text_color=('black'), font=("Roboto", 20, "bold")).grid(column=0, row=x, padx=100, pady=10)
             button_remove_adm=ctk.CTkButton(master=frame_2, text="Remover Usuário", width=10, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=remove(x)).grid(column=1, row=x, padx=50, pady=5)
-remocao()
+
+if(primeira_vez_admin == 0):
+    remocao()
 
 frame_3 = ctk.CTkScrollableFrame(master=frame, fg_color='#c0c0c0',width=1000, height=200)
 scroll_3 = frame_2._scrollbar

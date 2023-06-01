@@ -47,6 +47,8 @@ def abrir():
                     user_nome = acesso["usuarios"][x]["user"]
                     user_turma =  acesso["usuarios"][x]["idturma"]
                     user_time = acesso ["usuarios"][x]["idtime"]
+                    user_id = acesso ["usuarios"][x]["id"]
+            
 
             
             data_atual = datetime.now()
@@ -70,7 +72,7 @@ def abrir():
             turmaSelecionada = StringVar()
             
 
-            turmaSelecionada.set(turmas[0])
+            
 
 
             def imprimir(tr):
@@ -153,11 +155,11 @@ def abrir():
                     if (user_time == todos_times[x]["idtime"]):
                         times.append(todos_times[x]["nometime"])
                     else: 
-                        print("Erro")
+                        print("===============",todos_times[x]["idtime"])
 
                 #criar um for percorrendo todos os elementos semelhante a de cima, so que para sprint (pegar a chave "indice" dentro do objeto "sprints")
 
-                timeSelecionado.set(times[0])
+            
                 times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
 
                 for x in range (len(todas_sprints)):
@@ -207,7 +209,76 @@ def abrir():
                 TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get(), idturma, idtime)
 
 
-            dashboard_button = ctk.CTkButton(master=janela, text="Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirDashboards).place(x=30, y=560)
+
+            def chamarDashboard():
+                if turmaSelecionada.get() == "" or sprintSelecionada.get() == "" or timeSelecionado.get()=="":
+                    janelaPreenchimentoObrigatorio = ctk.CTk()
+                    janelaPreenchimentoObrigatorio.title("ALERTA!")
+                    screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                    screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                    x = (screen_width - 330) // 2
+                    y = (screen_height - 180) // 2
+                    janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                    janelaPreenchimentoObrigatorio.resizable(False, False)
+                    label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nO preenchimento de todos\nos campos é obrigatório\n", font=('Roboto', 15, 'bold')).pack()
+                    def destroy_alerta():
+                            janelaPreenchimentoObrigatorio.destroy()
+                    button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                    janelaPreenchimentoObrigatorio.mainloop()
+                else:
+                    with open('data_json/turmas.json', "r") as arquivo:
+                        dados_json_turma = json.load(arquivo)
+
+                    for idturmajson in dados_json_turma['turmas']:
+                        if idturmajson['nometurma']==turmaSelecionada.get():
+                            idturmaParametro = idturmajson['idturma']
+                            for idtime in idturmajson['times']:
+                                if idtime['nometime']== timeSelecionado.get():
+                                    idtimeParametro = idtime['idtime']
+
+                    with open('data_json/questions.json', "r") as arquivoQuestions:
+                        dados_Questions = json.load(arquivoQuestions)
+                    sprintValor = sprintSelecionada.get()
+                
+                    for turmaJsonQuestion in dados_Questions['avaliacao']:
+                        verificador = True
+                        if turmaJsonQuestion['idturma'] == idturmaParametro:
+                            if turmaJsonQuestion['idtime'] == idtimeParametro:
+                                if turmaJsonQuestion['sprint'] == sprintValor:
+                                    if turmaJsonQuestion['idAvaliador'] == user_id:
+                                        janela.destroy()
+                                        #dashGerencial.abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada.get(), turmaSelecionada.get(), timeSelecionado.get())
+                                        break
+                                    else:
+                                        verificador = False
+                                else:
+                                    verificador = False
+                            else:
+                                verificador = False
+                        
+                        else:
+                            verificador = False
+
+                    if verificador == False:
+                        janelaPreenchimentoObrigatorio = ctk.CTk()
+                        janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                        screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                        janelaPreenchimentoObrigatorio.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nA avaliação da turma,\ntime ou sprint ainda\nnão foi realizada.\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                                janelaPreenchimentoObrigatorio.destroy()
+                        button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                        janelaPreenchimentoObrigatorio.mainloop()
+         
+
+
+
+
+            dashboard_button = ctk.CTkButton(master=janela, text="Exibir Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=chamarDashboard).place(x=30, y=560)
             # cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
             logout_button = ctk.CTkButton(master=janela, text="Logout", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=1050, y=15)
             #sprint_button = ctk.CTkButton(master=janela, text="Sprint", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=30, y=15)

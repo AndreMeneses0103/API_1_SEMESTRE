@@ -1,95 +1,9 @@
 {
     "turmas": [
         {
-            "idturma": "123",
-            "nometurma": "Banco de dados",
-            "ordem": 0,
-            "sprints": [
-                {
-                    "indice": "1",
-                    "inicioSprint": "13/03/2023",
-                    "fimSprint": "02/04/2023"
-                },
-                {
-                    "indice": "2",
-                    "inicioSprint": "03/04/2023",
-                    "fimSprint": "23/04/2023"
-                },
-                {
-                    "indice": "3",
-                    "inicioSprint": "24/04/2023",
-                    "fimSprint": "14/05/2023"
-                },
-                {
-                    "indice": "4",
-                    "inicioSprint": "15/05/2023",
-                    "fimSprint": "04/06/2023"
-                }
-            ],
-            "times": [
-                {
-                    "idtime": "1234",
-                    "nometime": "JavaScript"
-                },
-                {
-                    "idtime": "2345",
-                    "nometime": "Python"
-                },
-                {
-                    "idtime": "4567",
-                    "nometime": "PHP"
-                },
-                {
-                    "nometime": "Tech Horizon",
-                    "idtime": "3"
-                }
-            ]
-        },
-        {
-            "idturma": "456",
-            "nometurma": "Gest\u00e3o da produ\u00e7\u00e3o industrial",
-            "ordem": 1,
-            "sprints": [
-                {
-                    "indice": "1",
-                    "inicioSprint": "13/03/2023",
-                    "fimSprint": "02/04/2023"
-                },
-                {
-                    "indice": "2",
-                    "inicioSprint": "03/04/2023",
-                    "fimSprint": "23/04/2023"
-                },
-                {
-                    "indice": "3",
-                    "inicioSprint": "24/04/2023",
-                    "fimSprint": "14/05/2023"
-                },
-                {
-                    "indice": "4",
-                    "inicioSprint": "15/05/2023",
-                    "fimSprint": "04/06/2023"
-                }
-            ],
-            "times": [
-                {
-                    "idtime": "1234",
-                    "nometime": "Horizon"
-                },
-                {
-                    "idtime": "5678",
-                    "nometime": "Tech"
-                },
-                {
-                    "idtime": "9012",
-                    "nometime": "Wizard"
-                }
-            ]
-        },
-        {
             "idturma": "Logistica7614",
             "nometurma": "Logistica",
-            "ordem": 2,
+            "ordem": 0,
             "sprints": [
                 {
                     "indice": "1",
@@ -116,7 +30,7 @@
         {
             "idturma": "GPI8224",
             "nometurma": "GPI",
-            "ordem": 3,
+            "ordem": 1,
             "sprints": [
                 {
                     "indice": "1",
@@ -143,7 +57,7 @@
         {
             "idturma": "RH613",
             "nometurma": "RH",
-            "ordem": 4,
+            "ordem": 2,
             "sprints": [
                 {
                     "indice": "1",
@@ -180,7 +94,7 @@
         {
             "idturma": "AnaliseeDesenvolvimentodeSistemas2919",
             "nometurma": "Analise e Desenvolvimento de Sistemas",
-            "ordem": 5,
+            "ordem": 3,
             "sprints": [
                 {
                     "indice": "1",
@@ -207,7 +121,7 @@
         {
             "idturma": "DesenvolvimentodeMultiplataforma4856",
             "nometurma": "Desenvolvimento de Multiplataforma",
-            "ordem": 6,
+            "ordem": 4,
             "sprints": [
                 {
                     "indice": "1",
@@ -230,7 +144,7 @@
         {
             "idturma": "Engenharia5088",
             "nometurma": "Engenharia",
-            "ordem": 7,
+            "ordem": 5,
             "sprints": [
                 {
                     "indice": "1",
@@ -257,7 +171,7 @@
         {
             "idturma": "Programa\u00e7\u00e3o8956",
             "nometurma": "Programa\u00e7\u00e3o",
-            "ordem": 8,
+            "ordem": 6,
             "sprints": [
                 {
                     "indice": "1",
