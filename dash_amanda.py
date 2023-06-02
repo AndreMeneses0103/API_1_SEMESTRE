@@ -99,7 +99,7 @@ def abrir_dash_op():
             indicadores = dados.keys()
             valores = dados.values()
         # Criação da figura e do eixo
-            figura = Figure(figsize=(8, 6), dpi=100)
+            figura = Figure(figsize=(4.5, 3), dpi=100)
             eixo = figura.add_subplot(111)
             cor_texto = "#fff"
             # Plotagem do gráfico de barras
@@ -135,7 +135,7 @@ def abrir_dash_op():
 
 
             comp_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
-            comp_frame.place(x=10, y=10)
+            comp_frame.place(x=380, y=10)
             
             with open ("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
@@ -197,7 +197,7 @@ def abrir_dash_op():
             print(valores1)
             print(valores2)
         
-            figura = Figure(figsize=(4,2), dpi=100)
+            figura = Figure(figsize=(4.5,3), dpi=100)
             eixo = figura.add_subplot(111)
 
             eixo.plot(indicadores, valores1, color="#c8c8c8", label = "Time")    
@@ -249,14 +249,14 @@ def abrir_dash_op():
                 
             #Frame
             mostrar_total_resposta = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
-            mostrar_total_resposta.place(x=10, y=10)
+            mostrar_total_resposta.place(x=10, y=400)
             ProcessLookupError
             #Labels
             metricas = ['Respondidos', 'Não Respondidos']
             valores = [qnt_resp, qnt_n_resp]
             cores= ['#00ffff', 'white']
             
-            fig, ax = plt.subplots(facecolor='#323232', figsize=(4, 2),dpi=(100))
+            fig, ax = plt.subplots(facecolor='#323232', figsize=(4.5, 3),dpi=(100))
             ax.clear()
 
             # Exibição das listas com cores usando o ctk e colorama
@@ -281,12 +281,12 @@ def abrir_dash_op():
             
             #Frame 
             media_time_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
-            media_time_frame.place(x=10, y=10)
+            media_time_frame.place(x=400, y=10)
             #Labels
             metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
             valores = [5, 5, 4, 3, 4]
             
-            fig, ax = plt.subplots(facecolor='#323232', figsize=(4, 2),dpi=(100))
+            fig, ax = plt.subplots(facecolor='#323232', figsize=(4.5, 3),dpi=(100))
             ax.clear()
             
             ax.axhline(y=1, color='gray', linestyle='--')
@@ -312,7 +312,7 @@ def abrir_dash_op():
 
             canvas =  FigureCanvasTkAgg(fig, master=media_time_frame)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=400, y=400)
               
             #aqui acaba a frame1
         todos_os_dashs()
