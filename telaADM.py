@@ -18,7 +18,7 @@ def abrir_tela_adm():
     x = (screen_width - 1200) // 2
     y = (screen_height - 650) // 2
     janelaADM.geometry(f"1200x650+{x}+{y}")
-    janelaADM.title("btspadrao/Insight 360º")
+    janelaADM.title("Insight 360º")
     janelaADM.iconbitmap("btspadrao/logo_insight.ico")
     janelaADM.resizable(False, False)
 
@@ -176,10 +176,10 @@ def abrir_tela_adm():
                                 idtimeParametro = idtime['idtime']
 
                 with open('data_json/questions.json', "r") as arquivoQuestions:
-                    dados_Questions = json.load(arquivoQuestions)
+                    dados_questions = json.load(arquivoQuestions)
                 sprintValor = sprintSelecionada.get()
             
-                for turmaJsonQuestion in dados_Questions['avaliacao']:
+                for turmaJsonQuestion in dados_questions['avaliacao']:
                     verificador = True
                     if turmaJsonQuestion['idturma'] == idturmaParametro:
                         if turmaJsonQuestion['idtime'] == idtimeParametro:
@@ -215,11 +215,11 @@ def abrir_tela_adm():
 
     #botoes widgets
     Button = ctk.CTkButton(master=frame1,width=180, fg_color="#5CE1E6", text="Cadastros", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=abrir_cadastro_turma)
-    Button.place(x=85, y=15)
+    Button.place(x=85, y=5)
     Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Aceites", font = ('Roboto', 18, 'bold'), text_color= ('black'), command=aceite_usuario)
-    Button.place(x=85, y=60)
+    Button.place(x=85, y=45)
     Button = ctk.CTkButton(master=frame1, width=180, fg_color="#5CE1E6", text="Administradores", font = ('Roboto', 18, 'bold'), text_color= ('black'), cursor="hand2", command=abrir_tela_administradores)
-    Button.place(x=85, y=105)
+    Button.place(x=85, y=85)
 
     labelTurma = ctk.CTkLabel(master=frame1, text="Turmas: ", font=('Roboto', 14)).place(x=44, y=120)
     optionMenuTurmas= ctk.CTkOptionMenu(master=janelaADM, values=nomesturmas, variable=turmaSelecionada, fg_color='gray', width=270, command=imprimirTimes)
@@ -241,5 +241,4 @@ def abrir_tela_adm():
 
    
     janelaADM.mainloop()
-
 abrir_tela_adm()
