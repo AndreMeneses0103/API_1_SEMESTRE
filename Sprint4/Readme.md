@@ -45,3 +45,9 @@ Média	| 3 |	Cadastro de integrantes nos Times - Admin |✔
 Baixa	| 2 |	Logout do Sistema - Admin e Usuário| ✔
 Alta	| 2 |	Sistema de Avaliação 360º - Usuário |✔
 Média	| 2 |	Autenticação de usuário |✔
+
+  
+# <h2 align=center>CONCLUSÃO ✔<h2/>
+  
+<h3 align=center>Todos os itens propostos foram entregues conforme o planejamento inicial!<h3/>
+
