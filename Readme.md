@@ -1,14 +1,14 @@
 # <h1 align=center>API - Atividade de Aprendizagem Integrada</h1>
 <p align=center>
 <img src="https://raw.githubusercontent.com/santosjhony12/Funcoes_Algoritmo/images/Sistema%20de%20Avalia%C3%A7%C3%A3o%20360%C2%BA.png" width=90% /></p>
-<h6>Atualizado em 05/2023<h6/>
+<h6>Atualizado em 06/2023<h6/>
 
 - [Fatec Profº Jessen Vidal](http://fatecsjc-prd.azurewebsites.net/)
 - [Curso Superior de Tecnologia em Banco de Dados](http://fatecsjc-prd.azurewebsites.net/curso-banco-de-dados.php)
 - [1º Semestre 2023](http://fatecsjc-prd.azurewebsites.net/downloads/cursos/bd/projeto_pedagogico_bd.pdf)
 
 # <h2 >Objetivo🎯<h2/>
-> Desenvolver uma solução computacional personalizada para a PBLTeX que permita a aplicação da dinâmica de Avaliação Democratizada baseada na técnica de Avaliação 360º, permitindo a visualização dos resultados em dashbords.
+> Desenvolver uma solução computacional personalizada para a PBL (Problem Based Learning) que permita a aplicação da dinâmica de Avaliação Democratizada baseada na técnica de Avaliação 360º, permitindo a visualização dos resultados em dashbords.
 
 # <h2>Sobre a Avaliação 360°<h2/>
 > Também conhecida como feedback 360°. Trata-se de um método de análise de desempenho composta por autoavaliação e avaliação entre os integrantes de um determinado grupo, e que para a participação não há discriminação de nível hierarquico.
@@ -39,7 +39,6 @@ Kick off do projeto| 07/03/2023| 07/03/2023 ✅
   <p align=center>
 <img src=https://raw.githubusercontent.com/santosjhony12/Funcoes_Algoritmo/images/logoTime.png /></p>
 
-
  Integrante |Ocupação |Github
  -----------|---------|------
 Amanda Vannucci de Campos |Product Owner|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/Amandavannuccic)
@@ -50,7 +49,6 @@ Jhony Santos de Souza |Desenvolvedor|[<img src="https://camo.githubusercontent.c
 Lucas Lima Martins Pereira |Desenvolvedor|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/SuieverSide)
 Raul José Batista Neto |Desenvolvedor|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/raulnt)
 Vinicius Domingues Mangaba |Desenvolvedor|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/viniciusmangaba)
-
 
 # <h2 align=center>Sobre a Aplicação </h2>  
 <h2>Backlog do Produto 📌</h2>
@@ -65,20 +63,20 @@ Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Spri
 Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/Sprint_3.md">3</a>|	Gerenciamento de Times|	Finalizada ✅
 Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/Sprint_3.md">3</a>|	Gerenciamento de Turmas|	Finalizada ✅
 Média|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprint3/Sprint_3.md">3</a>|	Gerenciamento das Solicitações de Adesão|	Finalizada ✅
-Alta| 4| Dashboard Gerencial e Operacional| A fazer    
-Média| 4| Controle de Usuários | A Fazer    
-Baixa|	4|  Redefinição de Senhas|	A fazer
+Alta| 4| Dashboard Gerencial e Operacional| ✅    
+Média| 4| Controle de Usuários | ✅    
+Baixa|	4|  Redefinição de Senhas|	✅
 
 # <h2>Ferramentas e Tecnologias Utilizadas 🛠</h2>
  <div style="display:flex">
+<img align="center" alt="Notion" height="40" width="40" sticky="s" src="https://github.com/AndreMeneses0103/API_1_SEMESTRE/assets/127263243/305c4afc-61f5-4ab5-a358-a4a880e4a7cc" />
 <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
 <img align="center" alt"JSON" height="30" width"40" src="https://user-images.githubusercontent.com/111203231/233870200-deb22a10-a7e3-4d06-9d31-63ae0354aad0.png">
 <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
 <img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" /> 
-<img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" />
-<img align="center" alt="Discord" height="40" width="40" src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1-2048x2048.png" /><br><br>
+<img align="center" alt="amanda-py" heigth="30" width="40" sticky="s" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" /> 
+<img align="center" alt="Discord" height="40" width="40" sticky="s" src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1-2048x2048.png" /><br><br> 
 </div>
   
-- Notion (Ferramenta)
 - CustomTkinter (Biblioteca)
 - Matplotlib (Biblioteca)
