@@ -25,8 +25,8 @@ class tela_dashboard_operacional:
         janelaDashOp.geometry("1200x650+{}+{}".format(x, y))
 
 
-        janelaDashOp.title("Insight 360º")
-        janelaDashOp.iconbitmap("logo_insight.ico")
+        janelaDashOp.title("btspadrao/Insight 360º")
+        janelaDashOp.iconbitmap("btspadrao/logo_insight.ico")
         janelaDashOp.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
 tela_dashboard_operacional()

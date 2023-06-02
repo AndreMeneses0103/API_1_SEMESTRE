@@ -13,8 +13,8 @@ ctk.set_default_color_theme("dark-blue")
 #Caracteristicas da Tela
 janelaADM = ctk.CTk() #Nome
 janelaADM.geometry("1200x650") #Tamanho
-janelaADM.title("Insigth 360")
-janelaADM.iconbitmap("logo_insight.ico")
+janelaADM.title("btspadrao/Insigth 360")
+janelaADM.iconbitmap("btspadrao/logo_insight.ico")
 janelaADM.resizable(False, False) #Limita o tamanho da tela
 label = ctk.CTkLabel(master=janelaADM, text="Administradores", text_color=("white"), font=("roboto", 32, "bold")).place(x=500, y=5)
 
@@ -22,7 +22,8 @@ def open_menu():
     janelaADM.destroy()
     telaADM.abrir_tela_adm()
 #Voltar para tela inicial
-Button=ctk.CTkButton(master=janelaADM, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
+imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)
+Button=ctk.CTkButton(master=janelaADM, image=imgbeck, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 
 #Frame.01
 frame = ctk.CTkFrame(master=janelaADM, width=1200, height=550)

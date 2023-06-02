@@ -29,12 +29,12 @@ class tela_dash:
         y = (screen_height - 650) // 2
         janela.geometry("1200x650+{}+{}".format(x, y))
 
-        img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
+        img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(230,140))
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=980, y=10)
 
-        janela.title("Insight 360º")
-        janela.iconbitmap("logo_insight.ico")
+        janela.title("btspadrao/Insight 360º")
+        janela.iconbitmap("btspadrao/logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
 
@@ -122,7 +122,7 @@ class tela_dash:
 
         canvas = FigureCanvasTkAgg(fig, master=media_time_frame)
         canvas.draw()
-        canvas.get_tk_widget().place(x=100, y=100)
+        canvas.get_tk_widget().place(x=200, y=150)
 
     def mostra_autoavaliacao():
         #Frame 
@@ -173,7 +173,7 @@ class tela_dash:
 
         canvas = FigureCanvasTkAgg(fig, master=autoavaliacao_frame)
         canvas.draw()
-        canvas.get_tk_widget().place(x=100, y=100)    
+        canvas.get_tk_widget().place(x=200, y=150)    
 
 
     botaoMediaTime = ctk.CTkButton(master=janela, text= "Média times", command=mostra_media_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD' ).place(x=1030, y =150)

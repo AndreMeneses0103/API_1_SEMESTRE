@@ -39,12 +39,12 @@ def abrir_dash_ge():
             janelaDashGerencial.geometry("1200x650+{}+{}".format(x, y))
 
 
-            img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(200,140))
+            img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(200,140))
             label_img = ctk.CTkLabel(master=janelaDashGerencial, image=img, text='')
             label_img.place(x=980, y=10)
             
-            janelaDashGerencial.title("Insight 360º")
-            janelaDashGerencial.iconbitmap("logo_insight.ico")
+            janelaDashGerencial.title("btspadrao/Insight 360º")
+            janelaDashGerencial.iconbitmap("btspadrao/logo_insight.ico")
             janelaDashGerencial.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
         def telaDashAnalise():
@@ -173,7 +173,7 @@ def abrir_dash_ge():
 
             canvas = FigureCanvasTkAgg(figura, master=comp_frame)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
 
         def mostrar_total_respostas():
             with open('data_json/questions.json', 'r') as arquivo:
@@ -233,7 +233,7 @@ def abrir_dash_ge():
             
             canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
 
         def mostra_media_time():
             with open("data_json/questions.json", "r") as arquivo:
@@ -310,7 +310,7 @@ def abrir_dash_ge():
 
             canvas =  FigureCanvasTkAgg(fig, master=media_time_frame)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
 
         def mediaTurma():
             media_turma_frame = ctk.CTkFrame(master=janelaDashGerencial, width=800, height=650)
@@ -386,7 +386,7 @@ def abrir_dash_ge():
             eixo.set_title('Média de respostas da turma', color=cor_texto)
 
             # Exibição do gráfico na janela do Tkinter
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
             pass
         
 

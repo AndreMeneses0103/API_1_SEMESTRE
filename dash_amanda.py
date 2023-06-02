@@ -39,12 +39,12 @@ def abrir_dash_op():
             y = (screen_height - 650) // 2
             janelaDash.geometry("1200x650+{}+{}".format(x, y))
 
-            img= ctk.CTkImage(dark_image=Image.open("logo_insight.png"),size=(230,140))
+            img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(230,140))
             label_img = ctk.CTkLabel(master=janelaDash, image=img, text='')
             label_img.place(x=970, y=30)
             
             janelaDash.title("Insight 360º")
-            janelaDash.iconbitmap("logo_insight.ico")
+            janelaDash.iconbitmap("btspadrao/logo_insight.ico")
             janelaDash.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
         def todos_os_dashs():
@@ -397,7 +397,7 @@ def abrir_dash_op():
             eixo.set_title('Média do time sobre você', color=cor_texto)
 
             # Exibição do gráfico na janela do Tkinter
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
             pass
 
 
@@ -491,7 +491,7 @@ def abrir_dash_op():
 
             canvas = FigureCanvasTkAgg(figura, master=comp_frame)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
 
         def mostrar_total_respostas():
             with open('data_json/questions.json', 'r') as arquivo:
@@ -546,7 +546,7 @@ def abrir_dash_op():
             
             canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
                 
             
         def mostra_media_time():
@@ -583,7 +583,7 @@ def abrir_dash_op():
 
             canvas =  FigureCanvasTkAgg(fig, master=media_time_frame)
             canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+            canvas.get_tk_widget().place(x=100, y=80)
 
         def open_feedback():
             janelaDash.destroy()

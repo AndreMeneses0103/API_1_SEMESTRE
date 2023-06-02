@@ -30,7 +30,7 @@ janela.geometry(f"1200x650+{x}+{y}")
 janela.title("Insigth 360")
 
 #Janela - Imagem usada para icone
-janela.iconbitmap("logo_insight.ico")
+janela.iconbitmap("btspadrao/logo_insight.ico")
 
 #Janela - Ajuste de dimensões da janela desativados
 janela.resizable(False, False)
@@ -43,7 +43,28 @@ def open_menu():
     telaADM.abrir_tela_adm()
         
 #Janela - Botão
-Button=ctk.CTkButton(master=janela, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
+imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)
+buttonVerificar = ctk.CTkButton(master=janela, text="Voltar", width=120, image=imgbeck, cursor='hand2', text_color=("black"), fg_color="#5CE1E6", font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
+
+def Close():
+        acesso = json.load(open("data_json/users.json", "r"))
+
+        for x in range(len(acesso["usuarios"])):
+            acesso["usuarios"][x]["isActive"] = False
+
+        insert_acesso = str(json.dumps(acesso, indent=4))
+
+        with open("data_json/users.json", "w") as arq_json:
+            arq_json.write(insert_acesso)
+
+        janela.destroy()
+        import Tela_Login_API
+        #TLOGIN.abrir_login()
+
+    #Imagem do botão logout
+logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
+Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#1a1a1a", command=Close)
+Button.place(x=1070, y=7)
 
 # ------------------------------------------------ Frame 1 --------------------------------------------- #
 #Frame 1 - Frame Base (Estética)

@@ -8,7 +8,7 @@ root.configure(bg='black')
 root.geometry("1200x650")
 
 # Janela - Título
-root.title("Insight 360")
+root.title("btspadrao/Insight 360")
 
 # Janela - Ícone
 #root.iconbitmap("logo_insight.ico")
