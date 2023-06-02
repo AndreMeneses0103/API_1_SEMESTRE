@@ -25,7 +25,7 @@ Vinicius Domingues Mangaba |Desenvolvedor|[<img src="https://camo.githubusercont
 <h3 align=center>Apresentar ao cliente a conclusão da ferramenta solicitada. <h3/>
 
 # <h2 align="center">BACKLOG SPRINT  📌 <h2/>
-Acese nosso [Notion](https://inky-parsley-343.notion.site/76909f786e2f49b4b351ddff4e39ad53?v=39dc6a7a7208461bb7a07d5ce066eec2) para acompanhar nossas atividades.  
+Para acompanhar o BACKLOG DAS SPRINTS, acese nosso [Notion](https://inky-parsley-343.notion.site/76909f786e2f49b4b351ddff4e39ad53?v=39dc6a7a7208461bb7a07d5ce066eec2). 
 
 # <h2 align=center>BACKLOG DO PRODUTO 📌<h2/>
   
