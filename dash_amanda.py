@@ -48,10 +48,11 @@ def abrir_dash_op():
             janelaDash.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
 
         def todos_os_dashs():
-            frame_todos_os_dashs=ctk.CTkFrame(master=janelaDash, width=800, height=650, fg_color='#242424').place(x=400, y=150)
-
+            frameTodos = ctk.CTkFrame(master=janelaDash, width=800, height=650, fg_color='#242424')
+            frameTodos.place(x=200, y=50)
+                
                     
-            media_time_frame = ctk.CTkFrame(master=frame_todos_os_dashs, width=380, height=255, fg_color='#242424')
+            media_time_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
             media_time_frame.place(x=10, y=10)
             with open("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
@@ -133,7 +134,7 @@ def abrir_dash_op():
 
 
 
-            comp_frame = ctk.CTkFrame(master=frame_todos_os_dashs, width=380, height=255, fg_color='#242424')
+            comp_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
             comp_frame.place(x=10, y=10)
             
             with open ("data_json/questions.json", "r") as arquivo:
@@ -247,7 +248,7 @@ def abrir_dash_op():
             qnt_n_resp = qnt_turma - qnt_resp
                 
             #Frame
-            mostrar_total_resposta = ctk.CTkFrame(master=frame_todos_os_dashs, width=380, height=255, fg_color='#242424')
+            mostrar_total_resposta = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
             mostrar_total_resposta.place(x=10, y=10)
             ProcessLookupError
             #Labels
@@ -279,7 +280,7 @@ def abrir_dash_op():
                 
             
             #Frame 
-            media_time_frame = ctk.CTkFrame(master=frame_todos_os_dashs, width=380, height=255, fg_color='#242424')
+            media_time_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
             media_time_frame.place(x=10, y=10)
             #Labels
             metricas = ['Comunicação', 'Relacionamento', 'Proatividade', 'Produtividade','Entregas']
