@@ -170,11 +170,11 @@ class tela_login_cadastro:
             turmaSelecionada = StringVar()
             turmaSelecionada.set(options_turma[0])
             #contar para o pessoal
-            opcoes_time = ctk.CTkOptionMenu(master=cadastro_frame, fg_color='gray',values=options_turma, variable=turmaSelecionada).place(x=45, y=290)
+            
 
 
             #FUNÇÃO QUE IRÁ VERIFICAR A TURMA E MOSTRARÁ OS TIMES DISPONIVEIS NELA
-            def verificarTurma():
+            def verificarTurma(t):
 
                 if nomecompleto.get() == "" or email.get() == "" or senha.get()== "":
                     janelaAlertadadosFaltando = ctk.CTk()
@@ -226,7 +226,8 @@ class tela_login_cadastro:
                     options_time = nometimes
                     timeSelecionado = StringVar()
                     timeSelecionado.set(options_time[0])
-                    opt_menu = ctk.CTkOptionMenu(master=cadastro_frame, values=options_time, variable=timeSelecionado, fg_color="gray").place(x=45, y=345)
+                    opcoes_time = ctk.CTkOptionMenu(master=cadastro_frame, fg_color='gray',values=options_time, variable=timeSelecionado).place(x=45, y=350)    
+
                     
                     #O BOTÃO CADASTRAR APARECERÁ SOMENTE QUANDO TUDO TIVER PREENCHIDO
 
@@ -302,7 +303,9 @@ class tela_login_cadastro:
                     
                     pass
                     pass
-            buttonVerificar = ctk.CTkButton(cadastro_frame, text="✅", width=50, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=verificarTurma).place(x=300, y=290)
+
+            opcoes_turma = ctk.CTkOptionMenu(master=cadastro_frame, fg_color='gray',values=options_turma, variable=turmaSelecionada, command=verificarTurma).place(x=45, y=290)    
+            #buttonVerificar = ctk.CTkButton(cadastro_frame, text="✅", width=50, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=verificarTurma).place(x=300, y=290)
             #entrada de dados time cadastro          
             #opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
             
