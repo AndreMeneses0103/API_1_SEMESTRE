@@ -22,7 +22,7 @@ Vinicius Domingues Mangaba |Desenvolvedor|[<img src="https://camo.githubusercont
 ⏸Entrega: 04/06/2023 
 
 # <h2 align=center>OBJETIVO DE ENTREGA 🎯<h2/>
-<h3 align=center>Apresentar ao cliente a conclusão da ferramenta solicitada. <h3/>
+<h3 align=center>Fornecer ao cliente a conclusão da ferramenta solicitada. <h3/>
 
 # <h2 align="center">BACKLOG SPRINT  📌 <h2/>
 Acese nosso [Notion](https://www.notion.so/c6d3aab37ed84c7eb8c81e9201555c8e?v=67435e11de0f4aea8a22b4bf9e87cd86&pvs=4) para acompanhar nossas atividades.  
