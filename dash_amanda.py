@@ -1,9 +1,9 @@
 import customtkinter as ctk
 import json
 import matplotlib
-import feedback
 import TelaBV
 import tkinter
+import feedback
 
 from colorama import Fore, Style
 import matplotlib.pyplot as plt
@@ -354,7 +354,17 @@ def abrir_dash_op():
 
             
             # Gráfico de pizza
-            ax.pie(valores, labels=metricas, startangle=90, autopct='%1.1f%%', colors=cores)
+           #ax.pie(valores, labels=metricas, startangle=90, autopct='%1.1f%%', colors=cores)
+            #ax.axis('equal')
+
+            # Gráfico de pizza
+            patches, texts, autotexts = ax.pie(valores, labels=metricas, startangle=90, autopct='%1.1f%%', colors=cores)
+
+
+# Definir cor dos rótulos
+            for text in texts:
+                text.set_color('white')
+                text.set_fontsize(12)
             ax.axis('equal')
 
             # Círculo no centro
@@ -626,6 +636,12 @@ def abrir_dash_op():
             ax.pie(valores, labels=metricas, startangle=90, autopct='%1.1f%%', colors=cores)
             ax.axis('equal')
 
+# Definir cor dos rótulos
+            for text in texts:
+                text.set_color('white')
+                text.set_fontsize(12)
+            ax.axis('equal')
+
             # Círculo no centro
             centre_circle = plt.Circle((0, 0), 0.45, fc='#404040')
             ax.add_artist(centre_circle)
@@ -688,7 +704,7 @@ def abrir_dash_op():
         botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =320)
         botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =370)
         botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =420)
-        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =470)
+        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=todos_os_dashs).place(x=1030, y =470)
         botaoTodosGraficos = ctk.CTkButton(master=janelaDash, text= "Todos os Gráficos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y=520)
 
 
