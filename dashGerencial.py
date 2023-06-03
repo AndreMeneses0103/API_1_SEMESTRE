@@ -691,15 +691,7 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
                 medResp4 = resposta4/controler
                 medResp5 = resposta5/controler
 
-                #DADOS DA TURMA
-                dados2 = {
-                    "Comunicação": medResp1,
-                    "Relação Interpessoal": medResp2,
-                    "Proatividade": medResp3,
-                    "Produtividade": medResp4, 
-                    "Prazos de entrega": medResp5
-                }
-
+            
                 #PROCESSAMENTO DE MÉDIAS TIME
 
                 medResp1Time = resposta1Time/controlerTime

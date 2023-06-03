@@ -3,6 +3,7 @@ import customtkinter as ctk
 from tkinter import *
 import hashlib
 import tkinter as tk
+import dashboardOperacional
 
 
 def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro, user_id):
@@ -73,7 +74,7 @@ def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro
                                     posicaoy +=30
             def voltar():
                  janelaFeedback.destroy() 
-                
+                 dashboardOperacional.abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro, user_id)
            # imgbeck = PhotoImage(file="btspadrao/botaovoltar.png").subsample(18)     
             botaoVoltar = ctk.CTkButton(janelaFeedback, text="Voltar", width=100, cursor="hand2", fg_color="#00FFFF", text_color='black', command=voltar).place(x=660, y=450)
                         

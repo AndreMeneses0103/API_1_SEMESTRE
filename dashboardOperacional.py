@@ -946,7 +946,7 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
             canvas.get_tk_widget().place(x=100, y=80)    
 
         def open_feedback():
-            
+            janelaDash.destroy()
             feedback.abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro, user_id)
 
         def open_BV():
