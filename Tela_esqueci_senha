@@ -1,0 +1,54 @@
+import json
+import customtkinter as ctk
+from tkinter import *
+import hashlib
+import tkinter as tk
+import TelaBV as TBV
+
+# def abrir_login():
+    
+janela = ctk.CTk()
+class tela_login_cadastro:
+    def __init__(self):#deve conter todas as funções que existem - é a principal
+    
+        self.janela=janela
+        self.tema()
+        self.tela()
+        self.tela_login()
+        janela.mainloop()
+
+    def tema(self):
+        ctk.set_appearance_mode("dark") #modo dark
+        ctk.set_default_color_theme("dark-blue") #defino a cor do modo dark 
+        pass
+
+    def tela(self):    
+        larg_janela = 800
+        alt_janela = 500
+
+        larg_tela = janela.winfo_screenwidth()
+        alt_tela = janela.winfo_screenheight()
+
+        x = (larg_tela - larg_janela) // 2
+        y = (alt_tela - alt_janela) // 2
+        janela.geometry(f"{larg_janela}x{alt_janela}+{x}+{y}") #DEFINO O TAMANHO DA JANELA
+        janela.title("btspadrao/Insight 360º")
+        janela.iconbitmap("btspadrao/logo_insight.ico")
+        janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
+        pass
+
+    def tela_login(self):
+        #trabalhando com a imagem da tela
+        img = PhotoImage(file="btspadrao/logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
+        label_img = ctk.CTkLabel(master=janela, image=img, text='')
+        label_img.place(x=50, y=160)
+        label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360 e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
+
+        #frame a direita
+        login_frame = ctk.CTkFrame(master=janela, width=400, height=600)
+        login_frame.pack(side=RIGHT)
+
+        #frame widgets
+        label = ctk.CTkLabel(master=login_frame, text="Sistema de avaliação 360º", font = ('Roboto', 25, 'bold'), text_color= ('white') )
+        label.place(x=45, y=40)
+

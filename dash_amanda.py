@@ -39,9 +39,9 @@ def abrir_dash_op():
             y = (screen_height - 650) // 2
             janelaDash.geometry("1200x650+{}+{}".format(x, y))
 
-            img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(230,140))
+            img= ctk.CTkImage(dark_image=Image.open("btspadrao/logo_insight.png"),size=(180,120))
             label_img = ctk.CTkLabel(master=janelaDash, image=img, text='')
-            label_img.place(x=970, y=30)
+            label_img.place(x=1000, y=30)
             
             janelaDash.title("Insight 360º")
             janelaDash.iconbitmap("btspadrao/logo_insight.ico")
@@ -50,10 +50,102 @@ def abrir_dash_op():
         def todos_os_dashs():
             frameTodos = ctk.CTkFrame(master=janelaDash, width=800, height=650, fg_color='#242424')
             frameTodos.place(x=200, y=50)
-                
-                    
+               
+              
+            comp_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
+            comp_frame.place(x=400, y=280)
+            
+            with open ("data_json/questions.json", "r") as arquivo:
+                dados_json = json.load(arquivo)
+
+            #MÉDIA DO INTEGRANTE
+                idturma = "123"
+            idtime = "3"
+            idavaliado = "gui@gmail.com"
+            resposta1 = 0
+            resposta2 = 0
+            resposta3 = 0
+            resposta4 = 0
+            resposta5 = 0
+            controler = 0
+
+            for i in dados_json['avaliacao']:
+                if i['idturma'] == idturma:
+                    if i['idtime']==idtime:
+                        controler += 1
+                        for x in i['respostas']:
+                            if x['idavaliado']== idavaliado:
+                                resposta1 += x['resposta1']
+                                resposta2 += x['resposta2']
+                                resposta3 += x['resposta3']
+                                resposta4 += x['resposta4']
+                                resposta5 += x['resposta5']
+
+
+            #PROCESSAMENTO DE MÉDIAS
+
+            medResp1 = resposta1/controler
+            medResp2 = resposta2/controler
+            medResp3 = resposta3/controler
+            medResp4 = resposta4/controler
+            medResp5 = resposta5/controler
+
+            #DADOS DO INTEGRANTE
+            dados2 = {
+                "Comunicação": medResp1,
+                "Relação Interpessoal": medResp2,
+                "Proatividade": medResp3,
+                "Produtividade": medResp4, 
+                "Prazos de entrega": medResp5
+            }
+            #DADOS DO TIME
+            dados1 = {
+                "Comunicação": 4,
+                "Relação Interpessoal": 2,
+                "Proatividade": 3,
+                "Produtividade": 5, 
+                "Prazos de entrega": 1
+            }
+
+            indicadores = dados1.keys()
+            valores1 = dados1.values()
+            valores2 = dados2.values()
+
+            print(indicadores)
+            print(valores1)
+            print(valores2)
+        
+            figura = Figure(figsize=(4.5,3), dpi=100)
+            eixo = figura.add_subplot(111)
+
+            eixo.plot(indicadores, valores1, color="#c8c8c8", label = "Time")    
+            eixo.plot(valores2, color="#00FFFF", label = "Você")
+            eixo.set_title("Análise comparativa entre você e o time", color="white")
+            eixo.set_facecolor("#404040")
+            figura.set_facecolor("#323232")
+            eixo.legend()
+            eixo.axhline(y=1, color='gray', linestyle='--')
+            eixo.axhline(y=2, color='gray', linestyle='--')
+            eixo.axhline(y=3, color='gray', linestyle='--')
+            eixo.axhline(y=4, color='gray', linestyle='--')
+            eixo.axhline(y=5, color='gray', linestyle='--')
+
+            ytick_labels = eixo.get_yticklabels()
+            for label in ytick_labels:
+                label.set_color('white')
+
+            xtick_labels = eixo.get_xticklabels()
+            for label in xtick_labels:
+                label.set_color('white') 
+
+            canvas = FigureCanvasTkAgg(figura, master=comp_frame)
+            canvas.draw()
+            canvas.get_tk_widget().place(x=10, y=10)
+
+            
+            
             media_time_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
-            media_time_frame.place(x=10, y=10)
+            media_time_frame.place(x=10, y=280)
             with open("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
             
@@ -132,10 +224,8 @@ def abrir_dash_op():
             canvas.get_tk_widget().place(x=10, y=10)
             pass
 
-
-
             comp_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
-            comp_frame.place(x=380, y=10)
+            comp_frame.place(x=400, y=10)
             
             with open ("data_json/questions.json", "r") as arquivo:
                 dados_json = json.load(arquivo)
@@ -249,7 +339,7 @@ def abrir_dash_op():
                 
             #Frame
             mostrar_total_resposta = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
-            mostrar_total_resposta.place(x=10, y=400)
+            mostrar_total_resposta.place(x=10, y=10)
             ProcessLookupError
             #Labels
             metricas = ['Respondidos', 'Não Respondidos']
@@ -277,7 +367,6 @@ def abrir_dash_op():
             canvas =  FigureCanvasTkAgg(fig, master=mostrar_total_resposta)
             canvas.draw()
             canvas.get_tk_widget().place(x=10, y=10)
-                
             
             #Frame 
             media_time_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
@@ -312,7 +401,7 @@ def abrir_dash_op():
 
             canvas =  FigureCanvasTkAgg(fig, master=media_time_frame)
             canvas.draw()
-            canvas.get_tk_widget().place(x=400, y=400)
+            canvas.get_tk_widget().place(x=10, y=10)
               
             #aqui acaba a frame1
         todos_os_dashs()
@@ -589,19 +678,18 @@ def abrir_dash_op():
             janelaDash.destroy()
             feedback.abrir_feedback()
 
-
         def open_BV():
             janelaDash.destroy()
             TelaBV.abrir()
             
-        botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =200)
-        botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =250)
-        botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =300)
-        botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =350)
-        botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =400)
-        botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =450)
-        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =500)
-        botaoTodosGraficos = ctk.CTkButton(master=janelaDash, text= "Todos os Gráficos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y=550)
+        botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =170)
+        botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =220)
+        botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=1030, y =270)
+        botaoMediaInt = ctk.CTkButton(master=janelaDash, text= "Média sobre Você", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashMediaInt).place(x=1030, y =320)
+        botaoAnalise = ctk.CTkButton(master=janelaDash, text= "Analise Comparativa", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=telaDashAnalise).place(x=1030, y =370)
+        botaoFeedback = ctk.CTkButton(master=janelaDash, text= "Feedbacks Recebidos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_feedback).place(x=1030, y =420)
+        botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =470)
+        botaoTodosGraficos = ctk.CTkButton(master=janelaDash, text= "Todos os Gráficos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y=520)
 
 
     nome_integrante = 'Jhony Santos de Souza'
@@ -622,26 +710,26 @@ def abrir_dash_op():
 
 
 
-    label = ctk.CTkLabel(master=janelaDash, text=nome_integrante, text_color=("#00FFFF"), font=("roboto", 20, "bold")).place(x=40, y=20)
+    label = ctk.CTkLabel(master=janelaDash, text=nome_integrante, text_color=("#00FFFF"), font=("roboto", 20, "bold")).place(x=30, y=15)
 
     frame2 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame2.place(x=30, y=120)
+    frame2.place(x=30, y=70)
     label = ctk.CTkLabel(master=frame2, text="Sprint\n"+sprint_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame3 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame3.place(x=30, y=200)   
+    frame3.place(x=30, y=160)   
     label = ctk.CTkLabel(master=frame3, text="Turma\n"+turma_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
 
     frame4 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame4.place(x=30, y=280)
+    frame4.place(x=30, y=250)
     label = ctk.CTkLabel(master=frame4, text="Time\n"+time_receb, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
 
     frame5 = ctk.CTkFrame(janelaDash, width=150, height=70, fg_color="gray26", border_width=2)
-    frame5.place(x=30, y=360)
+    frame5.place(x=30, y=340)
     label = ctk.CTkLabel(master=frame5, text="Membros\n"+str(total_integ), text_color=("white"), font=("roboto", 20, 'bold')).place(x=28, y=10)
 
     frame6 = ctk.CTkFrame(janelaDash, width=150, height=140, fg_color="gray26", border_width=2)
-    frame6.place(x=30, y=440)
+    frame6.place(x=30, y=430)
     label = ctk.CTkLabel(master=frame6, text="Legenda", text_color=("white"), font=("roboto", 20, "bold")).place(x=30, y=10)
     label = ctk.CTkLabel(master=frame6, text="1- Muito Bom\n2- Bom\n3- Regular\n4- Ruim\n5- Muito Ruim", text_color=("white"), font=("roboto", 15)).place(x=25, y=40)
 

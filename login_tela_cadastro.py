@@ -30,7 +30,7 @@ class tela_login_cadastro:
         img = PhotoImage(file="btspadrao/logo_insight.png").subsample(2) # reduzindo o tamanho em 50%
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=50, y=160)
-        label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360 e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
+        label_tt = ctk.CTkLabel(master=janela, text='"Obtenha insights poderosos e \nimpulsione a excelência da sua equipe\n com nosso sistema de avaliação 360º e \ndashboards integrados"', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=30, y=30)
 
         #frame a direita
         login_frame = ctk.CTkFrame(master=janela, width=400, height=600)
