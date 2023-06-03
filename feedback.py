@@ -3,11 +3,9 @@ import customtkinter as ctk
 from tkinter import *
 import hashlib
 import tkinter as tk
-import TelaBV as TBV
-import telaADM
-import dash_amanda as dashOP
 
-def abrir_feedback():
+
+def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro, user_id):
     
     janelaFeedback = ctk.CTk()
     class tela_feedback:
@@ -46,7 +44,7 @@ def abrir_feedback():
 
         def tela_feed(self):
         
-            sprint = "2"
+            sprint = sprintSelecionadaParametro
             labelNome = ctk.CTkLabel(master=janelaFeedback, text="Feedbacks", font=('Roboto', 30, 'bold'), text_color='#00FFFF').place(x=330, y=20)
             sprintLabel = ctk.CTkLabel(master=janelaFeedback, text="Sprint: "+sprint, font=('Roboto', 16, 'bold'), text_color='#a0a0a0').place(x=70, y=60)
             scrool = ctk.CTkScrollableFrame(master=janelaFeedback, width=700, height=340).place(x=40, y=90)
@@ -54,9 +52,9 @@ def abrir_feedback():
             with open('data_json/questions.json', "r") as arquivo:
                 dados_json = json.load(arquivo)
             
-            idturma = "123"
-            idtime = "3"
-            idavaliado = "gui@gmail.com"
+            idturma = idturmaParametro
+            idtime = idtimeParametro
+            idavaliado = user_id
             controler = 0
             posicaoy = 110
             for idturmajson in dados_json['avaliacao']:
@@ -80,7 +78,8 @@ def abrir_feedback():
                                     posicaoy +=30
             def back():
                  janelaFeedback.destroy()
-                 dashOP.abrir_dash_op()
+ 
+                
             imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)     
             botaoVoltar = ctk.CTkButton(janelaFeedback, image=imgbeck, text="Voltar", width=100, cursor="hand2", fg_color="#00FFFF", text_color='black', command=back).place(x=660, y=450)
                         

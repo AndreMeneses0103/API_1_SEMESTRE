@@ -241,4 +241,3 @@ def abrir_tela_adm():
 
    
     janelaADM.mainloop()
-abrir_tela_adm()

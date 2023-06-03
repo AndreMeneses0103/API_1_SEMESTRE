@@ -4,6 +4,7 @@ import customtkinter as ctk
 from tkinter import *
 import sistema_avaliacao as TelaAV
 from datetime import datetime, timedelta
+import dashboardOperacional
 
 def abrir():
     
@@ -273,6 +274,9 @@ def abrir():
                                 janelaPreenchimentoObrigatorio.destroy()
                         button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
                         janelaPreenchimentoObrigatorio.mainloop()
+                    else:
+                        #janela.destroy()
+                        dashboardOperacional.abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionada.get(), user_id)
          
 
 
