@@ -25,8 +25,16 @@ def abrir():
             pass
 
         def tela(self):    
-            janela.geometry("1200x650") #DEFINO O TAMANHO DA JANELA
-            janela.title("btspadrao/Insight 360º")
+
+
+            screen_width = janela.winfo_screenwidth()
+            screen_height = janela.winfo_screenheight()
+            x = (screen_width - 1200) // 2
+            y = (screen_height - 650) // 2
+            janela.geometry("1200x650+{}+{}".format(x, y))
+
+            
+            janela.title("Insight 360º")
             janela.iconbitmap("btspadrao/logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
@@ -302,9 +310,9 @@ def abrir():
             arq_json.write(insert_acesso)
 
         janela.destroy()
-        janela.mainloop()
-
         import Tela_Login_API
+
+        
         
     # Def para exibir a tela de dashboards
     def AbrirDashboards():

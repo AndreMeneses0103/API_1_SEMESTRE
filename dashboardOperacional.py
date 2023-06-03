@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import json
 import matplotlib
-
+import feedback
 import TelaBV
 import tkinter
 
@@ -89,7 +89,31 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
                                 resposta5 += x['resposta5']
 
 
-            #PROCESSAMENTO DE MÉDIAS
+            #VARIAVEIS TIME
+            
+            resposta1Time = 0
+            resposta2Time = 0
+            resposta3Time = 0
+            resposta4Time = 0
+            resposta5Time = 0
+            controlerTime = 0
+
+        
+            #TIME
+            for i in dados_json['avaliacao']:
+                if i['idturma'] == idturma:
+                    if i['idtime']==idtime:
+                        if i['sprint'] == sprintSelecionada:
+                            for x in i['respostas']:
+                                controlerTime += 1
+                                resposta1Time += x['resposta1']
+                                resposta2Time += x['resposta2']
+                                resposta3Time += x['resposta3']
+                                resposta4Time += x['resposta4']
+                                resposta5Time += x['resposta5']
+            
+                        
+            #PROCESSAMENTO DE MÉDIAS TURMAS
 
             medResp1 = resposta1/controler
             medResp2 = resposta2/controler
@@ -97,21 +121,30 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
             medResp4 = resposta4/controler
             medResp5 = resposta5/controler
 
-            #DADOS DO INTEGRANTE
-            dados2 = {
+            #PROCESSAMENTO DE MÉDIAS TIME
+
+            medResp1Time = resposta1Time/controlerTime
+            medResp2Time = resposta2Time/controlerTime
+            medResp3Time = resposta3Time/controlerTime
+            medResp4Time = resposta4Time/controlerTime
+            medResp5Time = resposta5Time/controlerTime
+
+            #DADOS DA TURMA
+            dados1 = {
                 "Comunicação": medResp1,
                 "Relação Interpessoal": medResp2,
                 "Proatividade": medResp3,
                 "Produtividade": medResp4, 
                 "Prazos de entrega": medResp5
             }
+
             #DADOS DO TIME
-            dados1 = {
-                "Comunicação": 4,
-                "Relação\nInterpessoal": 2,
-                "Proatividade": 3,
-                "Produti-\nvidade": 5, 
-                "Prazos\nde entrega": 1
+            dados2 = {
+                "Comunicação": medResp1Time,
+                "Relação Interpessoal": medResp2Time,
+                "Proatividade": medResp3Time,
+                "Produtividade": medResp4Time, 
+                "Prazos de entrega": medResp5Time
             }
 
             indicadores = dados1.keys()
@@ -125,8 +158,8 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
             figura = Figure(figsize=(4.5,3), dpi=100)
             eixo = figura.add_subplot(111)
 
-            eixo.plot(indicadores, valores1, color="#c8c8c8", label = "Time")    
-            eixo.plot(valores2, color="#00FFFF", label = "Você")
+            eixo.plot(indicadores, valores2, color="#c8c8c8", label = "Time")    
+            eixo.plot(valores1, color="#00FFFF", label = "Você")
             eixo.set_title("Análise comparativa entre você e o time", color="white")
             eixo.set_facecolor("#404040")
             figura.set_facecolor("#323232")
@@ -236,126 +269,126 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
             comp_frame = ctk.CTkFrame(master=frameTodos, width=380, height=255, fg_color='#242424')
             comp_frame.place(x=400, y=10)
             
-            with open ("data_json/questions.json", "r") as arquivo:
-                dados_json = json.load(arquivo)
+#             with open ("data_json/questions.json", "r") as arquivo:
+#                 dados_json = json.load(arquivo)
 
-#MÉDIA DO INTEGRANTE
+# #MÉDIA DO INTEGRANTE
             
-            resposta1 = 0
-            resposta2 = 0
-            resposta3 = 0
-            resposta4 = 0
-            resposta5 = 0
-            controler = 0
+#             resposta1 = 0
+#             resposta2 = 0
+#             resposta3 = 0
+#             resposta4 = 0
+#             resposta5 = 0
+#             controler = 0
 
-            for i in dados_json['avaliacao']:
-                if i['idturma'] == idturma:
-                    if i['idtime']==idtime:
-                        controler += 1
-                        for x in i['respostas']:
-                            if x['idavaliado']== idavaliado:
-                                resposta1 += x['resposta1']
-                                resposta2 += x['resposta2']
-                                resposta3 += x['resposta3']
-                                resposta4 += x['resposta4']
-                                resposta5 += x['resposta5']
+#             for i in dados_json['avaliacao']:
+#                 if i['idturma'] == idturma:
+#                     if i['idtime']==idtime:
+#                         controler += 1
+#                         for x in i['respostas']:
+#                             if x['idavaliado']== idavaliado:
+#                                 resposta1 += x['resposta1']
+#                                 resposta2 += x['resposta2']
+#                                 resposta3 += x['resposta3']
+#                                 resposta4 += x['resposta4']
+#                                 resposta5 += x['resposta5']
 
 
-            #VARIAVEIS TIME
+#             #VARIAVEIS TIME
             
-            resposta1Time = 0
-            resposta2Time = 0
-            resposta3Time = 0
-            resposta4Time = 0
-            resposta5Time = 0
-            controlerTime = 0
+#             resposta1Time = 0
+#             resposta2Time = 0
+#             resposta3Time = 0
+#             resposta4Time = 0
+#             resposta5Time = 0
+#             controlerTime = 0
 
         
-            #TIME
-            for i in dados_json['avaliacao']:
-                if i['idturma'] == idturma:
-                    if i['idtime']==idtime:
-                        if i['sprint'] == sprintSelecionada:
-                            for x in i['respostas']:
-                                controlerTime += 1
-                                resposta1Time += x['resposta1']
-                                resposta2Time += x['resposta2']
-                                resposta3Time += x['resposta3']
-                                resposta4Time += x['resposta4']
-                                resposta5Time += x['resposta5']
+#             #TIME
+#             for i in dados_json['avaliacao']:
+#                 if i['idturma'] == idturma:
+#                     if i['idtime']==idtime:
+#                         if i['sprint'] == sprintSelecionada:
+#                             for x in i['respostas']:
+#                                 controlerTime += 1
+#                                 resposta1Time += x['resposta1']
+#                                 resposta2Time += x['resposta2']
+#                                 resposta3Time += x['resposta3']
+#                                 resposta4Time += x['resposta4']
+#                                 resposta5Time += x['resposta5']
             
                         
-            #PROCESSAMENTO DE MÉDIAS TURMAS
+#             #PROCESSAMENTO DE MÉDIAS TURMAS
 
-            medResp1 = resposta1/controler
-            medResp2 = resposta2/controler
-            medResp3 = resposta3/controler
-            medResp4 = resposta4/controler
-            medResp5 = resposta5/controler
+#             medResp1 = resposta1/controler
+#             medResp2 = resposta2/controler
+#             medResp3 = resposta3/controler
+#             medResp4 = resposta4/controler
+#             medResp5 = resposta5/controler
 
-            #PROCESSAMENTO DE MÉDIAS TIME
+#             #PROCESSAMENTO DE MÉDIAS TIME
 
-            medResp1Time = resposta1Time/controlerTime
-            medResp2Time = resposta2Time/controlerTime
-            medResp3Time = resposta3Time/controlerTime
-            medResp4Time = resposta4Time/controlerTime
-            medResp5Time = resposta5Time/controlerTime
+#             medResp1Time = resposta1Time/controlerTime
+#             medResp2Time = resposta2Time/controlerTime
+#             medResp3Time = resposta3Time/controlerTime
+#             medResp4Time = resposta4Time/controlerTime
+#             medResp5Time = resposta5Time/controlerTime
 
-            #DADOS DA TURMA
-            dados1 = {
-                "Comunicação": medResp1,
-                "Relação Interpessoal": medResp2,
-                "Proatividade": medResp3,
-                "Produtividade": medResp4, 
-                "Prazos de entrega": medResp5
-            }
+#             #DADOS DA TURMA
+#             dados1 = {
+#                 "Comunicação": medResp1,
+#                 "Relação Interpessoal": medResp2,
+#                 "Proatividade": medResp3,
+#                 "Produtividade": medResp4, 
+#                 "Prazos de entrega": medResp5
+#             }
 
-            #DADOS DO TIME
-            dados2 = {
-                "Comunicação": medResp1Time,
-                "Relação Interpessoal": medResp2Time,
-                "Proatividade": medResp3Time,
-                "Produtividade": medResp4Time, 
-                "Prazos de entrega": medResp5Time
-            }
+#             #DADOS DO TIME
+#             dados2 = {
+#                 "Comunicação": medResp1Time,
+#                 "Relação Interpessoal": medResp2Time,
+#                 "Proatividade": medResp3Time,
+#                 "Produtividade": medResp4Time, 
+#                 "Prazos de entrega": medResp5Time
+#             }
 
 
-            indicadores = dados1.keys()
-            valores1 = dados1.values()
-            valores2 = dados2.values()
+#             indicadores = dados1.keys()
+#             valores1 = dados1.values()
+#             valores2 = dados2.values()
 
-            print(indicadores)
-            print(valores1)
-            print(valores2)
+#             print(indicadores)
+#             print(valores1)
+#             print(valores2)
         
-            figura = Figure(figsize=(4.5,3), dpi=100)
-            eixo = figura.add_subplot(111)
+#             figura = Figure(figsize=(4.5,3), dpi=100)
+#             eixo = figura.add_subplot(111)
 
-            eixo.plot(indicadores, valores2, color="#c8c8c8", label = "Time")    
-            eixo.plot(valores1, color="#00FFFF", label = "Você")
-            eixo.set_title("Análise comparativa entre você e o time", color="white")
-            eixo.set_facecolor("#404040")
-            figura.set_facecolor("#323232")
-            eixo.legend()
-            eixo.axhline(y=1, color='gray', linestyle='--')
-            eixo.axhline(y=2, color='gray', linestyle='--')
-            eixo.axhline(y=3, color='gray', linestyle='--')
-            eixo.axhline(y=4, color='gray', linestyle='--')
-            eixo.axhline(y=5, color='gray', linestyle='--')
+#             eixo.plot(indicadores, valores2, color="#c8c8c8", label = "Time")    
+#             eixo.plot(valores1, color="#00FFFF", label = "Você")
+#             eixo.set_title("Análise comparativa entre você e o time", color="white")
+#             eixo.set_facecolor("#404040")
+#             figura.set_facecolor("#323232")
+#             eixo.legend()
+#             eixo.axhline(y=1, color='gray', linestyle='--')
+#             eixo.axhline(y=2, color='gray', linestyle='--')
+#             eixo.axhline(y=3, color='gray', linestyle='--')
+#             eixo.axhline(y=4, color='gray', linestyle='--')
+#             eixo.axhline(y=5, color='gray', linestyle='--')
 
-            ytick_labels = eixo.get_yticklabels()
-            for label in ytick_labels:
-                label.set_color('white')
-                label.set_size(8)
+#             ytick_labels = eixo.get_yticklabels()
+#             for label in ytick_labels:
+#                 label.set_color('white')
+#                 label.set_size(8)
 
-            xtick_labels = eixo.get_xticklabels()
-            for label in xtick_labels:
-                label.set_color('white') 
-                label.set_size(8)
+#             xtick_labels = eixo.get_xticklabels()
+#             for label in xtick_labels:
+#                 label.set_color('white') 
+#                 label.set_size(8)
 
-            canvas = FigureCanvasTkAgg(figura, master=comp_frame)
-            canvas.draw()
-            canvas.get_tk_widget().place(x=10, y=10)
+#             canvas = FigureCanvasTkAgg(figura, master=comp_frame)
+#             canvas.draw()
+#             canvas.get_tk_widget().place(x=10, y=10)
 
             with open('data_json/questions.json', 'r') as arquivo:
                 dados_json_questions = json.load(arquivo)
@@ -913,7 +946,7 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
             canvas.get_tk_widget().place(x=100, y=80)    
 
         def open_feedback():
-            import feedback
+            
             feedback.abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro, user_id)
 
         def open_BV():

@@ -17,11 +17,6 @@ def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro
             self.tela_feed()
             janelaFeedback.mainloop()
 
-            sprint = "2"
-            labelNome = ctk.CTkLabel(master=janelaFeedback, text="Feedbacks", font=('Roboto', 30, 'bold'), text_color='#00FFFF').place(x=330, y=20)
-            sprintLabel = ctk.CTkLabel(master=janelaFeedback, text="Sprint: "+sprint, font=('Roboto', 16, 'bold'), text_color='#a0a0a0').place(x=70, y=60)
-            scrool = ctk.CTkScrollableFrame(master=janelaFeedback, width=700, height=340).place(x=40, y=90)
-
         def tema(self):
             ctk.set_appearance_mode("dark") #modo dark
             ctk.set_default_color_theme("dark-blue") #defino a cor do modo dark 
@@ -37,7 +32,7 @@ def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro
             x = (larg_tela - larg_janela) // 2
             y = (alt_tela - alt_janela) // 2
             janelaFeedback.geometry(f"{larg_janela}x{alt_janela}+{x}+{y}") #DEFINO O TAMANHO DA JANELA
-            janelaFeedback.title("btspadrao/Insight 360º")
+            janelaFeedback.title("Insight 360º")
             janelaFeedback.iconbitmap("btspadrao/logo_insight.ico")
             janelaFeedback.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
@@ -76,12 +71,11 @@ def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro
                             if respostas['feedback5'] != "":
                                     labelFeed = ctk.CTkLabel(master=scrool, text="• "+respostas['feedback5'], font=('Roboto', 12)).place(x=60, y=posicaoy)
                                     posicaoy +=30
-            def back():
-                 janelaFeedback.destroy()
- 
+            def voltar():
+                 janelaFeedback.destroy() 
                 
-            imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)     
-            botaoVoltar = ctk.CTkButton(janelaFeedback, image=imgbeck, text="Voltar", width=100, cursor="hand2", fg_color="#00FFFF", text_color='black', command=back).place(x=660, y=450)
+           # imgbeck = PhotoImage(file="btspadrao/botaovoltar.png").subsample(18)     
+            botaoVoltar = ctk.CTkButton(janelaFeedback, text="Voltar", width=100, cursor="hand2", fg_color="#00FFFF", text_color='black', command=voltar).place(x=660, y=450)
                         
             
     tela_feedback()
