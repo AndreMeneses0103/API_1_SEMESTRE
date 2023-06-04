@@ -62,9 +62,9 @@ def Close():
         #TLOGIN.abrir_login()
 
     #Imagem do botão logout
-logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
-Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#1a1a1a", command=Close)
-Button.place(x=1070, y=7)
+# logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
+# Button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#1a1a1a", command=Close)
+# Button.place(x=1070, y=7)
 
 # ------------------------------------------------ Frame 1 --------------------------------------------- #
 #Frame 1 - Frame Base (Estética)
