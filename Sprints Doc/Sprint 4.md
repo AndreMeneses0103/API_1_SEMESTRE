@@ -29,22 +29,20 @@ Para acompanhar o BACKLOG DAS SPRINTS, acese nosso [Notion](https://inky-parsley
 
 # <h2 align=center>BACKLOG DO PRODUTO 📌<h2/>
   
-Propriedade | Sprint |	Item | Concluído
---- | --- | --- | ---
-Alta	| 4 |	Acesso do Administrador ao Dashboard das Turmas, Times e Sprints - Admin |✔
-Alta	| 4 |	Acesso dos Usuários ao Dashboard de Turma, Time e Sprint - Usuário |✔
-Alta	| 4 |	Acesso dos Usuários às Avaliações - Usuários |✔
-Baixa	| 4 |	Alteração de Senha - Admin |✔
-Baixa	| 4 |	Remoção de Usuário - Admin |✔
-Média	| 3 |	Autorização da solicitação dos usuários participarem das turmas e times - Admin |✔
-Média	| 3 |	Cadastro de Sprints - Admin |✔
-Média	| 3 |	Cadastro de times - Admin |✔
-Média	| 3 |	Cadastro de Usuários - Usuário |✔
-Média	| 3 |	Criação de Turmas - Admin |✔
-Média	| 3 |	Cadastro de integrantes nos Times - Admin |✔
-Baixa	| 2 |	Logout do Sistema - Admin e Usuário| ✔
-Alta	| 2 |	Sistema de Avaliação 360º - Usuário |✔
-Média	| 2 |	Autenticação de usuário |✔
+Prioridade | Sprint | Item | Status
+:------: | :------: | --- | :------: 
+Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%202.md">2</a>|	Avaliação 360º|	Finalizada ✅
+Média|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%202.md">2</a>|	Autenticação de Usuário|	Finalizada ✅
+Média|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%203.md">3</a>|	Acesso de Usuários às Avaliações|	Finalizada ✅
+Média| <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%203.md">3</a>|	Cadastro de Usuários|	Finalizada ✅
+Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%203.md">3</a>|	Gerenciamento de Sprints|	Finalizada ✅
+Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%203.md">3</a>|	Gerenciamento de Times|	Finalizada ✅
+Alta|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%203.md">3</a>|	Gerenciamento de Turmas|	Finalizada ✅
+Média|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%203.md">3</a>|	Gerenciamento das Solicitações de Adesão|	Finalizada ✅
+Alta| <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%204.md">4</a>| Dashboard Gerencial e Operacional| Finalizada ✅    
+Média| <a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%204.md">4</a>| Controle de Usuários | Finalizada ✅    
+Baixa|	<a href="https://github.com/AndreMeneses0103/API_1_SEMESTRE/blob/main/Sprints%20Doc/Sprint%204.md">4</a>|  Redefinição de Senhas| Finalizada	✅
+
 
   
 # <h2 align=center>CONCLUSÃO ✔<h2/>
