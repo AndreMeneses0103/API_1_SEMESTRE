@@ -8,7 +8,7 @@
             "cargo": "user",
             "senha": "cb1dca1eea2352c3b3bf374f28259c727a6fe60a14a1bf8f4c354220432eb690a40c1a50255219a450f38484dc162be41fcb077c486b77ec9f12d7b8df9186f4",
             "sprint_atual": "2",
-            "isActive": true,
+            "isActive": false,
             "aceito": true,
             "resp": true
         },
@@ -20,7 +20,7 @@
             "cargo": "adm",
             "senha": "3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2",
             "sprint_atual": "4",
-            "isActive": true,
+            "isActive": false,
             "aceito": true,
             "resp": true
         },

@@ -34,7 +34,7 @@ class tela_login_cadastro:
         x = (larg_tela - larg_janela) // 2
         y = (alt_tela - alt_janela) // 2
         janela.geometry(f"{larg_janela}x{alt_janela}+{x}+{y}") #DEFINO O TAMANHO DA JANELA
-        janela.title("btspadrao/Insight 360º")
+        janela.title("Insight 360º")
         janela.iconbitmap("btspadrao/logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
@@ -274,7 +274,7 @@ class tela_login_cadastro:
 
                                     button_ok = ctk.CTkButton(janelaAlertaEmail, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Dados_faltando, fg_color='#5CE1E6', text_color='black').pack()
                                     janelaAlertaEmail.mainloop()
-                                    
+
                             if verificador == True:
                                     timeCadastro = timeSelecionado.get()
                                     for turma in dados['turmas']:
