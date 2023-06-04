@@ -29,8 +29,6 @@ class tela_cadastro_time:
         x = (screen_width - 1200) // 2
         y = (screen_height - 650) // 2
         janela.geometry(f"1200x650+{x}+{y}")
-
-
         janela.title("Insight 360º")
         janela.iconbitmap("btspadrao/logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
@@ -42,19 +40,19 @@ class tela_cadastro_time:
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=10, y=10)
         label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=50, y=130)
+
         def voltar():
             janela.destroy()
             telaADM.abrir_tela_adm()
         imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)    
         buttonVerificar = ctk.CTkButton(master=janela, text="Voltar", width=120, image=imgbeck, cursor='hand2', text_color=("black"), fg_color="#5CE1E6", font=('Roboto', 14), command=voltar).place(x=50, y=170)
 
-
         #frame a direita
         tela_cadastro_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
         tela_cadastro_frame.pack(side=RIGHT)
 
         #frame widgets
-        label = ctk.CTkLabel(master=tela_cadastro_frame, text="Cadastro de nova turma", font = ('Roboto', 25, 'bold'), text_color= ('white') ).place(x=45, y=40)
+        label = ctk.CTkLabel(master=tela_cadastro_frame, text="Cadastro de nova turma", font = ('Roboto', 25, 'bold'), text_color= ('white') ).place(x=45, y=25)
         
         #entrada de dados
         user_name_label1 = ctk.CTkLabel(master=tela_cadastro_frame, text="Nome da turma: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
@@ -88,6 +86,8 @@ class tela_cadastro_time:
                 janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
                 janelaPreenchimentoObrigatorio.resizable(False, False)
                 label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nO preenchimento de todos\nos campos é obrigatório\n", font=('Roboto', 15, 'bold')).pack()
+                
+                
                 def destroy_alerta():
                         janelaPreenchimentoObrigatorio.destroy()
                 button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
@@ -224,16 +224,20 @@ class tela_cadastro_time:
                                 janelaPreenchimentoObrigatorio.destroy()
                         button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
                         janelaPreenchimentoObrigatorio.mainloop()
+
+
             #Botão de OK que vai rodar a função para guardar informações
             botao = ctk.CTkButton(master=tela_cadastro_frame,command=guardaInformacoes, text="OK", text_color=('black'),cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=450)
             botao_proxima_etapa = ctk.CTkButton(master=tela_cadastro_frame, text="Próxima etapa", command=tela_cadastro_time, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=600)
             
+
         #Botao que confirma o numero de sprints
         botao_define_sprint = ctk.CTkButton(master=tela_cadastro_frame, text="Confirmar", font = ('Roboto', 14), command = define_numero_sprints, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=500, y=200)
     
 
         def tela_cadastro_time():
-            global sprintsSelecionada, sprints
+            global sprintsSelecionada, sprints, y
+            y= 0
             print(sprints)
             validadorTamanho = False
           
@@ -255,6 +259,8 @@ class tela_cadastro_time:
                 janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
                 janelaPreenchimentoObrigatorio.resizable(False, False)
                 label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nAs sprints não foram totalmente\npreenchidas.\n", font=('Roboto', 15, 'bold')).pack()
+                
+                
                 def destroy_alerta():
                         janelaPreenchimentoObrigatorio.destroy()
                 button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
@@ -269,36 +275,24 @@ class tela_cadastro_time:
                 tela_times_frame.pack(side=RIGHT)
 
                 # criar novos times
-                label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font=('Roboto', 25, 'bold'), text_color=('white')).place(x=45, y=40)
-                label_num_times = ctk.CTkLabel(master=tela_times_frame, text="Defina o número de times", font=('Roboto', 14), text_color=('white')).place(x=45, y=100)
-
-                # define quantidade de times
-                num_times = tk.IntVar()
-                num_times_entry = ctk.CTkEntry(master=tela_times_frame, placeholder_text="Número de times:",placeholder_text_color="gray", width=60, font=('Roboto', 14), textvariable=num_times).place(x=45, y=130)
-                
-            #função que vai definir numero e nome de times de uma turma
-            def cria_novos_times():
-                numero_times = int(num_times.get())
-                lista_times = [str(i) for i in range(1, numero_times+1)]
-                timeSelecionado = ctk.IntVar()
-                timeSelecionado.set(lista_times[0])
+                label_novos_times = ctk.CTkLabel(master=tela_times_frame, text="Cadastro de novos times", font=('Roboto', 25, 'bold'), text_color=('white')).place(x=45, y=25)
                 nomeTime = tk.StringVar()
 
-                global x, y, times
                 times = dict()
                 y = x = 1
-                label_nome_times = ctk.CTkLabel(master=tela_times_frame, text="Nomeie cada um dos times", font=('Roboto', 14),text_color=('white')).place(x=45, y= 200)
-                time_nome_entry = ctk.CTkEntry(master=tela_times_frame,placeholder_text="Nome do time", placeholder_text_color="gray", width=480, font=('Roboto', 14), text_color=('white'), textvariable=nomeTime).place(x= 200, y=230)
-                qtos_time = ctk.CTkOptionMenu(master=tela_times_frame, fg_color='gray',values=lista_times, variable=timeSelecionado).place(x=45,y=230)
+                label_nome_times = ctk.CTkLabel(master=tela_times_frame, text="Adicionar times", font=('Roboto', 14),text_color=('white')).place(x=45, y= 70)
+                time_nome_entry = ctk.CTkEntry(master=tela_times_frame,placeholder_text="Nome do time", placeholder_text_color="gray", width=550, font=('Roboto', 14), text_color=('white'), textvariable=nomeTime).place(x= 45, y=110)
 
                 #frame que vai listar os times criados
-                times_frame = ctk.CTkScrollableFrame(master=tela_times_frame, width=650, height=200, corner_radius=0, fg_color="transparent",label_text='Nome dos times')
-                times_frame.place(x=45, y= 300)
+                times_frame = ctk.CTkScrollableFrame(master=tela_times_frame, width=550, height=350, corner_radius=0, fg_color="transparent",label_text='Nome dos times')
+                times_frame.place(x=45, y= 200)
                 timesList = []
+               
+
                 #Funcao que salva os times os times em JSON e cria labels para mostrar o que foi cadastrado
                 def salvatimes():
                     global x, y
-                    #def cria_label(titulo, frame, posicaoX, posicaoY, coluna):
+                    
                     if nomeTime.get() == "":
                         janelaPreenchimentoObrigatorio = ctk.CTk()
                         janelaPreenchimentoObrigatorio.title("ALERTA!")
@@ -329,9 +323,9 @@ class tela_cadastro_time:
                             numeroaleatorio = random.randint(500, 10000)
                             idtime = idtime+str(numeroaleatorio)
 
-                            time = timeSelecionado.get()
+                            #time = timeSelecionado.get()
                             team_name = nomeTime.get()
-                            team_select = "Time " + str(time)+ ": "
+                            team_select = "Time: "
                                                 
                             cria_label(team_select, times_frame,y,0,0)
                             cria_label(team_name, times_frame,y,0,1)
@@ -406,10 +400,8 @@ class tela_cadastro_time:
                         telaADM.abrir_tela_adm()
                      
 
-
                 botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=concluir).place(x=650, y=600)
-                nome_times_botao = ctk.CTkButton(master=tela_times_frame, text="Adicionar",command= salvatimes, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=690, y=230)
-            
-            num_times_botao = ctk.CTkButton(master=tela_times_frame, text="OK",command= cria_novos_times, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=150, y=130)
+                nome_times_botao = ctk.CTkButton(master=tela_times_frame, text="Adicionar",command= salvatimes, font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD').place(x=650, y=110)
+           
 
 tela_cadastro_time()
