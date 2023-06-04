@@ -55,7 +55,7 @@ class tela_login_cadastro:
         label.place(x=45, y=40)
 
         #entrada de dados
-        user_name_label1 = ctk.CTkLabel(master=login_frame, text="E-mail: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
+        user_name_label1 = ctk.CTkLabel(master=login_frame, text="ID: (Ex: seunome@turma.com)", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
         username = tk.StringVar()#criação da variavel 
         username_entry = ctk.CTkEntry(master=login_frame, placeholder_text="Username", width=300, font = ('Roboto', 14), textvariable=username).place(x=45, y=125)
 
@@ -139,7 +139,7 @@ class tela_login_cadastro:
             nome_cadastro = ctk.CTkEntry(master=cadastro_frame, textvariable=nomecompleto,placeholder_text="Digite seu nome completo", width=300, font = ('Roboto', 14)).place(x=45, y=110)
         
             #entrada de dados email cadastro
-            label = ctk.CTkLabel(master=cadastro_frame, text="Email", font = ('Roboto', 15), text_color= ('white') )
+            label = ctk.CTkLabel(master=cadastro_frame, text="ID: (Ex: seunome@turma.com)", font = ('Roboto', 15), text_color= ('white') )
             label.place(x=45, y=140)
             email = tk.StringVar()
             email_cadastro = ctk.CTkEntry(master=cadastro_frame,placeholder_text="Digite seu email", width=300, font = ('Roboto', 14), textvariable=email).place(x=45, y=170)
