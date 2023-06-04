@@ -237,6 +237,7 @@ def abrir_tela_adm():
     optionMenuSprint = ctk.CTkOptionMenu(master=janelaADM, fg_color='gray', width=270,variable=vazio, values=lista)
     optionMenuSprint.place(x=53, y=430)
 
+    janelaADM.protocol("WM_DELETE_WINDOW", Close)
 
 
 

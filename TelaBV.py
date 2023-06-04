@@ -50,7 +50,15 @@ def abrir():
             acesso = json.load(open("data_json/users.json", "r"))
 
             ac_turmas = json.load(open("data_json/turmas.json", "r"))
-
+        
+            inicio_sprint = ''
+            fim_sprint = ''
+            global atual_sprint
+            atual_sprint = 1
+            global jaResp
+            jaResp = ""
+            global posicao
+            posicao = 0
 
             for x in range(len(acesso["usuarios"])):
                 if(acesso["usuarios"][x]["isActive"] == True):
@@ -58,7 +66,6 @@ def abrir():
                     user_turma =  acesso["usuarios"][x]["idturma"]
                     user_time = acesso ["usuarios"][x]["idtime"]
                     user_id = acesso ["usuarios"][x]["id"]
-            
 
             
             data_atual = datetime.now()
@@ -81,12 +88,10 @@ def abrir():
             timeSelecionado = StringVar()
             turmaSelecionada = StringVar()
             
-
-            
-
-
             def imprimir(tr):
-
+                global atual_sprint
+                global jaResp
+                global posicao
                 acesso = json.load(open("data_json/users.json", "r"))
 
                 for x in range(len(acesso["usuarios"])):
@@ -97,19 +102,23 @@ def abrir():
                 #as duas variaveis de baixo reiniciam os valores caso o botao de turma seja mudado
                 times = []
                 sprint = []
-                posicao = 0
 
-                
-                inicio_sprint = ''
-                fim_sprint = ''
-                atual_sprint = 0
                 #a linha de baixo retorna o numero do da posicao do elemento selecionado no botao de turma
                 for x in range (len(ac_turmas["turmas"])):
                     if (tr == ac_turmas["turmas"][x]["nometurma"]):
                         posicao = ac_turmas["turmas"][x]["ordem"]
 
+                todos_times = ac_turmas["turmas"][posicao]["times"]
                 todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
+                #criar uma variavel semelhante a essa de cima, so que para sprint
 
+                times = []
+                for x in range(len(todos_times)):
+                    if (user_time == todos_times[x]["idtime"]):
+                        times.append(todos_times[x]["nometime"])
+
+
+                todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
                 for x in range (len(todas_sprints)):
                     # sprint.append(todas_sprints[x]["indice"])
                     inicio_sprint = todas_sprints[x]["inicioSprint"]
@@ -118,10 +127,8 @@ def abrir():
                     inicio_sprint = datetime.strptime(inicio_sprint, "%d/%m/%Y")
                     horas = "11:59:59"
                     fim_sprint = datetime.strptime(fim_sprint + " " + horas, "%d/%m/%Y %H:%M:%S")
-                    # print(f'Data final da sprint sem 5 dias: {fim_sprint}')
                     dias_finais = timedelta(days=5)
                     fim_sprint = fim_sprint + dias_finais
-                    # print(f'Data final da sprint com 5 dias: {fim_sprint}')
 
                     agora = datetime.now()
                     
@@ -132,68 +139,51 @@ def abrir():
 
                     acesso = json.load(open("data_json/users.json", "r"))
 
-                    for x in range(len(acesso["usuarios"])):
-                        if(acesso["usuarios"][x]["isActive"] == True):
+                for x in range(len(acesso["usuarios"])):
+                    if(acesso["usuarios"][x]["isActive"] == True):
+                        validacao_sprint = int(acesso["usuarios"][x]["sprint_atual"])
+                        if(int(atual_sprint) > validacao_sprint):
+                            jaResp = False
                             acesso["usuarios"][x]["sprint_atual"] = atual_sprint
                             insert_acesso = (json.dumps(acesso, indent=4))
                             with open("data_json/users.json", "w") as arq_json:
                                 arq_json.write(insert_acesso)
-
-
-                    if(int(atual_sprint) > int(sprint_json)):
-                        if(jaResp == True):
-
-                            jaResp = False
-                
-
-
-                if(jaResp == False):
-                    cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
-                else:
-                    cadastrar_button = ctk.CTkButton(master=janela, text="Finalizado", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="X_cursor", hover_color='#404345').place(x=1020, y=560)
-
-
-
-
-                todos_times = ac_turmas["turmas"][posicao]["times"]
-                todas_sprints = ac_turmas["turmas"][posicao]["sprints"]
-                #criar uma variavel semelhante a essa de cima, so que para sprint
-
-                times = []
-                for x in range(len(todos_times)):
-
-                    if (user_time == todos_times[x]["idtime"]):
-                        times.append(todos_times[x]["nometime"])
-                    else: 
-                        print("===============",todos_times[x]["idtime"])
-
-                #criar um for percorrendo todos os elementos semelhante a de cima, so que para sprint (pegar a chave "indice" dentro do objeto "sprints")
+                        else:
+                            acesso["usuarios"][x]["sprint_atual"] = atual_sprint
+                            acesso["usuarios"][x]["resp"] = True
+                            insert_acesso = (json.dumps(acesso, indent=4))
+                            with open("data_json/users.json", "w") as arq_json:
+                                arq_json.write(insert_acesso)
+                            
+                            
 
             
+                #LINHA QUE COLOCA TIMES
                 times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
 
                 for x in range (len(todas_sprints)):
                     sprint.append(todas_sprints[x]["indice"])
 
-
                 sprintSelecionada.set(sprint[0])
-                sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray").place(x=800, y=15)
+                sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray", command=atualizacao_sprint).place(x=800, y=15)
 
-                #apos fazer o for, inserir no botao as sprints, semelhante as duas linhas acima
+            def atualizacao_sprint(sprint_var):
+                global atual_sprint
+                global jaResp
+                global posicao
 
-            
+                
+                if((int(atual_sprint) < int(sprint_var)) or (int(atual_sprint) > int(sprint_var))):
+                    cadastrar_button = ctk.CTkButton(master=janela, text="Indisponivel", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="X_cursor", hover_color='#404345').place(x=1020, y=560)
+                else:
+                    if(jaResp == False):
+                        cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
+                    else:
+                        cadastrar_button = ctk.CTkButton(master=janela, text="Indisponivel", width=150, text_color='#fff', fg_color="#404343", font = ('Roboto', 14), cursor="X_cursor", hover_color='#404345').place(x=1020, y=560)
 
-            #Option Menu para selecionar a sprint
-            sprint_label = ctk.CTkLabel(master=janela, text="Sprint:", font=("Roboto", 14), text_color='white').place(x=750, y=15)
-            sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray").place(x=800, y=15)
 
-            # Option Menu para selecionar o time
-            times_label = ctk.CTkLabel(master=janela, text="Time:", font=("Roboto", 14), text_color='white').place(x=390, y=15)
-            times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
-
-            # Option Menu para selecionar a turma
-            turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=30, y=15)
-            turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=90, y=15)
+                
+                
 
             def AbrirAv():
 
@@ -286,9 +276,18 @@ def abrir():
                     else:
                         #janela.destroy()
                         dashboardOperacional.abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionada.get(), user_id)
-         
 
+            #Option Menu para selecionar a sprint
+            sprint_label = ctk.CTkLabel(master=janela, text="Sprint:", font=("Roboto", 14), text_color='white').place(x=750, y=15)
+            sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray", command=atualizacao_sprint).place(x=800, y=15)
 
+            # Option Menu para selecionar o time
+            times_label = ctk.CTkLabel(master=janela, text="Time:", font=("Roboto", 14), text_color='white').place(x=390, y=15)
+            times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
+
+            # Option Menu para selecionar a turma
+            turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=30, y=15)
+            turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=90, y=15)
 
 
             dashboard_button = ctk.CTkButton(master=janela, text="Exibir Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=chamarDashboard).place(x=30, y=560)
