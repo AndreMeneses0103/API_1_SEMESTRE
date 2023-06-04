@@ -6,6 +6,7 @@ import telaADM
 from tkinter import *
 import hashlib
 import ast
+from customtkinter import *
 
 #Aparência
 ctk.set_appearance_mode("dark")

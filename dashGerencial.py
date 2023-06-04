@@ -3,6 +3,8 @@ import json
 import matplotlib
 import telaADM
 import tkinter
+from tkinter import *
+from customtkinter import *
 from colorama import Fore, Style
 import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')

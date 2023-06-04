@@ -1,10 +1,10 @@
 import json
 import customtkinter as ctk
-from tkinter import *
 import hashlib
 import tkinter as tk
 import dashboardOperacional
-
+from tkinter import *
+from customtkinter import *
 
 def abrir_feedback(idturmaParametro, idtimeParametro, sprintSelecionadaParametro, user_id):
     

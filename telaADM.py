@@ -4,6 +4,7 @@ from tkinter import *
 import TelaBV as TBV
 import json
 import dashGerencial
+from customtkinter import *
 
 def abrir_tela_adm():
     #Padrão temas da tela

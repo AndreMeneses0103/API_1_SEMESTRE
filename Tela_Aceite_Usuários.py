@@ -6,7 +6,7 @@ import hashlib
 import telaADM
 from tkinter import *
 import ast
-
+from customtkinter import *
 
 
 #Janela - Aparência

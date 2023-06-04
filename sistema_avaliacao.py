@@ -3,7 +3,7 @@ import customtkinter as ctk
 from tkinter import *
 import json
 import TelaBV
-
+from customtkinter import *
 global avaliado
 avaliado = 0
 

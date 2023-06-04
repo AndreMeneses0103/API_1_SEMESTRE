@@ -4,6 +4,8 @@ import matplotlib
 import feedback
 import TelaBV
 import tkinter
+from tkinter import *
+from customtkinter import *
 
 from colorama import Fore, Style
 import matplotlib.pyplot as plt

@@ -5,6 +5,7 @@ from tkinter import *
 import sistema_avaliacao as TelaAV
 from datetime import datetime, timedelta
 import dashboardOperacional
+from customtkinter import *
 
 def abrir():
     
