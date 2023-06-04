@@ -34,7 +34,7 @@ class tela_login_cadastro:
         x = (larg_tela - larg_janela) // 2
         y = (alt_tela - alt_janela) // 2
         janela.geometry(f"{larg_janela}x{alt_janela}+{x}+{y}") #DEFINO O TAMANHO DA JANELA
-        janela.title("btspadrao/Insight 360º")
+        janela.title("Insight 360º")
         janela.iconbitmap("btspadrao/logo_insight.ico")
         janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
         pass
@@ -55,7 +55,7 @@ class tela_login_cadastro:
         label.place(x=45, y=40)
 
         #entrada de dados
-        user_name_label1 = ctk.CTkLabel(master=login_frame, text="E-mail: ", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
+        user_name_label1 = ctk.CTkLabel(master=login_frame, text="ID: (Ex: seunome@turma.com)", text_color="white", font=('Roboto', 14)).place(x=45,y=100)
         username = tk.StringVar()#criação da variavel 
         username_entry = ctk.CTkEntry(master=login_frame, placeholder_text="Username", width=300, font = ('Roboto', 14), textvariable=username).place(x=45, y=125)
 
@@ -139,7 +139,7 @@ class tela_login_cadastro:
             nome_cadastro = ctk.CTkEntry(master=cadastro_frame, textvariable=nomecompleto,placeholder_text="Digite seu nome completo", width=300, font = ('Roboto', 14)).place(x=45, y=110)
         
             #entrada de dados email cadastro
-            label = ctk.CTkLabel(master=cadastro_frame, text="Email", font = ('Roboto', 15), text_color= ('white') )
+            label = ctk.CTkLabel(master=cadastro_frame, text="ID: (Ex: seunome@turma.com)", font = ('Roboto', 15), text_color= ('white') )
             label.place(x=45, y=140)
             email = tk.StringVar()
             email_cadastro = ctk.CTkEntry(master=cadastro_frame,placeholder_text="Digite seu email", width=300, font = ('Roboto', 14), textvariable=email).place(x=45, y=170)
@@ -233,73 +233,114 @@ class tela_login_cadastro:
                     #O BOTÃO CADASTRAR APARECERÁ SOMENTE QUANDO TUDO TIVER PREENCHIDO
 
                     def cadastro():
-                        #FOR QUE PEGA O ID DO TIME SELECIONADO E GRAVA EM JSON
-                        timeCadastro = timeSelecionado.get()
-                        for turma in dados['turmas']:
-                            if turma['nometurma'] == turmaReferencia:
-                                for time in turma['times']:
-                                    if time['nometime'] == timeCadastro:
-                                        idtime = time['idtime']
-                                        print(idtime)
+                        print(nomecompleto.get(),email.get(),senha.get(),timeSelecionado.get() , turmaSelecionada.get())
+                        if nomecompleto.get() == "" or email.get() == "" or senha.get()== "" or timeSelecionado.get() == "" or turmaSelecionada.get() == "":
+                            janelaAlertadadosFaltando = ctk.CTk()
+                            janelaAlertadadosFaltando.title("ALERTA!")
+                            janelaAlertadadosFaltando.resizable(False, False)
+                            larg_tela = janela.winfo_screenwidth()
+                            alt_tela = janela.winfo_screenheight()
+                            x = (larg_tela - 300) // 2
+                            y = (alt_tela - 100) // 2
+                            janelaAlertadadosFaltando.geometry(f"300x100+{x}+{y}")
+                            label_alerta = ctk.CTkLabel(master=janelaAlertadadosFaltando, text="Dados incompletos!\n", font=('Roboto', 15, 'bold')).pack()
+                            
+                            def destroy_alerta_Dados_faltando():
+                                janelaAlertadadosFaltando.destroy()
+
+                            button_ok = ctk.CTkButton(janelaAlertadadosFaltando, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Dados_faltando, fg_color='#5CE1E6', text_color='black').pack()
+                            janelaAlertadadosFaltando.mainloop()
+                                #FOR QUE PEGA O ID DO TIME SELECIONADO E GRAVA EM JSON
+
+                        else:
+                            with open('data_json/users.json', "r") as arquivoUsers:
+                                dados_users = json.load(arquivoUsers)
+                            verificador = True
+                            for i in dados_users['usuarios']:
+                                if i['id'] == email.get():
+                                    verificador = False
+                                    janelaAlertaEmail = ctk.CTk()
+                                    janelaAlertaEmail.title("ALERTA!")
+                                    janelaAlertaEmail.resizable(False, False)
+                                    larg_tela = janelaAlertaEmail.winfo_screenwidth()
+                                    alt_tela = janelaAlertaEmail.winfo_screenheight()
+                                    x = (larg_tela - 300) // 2
+                                    y = (alt_tela - 100) // 2
+                                    janelaAlertaEmail.geometry(f"300x100+{x}+{y}")
+                                    label_alerta = ctk.CTkLabel(master=janelaAlertaEmail, text="Email já cadastrado!\n", font=('Roboto', 15, 'bold')).pack()
+                                    
+                                    def destroy_alerta_Dados_faltando():
+                                        janelaAlertaEmail.destroy()
+
+                                    button_ok = ctk.CTkButton(janelaAlertaEmail, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Dados_faltando, fg_color='#5CE1E6', text_color='black').pack()
+                                    janelaAlertaEmail.mainloop()
+
+                            if verificador == True:
+                                    timeCadastro = timeSelecionado.get()
+                                    for turma in dados['turmas']:
+                                        if turma['nometurma'] == turmaReferencia:
+                                            for time in turma['times']:
+                                                if time['nometime'] == timeCadastro:
+                                                    idtime = time['idtime']
+                                                    print(idtime)
 
 
-                        with open('data_json/users.json', 'r') as f:
-                            data = json.load(f)
+                                    with open('data_json/users.json', 'r') as f:
+                                        data = json.load(f)
 
-                        novos_dados = data
+                                    novos_dados = data
 
-                        
-                        data_user = nomecompleto.get()
-                        data_email = email.get()
-                        data_senha = senha.get()
-                        data_senha = hashlib.sha512(data_senha.encode('utf-8')).hexdigest()
+                                    
+                                    data_user = nomecompleto.get()
+                                    data_email = email.get()
+                                    data_senha = senha.get()
+                                    data_senha = hashlib.sha512(data_senha.encode('utf-8')).hexdigest()
 
-                        global idturma
-                        
-                        data_cadastro = {
-                            "user":data_user,
-                            "id":data_email,
-                            "idturma": idturma,
-                            "idtime": idtime,
-                            "cargo":"user",
-                            "senha":data_senha,
-                            "sprint_atual": 0,
-                            "isActive": False,
-                            "aceito": False,
-                            "resp": False
-                        }
-
-
-                        novos_dados['usuarios'].append(data_cadastro)
-                        novos_dados = json.dumps(novos_dados, indent=4)
-
-                        with open('data_json/users.json', 'w') as arquivo:
-                            arquivo.write(novos_dados)
-                            print('Cadastrados')
+                                    global idturma
+                                    
+                                    data_cadastro = {
+                                        "user":data_user,
+                                        "id":data_email,
+                                        "idturma": idturma,
+                                        "idtime": idtime,
+                                        "cargo":"user",
+                                        "senha":data_senha,
+                                        "sprint_atual": 0,
+                                        "isActive": False,
+                                        "aceito": False,
+                                        "resp": False
+                                    }
 
 
-                        back()
+                                    novos_dados['usuarios'].append(data_cadastro)
+                                    novos_dados = json.dumps(novos_dados, indent=4)
+
+                                    with open('data_json/users.json', 'w') as arquivo:
+                                        arquivo.write(novos_dados)
+                                        print('Cadastrados')
 
 
-                        #TELA ALERTA DE CONFIRMAÇÃO DE CADASTRO
-                        janelaConfirmacaoCadastro = ctk.CTk()
-                        janelaConfirmacaoCadastro.title("ALERTA!")
-                        larg_tela = janela.winfo_screenwidth()
-                        alt_tela = janela.winfo_screenheight()
-                        x = (larg_tela - 330) // 2
-                        y = (alt_tela - 180) // 2
-                        janelaConfirmacaoCadastro.geometry(f"330x180+{x}+{y}")
-                        janelaConfirmacaoCadastro.resizable(False, False)
-                        label_alerta = ctk.CTkLabel(master=janelaConfirmacaoCadastro, text="\nATENÇÃO!\n\nCadastro enviado com sucesso!\nAguarde a liberação do seu login pelo \nadministrador\n", font=('Roboto', 15, 'bold')).pack()
-                        def destroy_alerta():
-                            janelaConfirmacaoCadastro.destroy()
-                        button_ok = ctk.CTkButton(janelaConfirmacaoCadastro, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()
-                        janelaConfirmacaoCadastro.mainloop()
+                                    back()
 
 
-                       # label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
-                        pass
-                    
+                                    #TELA ALERTA DE CONFIRMAÇÃO DE CADASTRO
+                                    janelaConfirmacaoCadastro = ctk.CTk()
+                                    janelaConfirmacaoCadastro.title("ALERTA!")
+                                    larg_tela = janela.winfo_screenwidth()
+                                    alt_tela = janela.winfo_screenheight()
+                                    x = (larg_tela - 330) // 2
+                                    y = (alt_tela - 180) // 2
+                                    janelaConfirmacaoCadastro.geometry(f"330x180+{x}+{y}")
+                                    janelaConfirmacaoCadastro.resizable(False, False)
+                                    label_alerta = ctk.CTkLabel(master=janelaConfirmacaoCadastro, text="\nATENÇÃO!\n\nCadastro enviado com sucesso!\nAguarde a liberação do seu login pelo \nadministrador\n", font=('Roboto', 15, 'bold')).pack()
+                                    def destroy_alerta():
+                                        janelaConfirmacaoCadastro.destroy()
+                                    button_ok = ctk.CTkButton(janelaConfirmacaoCadastro, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()
+                                    janelaConfirmacaoCadastro.mainloop()
+
+
+                                # label_confirmacao_cadastro = ctk.CTkLabel(master=login_frame, text="Cadastro enviado com sucesso!\nAguarde a liberação do seu login pelo administrador", text_color="#00FFFF", font=('Roboto', 14)).place(x=45,y=400)
+                                   
                     cadastrar_button = ctk.CTkButton(cadastro_frame, text="Cadastrar", width=150, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=cadastro).place(x=220, y=400)
                     
                     pass
