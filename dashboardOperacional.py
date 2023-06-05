@@ -954,7 +954,8 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
         def open_BV():
             janelaDash.destroy()
             TelaBV.abrir()
-            
+
+        janelaDash.protocol("WM_DELETE_WINDOW", open_BV)
         botaoQuantResp = ctk.CTkButton(master=janelaDash, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =170)
         botaoMediaTime = ctk.CTkButton(master=janelaDash, text= "Média times", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time ).place(x=1030, y =220)
         botaoAutoAv = ctk.CTkButton(master=janelaDash, text= "Autoavaliação", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_autoavaliacao).place(x=1030, y =270)

@@ -41,13 +41,14 @@ class tela_cadastro_time:
         label_img = ctk.CTkLabel(master=janela, image=img, text='')
         label_img.place(x=10, y=10)
         label_tt = ctk.CTkLabel(master=janela, text='Administrador', font=('Roboto',18, 'bold'), text_color="#00FFFF").place(x=50, y=130)
-
+        
+        
         def voltar():
             janela.destroy()
             telaADM.abrir_tela_adm()
         imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)    
         buttonVerificar = ctk.CTkButton(master=janela, text="Voltar", width=120, image=imgbeck, cursor='hand2', text_color=("black"), fg_color="#5CE1E6", font=('Roboto', 14), command=voltar).place(x=50, y=170)
-
+        janela.protocol("WM_DELETE_WINDOW", voltar)
         #frame a direita
         tela_cadastro_frame = ctk.CTkFrame(master=janela, width=900, height=1000)
         tela_cadastro_frame.pack(side=RIGHT)

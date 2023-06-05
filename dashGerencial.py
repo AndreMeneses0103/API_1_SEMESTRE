@@ -51,7 +51,6 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
             janelaDashGerencial.title("btspadrao/Insight 360º")
             janelaDashGerencial.iconbitmap("btspadrao/logo_insight.ico")
             janelaDashGerencial.resizable(False, False) #defino que o usuário não pode redimensionar a tela  
-
         def telaDashAnalise():
             global idturma, idtime, sprint
             comp_frame = ctk.CTkFrame(master=janelaDashGerencial, width=800, height=650)
@@ -764,6 +763,9 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
         def back():
             janelaDashGerencial.destroy()
             telaADM.abrir_tela_adm()
+            
+        janelaDashGerencial.protocol("WM_DELETE_WINDOW", back)
+        
         botaoQuantResp = ctk.CTkButton(master=janelaDashGerencial, text= "Total de Respostas", border_spacing=4, text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_total_respostas).place(x=1030, y =150)
         botaoMediaTime = ctk.CTkButton(master=janelaDashGerencial, text= "Média turma", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mediaTurma).place(x=1030, y =200)
         botaoAutoAv = ctk.CTkButton(master=janelaDashGerencial, text= "Média time", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostra_media_time).place(x=1030, y =250)
