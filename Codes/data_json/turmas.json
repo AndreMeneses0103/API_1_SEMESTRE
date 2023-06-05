@@ -1,0 +1,253 @@
+{
+    "turmas": [
+        {
+            "idturma": "Logistica7614",
+            "nometurma": "Logistica",
+            "ordem": 0,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "Devtudo5514",
+                    "nometime": "Dev tudo"
+                },
+                {
+                    "idtime": "Devnada8036",
+                    "nometime": "Dev nada"
+                }
+            ]
+        },
+        {
+            "idturma": "GPI8224",
+            "nometurma": "GPI",
+            "ordem": 1,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "api29499",
+                    "nometime": "api 2"
+                },
+                {
+                    "idtime": "api38149",
+                    "nometime": "api 3"
+                }
+            ]
+        },
+        {
+            "idturma": "RH613",
+            "nometurma": "RH",
+            "ordem": 2,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                },
+                {
+                    "indice": "3",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "05/06/2023"
+                },
+                {
+                    "indice": "4",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "recursosemacao5144",
+                    "nometime": "recursosemacao"
+                },
+                {
+                    "idtime": "recursosemdepre7229",
+                    "nometime": "recursosemdepre"
+                }
+            ]
+        },
+        {
+            "idturma": "AnaliseeDesenvolvimentodeSistemas2919",
+            "nometurma": "Analise e Desenvolvimento de Sistemas",
+            "ordem": 3,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "10/05/2023",
+                    "fimSprint": "20/05/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "02/06/2023",
+                    "fimSprint": "20/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "DevEmA\u00e7\u00e3o8853",
+                    "nometime": "Dev Em A\u00e7\u00e3o"
+                },
+                {
+                    "idtime": "PraticandoMuito4996",
+                    "nometime": "Praticando Muito"
+                }
+            ]
+        },
+        {
+            "idturma": "DesenvolvimentodeMultiplataforma4856",
+            "nometurma": "Desenvolvimento de Multiplataforma",
+            "ordem": 4,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/05/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "14/05/2023",
+                    "fimSprint": "14/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "MultisD+9022",
+                    "nometime": "Multis D+"
+                }
+            ]
+        },
+        {
+            "idturma": "Engenharia5088",
+            "nometurma": "Engenharia",
+            "ordem": 5,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "15/05/2023",
+                    "fimSprint": "05/06/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "29/05/2023",
+                    "fimSprint": "02/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "Matematicos7387",
+                    "nometime": "Matematicos"
+                },
+                {
+                    "idtime": "FisicosTuristas2704",
+                    "nometime": "FisicosTuristas"
+                }
+            ]
+        },
+        {
+            "idturma": "Programa\u00e7\u00e3o8956",
+            "nometurma": "Programa\u00e7\u00e3o",
+            "ordem": 6,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "15/05/2023",
+                    "fimSprint": "15/05/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "22/05/2023",
+                    "fimSprint": "02/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "Medicina7026",
+                    "nometime": "Medicina"
+                },
+                {
+                    "idtime": "Informatica3454",
+                    "nometime": "Informatica"
+                }
+            ]
+        },
+        {
+            "idturma": "Psicologia5239",
+            "nometurma": "Psicologia",
+            "ordem": 7,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "03/06/2023",
+                    "fimSprint": "16/06/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "03/06/2023",
+                    "fimSprint": "30/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "PsicologiaemA\u00e7\u00e3o2247",
+                    "nometime": "Psicologia em A\u00e7\u00e3o"
+                },
+                {
+                    "idtime": "PsicologiaDevs6339",
+                    "nometime": "Psicologia Devs"
+                }
+            ]
+        },
+        {
+            "idturma": "Criminologia5205",
+            "nometurma": "Criminologia",
+            "ordem": 8,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "29/05/2023",
+                    "fimSprint": "04/06/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "20/06/2023",
+                    "fimSprint": "30/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "DetetivesdoCrime6513",
+                    "nometime": "Detetives do Crime"
+                },
+                {
+                    "idtime": "OsDetetives9500",
+                    "nometime": "Os Detetives"
+                }
+            ]
+        }
+    ]
+}
