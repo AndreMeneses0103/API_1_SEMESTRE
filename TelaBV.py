@@ -89,6 +89,7 @@ def abrir():
             turmaSelecionada = StringVar()
             
             def imprimir(tr):
+                print("está funcionando")
                 global atual_sprint
                 global jaResp
                 global posicao
@@ -159,7 +160,7 @@ def abrir():
 
             
                 #LINHA QUE COLOCA TIMES
-                times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
+                #times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
 
                 for x in range (len(todas_sprints)):
                     sprint.append(todas_sprints[x]["indice"])
@@ -211,7 +212,10 @@ def abrir():
 
 
             def chamarDashboard():
-                if turmaSelecionada.get() == "" or sprintSelecionada.get() == "" or timeSelecionado.get()=="":
+                global idTimeUser, idTurmaUser
+                idtimeParametro = idTimeUser
+                idturmaParametro = idTurmaUser
+                if sprintSelecionada.get() == "":
                     janelaPreenchimentoObrigatorio = ctk.CTk()
                     janelaPreenchimentoObrigatorio.title("ALERTA!")
                     screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
@@ -276,20 +280,38 @@ def abrir():
                     else:
                         #janela.destroy()
                         dashboardOperacional.abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionada.get(), user_id)
+            with open('data_json/users.json', "r") as arquivoNomes:
+                dados_nomes = json.load(arquivoNomes)
+            global idTimeUser, idTurmaUser
+            for i in dados_nomes['usuarios']:
+                if i['isActive'] == True:
+                    idTurmaUser = i['idturma']
+                    idTimeUser = i['idtime']
+
+
+            with open('data_json/turmas.json', "r") as arquivoTurmasNomes:
+                dados_Turmas = json.load(arquivoTurmasNomes)
+
+            for x in dados_Turmas['turmas']:
+                if x['idturma'] == idTurmaUser:
+                    nometurma = x['nometurma']
+                    for y in x['times']:
+                        if y['idtime'] == idTimeUser:
+                            nometime = y['nometime']
 
             #Option Menu para selecionar a sprint
-            sprint_label = ctk.CTkLabel(master=janela, text="Sprint:", font=("Roboto", 14), text_color='white').place(x=750, y=15)
+            sprint_label = ctk.CTkLabel(master=janela, text="Sprint:", font=("Roboto", 18), text_color='white').place(x=740, y=15)
             sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray", command=atualizacao_sprint).place(x=800, y=15)
 
             # Option Menu para selecionar o time
-            times_label = ctk.CTkLabel(master=janela, text="Time:", font=("Roboto", 14), text_color='white').place(x=390, y=15)
-            times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
+            times_label = ctk.CTkLabel(master=janela, text="Time: "+nometime, font=("Roboto", 18), text_color='white').place(x=390, y=15)
+            #times_option_menu = ctk.CTkOptionMenu(master=janela, values=times, variable=timeSelecionado, fg_color="gray").place(x=440, y=15)
 
             # Option Menu para selecionar a turma
-            turmas_label = ctk.CTkLabel(master=janela, text="Turma:", font=("Roboto", 14), text_color='white').place(x=30, y=15)
-            turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=90, y=15)
+            turmas_label = ctk.CTkLabel(master=janela, text="Turma: "+nometurma, font=("Roboto", 18), text_color='white').place(x=30, y=15)
+           # turmas_option_menu = ctk.CTkOptionMenu(master=janela, values=turmas, variable=turmaSelecionada, fg_color="gray", command=imprimir).place(x=90, y=15)
 
-
+            imprimir(nometurma)
             dashboard_button = ctk.CTkButton(master=janela, text="Exibir Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=chamarDashboard).place(x=30, y=560)
             # cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
             logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
