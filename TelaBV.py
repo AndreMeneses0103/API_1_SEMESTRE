@@ -318,5 +318,7 @@ def abrir():
     def AbrirDashboards():
         janela.destroy()
         
+
+    
     alerta()
 #abrir()

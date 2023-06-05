@@ -46,6 +46,8 @@ def open_menu():
 imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)
 buttonVerificar = ctk.CTkButton(master=janela, text="Voltar", width=120, image=imgbeck, cursor='hand2', text_color=("black"), fg_color="#5CE1E6", font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 
+janela.protocol("WM_DELETE_WINDOW", open_menu)
+
 def Close():
         acesso = json.load(open("data_json/users.json", "r"))
 

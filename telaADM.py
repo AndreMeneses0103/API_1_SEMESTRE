@@ -30,6 +30,7 @@ def abrir_tela_adm():
     #titulo ADM
     label_tt = ctk.CTkLabel(master=janelaADM, text='Administrador', font=('Roboto',32, 'bold'), text_color="white").place(x=600, y=80)
 
+
     def Close():
         acesso = json.load(open("data_json/users.json", "r"))
 

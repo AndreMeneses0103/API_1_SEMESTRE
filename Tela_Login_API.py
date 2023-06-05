@@ -351,7 +351,8 @@ class tela_login_cadastro:
             #entrada de dados time cadastro          
             #opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
             
-
+            janela.protocol("WM_DELETE_WINDOW", back)
+                
             def back():
                 cadastro_frame.pack_forget()
                 #devolvendo o frame de login
@@ -360,11 +361,11 @@ class tela_login_cadastro:
             imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(22)        
             voltar = ctk.CTkButton(cadastro_frame, text="Voltar",text_color=('black'), image=imgbeck, width=150, fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#202020', command=back).place(x=45, y=400)
             
-
+            
             #voltar_button = ctk.CTkButton(cadastro_frame, text="Voltar", width=100, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14, 'bold'), cursor="hand2", hover_color='#2FCDCD').place(x=45, y=250)
             
         cadastro_button = ctk.CTkButton(login_frame, text="Novo por aqui?",font =('Roboto', 14), command=tela_cadastro, text_color=('black'), cursor="hand2", fg_color='#00FFFF', hover_color='#2FCDCD').place(x=127, y=350)
         pass
         #para mudar a cor do botão no ctk fg_color - hover_color
-
+           
 tela_login_cadastro()

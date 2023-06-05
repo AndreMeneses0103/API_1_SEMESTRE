@@ -27,6 +27,8 @@ def open_menu():
 imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)
 Button=ctk.CTkButton(master=janelaADM, image=imgbeck, text="Voltar", width=120, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14), command=open_menu).place(x=1000, y=612)
 
+janelaADM.protocol("WM_DELETE_WINDOW", open_menu)
+
 
 def janela_alert(titulo, mensagem, medida):
     janelaAlertadadosFaltando = ctk.CTk()
@@ -155,5 +157,6 @@ def cadastro_adm():
 
 btn_criar_adm = ctk.CTkButton(master= frame_3, text="Cadastrar", command=cadastro_adm, width=100, cursor='hand2', text_color=('black'), fg_color="#5CE1E6", hover_color='#2FCDCD', font=('Roboto', 14))
 btn_criar_adm.place(x=450, y=170)
+
 
 janelaADM.mainloop()

@@ -772,6 +772,8 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
         botaoGeral = ctk.CTkButton(master=janelaDashGerencial, text= "Todos Dashboards", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=mostrar_todos_dash).place(x=1030, y =350)
         botaoMenuInicial = ctk.CTkButton(master=janelaDashGerencial, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=back).place(x=1030, y =400)
     
+           
+        
     nome_integrante = 'Dashboard Gerencial'
     sprint_receb = sprint
     

@@ -964,7 +964,7 @@ def abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionadaParametro,
         botaoMenuInicial = ctk.CTkButton(master=janelaDash, text= "Menu Inicial", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=open_BV).place(x=1030, y =520)
         botaoTodosGraficos = ctk.CTkButton(master=janelaDash, text= "Todos os Gráficos", text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=todos_os_dashs).place(x=1030, y=420)
 
-    
+        
 
 
     with open('data_json/turmas.json', "r") as arquivoNomes:
