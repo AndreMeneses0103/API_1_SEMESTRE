@@ -190,24 +190,26 @@ def abrir():
 
                 idtime = ""
                 idturma = ""
-
+                global nometime, nometurma
                 with open('data_json/turmas.json', 'r') as usuarios:
+                
                     id_users = json.load(usuarios)
                     usuarios = id_users["turmas"]
                     #usuarios = id_users["usuarios"]
 
 
                 for turma in usuarios:
-                    if (turma['nometurma'] == turmaSelecionada.get()):
+                    if (turma['nometurma'] == nometurma):
                         for time in turma['times']:
-                            if time['nometime'] == timeSelecionado.get():
+                            if time['nometime'] == nometime:
                                     idtime = time['idtime']
                                     idturma = turma['idturma']
 
                 janela.destroy()
+                global nometurma, nometime
                 #função de abrir a avaliação
                 #TelaAV.abrir_avaliacao(idtime, idturma)
-                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get(), idturma, idtime)
+                TelaAV.abrir_avaliacao(sprintSelecionada.get(),nometime, nometurma, idturma, idtime)
 
 
 
@@ -282,7 +284,10 @@ def abrir():
                         dashboardOperacional.abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionada.get(), user_id)
             with open('data_json/users.json', "r") as arquivoNomes:
                 dados_nomes = json.load(arquivoNomes)
+            global nometurma, nometime
             global idTimeUser, idTurmaUser
+            global nometime, nometurma
+
             for i in dados_nomes['usuarios']:
                 if i['isActive'] == True:
                     idTurmaUser = i['idturma']
@@ -298,7 +303,6 @@ def abrir():
                     for y in x['times']:
                         if y['idtime'] == idTimeUser:
                             nometime = y['nometime']
-
             #Option Menu para selecionar a sprint
             sprint_label = ctk.CTkLabel(master=janela, text="Sprint:", font=("Roboto", 18), text_color='white').place(x=740, y=15)
             sprint_option_menu = ctk.CTkOptionMenu(master=janela, values=sprint, variable=sprintSelecionada, fg_color="gray", command=atualizacao_sprint).place(x=800, y=15)
@@ -315,7 +319,7 @@ def abrir():
             dashboard_button = ctk.CTkButton(master=janela, text="Exibir Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=chamarDashboard).place(x=30, y=560)
             # cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
             logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
-            logout_button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#242424", cursor="hand2", command=Close).place(x=1120, y=15)
+            logout_button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#1a1b1b", cursor="hand2", command=Close).place(x=1120, y=15)
             #sprint_button = ctk.CTkButton(master=janela, text="Sprint", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=30, y=15)
             
             janela.protocol("WM_DELETE_WINDOW", Close)

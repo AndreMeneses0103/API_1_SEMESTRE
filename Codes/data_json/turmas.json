@@ -207,7 +207,7 @@
                 },
                 {
                     "indice": "2",
-                    "inicioSprint": "03/06/2023",
+                    "inicioSprint": "17/06/2023",
                     "fimSprint": "30/06/2023"
                 }
             ],
@@ -246,6 +246,29 @@
                 {
                     "idtime": "OsDetetives9500",
                     "nometime": "Os Detetives"
+                }
+            ]
+        },
+        {
+            "idturma": "BancodeDados3497",
+            "nometurma": "Banco de Dados",
+            "ordem": 9,
+            "sprints": [
+                {
+                    "indice": "1",
+                    "inicioSprint": "05/06/2023",
+                    "fimSprint": "06/06/2023"
+                },
+                {
+                    "indice": "2",
+                    "inicioSprint": "06/06/2023",
+                    "fimSprint": "09/06/2023"
+                }
+            ],
+            "times": [
+                {
+                    "idtime": "TechHorizon1909",
+                    "nometime": "Tech Horizon"
                 }
             ]
         }
