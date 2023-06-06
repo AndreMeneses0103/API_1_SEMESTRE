@@ -205,9 +205,10 @@ def abrir():
                                     idturma = turma['idturma']
 
                 janela.destroy()
+                global nometurma, nometime
                 #função de abrir a avaliação
                 #TelaAV.abrir_avaliacao(idtime, idturma)
-                TelaAV.abrir_avaliacao(sprintSelecionada.get(), timeSelecionado.get(), turmaSelecionada.get(), idturma, idtime)
+                TelaAV.abrir_avaliacao(sprintSelecionada.get(),nometime, nometurma, idturma, idtime)
 
 
 
@@ -282,6 +283,7 @@ def abrir():
                         dashboardOperacional.abrir_dash_op(idturmaParametro, idtimeParametro, sprintSelecionada.get(), user_id)
             with open('data_json/users.json', "r") as arquivoNomes:
                 dados_nomes = json.load(arquivoNomes)
+            global nometurma, nometime
             global idTimeUser, idTurmaUser
             for i in dados_nomes['usuarios']:
                 if i['isActive'] == True:
@@ -315,7 +317,7 @@ def abrir():
             dashboard_button = ctk.CTkButton(master=janela, text="Exibir Dashboards", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=chamarDashboard).place(x=30, y=560)
             # cadastrar_button = ctk.CTkButton(master=janela, text="Avaliação", width=110, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=AbrirAv).place(x=1020, y=560)
             logout = PhotoImage(file = "btspadrao/logout.png").subsample(2)
-            logout_button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#242424", cursor="hand2", command=Close).place(x=1120, y=15)
+            logout_button = ctk.CTkButton(master=janela, width = 50, image=logout, text="", fg_color="#1a1b1b", cursor="hand2", command=Close).place(x=1120, y=15)
             #sprint_button = ctk.CTkButton(master=janela, text="Sprint", width=90, text_color='black', fg_color="#00FFFF", font = ('Roboto', 14), cursor="hand2", hover_color='#2FCDCD', command=Close).place(x=30, y=15)
             
             janela.protocol("WM_DELETE_WINDOW", Close)
