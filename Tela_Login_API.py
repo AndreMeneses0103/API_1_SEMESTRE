@@ -3,9 +3,9 @@ import customtkinter as ctk
 from tkinter import *
 import hashlib
 import tkinter as tk
-import TelaBV as TBV
 import telaADM
 from customtkinter import *
+import TelaBV as TBV
 
 # def abrir_login():
     
@@ -351,11 +351,7 @@ class tela_login_cadastro:
             #entrada de dados time cadastro          
             #opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
             
-<<<<<<< HEAD
           #  janela.protocol("WM_DELETE_WINDOW", back)
-=======
-            #janela.protocol("WM_DELETE_WINDOW", back)
->>>>>>> 2435347f9aec89c5652d0980f6b405e8de0d454f
                 
             def back():
                 cadastro_frame.pack_forget()

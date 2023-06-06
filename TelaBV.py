@@ -206,7 +206,6 @@ def abrir():
                                     idturma = turma['idturma']
 
                 janela.destroy()
-                global nometurma, nometime
                 #função de abrir a avaliação
                 #TelaAV.abrir_avaliacao(idtime, idturma)
                 TelaAV.abrir_avaliacao(sprintSelecionada.get(),nometime, nometurma, idturma, idtime)
