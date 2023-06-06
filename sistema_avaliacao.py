@@ -23,14 +23,15 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
 
     avaliados = []
     idavaliados = []
+    print(idturma, idtime)
     
     #PEGAR DA TELA DO VINICIUS
-    for usuario in usuarios:
+    for usuario in data['usuarios']:
         if usuario["idturma"] == idturma and usuario["idtime"] == idtime:
             avaliados.append(usuario['user'])
             idavaliados.append(usuario["id"])
-    
     print(avaliados)
+    #print(avaliados)
 
     janela = ctk.CTk()
 

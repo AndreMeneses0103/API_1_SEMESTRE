@@ -351,7 +351,7 @@ class tela_login_cadastro:
             #entrada de dados time cadastro          
             #opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
             
-            janela.protocol("WM_DELETE_WINDOW", back)
+          #  janela.protocol("WM_DELETE_WINDOW", back)
                 
             def back():
                 cadastro_frame.pack_forget()
