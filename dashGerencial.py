@@ -825,7 +825,7 @@ def abrir_dash_ge(idturmaParametro, idtimeParametro, sprintSelecionada,turmaSele
 
     frame4 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
     frame4.place(x=30, y=330)
-    label = ctk.CTkLabel(master=frame4, text="Time\n"+nova_time, text_color=("white"), font=("roboto", 20, "bold")).place(x=45, y=10)
+    label = ctk.CTkLabel(master=frame4, text="Time\n"+nova_time, text_color=("white"), font=("roboto", 20, "bold")).place(x=20, y=10)
 
     frame5 = ctk.CTkFrame(janelaDashGerencial, width=150, height=70, fg_color="gray26", border_width=2)
     frame5.place(x=30, y=410)

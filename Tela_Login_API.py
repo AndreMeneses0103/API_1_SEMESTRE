@@ -76,13 +76,14 @@ class tela_login_cadastro:
                         janelaAceito.title("ALERTA!")
                         larg_tela = janela.winfo_screenwidth()
                         alt_tela = janela.winfo_screenheight()
-                        x = (larg_tela - 600) // 2
-                        y = (alt_tela - 100) // 2
-                        janelaAceito.geometry(f"600x100+{x}+{y}")
+                        x = (larg_tela - 330) // 2
+                        y = (alt_tela - 180) // 2
+                        janelaAceito.geometry(f"330x180+{x}+{y}")
                         janelaAceito.resizable(False, False)
-                        label_alerta = ctk.CTkLabel(master=janelaAceito, text="O usuario ainda nao foi aceito. Aguarde o ingresso pelo administrador.\n\n", font=("Roboto", 15, 'bold')).pack()
+                        label_alerta = ctk.CTkLabel(master=janelaAceito, text="\nO usuário ainda não foi aceito.\nAguarde o ingresso pelo\nadministrador.\n\n", font=("Roboto", 15, 'bold')).pack()
                         def destroy_alerta_aceito():
                             janelaAceito.destroy()
+                            password.set("")
                             
                         button_ok = ctk.CTkButton(janelaAceito, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_aceito, fg_color='#5CE1E6', text_color='black').pack()
                         janelaAceito.mainloop()

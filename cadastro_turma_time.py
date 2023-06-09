@@ -167,6 +167,26 @@ class tela_cadastro_time:
                                     janelaPreenchimentoObrigatorio.destroy()
                             button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
                             janelaPreenchimentoObrigatorio.mainloop()
+                        data_seleciona_inicio = inicio_sprint.get_date()
+                        data_inicio = str(data_seleciona_inicio)
+                        mes, dia, ano = data_inicio.split('-')
+                        nova_data = f"{ano}/{dia}/{mes}"
+                        if i['fimSprint'] >= str(nova_data):
+                            validador = False
+                            janelaPreenchimentoObrigatorio = ctk.CTk()
+                            janelaPreenchimentoObrigatorio.title("ALERTA!")
+                            screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
+                            screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
+                            x = (screen_width - 330) // 2
+                            y = (screen_height - 180) // 2
+                            janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
+                            janelaPreenchimentoObrigatorio.resizable(False, False)
+                            label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nO período selecionado já foi\ncadastrado em outra sprint.\n", font=('Roboto', 15, 'bold')).pack()
+                            def destroy_alerta():
+                                    janelaPreenchimentoObrigatorio.destroy()
+                            button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                            janelaPreenchimentoObrigatorio.mainloop()
+
 
                         else:
                             validador = True
@@ -221,7 +241,7 @@ class tela_cadastro_time:
                         y = (screen_height - 180) // 2
                         janelaPreenchimentoObrigatorio.geometry("330x180+{}+{}".format(x, y))
                         janelaPreenchimentoObrigatorio.resizable(False, False)
-                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nA data de início é maior ou\nigual a data final.\n", font=('Roboto', 15, 'bold')).pack()
+                        label_alerta = ctk.CTkLabel(master=janelaPreenchimentoObrigatorio, text="\nATENÇÃO!\n\nA data de início é maior ou\nigual a data final.\n\n", font=('Roboto', 15, 'bold')).pack()
                         def destroy_alerta():
                                 janelaPreenchimentoObrigatorio.destroy()
                         button_ok = ctk.CTkButton(janelaPreenchimentoObrigatorio, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
@@ -372,6 +392,7 @@ class tela_cadastro_time:
                         janelaPreenchimentoObrigatorio.mainloop()
 
                     else:
+                        
                         print(timesList)
                         print(idturma,"\n", nometurma, "\n",sprintsSelecionada)
                         with open("data_json/turmas.json", "r") as arquivo:
@@ -397,9 +418,24 @@ class tela_cadastro_time:
 
                         with open('data_json/turmas.json', 'w') as arquivoEscrevendo:
                             arquivoEscrevendo.write(novosdados)
-                
-                        janela.destroy()
-                        telaADM.abrir_tela_adm()
+
+                        janelaConfirmacao = ctk.CTk()
+                        janelaConfirmacao.title("ALERTA!")
+                        screen_width = janelaConfirmacao.winfo_screenwidth()
+                        screen_height = janelaConfirmacao.winfo_screenheight()
+                        x = (screen_width - 330) // 2
+                        y = (screen_height - 180) // 2
+                        janelaConfirmacao.geometry("330x180+{}+{}".format(x, y))
+                        janelaConfirmacao.resizable(False, False)
+                        label_alerta = ctk.CTkLabel(master=janelaConfirmacao, text="\nATENÇÃO!\n\nTurma e time(s)\ncadastrados com sucesso.\n", font=('Roboto', 15, 'bold')).pack()
+                        def destroy_alerta():
+                                janelaConfirmacao.destroy()
+                                janela.destroy()
+                                telaADM.abrir_tela_adm()
+                        button_ok = ctk.CTkButton(janelaConfirmacao, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta, fg_color='#5CE1E6', text_color='black').pack()   
+                        janelaConfirmacao.mainloop()
+
+                        
                      
 
                 botao_fim = ctk.CTkButton(master=tela_times_frame, text="Concluir", font=('Roboto', 14), text_color=('black'), cursor='hand2', fg_color='#00FFFF', hover_color='#2FCDCD', command=concluir).place(x=650, y=600)
