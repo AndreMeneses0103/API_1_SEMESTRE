@@ -15,7 +15,7 @@ ctk.set_default_color_theme("dark-blue")
 #Caracteristicas da Tela
 janelaADM = ctk.CTk() #Nome
 janelaADM.geometry("1200x650") #Tamanho
-janelaADM.title("btspadrao/Insigth 360")
+janelaADM.title("Insigth 360")
 janelaADM.iconbitmap("btspadrao/logo_insight.ico")
 janelaADM.resizable(False, False) #Limita o tamanho da tela
 label = ctk.CTkLabel(master=janelaADM, text="Administradores", text_color=("white"), font=("roboto", 32, "bold")).place(x=500, y=5)
@@ -34,6 +34,7 @@ def janela_alert(titulo, mensagem, medida):
     janelaAlertadadosFaltando = ctk.CTk()
     janelaAlertadadosFaltando.title(titulo)
     janelaAlertadadosFaltando.resizable(False, False)
+    janelaAlertadadosFaltando.iconbitmap("btspadrao/logo_insight.ico")
     larg_tela = janelaADM.winfo_screenwidth()
     alt_tela = janelaADM.winfo_screenheight()
     x = (larg_tela - medida) // 2

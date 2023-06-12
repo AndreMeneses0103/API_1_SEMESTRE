@@ -155,6 +155,7 @@ def abrir_tela_adm():
             if turmaSelecionada.get() == "" or sprintSelecionada.get() == "" or timeSelecionado.get()=="":
                 janelaPreenchimentoObrigatorio = ctk.CTk()
                 janelaPreenchimentoObrigatorio.title("ALERTA!")
+                janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                 screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                 screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                 x = (screen_width - 330) // 2
@@ -200,6 +201,7 @@ def abrir_tela_adm():
                 if verificador == False:
                     janelaPreenchimentoObrigatorio = ctk.CTk()
                     janelaPreenchimentoObrigatorio.title("ALERTA!")
+                    janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                     screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                     screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                     x = (screen_width - 330) // 2

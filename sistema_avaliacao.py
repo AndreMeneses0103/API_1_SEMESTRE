@@ -55,7 +55,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
             y = (screen_height - 650) // 2
             janela.geometry("1200x650+{}+{}".format(x, y))
             
-            janela.title("btspadrao/Insight 360º")
+            janela.title("Insight 360º")
             janela.iconbitmap("btspadrao/logo_insight.ico")
             janela.resizable(False, False) #defino que o usuário não pode redimensionar a tela
             pass
@@ -228,6 +228,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                     #JANELA ALERTA DE CONFIRMAÇÃO DE AVALIAÇÃO REALIZADA
                     janelaAlertaAvaliacao = ctk.CTk()
                     janelaAlertaAvaliacao.title("ALERTA!")
+                    janelaAlertaAvaliacao.iconbitmap("btspadrao/logo_insight.ico")
                     janelaAlertaAvaliacao.resizable(False, False)
                     screen_width = janelaAlertaAvaliacao.winfo_screenwidth()
                     screen_height = janelaAlertaAvaliacao.winfo_screenheight()
@@ -281,6 +282,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
 
                                 janelaAlertaFinalizado = ctk.CTk()
                                 janelaAlertaFinalizado.title("ALERTA!")
+                                janelaAlertaFinalizado.iconbitmap("btspadrao/logo_insight.ico")
                                 janelaAlertaFinalizado.resizable(False, False)
                                 screen_width = janelaAlertaFinalizado.winfo_screenwidth()
                                 screen_height = janelaAlertaFinalizado.winfo_screenheight()
@@ -317,6 +319,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                             #JANELA PARA ALERTA DE FEEDBACK OBRIGATORIO P/ RESPOSTAS ABAIXO DE REGULAR
                             janelaFeedbackObrigatorio = ctk.CTk()
                             janelaFeedbackObrigatorio.title("ALERTA!")
+                            janelaFeedbackObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                             screen_width = janelaFeedbackObrigatorio.winfo_screenwidth()
                             screen_height = janelaFeedbackObrigatorio.winfo_screenheight()
                             x = (screen_width - 330) // 2
@@ -337,6 +340,7 @@ def abrir_avaliacao(sprintAvaliacao, timeAvaliacao, turmaAvaliacao, idturma, idt
                         #TELA ALERTA - NÃO PREENCHIMENTO DAS RESPOSTAS CORRETAMENTE
                         janelaAlerta = ctk.CTk()
                         janelaAlerta.title("ALERTA!")
+                        janelaAlerta.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaAlerta.winfo_screenwidth()
                         screen_height = janelaAlerta.winfo_screenheight()
                         x = (screen_width - 300) // 2

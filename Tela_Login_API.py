@@ -74,6 +74,7 @@ class tela_login_cadastro:
                     if(acesso["usuarios"][x]["aceito"] == False):
                         janelaAceito = ctk.CTk()
                         janelaAceito.title("ALERTA!")
+                        janelaAceito.iconbitmap("btspadrao/logo_insight.ico")
                         larg_tela = janela.winfo_screenwidth()
                         alt_tela = janela.winfo_screenheight()
                         x = (larg_tela - 330) // 2
@@ -105,6 +106,7 @@ class tela_login_cadastro:
             if(incorrect == len(acesso["usuarios"])):
                 janelaNegado = ctk.CTk()
                 janelaNegado.title("ALERTA!")
+                janelaNegado.iconbitmap("btspadrao/logo_insight.ico")
                 larg_tela = janela.winfo_screenwidth()
                 alt_tela = janela.winfo_screenheight()
                 x = (larg_tela - 300) // 2
@@ -181,6 +183,7 @@ class tela_login_cadastro:
                 if nomecompleto.get() == "" or email.get() == "" or senha.get()== "":
                     janelaAlertadadosFaltando = ctk.CTk()
                     janelaAlertadadosFaltando.title("ALERTA!")
+                    janelaAlertadadosFaltando.iconbitmap("btspadrao/logo_insight.ico")
                     janelaAlertadadosFaltando.resizable(False, False)
                     larg_tela = janela.winfo_screenwidth()
                     alt_tela = janela.winfo_screenheight()
@@ -262,6 +265,7 @@ class tela_login_cadastro:
                                     verificador = False
                                     janelaAlertaEmail = ctk.CTk()
                                     janelaAlertaEmail.title("ALERTA!")
+                                    janelaAlertaEmail.iconbitmap("btspadrao/logo_insight.ico")
                                     janelaAlertaEmail.resizable(False, False)
                                     larg_tela = janelaAlertaEmail.winfo_screenwidth()
                                     alt_tela = janelaAlertaEmail.winfo_screenheight()
