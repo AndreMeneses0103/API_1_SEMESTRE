@@ -219,6 +219,7 @@ def abrir():
                 if sprintSelecionada.get() == "":
                     janelaPreenchimentoObrigatorio = ctk.CTk()
                     janelaPreenchimentoObrigatorio.title("ALERTA!")
+                    janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                     screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                     screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                     x = (screen_width - 330) // 2
@@ -267,6 +268,7 @@ def abrir():
                     if verificador == False:
                         janelaPreenchimentoObrigatorio = ctk.CTk()
                         janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                         screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                         x = (screen_width - 330) // 2

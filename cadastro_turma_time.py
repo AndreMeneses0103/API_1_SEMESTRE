@@ -81,6 +81,7 @@ class tela_cadastro_time:
             if novaturma.get() == "" or quantidade_sprints.get()==0:
                 janelaPreenchimentoObrigatorio = ctk.CTk()
                 janelaPreenchimentoObrigatorio.title("ALERTA!")
+                janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                 screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                 screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                 x = (screen_width - 330) // 2
@@ -102,6 +103,7 @@ class tela_cadastro_time:
                     if nometurmaJson['nometurma'] == novaturma.get():
                         janelaPreenchimentoObrigatorio = ctk.CTk()
                         janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                         screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                         x = (screen_width - 330) // 2
@@ -156,6 +158,7 @@ class tela_cadastro_time:
                             validador = False
                             janelaPreenchimentoObrigatorio = ctk.CTk()
                             janelaPreenchimentoObrigatorio.title("ALERTA!")
+                            janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                             screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                             screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                             x = (screen_width - 330) // 2
@@ -175,6 +178,7 @@ class tela_cadastro_time:
                             validador = False
                             janelaPreenchimentoObrigatorio = ctk.CTk()
                             janelaPreenchimentoObrigatorio.title("ALERTA!")
+                            janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                             screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                             screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                             x = (screen_width - 330) // 2
@@ -235,6 +239,7 @@ class tela_cadastro_time:
                     else: 
                         janelaPreenchimentoObrigatorio = ctk.CTk()
                         janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                         screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                         x = (screen_width - 330) // 2
@@ -274,6 +279,7 @@ class tela_cadastro_time:
             if validadorTamanho == False:
                 janelaPreenchimentoObrigatorio = ctk.CTk()
                 janelaPreenchimentoObrigatorio.title("ALERTA!")
+                janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                 screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                 screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                 x = (screen_width - 330) // 2
@@ -318,6 +324,7 @@ class tela_cadastro_time:
                     if nomeTime.get() == "":
                         janelaPreenchimentoObrigatorio = ctk.CTk()
                         janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                         screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                         x = (screen_width - 330) // 2
@@ -362,6 +369,7 @@ class tela_cadastro_time:
                         else:
                             janelaPreenchimentoObrigatorio = ctk.CTk()
                             janelaPreenchimentoObrigatorio.title("ALERTA!")
+                            janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                             screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                             screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                             x = (screen_width - 330) // 2
@@ -379,6 +387,7 @@ class tela_cadastro_time:
                     if timesList == []:
                         janelaPreenchimentoObrigatorio = ctk.CTk()
                         janelaPreenchimentoObrigatorio.title("ALERTA!")
+                        janelaPreenchimentoObrigatorio.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaPreenchimentoObrigatorio.winfo_screenwidth()
                         screen_height = janelaPreenchimentoObrigatorio.winfo_screenheight()
                         x = (screen_width - 330) // 2
@@ -421,6 +430,7 @@ class tela_cadastro_time:
 
                         janelaConfirmacao = ctk.CTk()
                         janelaConfirmacao.title("ALERTA!")
+                        janelaConfirmacao.iconbitmap("btspadrao/logo_insight.ico")
                         screen_width = janelaConfirmacao.winfo_screenwidth()
                         screen_height = janelaConfirmacao.winfo_screenheight()
                         x = (screen_width - 330) // 2
