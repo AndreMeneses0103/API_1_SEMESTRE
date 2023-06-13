@@ -228,7 +228,7 @@ for x in range(len(user)):
         nova_senha.set("")
         s_opcao.append(nova_senha)
         #Frame 3 - Barra de entrada "Nova Senha"
-        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha).grid(column=1, row=x, pady=10)
+        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha, show="*").grid(column=1, row=x, pady=10)
 
         def criar_imprimir(indice):
             def imprimir():
