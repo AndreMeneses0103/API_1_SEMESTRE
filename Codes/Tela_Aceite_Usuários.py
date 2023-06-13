@@ -41,6 +41,31 @@ label = ctk.CTkLabel(master=janela, text="Administrador", text_color=("white"), 
 def open_menu():
     janela.destroy()
     telaADM.abrir_tela_adm()
+    
+def janela_alert(titulo, mensagem, medida):
+    janelaAlertadadosFaltando = ctk.CTk()
+    janelaAlertadadosFaltando.title(titulo)
+    janelaAlertadadosFaltando.resizable(False, False)
+    janelaAlertadadosFaltando.iconbitmap("btspadrao/logo_insight.ico")
+    larg_tela = janela.winfo_screenwidth()
+    alt_tela = janela.winfo_screenheight()
+    x = (larg_tela - medida) // 2
+    y = (alt_tela - 100) // 2
+    tamanho = (f"{medida}x100+{x}+{y}")
+    janelaAlertadadosFaltando.geometry(tamanho)
+    label_alerta = ctk.CTkLabel(master=janelaAlertadadosFaltando, text=mensagem, font=('Roboto', 15, 'bold')).pack()
+    
+    def destroy_alerta_Dados_faltando():
+        janelaAlertadadosFaltando.destroy()
+
+    button_ok = ctk.CTkButton(janelaAlertadadosFaltando, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Dados_faltando, fg_color='#5CE1E6', text_color='black').pack()
+    janelaAlertadadosFaltando.mainloop()
+
+
+    button_ok = ctk.CTkButton(janelaAlertadadosFaltando, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_Dados_faltando, fg_color='#5CE1E6', text_color='black').pack()
+    button_cancel = ctk.CTkButton(janelaAlertadadosFaltando, text="Cancel", font=('Roboto', 20, 'bold'), command=cancel, fg_color='#5CE1E6', text_color='black').pack()
+
+    janelaAlertadadosFaltando.mainloop()
         
 #Janela - Botão
 imgbeck = PhotoImage(file = "btspadrao/botaovoltar.png").subsample(18)
@@ -203,7 +228,7 @@ for x in range(len(user)):
         nova_senha.set("")
         s_opcao.append(nova_senha)
         #Frame 3 - Barra de entrada "Nova Senha"
-        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha).grid(column=1, row=x, pady=10)
+        label = ctk.CTkEntry(master=frame_3, placeholder_text="Nova Senha", width=400, font=("Roboto", 14, "bold"), textvariable=nova_senha, show="*").grid(column=1, row=x, pady=10)
 
         def criar_imprimir(indice):
             def imprimir():
@@ -216,6 +241,7 @@ for x in range(len(user)):
                         insert_acesso = (json.dumps(acesso, indent=4))
                         with open("data_json/users.json", "w") as arq_json:
                             arq_json.write(insert_acesso)
+                            janela_alert("Alteração", "Alteração realizada com sucesso!", 400)
 
             return imprimir 
         #Frame 3 - Botão para salvar seleção

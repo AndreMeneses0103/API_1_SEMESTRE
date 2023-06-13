@@ -3,9 +3,9 @@ import customtkinter as ctk
 from tkinter import *
 import hashlib
 import tkinter as tk
-import TelaBV as TBV
 import telaADM
 from customtkinter import *
+import TelaBV as TBV
 
 # def abrir_login():
     
@@ -74,15 +74,17 @@ class tela_login_cadastro:
                     if(acesso["usuarios"][x]["aceito"] == False):
                         janelaAceito = ctk.CTk()
                         janelaAceito.title("ALERTA!")
+                        janelaAceito.iconbitmap("btspadrao/logo_insight.ico")
                         larg_tela = janela.winfo_screenwidth()
                         alt_tela = janela.winfo_screenheight()
-                        x = (larg_tela - 600) // 2
-                        y = (alt_tela - 100) // 2
-                        janelaAceito.geometry(f"600x100+{x}+{y}")
+                        x = (larg_tela - 330) // 2
+                        y = (alt_tela - 180) // 2
+                        janelaAceito.geometry(f"330x180+{x}+{y}")
                         janelaAceito.resizable(False, False)
-                        label_alerta = ctk.CTkLabel(master=janelaAceito, text="O usuario ainda nao foi aceito. Aguarde o ingresso pelo administrador.\n\n", font=("Roboto", 15, 'bold')).pack()
+                        label_alerta = ctk.CTkLabel(master=janelaAceito, text="\nO usuário ainda não foi aceito.\nAguarde o ingresso pelo\nadministrador.\n\n", font=("Roboto", 15, 'bold')).pack()
                         def destroy_alerta_aceito():
                             janelaAceito.destroy()
+                            password.set("")
                             
                         button_ok = ctk.CTkButton(janelaAceito, text="Ok", font=('Roboto', 20, 'bold'), command=destroy_alerta_aceito, fg_color='#5CE1E6', text_color='black').pack()
                         janelaAceito.mainloop()
@@ -104,6 +106,7 @@ class tela_login_cadastro:
             if(incorrect == len(acesso["usuarios"])):
                 janelaNegado = ctk.CTk()
                 janelaNegado.title("ALERTA!")
+                janelaNegado.iconbitmap("btspadrao/logo_insight.ico")
                 larg_tela = janela.winfo_screenwidth()
                 alt_tela = janela.winfo_screenheight()
                 x = (larg_tela - 300) // 2
@@ -180,6 +183,7 @@ class tela_login_cadastro:
                 if nomecompleto.get() == "" or email.get() == "" or senha.get()== "":
                     janelaAlertadadosFaltando = ctk.CTk()
                     janelaAlertadadosFaltando.title("ALERTA!")
+                    janelaAlertadadosFaltando.iconbitmap("btspadrao/logo_insight.ico")
                     janelaAlertadadosFaltando.resizable(False, False)
                     larg_tela = janela.winfo_screenwidth()
                     alt_tela = janela.winfo_screenheight()
@@ -261,6 +265,7 @@ class tela_login_cadastro:
                                     verificador = False
                                     janelaAlertaEmail = ctk.CTk()
                                     janelaAlertaEmail.title("ALERTA!")
+                                    janelaAlertaEmail.iconbitmap("btspadrao/logo_insight.ico")
                                     janelaAlertaEmail.resizable(False, False)
                                     larg_tela = janelaAlertaEmail.winfo_screenwidth()
                                     alt_tela = janelaAlertaEmail.winfo_screenheight()
@@ -351,11 +356,7 @@ class tela_login_cadastro:
             #entrada de dados time cadastro          
             #opt_menu = tk.OptionMenu(cadastro_frame, time, *options_turma).place(x=55, y=430)
             
-<<<<<<< HEAD
           #  janela.protocol("WM_DELETE_WINDOW", back)
-=======
-            #janela.protocol("WM_DELETE_WINDOW", back)
->>>>>>> 2435347f9aec89c5652d0980f6b405e8de0d454f
                 
             def back():
                 cadastro_frame.pack_forget()

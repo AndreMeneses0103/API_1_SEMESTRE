@@ -257,11 +257,11 @@
                 {
                     "indice": "1",
                     "inicioSprint": "05/06/2023",
-                    "fimSprint": "06/06/2023"
+                    "fimSprint": "07/06/2023"
                 },
                 {
                     "indice": "2",
-                    "inicioSprint": "06/06/2023",
+                    "inicioSprint": "07/06/2023",
                     "fimSprint": "09/06/2023"
                 }
             ],
@@ -269,6 +269,10 @@
                 {
                     "idtime": "TechHorizon1909",
                     "nometime": "Tech Horizon"
+                },
+                {
+                    "idtime": "Insight360",
+                    "nometime": "Insight 360"
                 }
             ]
         }
